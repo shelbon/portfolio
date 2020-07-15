@@ -1,0 +1,138 @@
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav__mobile {
+  display: flex;
+  align-self: flex-start;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.nav__item--mobile {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__item--mobile__title {
+  margin-top: 10px;
+}
+
+#nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  overflow: hidden;
+  z-index: 100000;
+  background-color: #11223e;
+}
+
+.nav__list {
+  display: flex;
+  align-self: flex-start;
+  flex-flow: row wrap;
+  align-items: center;
+  list-style: none;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.nav__item {
+  color: white;
+}
+
+.nav__link {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fafafa;
+  height: 100%;
+  width: 100%;
+}
+
+.nav__link p {
+  align-self: center;
+  margin: 0;
+}
+
+.nav__item:nth-of-type(2) {
+  display: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+  background-color: initial !important;
+}
+
+.nav__item:last-child {
+  display: none;
+}
+
+/* desktop mode */
+@media (min-width: 768px) {
+  #nav {
+    position: initial;
+    transition: bottom 1s ease-in-out;
+  }
+
+  .nav__list {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .nav__header {
+    flex: 1;
+  }
+
+  .nav--toggle {
+    display: none;
+  }
+
+  .nav__mobile {
+    display: none;
+  }
+
+  .nav__item {
+    margin-right: 100px;
+  }
+
+  .nav__item:hover {
+    opacity: 0.5;
+    transition: all 350ms ease-in;
+  }
+
+  .nav__item:focus,
+  .nav__item:active {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+  }
+
+  .nav__item:nth-of-type(2) {
+    display: initial;
+  }
+
+  .nav__link__icon {
+    display: none;
+  }
+
+  .nav__item:last-child {
+    display: initial;
+  }
+}

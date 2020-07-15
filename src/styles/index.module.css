@@ -1,0 +1,138 @@
+
+/* background */
+.section__bg--silver-sand {
+  background-color: #e8e9ee;
+}
+
+/* base class */
+.section {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.section__title {
+  margin-bottom: 0.25em;
+  align-self: center;
+}
+
+.section__title--black {
+  color: #303030;
+}
+
+.section__title--White {
+  color: #fffafa;
+}
+
+.section__subtitle {
+  margin-bottom: 5px;
+  font-size: 30px;
+  align-self: center;
+}
+
+.section__container {
+  display: flex;
+  flex-flow: column;
+}
+
+/* contact */
+.section--contact {
+  padding: 15rem 0 10rem 0;
+}
+
+/* project */
+.section--project {
+  margin-bottom: -1px;
+  background-color: rgba(17, 34, 62, 0.9);
+}
+
+.section__title--project {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  color: #fffafa;
+  padding: 0.25em 1em;
+  font-size: 2.2em;
+  margin-bottom: 1em;
+}
+
+.section__subtitle--project {
+  color: #ffcc01;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.section__bg--oxford-blue--project {
+  background-color: rgba(17, 34, 62, 0.9);
+}
+
+/* about section */
+.section--about {
+  padding-bottom: 10%;
+  background-color: #02aab0;
+  background-image: linear-gradient(135deg, #02aab0, #00cdac);
+}
+
+.section__bg--oxford-blue--about {
+  background-color: rgba(17, 34, 62, 0.8);
+}
+
+.section__about__title {
+  text-transform: capitalize;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  font-size: 4em;
+}
+
+.section__about__body {
+  color: #fffafa;
+  font-size: 1.6em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+}
+
+/* intro */
+.section--intro {
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.section__intro__link {
+  display: none;
+}
+
+.section__title--intro {
+  font-size: 2rem;
+  line-height: 50px;
+  font-weight: 300;
+}
+
+p strong {
+  font-size: 2.5rem;
+}
+
+.about__body,
+.section__subtitle--intro,
+.section__subtitle--project {
+  font-family: "open sans", sans-serif;
+}
+
+@media (min-width: 768px) {
+  .section__intro__link {
+    display: initial;
+    margin: 15px;
+    background-color: #303030;
+    align-self: center;
+    text-align: center;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .section_intro__link:active,
+  .section_intro__link:focus {
+    background-color: #303030 !important;
+  }
+}

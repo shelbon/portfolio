@@ -1,0 +1,51 @@
+:root {
+  --border: 1px solid transparent;
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.container {
+  margin-left: 100px;
+}
+
+.form__field__wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.form__input__name,
+.form__input__email {
+  height: 40px;
+}
+
+.form__input__name,
+.form__input__email,
+.form__input__message {
+  border: var(--border);
+}
+
+.form__input__name:focus,
+.form__input__email:focus,
+.form__input__message:focus {
+  border: 2px solid rgb(17, 34, 62);
+}
+
+.form__label__name,
+.form__label__email,
+.form__label__message {
+  font-weight: bold;
+}
+
+.form__error__name {
+  color: #d7263d;
+  font-size: larger;
+}
+
+.section__contact {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}

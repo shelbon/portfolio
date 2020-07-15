@@ -1,98 +1,135 @@
 import React from "react"
 import Image from "gatsby-image"
 import { StaticQuery, graphql, Link } from "gatsby"
-import {projectsData as projects} from "../content/data.js"
-import ProjectGalleryStyles from "./project-gallery.module.css"
- const ProjectGallery = ()=> (
-  <StaticQuery
-  query={graphql`
-  query {
-    images: allFile(filter: {relativeDirectory:{eq:"projects"}}) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 480,maxHeight:480) {
-              ...GatsbyImageSharpFluid_tracedSVG
-              
-            }
-          }
-        }
-      }
-    }
+import ProjectGalleryStyles from "../styles/project-gallery.module.css"
+ 
+ class ProjectGallery extends React.Component{
+   
+   constructor(props){
+    super(props)
+    this.state={
+       isOverlayOpen:false,
+       overlays:[]
+    };
+     this.overlayManager=this.overlayManager.bind(this);
+     this.showOverlay=this.showOverlay.bind(this);
+     this.closeOverlay=this.closeOverlay.bind(this);
+   }
+   componentDidMount(){
+   
+    this.setState(()=>{
+        return {overlays:[...document.getElementsByClassName(ProjectGalleryStyles.portfolio__item__overlay)]}
+    });
+ 
   }
-`}
-    render={data => {
-      console.log(data);
-      return (
-        <div className={ProjectGalleryStyles.portfolio}>
-          
-          {projects.map((project,index) => (
-            <div
-              className={ProjectGalleryStyles.portfolio__item}
-              key={project.id}
-            >
-              <span className={ProjectGalleryStyles.project__name}>
-                {project.title ||"some title"}
-              </span>
+   showOverlay(id){
+     let overlay=this.state.overlays.find(overlay=>overlay.dataset.overlayId===id);
+    
+      overlay.classList.add(ProjectGalleryStyles.jsOverlayOpen);
+     overlay.style.display="flex";
+     
+ }
+ closeOverlay(overlay){
+    overlay.style.display="none";
+    overlay.classList.remove(ProjectGalleryStyles.jsOverlayOpen);
+ }
+  overlayManager(id){
+ 
+    let overlayOpen=this.state.overlays.find(overlay=>overlay.classList.contains(ProjectGalleryStyles.jsOverlayOpen));
 
-              <div className={ProjectGalleryStyles.gridProject}>
-                <Link
-                  to="/"
-                  className={ProjectGalleryStyles.project__link__mobile}
-                >
-                   
-                </Link>
-                <Image
-                  fluid={data.images.edges[index].node.childImageSharp.fluid}
-                  alt={`project ${project.title || "placeholder"} thumbnail`}
-                  className={ProjectGalleryStyles.img__container}
-                />
-                <div className={ProjectGalleryStyles.img__overlay}>
-                  <span
-                    className={ProjectGalleryStyles.overlay__text1}
-                    data-tag-theme="text"
-                  >
-                    <p className={ProjectGalleryStyles.button}>skill1</p>
-                  </span>
-                  <span 
-                    className={ProjectGalleryStyles.overlay__text2}
-                    data-tag-theme="text"
-                  >
-                    <p className={ProjectGalleryStyles.button}>skill2</p>
-                  </span>
-                  <span
-                    className={ProjectGalleryStyles.overlay__text3}
-                    data-tag-theme="text"
-                  >
-                    <p className={ProjectGalleryStyles.button}>skill3</p>
-                  </span>
-                  <span
-                    className={ProjectGalleryStyles.overlay__text4}
-                    data-tag-theme="text"
-                  >
-                    <p className={ProjectGalleryStyles.button}>skill4</p>
-                  </span>
-                  <span
-                    className={ProjectGalleryStyles.overlay__github}
-                    data-tag-theme="github"
-                  >
-                    <p className={ProjectGalleryStyles.button}>code source</p>
-                  </span>
-                  <Link
-                    to="/"
-                    className={ProjectGalleryStyles.overlay__link}
-                    data-tag-theme="link"
-                  >
-                    <p className={ProjectGalleryStyles.button}>link</p>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      );
-    }}
-  />
+   if(typeof overlayOpen !== 'undefined'){
+     this.closeOverlay(overlayOpen);
+   }
+
+   this.showOverlay(id);
+ 
+  }
   
+  render()
+  {
+ return (
+   <StaticQuery
+     query={graphql`
+       query {
+         allProject(sort: { fields: title, order: ASC }) {
+           projects: nodes {
+             ...ProjectFragments
+           }
+         }
+       }
+     `}
+     render={data => {
+       return (
+         <div className={ProjectGalleryStyles.portfolio}>
+           {data.allProject.projects.map((project, index) => (
+             <article
+               className={ProjectGalleryStyles.portfolio__item}
+               key={project.id}
+               onClick={() => this.overlayManager(project.id)}
+             >
+               <Image
+                 fluid={project.image.thumbnail.fluid}
+                 key={project.image.id}
+                 alt={`project ${project.title} thumbnail`}
+                 className={
+                   ProjectGalleryStyles.portfolio__item__img__container
+                 }
+               />
+               <div
+                 className={ProjectGalleryStyles.portfolio__item__overlay}
+                 data-overlay-id={project.id}
+               >
+                 <div
+                   className={
+                     ProjectGalleryStyles.portfolio__item__overlay__header
+                   }
+                 >
+                   <h1
+                     className={
+                       ProjectGalleryStyles.portfolio__item__overlay__header__title
+                     }
+                   >
+                     {project.title}
+                   </h1>
+                   <p
+                     className={
+                       ProjectGalleryStyles.portfolio__item__overlay__header__skills
+                     }
+                   >
+                     skills/skills
+                   </p>
+                 </div>
+                 <div
+                   className={
+                     ProjectGalleryStyles.portfolio__item__overlay__cta
+                   }
+                 >
+                   <p
+                     className={
+                       ProjectGalleryStyles.portfolio__item__overlay__cta__code_source
+                     }
+                   >
+                     code source
+                   </p>
+                   <Link
+                     to={project.slug}
+                     className={
+                       ProjectGalleryStyles.portfolio__item__overlay__cta__link
+                     }
+                   >
+                     <p>plus d'info</p>
+                   </Link>
+                 </div>
+               </div>
+             </article>
+           ))}
+         </div>
+       )
+     }}
+   />
  )
+  }
+
+  }
+ 
 export default ProjectGallery;

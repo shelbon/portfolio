@@ -1,4 +1,3 @@
-
 module.exports = {
   siteMetadata: {
     title: `Patrick Shéron Moucle Portfolio`,
@@ -7,11 +6,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-mdx`,
     {
-      resolve: `@arshad/gatsby-theme-portfolio-core`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        basePath: `/projects`,
-      }
+        name: `project`,
+        path: `${__dirname}/content/projects/`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -35,23 +36,20 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,{
-    resolve: `gatsby-plugin-postcss`,
-    options: {
-      postCssPlugins: [
-        require('postcss-preset-env')({
-           autoprefixer: { grid: true },
-           features: {
-               'nesting-rules': true
-           },
-           browsers: [
-               '> 1%',
-               'last 2 versions',
-               'Firefox ESR',
-           ]
-       })
-    ]
-    }
-    }
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require("postcss-preset-env")({
+            autoprefixer: { grid: true },
+            features: {
+              "nesting-rules": true,
+            },
+            browsers: ["> 1%", "last 2 versions", "Firefox ESR"],
+          }),
+        ],
+      },
+    },
   ],
 }

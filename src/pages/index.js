@@ -1,37 +1,48 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import  "../styles/layout.css"
 import IndexStyles from "../styles/index.module.css"
 import SEO from "../components/seo"
 import ProjectGallery from "../components/project-gallery"
 import { Link } from "gatsby"
 import ContactForm  from "../components/contact"
+import DevIllustration from "../components/illustration/DevIllustration/index"
+import Header from "../components/header"
+import Footer from "../components/footer"
+
 
 
 const IndexPage = ( ) => (
-  <Layout>
+  <>
+  <div className={`${IndexStyles.wrapper}`}>
     <SEO title="Home" />
-    <div>
-       
+       <Header/>
       <section
         id="home"
         className={`${IndexStyles.section}
-                                     ${IndexStyles.sectionIntro} ${IndexStyles.section__bgSilverSand}`}
+                                     ${IndexStyles.sectionIntro}   `}
       >
+        <div className={IndexStyles.section__intro__details__container}>
         <h1
           className={`${IndexStyles.section__title} ${IndexStyles.section__titleIntro} ${IndexStyles.section__titleBlack}`}
         >
           <p>
             <strong>je créer les meilleur  site web et application mobile</strong>
-            Je suis Patrick shéron moucle
+            <br/> Je suis Patrick shéron moucle
              Développeur informatique</p>
            
         </h1>
         <Link to="/#project" className={IndexStyles.section__intro__link}><p>mes réalisations</p></Link>
+        </div>
+        <div className={IndexStyles.section__intro__illustration__container}>
+        <DevIllustration/>
+        </div>
+        
       </section>
+      </div>
       <section
         id="project"
-        className={`${IndexStyles.section} ${IndexStyles.sectionProject}`}
+        className={`${IndexStyles.section} ${IndexStyles.sectionProject} `}
       >
         <div className={IndexStyles.section__container}>
         <h2 className={IndexStyles.section__titleProject}>Réalisations</h2>
@@ -57,8 +68,8 @@ const IndexPage = ( ) => (
       </section>
      
       <ContactForm id="contact"/>
-    </div>
-  <script src="./test.js" />
-  </Layout>
+      <Footer/>
+      
+  </>
 )
 export default IndexPage

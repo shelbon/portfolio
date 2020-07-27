@@ -10,7 +10,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "../styles/layout.css"
+import Footer from "./footer"
+import  "../styles/layout.css"
 import "normalize.css"
 
 const Layout = ({ children }) => {
@@ -26,12 +27,16 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
+      
       <div>
-        <main>{children}</main>
-        <footer >
-          © {new Date().getFullYear()} Patrick sheron Moucle, Tous droits réservés.
-        </footer>
+        <main>
+         
+         <Header />
+          {children}
+        
+       
+          </main>
+        <Footer/>
       </div>
     </>
   )

@@ -1,5 +1,5 @@
 import React from "react";
-import colors from "tokens/colors";
+import colors from "../../../tokens/colors";
 
 export default ({ color = colors.primary }) => (
   <svg viewBox="0 0 790.1 575.9">

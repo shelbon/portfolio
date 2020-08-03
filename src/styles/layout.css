@@ -65,7 +65,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -82,9 +82,15 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
+}
+
+a {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.375rem;
 }

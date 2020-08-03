@@ -1,14 +1,18 @@
 :root {
-  --border: 1px solid transparent;
+  --border: 2px solid #6c63ff;
 }
 
 .form {
+  flex: 1;
   display: flex;
   flex-flow: column nowrap;
+  width: 50%;
 }
 
 .container {
-  margin-left: 100px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .form__field__wrapper {
@@ -16,36 +20,60 @@
   flex-flow: column nowrap;
 }
 
-.form__input__name,
-.form__input__email {
-  height: 40px;
-}
-
-.form__input__name,
-.form__input__email,
-.form__input__message {
+.form__input {
+  min-height: 40px;
   border: var(--border);
+  border-radius: 7px;
+  margin-bottom: 0.5rem;
+  padding: 0.8rem 1rem;
 }
 
-.form__input__name:focus,
-.form__input__email:focus,
-.form__input__message:focus {
-  border: 2px solid rgb(17, 34, 62);
+.form__input:focus {
+  border: 2px solid #e8e9ee;
 }
 
-.form__label__name,
-.form__label__email,
-.form__label__message {
+.form__label {
   font-weight: bold;
+  margin: 1rem 0 1rem 0;
 }
 
-.form__error__name {
+.form__error {
   color: #d7263d;
   font-size: larger;
+}
+
+.form__input--message {
+  min-height: 116px;
+}
+
+.form__input--submit {
+  --button-align-self: flex-start;
+  --button--margin: 15px 0 0 0;
+
+  font-size: 1rem;
+  margin: var(--button--margin);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-background-color);
+  min-width: var(--button-min-width);
+  min-height: var(--button-min-height);
+  align-self: var(--button-align-self);
+  padding-right: var(--button-padding-right);
+  padding-left: var(--button-padding-left);
+  color: var(--button-text-color);
 }
 
 .section__contact {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+
+.form__recaptcha__container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form__success {
+  text-align: left;
 }

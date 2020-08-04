@@ -6,6 +6,7 @@ import ProjectItemStyles from "../styles/project-item.module.css"
 
 const projectItem = (props)=>{
     return(
+       
       <div className={ProjectItemStyles.portfolio__item__container}
       >
                 <article
@@ -64,20 +65,21 @@ const projectItem = (props)=>{
                     ProjectItemStyles.portfolio__item__overlay__cta
                   }
                 >
-                  <p
+                  {props.project.sourceCode &&(<a href={props.project.sourceCode}
+                    target="_blank"
                     className={
                       ProjectItemStyles.portfolio__item__overlay__cta__code_source
                     }
                   >
                     code source
-                  </p>
+                  </a>)}
                   <Link
                     to={props.project.slug}
                     className={
                       ProjectItemStyles.portfolio__item__overlay__cta__link
                     }
                   >
-                    <p>plus d'info</p>
+                    plus d'info
                   </Link>
                 </div>
               </div>

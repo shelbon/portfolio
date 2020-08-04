@@ -1,5 +1,5 @@
 :root {
-  --button--margin: 15px;
+  --button-margin: 15px;
   --button-border: none;
   --button-border-radius: 5px;
   --button-background-color: #e8e9ee;
@@ -164,7 +164,7 @@
 @media (min-width: 768px) {
   .section__intro__link {
     display: initial;
-    margin: var(--button--margin);
+    margin: var(--button-margin);
     border: var(--button-border);
     border-radius: var(--button-border-radius);
     background-color: var(--button-background-color);

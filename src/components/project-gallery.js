@@ -29,7 +29,7 @@ class ProjectGallery extends React.Component {
       }
     })
     this.jsOverlayOpen=ProjectItemStyles.jsOverlayOpen;
-    this.useDeviceDetect()
+    this.useDeviceDetect();
   }
   
   showOverlay(id) {
@@ -37,8 +37,8 @@ class ProjectGallery extends React.Component {
     this.setState(prevState => ({
       overlays: prevState.overlays.map(item => {
         if (item.dataset.overlayId === id) {
-          item.classList.add(this.jsOverlayOpen)
-          item.style.display = "flex"
+          item.classList.add(this.jsOverlayOpen);
+          item.style.display = "flex";
         }
         return item
       }),
@@ -106,8 +106,8 @@ class ProjectGallery extends React.Component {
         render={data => {
           return (
             <div className={ProjectGalleryStyles.portfolio}>
-              {data.allProject.projects.map((project) => (
-               
+              { console.log(data.allProject.projects),
+              data.allProject.projects.map((project) => (
                 <ProjectItem project={project}
                 key={`container-${project.id}`}
                              onMouseEnter={() => {

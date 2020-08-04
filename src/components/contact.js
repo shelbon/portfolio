@@ -5,12 +5,18 @@ import MyEmail from '../templates/email'
 import Recaptcha from 'react-google-recaptcha';
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import { renderEmail } from 'react-html-email'
+import i18next from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
  
  
+
  
  export default function ContactForm() {
- 
-  
+  let languageCde="";
+  i18next.use(LanguageDetector).init({  detection: {order:["navigator"]},}).then( (value)=>{
+     console.log({i18languagedetected:i18next.language})
+     languageCde=i18next.language||"en";
+  })
   return (
     <div className={ContactFormStyles.container}>
       <Formik
@@ -25,16 +31,16 @@ import { renderEmail } from 'react-html-email'
         }}
          
         validationSchema={yup.object().shape({
-          name:yup.string().min(5,"Too short").required("Required"),
+          name:yup.string().min(2,"Too short").required("Required"),
           email: yup.string().email("Valid Email Required").required("Required"),
-          message:yup.string().required("Required"),
-          recaptcha: yup.string().required('Robots are not welcome yet!'),
+          message:yup.string().trim().required("Required"),
+          recaptcha: yup.string().nullable().required('Robots are not welcome yet!'),
           
         })}
 
-        onSubmit={async (values, { setSubmitting }) => {
+        onSubmit={async (values, { setSubmitting,setFieldValue }) => {
           const messageHtml =  renderEmail(
-            <MyEmail name={this.state.name}> {this.state.feedback}</MyEmail>
+            <MyEmail name={values.name}> {values.message}</MyEmail>
           );
           
           const descriptor = {
@@ -44,7 +50,8 @@ import { renderEmail } from 'react-html-email'
             text: values.message,
             html:messageHtml,
           }
-           
+           setFieldValue('success',!values.success);
+            
         }}
       >
         {({
@@ -120,17 +127,19 @@ import { renderEmail } from 'react-html-email'
                           ${ContactFormStyles.form__input}`}
               required
               aria-invalid={errors.message  && touched.message ?"true":"false"}
-            />
+            >
             <ErrorMessage
               name="message"
               component="div"
               className={ContactFormStyles.form__error}
             />
-            {console.log({email:values.email})}
+            </Field>
+              
              {values.name && values.email && values.message && (
           <div className={ContactFormStyles.form__recaptcha__container}>
             <Field
               component={Recaptcha}
+              hl={  languageCde.includes("en")? "en":"fr"}
               sitekey={process.env.GATSBY_PORTFOLIO_RECAPTCHA_KEY}
               name="recaptcha"
                
@@ -144,12 +153,13 @@ import { renderEmail } from 'react-html-email'
               <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
           </div>
         )}
+        {console.log(isSubmitting)}
             <button
               type="submit"
               disabled={isSubmitting}
               className={ContactFormStyles.form__inputSubmit}
             >
-              Submit
+              Send
             </button>
           </Form>
         )}

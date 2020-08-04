@@ -7,6 +7,7 @@ export const fragment = graphql`
     excerpt
     body
     slug
+    sourceCode
     url
     image {
       full: childImageSharp {

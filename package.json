@@ -21,6 +21,8 @@
     "gatsby-plugin-sharp": "^2.6.19",
     "gatsby-source-filesystem": "^2.3.19",
     "gatsby-transformer-sharp": "^2.5.11",
+    "i18next": "^19.6.3",
+    "i18next-browser-languagedetector": "^5.0.0",
     "normalize.css": "^8.0.1",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
@@ -46,7 +48,7 @@
     "build": " react-scripts build && gatsby build",
     "dev": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "npm run dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

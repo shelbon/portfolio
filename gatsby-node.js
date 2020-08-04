@@ -23,6 +23,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       excerpt(pruneLength: Int = 150): String
       slug: String!
       body: String!
+      sourceCode:String
       technologies:[String]
       url: String!
       image: File @fileByRelativePath
@@ -82,6 +83,7 @@ exports.onCreateNode = async (
       slugify(parent.relativeDirectory),
       image: node.frontmatter.image,
       url: node.frontmatter.url,
+      sourceCode:node.frontmatter.sourceCode,
       parent: node.id,
       technologies:node.frontmatter.technologies,
       internal: {

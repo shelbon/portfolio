@@ -18,7 +18,7 @@
 .portfolio__item__overlay {
   display: none;
   border-radius: 10px;
-  z-index: 1000;
+  z-index: 100;
   transition: all 0.75s;
   background: linear-gradient(180deg, rgba(48, 48, 48, 1) 50%, rgba(27, 26, 26, 1) 100%);
   grid-row: 1 / 4;
@@ -88,8 +88,17 @@
 .portfolio__item__overlay__cta__link {
   color: #fffafa;
   list-style: none;
+  font-size: 1.375rem;
   max-height: var(--button-min-height);
   padding: 0.4rem 0.3rem;
+  transition: all 0.3s;
+  border: none;
+  background: transparent;
+}
+
+.portfolio__item__overlay__cta__link:hover,
+.portfolio__item__overlay__cta__link:active {
+  transform: translateX(2px);
 }
 
 .portfolio__item__overlay > * {
@@ -99,7 +108,7 @@
 .portfolio__item__container {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 }
 
 @media (min-width: 768px) {
@@ -111,14 +120,14 @@
   .portfolio__item__container {
     display: grid;
     width: initial;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   }
 
   .portfolio__item:hover .portfolio__item__overlay {
     flex-flow: row wrap;
     grid-row: 1/4;
     grid-column: 1;
-    max-width: 450px;
+    
   }
 
   .portfolio__item__overlay__cta__code_source:hover::after {

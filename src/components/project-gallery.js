@@ -8,11 +8,9 @@ class ProjectGallery extends React.Component {
     super(props)
     this.state = {
       overlays: [],
-      isMobile: false,
       openOverlayId:-1
     }
      
-    this.useDeviceDetect = this.useDeviceDetect.bind(this)
     this.overlayManager = this.overlayManager.bind(this)
     this.showOverlay = this.showOverlay.bind(this)
     this.closeOverlay = this.closeOverlay.bind(this)
@@ -29,7 +27,7 @@ class ProjectGallery extends React.Component {
       }
     })
     this.jsOverlayOpen=ProjectItemStyles.jsOverlayOpen;
-    this.useDeviceDetect();
+  
   }
   
   showOverlay(id) {
@@ -61,22 +59,8 @@ class ProjectGallery extends React.Component {
        
     }),console.log({"method":"close","overlays ":this.state.overlays,"overlayid":this.state.openOverlayId}))
   }
-  useDeviceDetect() {
-    const userAgent =
-      typeof window.navigator === "undefined" ? "" : navigator.userAgent
-    if (
-      Boolean(
-        userAgent.match(
-          /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-        )
-      )
-    ) {
-      this.setState(prevState => ({ isMobile: !prevState.isMobile }))
-    }
-  }
   overlayManager(id) {
-    
-    
+     
       if(this.state.openOverlayId!==-1){
        
         this.closeOverlay(this.state.openOverlayId);
@@ -96,7 +80,7 @@ class ProjectGallery extends React.Component {
       <StaticQuery
         query={graphql`
           query {
-            allProject(sort: { fields: title, order: ASC }) {
+            allProject(sort: { fields: title, order: ASC } ) {
               projects: nodes {
                 ...ProjectFragment
               }
@@ -105,21 +89,21 @@ class ProjectGallery extends React.Component {
         `}
         render={data => {
           return (
-            <div className={ProjectGalleryStyles.portfolio}>
+            <div   className={ProjectGalleryStyles.portfolio}>
               { console.log(data.allProject.projects),
               data.allProject.projects.map((project) => (
                 <ProjectItem project={project}
                 key={`container-${project.id}`}
                              onMouseEnter={() => {
-                              if (!this.state.isMobile) {
+                              if (!this.props.isMobile) {
                                 this.overlayManager(project.id)
                               }
                             }}
-                            onMouseLeave={()=>{if (!this.state.isMobile) {
+                            onMouseLeave={()=>{if (!this.props.isMobile) {
                                setTimeout(this.closeOverlay(this.state.openOverlayId),0)
                             }}}
                             onClick={() => {
-                              if (this.state.isMobile) {
+                              if (this.props.isMobile) {
                                 this.overlayManager(project.id)
                                }
                               

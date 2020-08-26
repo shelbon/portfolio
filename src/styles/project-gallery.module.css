@@ -2,25 +2,31 @@
 .portfolio {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   overflow-x: auto;
   scrollbar-width: none;
-  column-gap: 10px;
   margin-bottom: 10px;
+  margin-left: 20px;
+  column-gap: 10px;
 }
 
 .portfolio::-webkit-scrollbar {
   display: none;
 }
 
+.portfolio:focus {
+  outline: var(--border);
+  outline-offset: 3px;
+}
+
 @media (min-width: 768px) {
   .portfolio {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 390px));
     grid-auto-flow: initial;
-    grid-template-columns: repeat(auto-fit, minmax(456px, 1fr));
-    align-items: center;
-    justify-items: center;
     overflow: hidden;
-    gap: 10px 10px;
+    gap: 30px 30px;
+    align-items: center;
+    justify-content: center;
   }
 
   .project__link__mobile {

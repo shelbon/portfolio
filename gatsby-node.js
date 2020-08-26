@@ -21,7 +21,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String!
       body: String!
       sourceCode:String
-      technologies:[String]
+      technologies:[String!]
       url: String
       images: [File]
     }

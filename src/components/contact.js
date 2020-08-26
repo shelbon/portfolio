@@ -1,13 +1,12 @@
 import React from "react"
 import * as yup from 'yup';
 import ContactFormStyles from "../styles/contactform.module.css"
-import MyEmail from '../templates/email'
+
 import Recaptcha from 'react-google-recaptcha';
 import { Formik, Form, Field, ErrorMessage } from "formik"
-import { renderEmail } from 'react-html-email'
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
- 
+ import axios from "axios"
  
 
  
@@ -29,6 +28,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
           recaptcha: '',
           success: false,
         }}
+        validateOnBlur={true} 
          
         validationSchema={yup.object().shape({
           name:yup.string().min(2,"Too short").required("Required"),
@@ -39,18 +39,24 @@ import LanguageDetector from 'i18next-browser-languagedetector';
         })}
 
         onSubmit={async (values, { setSubmitting,setFieldValue }) => {
-          const messageHtml =  renderEmail(
-            <MyEmail name={values.name}> {values.message}</MyEmail>
-          );
+           
           
-          const descriptor = {
-            from: `${values.email}`,
-            to: "mouclesheron@gmail.com",
-            subject: `${values.name} sent you a message `,
-            text: values.message,
-            html:messageHtml,
-          }
-           setFieldValue('success',!values.success);
+          axios({
+            method: 'POST',
+            url: 'https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
+            data: [values.name,values.message,values.email],
+          })
+            .then(response => {
+              if(response){
+                setFieldValue('success',!values.success);
+              }
+              
+            })
+            .catch(error => {
+              console.log(error);
+              setFieldValue('success',false);
+            })
+           
             
         }}
       >
@@ -69,7 +75,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
             name="contact"
             method="post"
             className={ContactFormStyles.form}
-            action=""
+            action="" 
           >
             <label
               htmlFor="name"
@@ -80,6 +86,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
             <Field
               type="text"
               name="name"
+              id="name"
               className={ContactFormStyles.form__input}
               required
               placeholder="Name"
@@ -121,6 +128,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
             <Field
               type="text"
               name="message"
+              id="message"
               placeholder="Message"
               component="textarea"
               className={` ${ContactFormStyles.form__inputMessage}
@@ -153,6 +161,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
               <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
           </div>
         )}
+        <input type="hidden" name="_next" value="" style={{display: "none",}}></input>
         {console.log(isSubmitting)}
             <button
               type="submit"

@@ -34,7 +34,7 @@ header,
   display: flex;
   justify-content: flex-end;
   overflow: hidden;
-  z-index: 100000;
+  z-index: 1000;
   background-color: #11223e;
 }
 
@@ -74,12 +74,6 @@ header,
   display: none;
 }
 
-a:focus,
-a:active {
-  outline: none;
-  background-color: initial !important;
-}
-
 .nav__item:last-child {
   display: none;
 }
@@ -112,10 +106,9 @@ a:active {
     transition: all 350ms ease-in;
   }
 
-  .nav__item:focus,
-  .nav__item:active {
-    outline: 3px solid var(--clr-accent);
-    outline-offset: 3px;
+  .nav__link:focus,
+  .nav__link:active {
+    outline: var(--border);
   }
 
   .nav__item:nth-of-type(2) {

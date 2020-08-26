@@ -11,7 +11,7 @@ const  DetailsProject=({ title, body,images,technologies,open,onClose })=>{
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('lg'));
  return( <>
-        <Dialog    fullScreen={fullScreen} open={open}  onClose={onClose} >
+        <Dialog    fullScreen={fullScreen} open={open}  onClose={onClose} scroll="body" >
         
           <div className={DetailsProjectStyles.header}>
           <DialogTitle className={DetailsProjectStyles.header__title} id="responsive-dialog-title">{title}</DialogTitle>

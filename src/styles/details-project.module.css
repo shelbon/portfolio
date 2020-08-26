@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
+  overflow-x: hidden;
 }
 
 .container h1 {
@@ -49,6 +50,7 @@
 
 .details__project {
   margin-top: 0.4rem;
+  align-self: flex-start;
 }
 
 @media (min-width: 768px) {
@@ -61,5 +63,6 @@
 
   .details__project {
     flex: 1;
+    
   }
 }

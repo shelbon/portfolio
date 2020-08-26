@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.container h1 {
+  font-size: 1.3rem;
+}
+
+.container ul {
+  list-style-type: none;
+}
+
+.container li::before {
+  content: '\2014';
+  position: absolute;
+  margin-left: -20px;
+}
+
+.container p,
+.container span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.header__title {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.close-icon {
+  border-radius: var(--button-border-radius);
+  background-color: #9e9e9e;
+}
+
+.SlideShow__container {
+  flex: 1;
+}
+
+.details__project {
+  margin-top: 0.4rem;
+}
+
+@media (min-width: 768px) {
+  .SlideShow__container {
+    max-width: 960px;
+    align-self: flex-start;
+    margin-right: 2rem;
+    flex: 3;
+  }
+
+  .details__project {
+    flex: 1;
+  }
+}

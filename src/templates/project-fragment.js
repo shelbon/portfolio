@@ -4,37 +4,28 @@ export const fragment = graphql`
   fragment ProjectFragment on Project {
     id
     title
-    excerpt
     body
-    slug
     sourceCode
+    technologies
     url
-    image {
+    images {
+      name
       full: childImageSharp {
-        fluid(maxWidth: 960, maxHeight: 540, cropFocus: CENTER,fit:CONTAIN, quality: 100) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        fluid(maxWidth: 960, maxHeight: 540, cropFocus: CENTER, quality: 100) {
+          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluidLimitPresentationSize
         }
       }
-      thumbnail: childImageSharp {
-        fluid(maxWidth: 456, cropFocus: CENTER,fit:CONTAIN, quality: 100) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+      thumb:childImageSharp{
+        fluid(maxWidth: 456, maxHeight: 325, cropFocus: CENTER, quality: 100){
+          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluidLimitPresentationSize
+           
         }
       }
       fixed: childImageSharp {
-        fixed(width: 960, quality: 100) {
-          src
+        fixed(width: 390,height:300, quality: 100) {
+          ...GatsbyImageSharpFixed_tracedSVG
         }
       }
     }

@@ -2,9 +2,10 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import Nav from "./nav"
-const Header = () => (
+import BottomNav from "./BottomNavigation"
+const Header = ({isMobile}) => (
   <header>
-      <Nav/>
+      {isMobile ? <BottomNav/>: <Nav/>}
   </header>
 )
 

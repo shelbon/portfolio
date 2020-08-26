@@ -8,7 +8,7 @@ body,
 html {
   height: auto;
   width: 100%;
-  overflow: visible;
+  overflow-x: hidden;
 }
 
 body {
@@ -93,4 +93,9 @@ a {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.375rem;
+}
+
+p {
+  font-family: 'OpenSans', sans-serif;
+  font-size: 1.2rem;
 }

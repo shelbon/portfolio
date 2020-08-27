@@ -3,12 +3,12 @@ import React from "react"
 import  "../styles/layout.css"
 import IndexStyles from "../styles/index.module.css"
 import SEO from "../components/seo"
-import ProjectGallery from "../components/project-gallery"
+import ProjectGallery from "../components/Project/Gallery/Gallery"
 import { Link } from "gatsby"
-import ContactForm  from "../components/contact"
+import ContactForm  from "../components/UI/Contact/Form/Form"
 import DevIllustration from "../images/dev.svg"
 import Header from "../components/header"
-import Footer from "../components/footer"
+import Footer from "../components/UI/Footer/Footer"
  
 import aboutme from "../images/about_me.svg"
 import useDeviceDetect from "../utils/useDeviceDetect";
@@ -17,7 +17,7 @@ const IndexPage = ( ) => {
   const { isMobile } = useDeviceDetect();
  return( <>
   <div className={IndexStyles.wrapper}>
-    <SEO title="Home" />
+    <SEO title="Home" description="home " />
        <Header isMobile={isMobile} />
  
       <section

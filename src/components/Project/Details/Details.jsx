@@ -1,8 +1,8 @@
 import React from "react"
-import SlideShow from "./slideShow";
+import SlideShow from "../../UI/SlideShow/SlideShow.jsx";
 import { Dialog,DialogTitle,DialogContent } from "@material-ui/core";
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import DetailsProjectStyles from "../styles/details-project.module.css"
+import DetailsProjectStyles from "./Details.module.css"
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import useMediaQuery from '@material-ui/core/useMediaQuery';

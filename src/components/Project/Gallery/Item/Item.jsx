@@ -1,10 +1,8 @@
-import React,{useState} from "react"
+import React from "react"
 import Image from "gatsby-image"
-import {Link} from "gatsby"
-
-import ProjectItemStyles from "../styles/project-item.module.css"
-import DetailsProject from "./detailsProject"
-const ProjectItem = (props)=>{
+import ProjectGalleryItemStyles from "./Item.module.css"
+import DetailsProject from "../../Details/Details"
+const ProjectGalleryItem = (props)=>{
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -17,11 +15,11 @@ const ProjectItem = (props)=>{
 
     return(
        
-      <div className={ProjectItemStyles.portfolio__item__container}
+      <div className={ProjectGalleryItemStyles.portfolio__item__container}
       >
                 <article
                  
-                  className={ProjectItemStyles.portfolio__item}
+                  className={ProjectGalleryItemStyles.portfolio__item}
                    
                   onMouseEnter={()=>props.onMouseEnter()}
                    
@@ -35,7 +33,7 @@ const ProjectItem = (props)=>{
                     
                     alt={`project ${props.project.title} thumbnail`}
                     className={
-                      ProjectItemStyles.portfolio__item__img__container
+                      ProjectGalleryItemStyles.portfolio__item__img__container
                     }
                   />)}
                 </article>
@@ -44,26 +42,26 @@ const ProjectItem = (props)=>{
                 onMouseLeave={() => {
                   props.onMouseLeave()
                 }}
-                className={ProjectItemStyles.portfolio__item__overlay}
+                className={ProjectGalleryItemStyles.portfolio__item__overlay}
                 data-overlay-id={props.project.id}
                  
               >
                 <div
                   className={
-                    ProjectItemStyles.portfolio__item__overlay__header
+                    ProjectGalleryItemStyles.portfolio__item__overlay__header
                   }
                   
                 >
                   <h1
                     className={
-                      ProjectItemStyles.portfolio__item__overlay__header__title
+                      ProjectGalleryItemStyles.portfolio__item__overlay__header__title
                     }
                   >
                     {props.project.title}
                   </h1>
                   { props.project.technologies && (<p
                     className={
-                      ProjectItemStyles.portfolio__item__overlay__header__skills
+                      ProjectGalleryItemStyles.portfolio__item__overlay__header__skills
                     }
                   >
                    { props.project.technologies.length > 1 ? `${props.project.technologies[0]}/${props.project.technologies[1]}` :props.project.technologies[0]}
@@ -72,14 +70,14 @@ const ProjectItem = (props)=>{
                 </div>
                 <div
                   className={
-                    ProjectItemStyles.portfolio__item__overlay__cta
+                    ProjectGalleryItemStyles.portfolio__item__overlay__cta
                   }
                 >
                   {props.project.sourceCode &&(<a href={props.project.sourceCode}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={
-                      ProjectItemStyles.portfolio__item__overlay__cta__code_source
+                      ProjectGalleryItemStyles.portfolio__item__overlay__cta__code_source
                     }
                   >
                     code source
@@ -87,7 +85,7 @@ const ProjectItem = (props)=>{
                   <button
                     onClick={handleClickOpen}
                     className={
-                      ProjectItemStyles.portfolio__item__overlay__cta__link
+                      ProjectGalleryItemStyles.portfolio__item__overlay__cta__link
                     }
                   >
                     plus d'info
@@ -98,4 +96,4 @@ const ProjectItem = (props)=>{
               </div>
     );
 }
-export default ProjectItem;
+export default ProjectGalleryItem;

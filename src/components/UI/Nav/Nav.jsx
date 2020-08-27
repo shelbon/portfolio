@@ -1,7 +1,7 @@
 import { Link,useStaticQuery } from "gatsby"
 import PropTypes, { bool } from "prop-types"
 import React from "react"
-import navStyles from "../styles/nav.module.css"
+import navStyles from "./Nav.module.css"
 import { FaHome, FaBriefcase, FaAddressCard } from "react-icons/fa"
 
 

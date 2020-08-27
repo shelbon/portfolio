@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import slideShowStyles from "../styles/slide-show.module.css"
+import slideShowStyles from "./SlideShow.module.css"
  
 import { Carousel } from 'react-responsive-carousel';
  

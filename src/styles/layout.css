@@ -13,8 +13,8 @@ html {
 
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -48,7 +48,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -65,7 +65,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -82,7 +82,7 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
@@ -91,11 +91,13 @@ h3 {
 
 a {
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.375rem;
 }
 
 p {
-  font-family: 'OpenSans', sans-serif;
+  font-family: "OpenSans", sans-serif;
   font-size: 1.2rem;
 }
+
+ 

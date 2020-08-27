@@ -1,8 +1,8 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import ProjectGalleryStyles from "../styles/project-gallery.module.css"
-import ProjectItem from "./project-item.js"
-import ProjectItemStyles from "../styles/project-item.module.css"
+import ProjectGalleryStyles from "./Gallery.module.css"
+import ProjectGalleryItem from "./Item/Item.jsx"
+import ProjectItemStyles from "./Item/Item.module.css"
 class ProjectGallery extends React.Component {
   constructor(props) {
     super(props)
@@ -92,7 +92,7 @@ class ProjectGallery extends React.Component {
             <div   className={ProjectGalleryStyles.portfolio}>
               { console.log(data.allProject.projects),
               data.allProject.projects.map((project) => (
-                <ProjectItem project={project}
+                <ProjectGalleryItem project={project}
                 key={`container-${project.id}`}
                              onMouseEnter={() => {
                               if (!this.props.isMobile) {

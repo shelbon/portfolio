@@ -1,7 +1,6 @@
 import React from "react"
 import * as yup from 'yup';
-import ContactFormStyles from "../styles/contactform.module.css"
-
+import ContactFormStyles from "./Form.module.css"
 import Recaptcha from 'react-google-recaptcha';
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import i18next from 'i18next';

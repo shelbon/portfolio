@@ -101,7 +101,11 @@ header,
     margin-right: 1.6rem;
   }
 
-  .nav__item:hover {
+  .nav__link {
+    color: #303030;
+  }
+
+  .nav__link:hover {
     opacity: 0.5;
     transition: all 350ms ease-in;
   }
@@ -121,10 +125,5 @@ header,
 
   .nav__item:last-child {
     display: initial;
-  }
-
-  .nav__link {
-    mix-blend-mode: difference;
-    color: #303030;
   }
 }

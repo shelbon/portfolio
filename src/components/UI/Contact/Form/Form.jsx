@@ -8,6 +8,11 @@ import LanguageDetector from 'i18next-browser-languagedetector';
  import axios from "axios"
 import rescaleCaptcha from "../../../../../static/js/rescaleCaptcha";
 import { ResizeObserver } from 'resize-observer';
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
  export default function ContactForm() {
   let languageCde="";
   i18next.use(LanguageDetector).init({  detection: {order:["navigator"]},}).then( (value)=>{
@@ -32,6 +37,8 @@ import { ResizeObserver } from 'resize-observer';
     <div className={ContactFormStyles.container}>
       <Formik
         initialValues={{
+          "bot-field": "",
+          "form-name": "contact-form",
           name: "",
           email: "",
           message: "",
@@ -53,8 +60,8 @@ import { ResizeObserver } from 'resize-observer';
           
           axios({
             method: 'POST',
-            url: 'https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
-            data: [values.name,values.message,values.email],
+            url: '/',
+            data: ({"form-name":"contact-form",...values}),
           })
             .then(response => {
               if(response){
@@ -83,11 +90,16 @@ import { ResizeObserver } from 'resize-observer';
           /* and other goodies */
         }) => (
           <Form
-            name="contact"
+            name="contact-form"
             method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            data-netlify-recaptcha="true"
             className={ContactFormStyles.form}
-            action="" 
+
           >
+            <Field type="hidden" name="form-name"/>
+            <Field type="hidden" name="bot-field"/>
             <label
               htmlFor="name"
               className={ContactFormStyles.form__label}

@@ -1,6 +1,6 @@
 import React from "react"
 import Nav from "./UI/Nav/Nav"
-const Header = ({isMobile}) => (
+const Header = () => (
   <header>
        <Nav/>
   </header>

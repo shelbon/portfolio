@@ -65,7 +65,7 @@ import { ResizeObserver } from 'resize-observer';
               
             })
             .catch(error => {
-              console.log(error);
+              console.log({"error":error});
               setFieldValue('success',false);
             })
            
@@ -180,7 +180,7 @@ import { ResizeObserver } from 'resize-observer';
           </div>
         )}
         <input type="hidden" name="_next" value="" style={{display: "none",}}></input>
-        {console.log(isSubmitting)}
+       
             <button
               type="submit"
               disabled={isSubmitting ||!isValid}

@@ -8,26 +8,38 @@ export const fragment = graphql`
     sourceCode
     technologies
     url
-    images {
+    coverImage{
       name
       full: childImageSharp {
-        fluid(maxWidth: 960, maxHeight: 540, cropFocus: CENTER, quality: 100) {
-          ...GatsbyImageSharpFluid_tracedSVG
+        fluid(maxWidth: 960, maxHeight: 540, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid_withWebp
           ...GatsbyImageSharpFluidLimitPresentationSize
         }
       }
       thumb:childImageSharp{
-        fluid(maxWidth: 456, maxHeight: 325, cropFocus: CENTER, quality: 100){
-          ...GatsbyImageSharpFluid_tracedSVG
+        fluid(maxWidth: 456, maxHeight: 325, cropFocus: CENTER){
+          ...GatsbyImageSharpFluid_withWebp
           ...GatsbyImageSharpFluidLimitPresentationSize
            
         }
       }
-      fixed: childImageSharp {
-        fixed(width: 390,height:300, quality: 100) {
-          ...GatsbyImageSharpFixed_tracedSVG
+    }
+    images {
+      name
+      full: childImageSharp {
+        fluid(maxWidth: 960, maxHeight: 540, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluidLimitPresentationSize
+        }
+      }
+      thumb:childImageSharp{
+        fluid(maxWidth: 456, maxHeight: 325, cropFocus: CENTER){
+          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluidLimitPresentationSize
+           
         }
       }
     }
   }
+ 
 `

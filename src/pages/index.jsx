@@ -20,7 +20,7 @@ const IndexPage = ({data} ) => {
  return( <>
   <div className={IndexStyles.wrapper}>
     <SEO title="Home" description="home " />
-       <Header isMobile={isMobile} />
+       <Header/>
  
       <section
         id="home"

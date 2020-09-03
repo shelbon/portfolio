@@ -139,7 +139,7 @@ import { ResizeObserver } from 'resize-observer';
               Message:
             </label>
             <Field
-              type="text"
+               
               name="message"
               id="message"
               placeholder="Message"

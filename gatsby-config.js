@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-mdx`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    'gatsby-plugin-preact',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

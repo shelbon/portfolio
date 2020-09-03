@@ -74,7 +74,7 @@ import { ResizeObserver } from 'resize-observer';
             method="POST"
             ref={formEl}
             onSubmit={handleSubmit}
-            action="https://formsubmit.co/18e395e03f25f7d71383b32b1097319c"
+            action="https://submit-form.com/04qNr6OovR4lRje61FlbD "
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"

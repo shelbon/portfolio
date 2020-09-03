@@ -78,8 +78,12 @@ header,
   display: none;
 }
 
+.nav__link__text {
+  font-size: 0.8rem;
+}
+
 /* desktop mode */
-@media (min-width: 768px) {
+@media (min-width: 1224px) {
   header,
   #nav {
     position: initial;
@@ -107,7 +111,6 @@ header,
 
   .nav__link:hover {
     opacity: 0.5;
-    transition: all 350ms ease-in;
   }
 
   .nav__link:focus,
@@ -119,11 +122,19 @@ header,
     display: initial;
   }
 
+  .nav__item:nth-of-type(5) {
+    display: none;
+  }
+
   .nav__link__icon {
     display: none;
   }
 
   .nav__item:last-child {
     display: initial;
+  }
+
+  .nav__link__text {
+    font-size: 1.34rem;
   }
 }

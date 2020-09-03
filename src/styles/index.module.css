@@ -94,6 +94,8 @@
 .section__container--about {
   display: flex;
   flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
 }
 
 .section__bg--oxford-blue--about {
@@ -110,6 +112,10 @@
   color: #fffafa;
   font-size: 1.6rem;
   align-self: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .section__about__illustration__container {
@@ -140,7 +146,7 @@
 }
 
 .section__intro__link {
-  display: none;
+  display: none !important;
 }
 
 .section__intro__illustration__container {
@@ -150,30 +156,56 @@
 .section__title--intro {
   font-size: 2.5rem;
   line-height: 50px;
-  font-weight: 400;
   color: #e4f1fe;
+  text-align: center;
   mix-blend-mode: difference;
 }
 
-.about__body,
 .section__subtitle--intro,
 .section__subtitle--project {
   font-family: "open sans", sans-serif;
 }
 
-@media (min-width: 768px) {
+.button {
+  display: inline-block;
+  margin: var(--button-margin);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-background-color);
+  min-width: var(--button-min-width);
+  min-height: var(--button-min-height);
+  align-self: var(--button-align-self);
+  padding-right: var(--button-padding-right);
+  padding-left: var(--button-padding-left);
+}
+
+.button p {
+  color: var(--button-text-color);
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+  .section__about__body > p {
+    mix-blend-mode: difference;
+  }
+
+  .button p {
+    color: #3d3d3d;
+  }
+}
+
+@media only screen and (min-width: 964px) {
+  .button {
+    mix-blend-mode: normal !important;
+  }
+}
+
+@media only screen  and  (min-width: 768px) {
   .section__intro__link {
-    display: initial;
-    margin: var(--button-margin);
-    border: var(--button-border);
-    border-radius: var(--button-border-radius);
-    background-color: var(--button-background-color);
-    min-width: var(--button-min-width);
-    min-height: var(--button-min-height);
-    align-self: var(--button-align-self);
-    padding-right: var(--button-padding-right);
-    padding-left: var(--button-padding-left);
-    color: var(--button-text-color);
+    display: inline-block !important;
+  }
+
+  .button {
+    mix-blend-mode: difference;
   }
 
   .section__intro__link > p {
@@ -199,6 +231,7 @@
     color: #fffafa;
     font-size: 1.6rem;
     align-self: center;
+    mix-blend-mode: initial;
   }
 
   .section__container--about {

@@ -1,20 +1,33 @@
-import React from "react"
+import React,{useEffect } from "react"
 import * as yup from 'yup';
 import ContactFormStyles from "./Form.module.css"
 import Recaptcha from 'react-google-recaptcha';
-import { Formik, Form, Field, ErrorMessage } from "formik"
+import { Formik, Form, Field,FastField, ErrorMessage } from "formik"
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
  import axios from "axios"
- 
-
- 
+import rescaleCaptcha from "../../../../../static/js/rescaleCaptcha";
+import { ResizeObserver } from 'resize-observer';
  export default function ContactForm() {
   let languageCde="";
   i18next.use(LanguageDetector).init({  detection: {order:["navigator"]},}).then( (value)=>{
-     console.log({i18languagedetected:i18next.language})
-     languageCde=i18next.language||"en";
+     languageCde=i18next.language||"fr";
   })
+  useEffect (()=>{
+    let recaptchaContainer=document.getElementsByClassName(ContactFormStyles.form__recaptcha__container)[0];
+      let resizeObserver = new ResizeObserver(entries => {
+        for (let entry of entries) {
+           
+   
+          if(entry.target.children.length>0){
+            rescaleCaptcha(entry.target,entry.target.children[0]);
+          }
+        }
+      });
+  
+      resizeObserver.observe(recaptchaContainer);
+    
+  },[])
   return (
     <div className={ContactFormStyles.container}>
       <Formik
@@ -27,7 +40,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
           recaptcha: '',
           success: false,
         }}
-        validateOnBlur={true} 
+         
          
         validationSchema={yup.object().shape({
           name:yup.string().min(2,"Too short").required("Required"),
@@ -67,6 +80,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
           handleBlur,
           handleSubmit,
           isSubmitting,
+          isValid,
           setFieldValue
           /* and other goodies */
         }) => (
@@ -86,7 +100,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
               type="text"
               name="name"
               id="name"
-              className={ContactFormStyles.form__input}
+              className={`${ContactFormStyles.form__input} ${ (errors.name && touched.name ? ContactFormStyles.isInvalid : '')}`}
               required
               placeholder="Name"
               aria-invalid={errors.name  && touched.name ?"true":"false"}
@@ -108,7 +122,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
               placeholder="Email"  
               id="email"
               value={values.email}
-              className={ContactFormStyles.form__input}
+              className={`${ContactFormStyles.form__input} ${(errors.email && touched.email ? ContactFormStyles.isInvalid : '')}`}
               required
               aria-invalid={errors.email  && touched.email ?"true":"false"}
             />
@@ -131,7 +145,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
               placeholder="Message"
               component="textarea"
               className={` ${ContactFormStyles.form__inputMessage}
-                          ${ContactFormStyles.form__input}`}
+                          ${ContactFormStyles.form__input} ${(errors.message && touched.message ? ContactFormStyles.isInvalid : '')}`}
               required
               aria-invalid={errors.message  && touched.message ?"true":"false"}
             >
@@ -142,19 +156,24 @@ import LanguageDetector from 'i18next-browser-languagedetector';
             />
             </Field>
               
-             {values.name && values.email && values.message && (
+             
           <div className={ContactFormStyles.form__recaptcha__container}>
-            <Field
+          {values.name && values.email && values.message && (
+            <>
+            <FastField
               component={Recaptcha}
+              className="g-recaptcha"
+                
               hl={  languageCde.includes("en")? "en":"fr"}
               sitekey={process.env.GATSBY_PORTFOLIO_RECAPTCHA_KEY}
               name="recaptcha"
-               
               onChange={value => setFieldValue('recaptcha', value)}
             />
             <ErrorMessage component="span" style={{color: "#ff4136",}} name="recaptcha" />
+            </>
+            )}
           </div>
-        )}
+      
         {values.success && (
           <div className={ContactFormStyles.form__success}>
               <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
@@ -164,7 +183,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
         {console.log(isSubmitting)}
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting ||!isValid}
               className={ContactFormStyles.form__inputSubmit}
             >
               Send

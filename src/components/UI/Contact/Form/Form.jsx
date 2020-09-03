@@ -32,8 +32,6 @@ import { ResizeObserver } from 'resize-observer';
     <div className={ContactFormStyles.container}>
       <Formik
         initialValues={{
-          "bot-field": "",
-          "form-name": "contact",
           name: "",
           email: "",
           message: "",
@@ -86,7 +84,7 @@ import { ResizeObserver } from 'resize-observer';
         }) => (
           <Form
             name="contact"
-            method="post"
+            method="POST"
             className={ContactFormStyles.form}
             action="" 
           >
@@ -158,7 +156,7 @@ import { ResizeObserver } from 'resize-observer';
               
              
           <div className={ContactFormStyles.form__recaptcha__container}>
-          { console.log({name:values.name,email:values.email,message:values.message})}
+          { console.log({name:values,email:values.email,message:values.message})}
           {values.name && values.email && values.message && (
             <>
             <FastField
@@ -184,7 +182,7 @@ import { ResizeObserver } from 'resize-observer';
        
             <button
               type="submit"
-              disabled={isSubmitting ||!isValid}
+              disabled={isSubmitting }
               className={ContactFormStyles.form__inputSubmit}
             >
               Send

@@ -1,8 +1,8 @@
-import React,{useEffect } from "react"
+import React,{useEffect,useRef } from "react"
 import * as yup from 'yup';
 import ContactFormStyles from "./Form.module.css"
 import Recaptcha from 'react-google-recaptcha';
-import { Formik, Form, Field,FastField, ErrorMessage } from "formik"
+import { withFormik , Form, Field,FastField, ErrorMessage } from "formik"
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
  import axios from "axios"
@@ -14,6 +14,7 @@ const encode = (data) => {
     .join("&");
 }
  export default function ContactForm() {
+  const formEl = useRef(null);
   let languageCde="";
   i18next.use(LanguageDetector).init({  detection: {order:["navigator"]},}).then( (value)=>{
      languageCde=i18next.language||"fr";
@@ -33,72 +34,56 @@ const encode = (data) => {
       resizeObserver.observe(recaptchaContainer);
     
   },[])
+  const onSubmit=async (values) => {
+           
+    formEl.current.submit();
+    
+     
+      
+  };
+  const MyForm = withFormik({
+    handleSubmit:onSubmit,
+
+    validationSchema={yup.object().shape({
+      name:yup.string().min(2,"Too short").required("Required"),
+      email: yup.string().email("Valid Email Required").required("Required"),
+      message:yup.string().trim().required("Required"),
+      recaptcha: yup.string().nullable().required('Robots are not welcome yet!'),
+      
+    })},
+    mapPropsToValues({ name,email,message,success,recaptcha,
+                      "bot-field","form-name", }) {
+      return {
+      email: email || "",
+      password: password || "",
+      name: name|| "",
+      email: email||"",
+      message: message||"",
+      recaptcha: recaptcha||'',
+      success: success||false,
+      "form-name": "contact-form",
+      "bot-field": "",
+    };
+  }})((props))=>{
+    const {
+      values,
+     errors,
+     touched,
+     handleChange,
+     handleBlur,
+     handleSubmit,
+     isSubmitting,
+     isValid,
+     setFieldValue}=props
   return (
     <div className={ContactFormStyles.container}>
-      <Formik
-        initialValues={{
-          "bot-field": "",
-          "form-name": "contact-form",
-          name: "",
-          email: "",
-          message: "",
-          recaptcha: '',
-          success: false,
-        }}
-         
-         
-        validationSchema={yup.object().shape({
-          name:yup.string().min(2,"Too short").required("Required"),
-          email: yup.string().email("Valid Email Required").required("Required"),
-          message:yup.string().trim().required("Required"),
-          recaptcha: yup.string().nullable().required('Robots are not welcome yet!'),
-          
-        })}
-
-        onSubmit={async ({ name, email, message,success }, { setSubmitting,setFieldValue }) => {
-           
-          
-          axios({
-            method: 'POST',
-            url: 'https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            data: JSON.stringify({
-              name,
-              email,
-              message,
-            }),
-          })
-            .then(response => {
-              if(response){
-                setFieldValue('success',true);
-              }
-              
-            })
-            .catch(error => {
-              console.log({"error":error});
-              setFieldValue('success',false);
-            })
-           
-            
-        }}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-          isValid,
-          setFieldValue
-          /* and other goodies */
-        }) => (
+        {() => (
           <Form
             name="contact-form"
             method="POST"
+            ref={formEl}
+            onSubmit={handleSubmit}
+            action="https://formsubmit.co/18e395e03f25f7d71383b32b1097319c"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"
@@ -116,6 +101,7 @@ const encode = (data) => {
             <Field
               type="text"
               name="name"
+              value={values.name}
               id="name"
               className={`${ContactFormStyles.form__input} ${ (errors.name && touched.name ? ContactFormStyles.isInvalid : '')}`}
               required
@@ -161,6 +147,7 @@ const encode = (data) => {
               id="message"
               placeholder="Message"
               component="textarea"
+              value={values.message}
               className={` ${ContactFormStyles.form__inputMessage}
                           ${ContactFormStyles.form__input} ${(errors.message && touched.message ? ContactFormStyles.isInvalid : '')}`}
               required
@@ -209,8 +196,7 @@ const encode = (data) => {
             </button>
           </Form>
         )}
-      </Formik>
-    </div>
-  )
+    </div>)
+  }
 }
  

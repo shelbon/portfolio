@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.button {
+  display: inline-block;
+  margin: var(--button-margin);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-background-color);
+  min-width: var(--button-min-width);
+  min-height: var(--button-min-height);
+  align-self: var(--button-align-self);
+  padding-right: var(--button-padding-right);
+  padding-left: var(--button-padding-left);
+}
+
+.button p {
+  color: var(--button-text-color);
+}
+
+body,
+html {
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: hsla(0, 0%, 0%, 0.8);
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  background-color: rgba(17, 34, 62, 0.9);
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+img {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+}
+
+h1 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+  color: inherit;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+h2 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+  color: inherit;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 1.62671rem;
+  line-height: 1.1;
+}
+
+h3 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+  color: inherit;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 1.38316rem;
+  line-height: 1.1;
+}
+
+a {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.375rem;
+}
+
+p {
+  font-family: "OpenSans", sans-serif;
+  font-size: 1.2rem;
+}

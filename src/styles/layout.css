@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+.button {
+  display: inline-block;
+  margin: var(--button-margin);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-background-color);
+  min-width: var(--button-min-width);
+  min-height: var(--button-min-height);
+  align-self: var(--button-align-self);
+  padding-right: var(--button-padding-right);
+  padding-left: var(--button-padding-left);
+}
+
+.button p {
+  color: var(--button-text-color);
+}
+
 body,
 html {
   height: auto;
@@ -99,5 +116,3 @@ p {
   font-family: "OpenSans", sans-serif;
   font-size: 1.2rem;
 }
-
- 

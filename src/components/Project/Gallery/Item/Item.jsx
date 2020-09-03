@@ -29,7 +29,7 @@ const ProjectGalleryItem = (props)=>{
                   }}
                 >
                  { props.project.images &&( <Image
-                    fluid={props.project.images[0].thumb.fluid}
+                    fluid={props.project.coverImage.thumb.fluid}
                     
                     alt={`project ${props.project.title} thumbnail`}
                     className={

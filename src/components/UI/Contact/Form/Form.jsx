@@ -158,7 +158,7 @@ import { ResizeObserver } from 'resize-observer';
               
              
           <div className={ContactFormStyles.form__recaptcha__container}>
-          { console.log({name:values,email:values.email,message:values.message})};
+          { console.log({name:values.name,email:values.email,message:values.message})};
           {values.name && values.email && values.message && (
             <>
             <FastField

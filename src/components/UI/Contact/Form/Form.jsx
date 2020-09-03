@@ -55,17 +55,24 @@ const encode = (data) => {
           
         })}
 
-        onSubmit={async (values, { setSubmitting,setFieldValue }) => {
+        onSubmit={async ({ name, email, message,success }, { setSubmitting,setFieldValue }) => {
            
           
           axios({
             method: 'POST',
             url: 'https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
-            data: ({"form-name":"contact-form",...values}),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            data: JSON.stringify({
+              name,
+              email,
+              message,
+            }),
           })
             .then(response => {
               if(response){
-                setFieldValue('success',!values.success);
+                setFieldValue('success',true);
               }
               
             })
@@ -190,7 +197,8 @@ const encode = (data) => {
               <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
           </div>
         )}
-        <input type="hidden" name="_next" value="" style={{display: "none",}}></input>
+        <Field type="text" name="_honey" style={{display: "none",}}/>
+        <Field type="hidden" name="_next" value="" style={{display: "none",}}/>
        
             <button
               type="submit"

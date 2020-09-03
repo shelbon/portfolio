@@ -1,7 +1,7 @@
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }) => {
-  const  contentPath  ="/content/projects"
+  const  contentPath  =`${__dirname}/content/projects`
 
   // Check if content directory exists.
   if (!fs.existsSync(contentPath)) {

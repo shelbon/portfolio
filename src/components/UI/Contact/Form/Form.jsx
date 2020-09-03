@@ -8,11 +8,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
  import axios from "axios"
 import rescaleCaptcha from "../../../../../static/js/rescaleCaptcha";
 import { ResizeObserver } from 'resize-observer';
-const encode = (data) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
+ 
  export default function ContactForm() {
   const formEl = useRef(null);
   let languageCde="";
@@ -44,27 +40,23 @@ const encode = (data) => {
   const MyForm = withFormik({
     handleSubmit:onSubmit,
 
-    validationSchema={yup.object().shape({
+    validationSchema:yup.object().shape({
       name:yup.string().min(2,"Too short").required("Required"),
       email: yup.string().email("Valid Email Required").required("Required"),
       message:yup.string().trim().required("Required"),
-      recaptcha: yup.string().nullable().required('Robots are not welcome yet!'),
-      
-    })},
+      recaptcha: yup.string().nullable().required('Robots are not welcome yet!')}),
     mapPropsToValues({ name,email,message,success,recaptcha,
-                      "bot-field","form-name", }) {
+                       }) {
       return {
       email: email || "",
-      password: password || "",
       name: name|| "",
       email: email||"",
       message: message||"",
       recaptcha: recaptcha||'',
       success: success||false,
-      "form-name": "contact-form",
-      "bot-field": "",
-    };
-  }})((props))=>{
+      
+    }
+  }})((props)=>{
     const {
       values,
      errors,
@@ -74,10 +66,9 @@ const encode = (data) => {
      handleSubmit,
      isSubmitting,
      isValid,
-     setFieldValue}=props
+     setFieldValue}=props;
   return (
     <div className={ContactFormStyles.container}>
-        {() => (
           <Form
             name="contact-form"
             method="POST"
@@ -195,8 +186,8 @@ const encode = (data) => {
               Send
             </button>
           </Form>
-        )}
     </div>)
-  }
+  });
+  return <MyForm/>
 }
  

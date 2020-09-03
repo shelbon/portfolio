@@ -32,7 +32,9 @@ import { ResizeObserver } from 'resize-observer';
   },[])
   const onSubmit=async (values) => {
            
-    formEl.current.submit();
+    formEl.current.submit().then((result)=>{
+      console.log(result);
+    });
     
      
       
@@ -83,6 +85,7 @@ import { ResizeObserver } from 'resize-observer';
           >
             <Field type="hidden" name="form-name"/>
             <Field type="hidden" name="bot-field"/>
+            <Field type="hidden" name="_redirect" value="false"/>
             <label
               htmlFor="name"
               className={ContactFormStyles.form__label}

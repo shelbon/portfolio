@@ -41,7 +41,7 @@ class ProjectGallery extends React.Component {
         return item
       }),
       openOverlayId:id
-    }),()=>console.log({"method":"open","overlays ":this.state.overlays,"overlayid":this.state.openOverlayId}));
+    }));
     
   }
   closeOverlay(id) {
@@ -57,7 +57,7 @@ class ProjectGallery extends React.Component {
       })
       ,openOverlayId:-1
        
-    }),console.log({"method":"close","overlays ":this.state.overlays,"overlayid":this.state.openOverlayId}))
+    }))
   }
   overlayManager(id) {
      

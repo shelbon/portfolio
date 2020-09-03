@@ -4,46 +4,46 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Patrick Shéron Moucle Portfolio`,
-    description: `Patrick shéron moucle  développeur web et mobile,voici mon portfolio.`,
-    author: `@PSMoucle`,
+    title: 'Patrick Shéron Moucle Portfolio',
+    description: 'Patrick shéron moucle  développeur web et mobile,voici mon portfolio.',
+    author: '@PSMoucle',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-mdx`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-mdx',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-preact',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `project`,
+        name: 'project',
         path: `${__dirname}/content/projects/`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/images/`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `content`,
+        name: 'content',
         path: `${__dirname}/content/`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `pages`,
+        name: 'pages',
         path: `${__dirname}/src/pages/`,
       },
     },
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: 'gatsby-plugin-postcss',
       options: {
         postCssPlugins: [
           require("postcss-preset-env")({

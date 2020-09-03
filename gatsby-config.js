@@ -19,7 +19,10 @@ module.exports = {
       options:{
          headers:{
            "/*":["Access-Control-Allow-Origin: *",]
-         }
+         },
+         mergeSecurityHeaders: true, // boolean to turn off the default security headers
+         
+
       }
     },
     {

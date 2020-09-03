@@ -1,8 +1,7 @@
 import { Link,useStaticQuery } from "gatsby"
-import PropTypes, { bool } from "prop-types"
 import React from "react"
 import navStyles from "./Nav.module.css"
-import { FaHome, FaBriefcase, FaAddressCard } from "react-icons/fa"
+import { FaHome, FaBriefcase, FaAddressCard,FaPhone } from "react-icons/fa"
 
 
  const  Nav = ()=> {
@@ -12,8 +11,7 @@ import { FaHome, FaBriefcase, FaAddressCard } from "react-icons/fa"
     publicURL
     }
   }
-`);
- console.log(cv);
+`); 
     return (
       <nav
         id={navStyles.nav}
@@ -25,29 +23,35 @@ import { FaHome, FaBriefcase, FaAddressCard } from "react-icons/fa"
           <li className={navStyles.nav__item}>
             <Link className={navStyles.nav__link} to="/#home">
               <FaHome className={navStyles.nav__link__icon} />
-              <p>Accueil</p>
+              <p className={navStyles.nav__link__text}>Accueil</p>
             </Link>
           </li>
           <li className={navStyles.nav__item}>
             <Link className={navStyles.nav__link} to="/#about">
-              <p>About</p>
+              <p className={navStyles.nav__link__text}>About</p>
             </Link>
           </li>
           <li className={navStyles.nav__item}>
             <Link className={navStyles.nav__link} to="/#project">
               <FaBriefcase className={navStyles.nav__link__icon} />
-              <p>Réalisation</p>
+              <p className={navStyles.nav__link__text}>Réalisation</p>
             </Link>
           </li>
           <li className={navStyles.nav__item}>
             <Link className={navStyles.nav__link} to="/#contact">
               <FaAddressCard className={navStyles.nav__link__icon} />
-              <p>Contact</p>
+              <p className={navStyles.nav__link__text}>Contact</p>
             </Link>
           </li>
           <li className={navStyles.nav__item}>
+            <a className={navStyles.nav__link} href="tel:+596696182266">
+              <FaPhone className={navStyles.nav__link__icon} />
+              <p className={navStyles.nav__link__text} >appeler</p>
+            </a>
+          </li>
+          <li className={navStyles.nav__item}>
             <a className={navStyles.nav__link} href={cv.file.publicURL}>
-              <p>CV</p>
+              <p className={navStyles.nav__link__text}>CV</p>
             </a>
           </li>
         </ul>

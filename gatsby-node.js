@@ -16,13 +16,14 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 }
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
-    type Project implements Node  {
+    type Project implements Node    {
       id: ID!
       title: String!
       body: String!
       sourceCode:String
       technologies:[String!]
       url: String
+      coverImage: File @fileByRelativePath
       images: [File]
     }
   `)
@@ -78,6 +79,7 @@ exports.onCreateNode = async (
       title: node.frontmatter.title,
       images: node.frontmatter.images,
       url: node.frontmatter.url,
+      coverImage:node.frontmatter.coverImage,
       sourceCode:node.frontmatter.sourceCode,
       parent: node.id,
       technologies:node.frontmatter.technologies,

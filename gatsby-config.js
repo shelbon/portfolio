@@ -15,6 +15,14 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-preact',
     {
+      resolve:'gatsby-plugin-netlify',
+      options:{
+         headers:{
+           "/*":["Access-Control-Allow-Origin: *",]
+         }
+      }
+    }
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'project',

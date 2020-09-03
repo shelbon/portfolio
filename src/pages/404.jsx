@@ -4,11 +4,21 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const NotFoundPage = () => (
-  <Layout>
+  <>
     <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+    <div style={{
+      display: "flex",
+      flexFlow: "column nowrap",
+      justifyContent: "center",
+      alignContent: "center"
+    }}>
+    <div style={{alignSelf: "center"}}>
+    <h1>Page inexistante </h1>
+    <p>Cette page n&#39;existe pas </p>
+    </div>
+    <a href='/' className="button"><p>retour à l'accueil</p></a>
+    </div>
+  </>
 )
 
 export default NotFoundPage

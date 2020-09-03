@@ -1,12 +1,14 @@
 @font-face {
   font-family: "Montserrat";
+  font-display: swap;
   src:
-    url("../../static/fonts/montserrat/Montserrat-Black.woff2") format('woff2'),
-    url("../../static/fonts/montserrat/Montserrat-Black.woff") format('woff');
+    url("../../static/fonts/montserrat/Montserrat-VF.woff2") format('woff2'),
+    url("../../static/fonts/montserrat/Montserrat-Regular.woff") format('woff');
 }
 
 @font-face {
   font-family: "OpenSans";
+  font-display: swap;
   src:
     url("../../static/fonts/opensans/OpenSans-Regular.woff2") format('woff2'),
     url("../../static/fonts/opensans/OpenSans-Regular.woff") format('woff');

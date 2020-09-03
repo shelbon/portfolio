@@ -1,20 +1,22 @@
 import React from "react"
 
-import  "../styles/layout.css"
+import aboutme from "../images/about_me.svg"
+import useDeviceDetect from "../utils/useDeviceDetect";
 import IndexStyles from "../styles/index.module.css"
 import SEO from "../components/seo"
 import ProjectGallery from "../components/Project/Gallery/Gallery"
-import { Link } from "gatsby"
+import { Link,graphql } from "gatsby"
 import ContactForm  from "../components/UI/Contact/Form/Form"
 import DevIllustration from "../images/dev.svg"
 import Header from "../components/header"
 import Footer from "../components/UI/Footer/Footer"
- 
-import aboutme from "../images/about_me.svg"
-import useDeviceDetect from "../utils/useDeviceDetect";
+import  "../styles/layout.css"
+import "normalize.css"
 
-const IndexPage = ( ) => {
-  const { isMobile } = useDeviceDetect();
+
+const IndexPage = ({data} ) => {
+ const { isMobile } = useDeviceDetect();
+  console.log({isMobile:isMobile});
  return( <>
   <div className={IndexStyles.wrapper}>
     <SEO title="Home" description="home " />
@@ -33,7 +35,7 @@ const IndexPage = ( ) => {
              
            
         </h1>
-        <Link to="/#project" className={IndexStyles.section__intro__link}><p>Mes réalisations</p></Link>
+         <Link to="/#project" className={`${IndexStyles.section__intro__link} ${IndexStyles.button}`}><p>Mes réalisations</p></Link>
         </div>
         <div className={IndexStyles.section__intro__illustration__container}>
         <img   src={DevIllustration}alt="intro illustration"/>
@@ -60,7 +62,7 @@ const IndexPage = ( ) => {
       <section
         id="about"
         className={`${IndexStyles.section}             
-                                    ${IndexStyles.sectionAbout}`}
+                                     ${IndexStyles.sectionAbout}`}
       >
         
         <h2 className={` ${IndexStyles.section__about__title} ${IndexStyles.section__titleWhite} `}>&Agrave; propos</h2>
@@ -71,7 +73,7 @@ const IndexPage = ( ) => {
           <div className={IndexStyles.section__about__body}>
             <p><strong>Développeur informatique passionné</strong> dans le domaine du web et mobile.</p> 
             <p>Je conçois et realise des sites web et des application mobiles.</p>
-
+            { isMobile && (<a href={data.cv.publicURL} className={IndexStyles.button} style={{alignSelf: "center"}}><p>Télecharger mon cv</p></a>)}
           </div>
          
         </div>
@@ -86,4 +88,11 @@ const IndexPage = ( ) => {
       
   </>)
 }
+export const cv =(graphql`
+  {
+    cv:file(name: {regex: "/\\\\CV/"}) {
+    publicURL
+    }
+  }
+`);
 export default IndexPage

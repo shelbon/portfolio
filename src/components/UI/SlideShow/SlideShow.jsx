@@ -5,7 +5,9 @@ import slideShowStyles from "./SlideShow.module.css"
 import { Carousel } from 'react-responsive-carousel';
  
  import "react-responsive-carousel/lib/styles/carousel.min.css";
+ 
 const SlideShow = props => {
+ 
   let settings = {
     showArrow:true,
     showIndicators:false,
@@ -27,11 +29,4 @@ const SlideShow = props => {
     </Carousel>
   )
 }
-/*<div className={`${slideShowStyles.control__container} ${slideShowStyles.orderFirst}`}>
-<FaAngleLeft className={slideShowStyles.previous}/>
-</div>
-<Img fluid={image.full.fluid}alt={image.name} className={slideShowStyles.slide}/>
-<div className={`${slideShowStyles.control__container} ${slideShowStyles.orderLast}`}>
-<FaAngleRight className={slideShowStyles.next}/>
-</div>*/
 export default SlideShow

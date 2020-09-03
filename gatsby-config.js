@@ -21,7 +21,7 @@ module.exports = {
            "/*":["Access-Control-Allow-Origin: *",]
          }
       }
-    }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

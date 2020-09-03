@@ -60,7 +60,7 @@ const encode = (data) => {
           
           axios({
             method: 'POST',
-            url: '/',
+            url: 'https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
             data: ({"form-name":"contact-form",...values}),
           })
             .then(response => {

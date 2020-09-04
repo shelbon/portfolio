@@ -98,9 +98,6 @@ import { ResizeObserver } from 'resize-observer';
             className={ContactFormStyles.form}
 
           >
-            <Field type="hidden" name="form-name"/>
-            <Field type="hidden" name="bot-field"/>
-            <Field type="hidden" name="_redirect" value="false"/>
             <label
               htmlFor="name"
               className={ContactFormStyles.form__label}
@@ -195,6 +192,9 @@ import { ResizeObserver } from 'resize-observer';
         )}
         <Field type="text" name="_honey" style={{display: "none",}}/>
         <Field type="hidden" name="_next" value="" style={{display: "none",}}/>
+        <Field type="hidden" name="form-name" style={{display: "none",}}/>
+            <Field type="hidden" name="bot-field" style={{display: "none",}}/>
+            <Field type="hidden" name="_redirect" value="false" style={{display: "none",}}/>
        
             <button
               type="submit"

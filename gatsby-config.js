@@ -14,6 +14,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-preact',
+     {
+        resolve:'gatsby-plugin-netlify' ,
+        options:{
+           
+        }
+     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

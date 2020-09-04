@@ -1,4 +1,4 @@
-import React,{useEffect } from "react"
+import React,{useEffect,useState } from "react"
 import * as yup from 'yup';
 import {Alert,AlertTitle } from "@material-ui/lab"
 import CloseIcon from '@material-ui/icons/Close'
@@ -12,10 +12,12 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import rescaleCaptcha from "../../../../../static/js/rescaleCaptcha";
 import { ResizeObserver } from 'resize-observer';
  export default function ContactForm() {
+  const [open, setOpen] =useState(false);
+
   let languageCde="";
   i18next.use(LanguageDetector).init({  detection: {order:["navigator"]},}).then( (value)=>{
      languageCde=i18next.language||"fr";
-  })
+  });
   useEffect (()=>{
     let recaptchaContainer=document.getElementsByClassName(ContactFormStyles.form__recaptcha__container)[0];
       let resizeObserver = new ResizeObserver(entries => {
@@ -30,20 +32,21 @@ import { ResizeObserver } from 'resize-observer';
   
       resizeObserver.observe(recaptchaContainer);
     
-  },[])
+  },[]);
+  let initialValues={ 
+    "bot-field": "",
+    "form-name": "contact",
+    name: "",  
+    email: "",
+ message: "",
+recaptcha: '',
+success: false,
+"_next":"",
+"_redirect":false}
   return (
     <div className={ContactFormStyles.container}>
       <Formik
-        initialValues={{
-          "bot-field": "",
-          "form-name": "contact",
-          name: "",
-          email: "",
-          message: "",
-          recaptcha: '',
-          success: false,
-        }}
-         
+        initialValues={initialValues}
          
         validationSchema={yup.object().shape({
           name:yup.string().min(2,"Too short").required("Required"),
@@ -52,41 +55,47 @@ import { ResizeObserver } from 'resize-observer';
           recaptcha: yup.string().nullable().required('Robots are not welcome yet!'),
           
         })}
-
+ //https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
         onSubmit={async (values, { setSubmitting, resetForm, setFieldValue}) => {
-             
           try{
           axios({
             method: 'POST',
-            url: 'https://submit-form.com/04qNr6OovR4lRje61FlbD',
+            url: 'https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
             data:{name:values.name,message:values.message,email:values.email, "g-recaptcha-response":values.recaptcha} ,
           });
           setSubmitting(false);
           setFieldValue('success', true);
-          //setTimeout(() => resetForm(), 6000);
-
-        }catch(err)
+          setOpen(true);
+          setTimeout(()=>setOpen(false),1000);
+          setTimeout(() =>resetForm(),3000);
+            
+        }
+        catch(err)
         {
               console.log({"error":err});
               setSubmitting(false);
-        setFieldValue('success', false);
-            }
+              setFieldValue('success', false);
+              setOpen(true);
+        }
            
             
         }}
       >
-        {({
+        {(props)=>{
+          const {
           values,
           errors,
           touched,
           handleChange,
           handleBlur,
           handleSubmit,
+          handleReset,
           isSubmitting,
           isValid,
           setFieldValue,
-          resetForm
-        }) => (
+          resetForm,
+        } =props;
+        return(
           <Form
             name="contact"
             method="post"
@@ -94,8 +103,8 @@ import { ResizeObserver } from 'resize-observer';
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"
-             
           >
+             
             <label
               htmlFor="name"
               className={ContactFormStyles.form__label}
@@ -106,13 +115,15 @@ import { ResizeObserver } from 'resize-observer';
               type="text"
               name="name"
               id="name"
-              className={`${ContactFormStyles.form__input} ${ (errors.name && touched.name ? ContactFormStyles.isInvalid : '')}`}
-              required
+              className={`${ContactFormStyles.form__input} ${ (errors.name && touched.name   ? ContactFormStyles.isInvalid : '')}`}
+              yup
               placeholder="Name"
+              onBlur={handleBlur}
+              onChange={handleChange}
               aria-invalid={errors.name  && touched.name ?"true":"false"}
             />
             <ErrorMessage
-              name="name_error"
+              name="name"
               component="div"
               className={ContactFormStyles.form__error}
             />
@@ -127,13 +138,15 @@ import { ResizeObserver } from 'resize-observer';
               name="email"
               placeholder="Email"  
               id="email"
+              onBlur={handleBlur}
+              onChange={handleChange}
               value={values.email}
               className={`${ContactFormStyles.form__input} ${(errors.email && touched.email ? ContactFormStyles.isInvalid : '')}`}
-              required
+              yup
               aria-invalid={errors.email  && touched.email ?"true":"false"}
             />
             <ErrorMessage
-              name="email_error"
+              name="email"
               component="div"
               className={ContactFormStyles.form__error}
             />
@@ -150,13 +163,15 @@ import { ResizeObserver } from 'resize-observer';
               id="message"
               placeholder="Message"
               component="textarea"
+              onBlur={handleBlur}
+              onChange={handleChange}
               className={` ${ContactFormStyles.form__inputMessage}
                           ${ContactFormStyles.form__input} ${(errors.message && touched.message ? ContactFormStyles.isInvalid : '')}`}
-              required
+              yup
               aria-invalid={errors.message  && touched.message ?"true":"false"}
             >
             <ErrorMessage
-              name="message_error"
+              name="message"
               component="div"
               className={ContactFormStyles.form__error}
             />
@@ -177,35 +192,35 @@ import { ResizeObserver } from 'resize-observer';
               name="recaptcha"
               onChange={value => setFieldValue('recaptcha', value)}
             />
-            <ErrorMessage name="recapta_error" component="span" style={{color: "#ff4136",}} name="recaptcha" />
+            <ErrorMessage name="recapta" className={ContactFormStyles.form__error} component="span" style={{color: "#ff4136",}} name="recaptcha" />
             </>
             )}
           </div>
-      
-         <Collapse in={values.success}>
-          <Alert className={ContactFormStyles.form__success}
+        
+         <Collapse in={open}>
+          <Alert className={ContactFormStyles.form__result}
+          variant="filled"
           action={
             <IconButton
               aria-label="close"
               color="inherit"
               size="small"
               onClick={() => {
-                setFieldValue("success",false);
+                setOpen(false);
               }}
             >
               <CloseIcon fontSize="inherit" />
             </IconButton>
-          }>
+           } severity={ values.success ? "success" : "error"}>
             <AlertTitle>
-            Votre message a bien été transmis
+               { values.success ? "Votre message a bien été transmis":"le message n'a pas pu être transmis veuillez réessayer  ou contacter par téléphone"}
             </AlertTitle>
-
           </Alert>
           </Collapse>
           
          
-        <input type="hidden" name="_next" value="" style={{display: "none",}}></input>
-       
+        <Field type="hidden" name="_next" value="" style={{display: "none",}}/>
+        <Field type="hidden" name="_captcha" value="false"/>
             <button
               type="submit"
               disabled={isSubmitting ||!isValid}
@@ -214,7 +229,8 @@ import { ResizeObserver } from 'resize-observer';
               Send
             </button>
           </Form>
-        )}
+        );
+        }}
       </Formik>
     </div>
   )

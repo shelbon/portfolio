@@ -88,6 +88,9 @@ import { ResizeObserver } from 'resize-observer';
             name="contact"
             method="post"
             className={ContactFormStyles.form}
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            data-netlify-recaptcha="true"
              
           >
             <label
@@ -106,7 +109,7 @@ import { ResizeObserver } from 'resize-observer';
               aria-invalid={errors.name  && touched.name ?"true":"false"}
             />
             <ErrorMessage
-              name="name"
+              name="name_error"
               component="div"
               className={ContactFormStyles.form__error}
             />
@@ -127,7 +130,7 @@ import { ResizeObserver } from 'resize-observer';
               aria-invalid={errors.email  && touched.email ?"true":"false"}
             />
             <ErrorMessage
-              name="email"
+              name="email_error"
               component="div"
               className={ContactFormStyles.form__error}
             />
@@ -150,12 +153,14 @@ import { ResizeObserver } from 'resize-observer';
               aria-invalid={errors.message  && touched.message ?"true":"false"}
             >
             <ErrorMessage
-              name="message"
+              name="message_error"
               component="div"
               className={ContactFormStyles.form__error}
             />
             </Field>
-              
+            <Field type="hidden" name="form-name"/>
+            <Field type="hidden" name="bot-field"/>
+            <Field type="hidden" name="_redirect" value="false"/>
              
           <div className={ContactFormStyles.form__recaptcha__container}>
           {values.name && values.email && values.message && (
@@ -169,7 +174,7 @@ import { ResizeObserver } from 'resize-observer';
               name="recaptcha"
               onChange={value => setFieldValue('recaptcha', value)}
             />
-            <ErrorMessage component="span" style={{color: "#ff4136",}} name="recaptcha" />
+            <ErrorMessage name="recapta_error" component="span" style={{color: "#ff4136",}} name="recaptcha" />
             </>
             )}
           </div>

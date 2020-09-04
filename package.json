@@ -31,7 +31,7 @@
     "react-dom": "16.13.1",
     "react-google-recaptcha": "2.1.0",
     "react-helmet": "6.1.0",
-    "react-icons": "3.10.0",
+    "react-icons": "3.11.0",
     "react-responsive-carousel": "3.2.9",
     "resize-observer": "1.0.0",
     "yup": "0.29.1"

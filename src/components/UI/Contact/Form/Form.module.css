@@ -81,8 +81,8 @@
 }
 
 .form__success {
-  background-color: #3cf73c;
   border-radius: var(--button-border-radius);
-  text-align: left;
   margin-bottom: 1rem;
 }
+
+

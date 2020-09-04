@@ -15,17 +15,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-preact',
     {
-      resolve:'gatsby-plugin-netlify',
-      options:{
-         headers:{
-           "/*":["Access-Control-Allow-Origin: *",]
-         },
-         mergeSecurityHeaders: true, // boolean to turn off the default security headers
-         
-
-      }
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'project',

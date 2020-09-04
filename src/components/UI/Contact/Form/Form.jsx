@@ -1,7 +1,10 @@
 import React,{useEffect } from "react"
 import * as yup from 'yup';
+import {Alert,AlertTitle } from "@material-ui/lab"
+import CloseIcon from '@material-ui/icons/Close'
+import { IconButton ,Collapse } from "@material-ui/core"
 import ContactFormStyles from "./Form.module.css"
-import Recaptcha from 'react-google-recaptcha';
+import Recaptcha from 'react-google-recaptcha'
 import { Formik, Form, Field,FastField, ErrorMessage } from "formik"
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -50,24 +53,24 @@ import { ResizeObserver } from 'resize-observer';
           
         })}
 
-        onSubmit={async (values, { setSubmitting,setFieldValue }) => {
-           
-          
+        onSubmit={async (values, { setSubmitting, resetForm, setFieldValue}) => {
+             
+          try{
           axios({
             method: 'POST',
             url: 'https://submit-form.com/04qNr6OovR4lRje61FlbD',
-            data: {name:values.name,message:values.message,email:values.email},
-          })
-            .then(response => {
-              if(response){
-                setFieldValue('success',!values.success);
-              }
-              
-            })
-            .catch(error => {
-              console.log({"error":error});
-              setFieldValue('success',false);
-            })
+            data:{name:values.name,message:values.message,email:values.email, "g-recaptcha-response":values.recaptcha} ,
+          });
+          setSubmitting(false);
+          setFieldValue('success', true);
+          //setTimeout(() => resetForm(), 6000);
+
+        }catch(err)
+        {
+              console.log({"error":err});
+              setSubmitting(false);
+        setFieldValue('success', false);
+            }
            
             
         }}
@@ -81,8 +84,8 @@ import { ResizeObserver } from 'resize-observer';
           handleSubmit,
           isSubmitting,
           isValid,
-          setFieldValue
-          /* and other goodies */
+          setFieldValue,
+          resetForm
         }) => (
           <Form
             name="contact"
@@ -179,11 +182,28 @@ import { ResizeObserver } from 'resize-observer';
             )}
           </div>
       
-        {values.success && (
-          <div className={ContactFormStyles.form__success}>
-              <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
-          </div>
-        )}
+         <Collapse in={values.success}>
+          <Alert className={ContactFormStyles.form__success}
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setFieldValue("success",false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }>
+            <AlertTitle>
+            Votre message a bien été transmis
+            </AlertTitle>
+
+          </Alert>
+          </Collapse>
+          
+         
         <input type="hidden" name="_next" value="" style={{display: "none",}}></input>
        
             <button

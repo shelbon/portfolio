@@ -30,16 +30,32 @@ import { ResizeObserver } from 'resize-observer';
       resizeObserver.observe(recaptchaContainer);
     
   },[])
-  const onSubmit=async (values) => {
-           
-    formEl.current.submit().then((result)=>{
-      console.log(result);
-    });
-    
+  const onSubmit=async (values,{ setFieldValue }) => {
+      
+    axios({
+      method: 'POST',
+      url: 'https://submit-form.com/04qNr6OovR4lRje61FlbD',
+      data:{name:values.name,message:values.message},
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(response => {
+        if(response){
+          setFieldValue('success',!values.success);
+        }
+        
+      })
+      .catch(error => {
+        console.log({"error":error});
+        setFieldValue('success',false);
+      })
      
       
-  };
-  const MyForm = withFormik({
+  }
+      
+   const MyForm = withFormik({
     handleSubmit:onSubmit,
 
     validationSchema:yup.object().shape({
@@ -76,7 +92,6 @@ import { ResizeObserver } from 'resize-observer';
             method="POST"
             ref={formEl}
             onSubmit={handleSubmit}
-            action="https://submit-form.com/04qNr6OovR4lRje61FlbD "
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"

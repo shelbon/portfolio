@@ -1,16 +1,14 @@
-import React,{useEffect,useRef } from "react"
+import React,{useEffect } from "react"
 import * as yup from 'yup';
 import ContactFormStyles from "./Form.module.css"
 import Recaptcha from 'react-google-recaptcha';
-import { withFormik , Form, Field,FastField, ErrorMessage } from "formik"
+import { Formik, Form, Field,FastField, ErrorMessage } from "formik"
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
  import axios from "axios"
 import rescaleCaptcha from "../../../../../static/js/rescaleCaptcha";
 import { ResizeObserver } from 'resize-observer';
- 
  export default function ContactForm() {
-  const formEl = useRef(null);
   let languageCde="";
   i18next.use(LanguageDetector).init({  detection: {order:["navigator"]},}).then( (value)=>{
      languageCde=i18next.language||"fr";
@@ -30,73 +28,67 @@ import { ResizeObserver } from 'resize-observer';
       resizeObserver.observe(recaptchaContainer);
     
   },[])
-  const onSubmit=async (values,{ setFieldValue }) => {
-      
-    axios({
-      method: 'POST',
-      url: 'https://submit-form.com/04qNr6OovR4lRje61FlbD',
-      data:{name:values.name,message:values.message},
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(response => {
-        if(response){
-          setFieldValue('success',!values.success);
-        }
-        
-      })
-      .catch(error => {
-        console.log({"error":error});
-        setFieldValue('success',false);
-      })
-     
-      
-  }
-      
-   const MyForm = withFormik({
-    handleSubmit:onSubmit,
-
-    validationSchema:yup.object().shape({
-      name:yup.string().min(2,"Too short").required("Required"),
-      email: yup.string().email("Valid Email Required").required("Required"),
-      message:yup.string().trim().required("Required"),
-      recaptcha: yup.string().nullable().required('Robots are not welcome yet!')}),
-    mapPropsToValues({ name,email,message,success,recaptcha,
-                       }) {
-      return {
-      email: email || "",
-      name: name|| "",
-      email: email||"",
-      message: message||"",
-      recaptcha: recaptcha||'',
-      success: success||false,
-      
-    }
-  }})((props)=>{
-    const {
-      values,
-     errors,
-     touched,
-     handleChange,
-     handleBlur,
-     handleSubmit,
-     isSubmitting,
-     isValid,
-     setFieldValue}=props;
   return (
     <div className={ContactFormStyles.container}>
-          <Form
-            name="contact-form"
-            method="POST"
-            ref={formEl}
-            onSubmit={handleSubmit}
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            data-netlify-recaptcha="true"
-            className={ContactFormStyles.form}
+      <Formik
+        initialValues={{
+          "bot-field": "",
+          "form-name": "contact",
+          name: "",
+          email: "",
+          message: "",
+          recaptcha: '',
+          success: false,
+        }}
+         
+         
+        validationSchema={yup.object().shape({
+          name:yup.string().min(2,"Too short").required("Required"),
+          email: yup.string().email("Valid Email Required").required("Required"),
+          message:yup.string().trim().required("Required"),
+          recaptcha: yup.string().nullable().required('Robots are not welcome yet!'),
+          
+        })}
 
+        onSubmit={async (values, { setSubmitting,setFieldValue }) => {
+           
+          
+          axios({
+            method: 'POST',
+            url: 'https://submit-form.com/04qNr6OovR4lRje61FlbD',
+            data: {name:values.name,message:values.message,email:values.email},
+          })
+            .then(response => {
+              if(response){
+                setFieldValue('success',!values.success);
+              }
+              
+            })
+            .catch(error => {
+              console.log({"error":error});
+              setFieldValue('success',false);
+            })
+           
+            
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+          isValid,
+          setFieldValue
+          /* and other goodies */
+        }) => (
+          <Form
+            name="contact"
+            method="post"
+            className={ContactFormStyles.form}
+             
           >
             <label
               htmlFor="name"
@@ -107,7 +99,6 @@ import { ResizeObserver } from 'resize-observer';
             <Field
               type="text"
               name="name"
-              value={values.name}
               id="name"
               className={`${ContactFormStyles.form__input} ${ (errors.name && touched.name ? ContactFormStyles.isInvalid : '')}`}
               required
@@ -153,7 +144,6 @@ import { ResizeObserver } from 'resize-observer';
               id="message"
               placeholder="Message"
               component="textarea"
-              value={values.message}
               className={` ${ContactFormStyles.form__inputMessage}
                           ${ContactFormStyles.form__input} ${(errors.message && touched.message ? ContactFormStyles.isInvalid : '')}`}
               required
@@ -168,7 +158,6 @@ import { ResizeObserver } from 'resize-observer';
               
              
           <div className={ContactFormStyles.form__recaptcha__container}>
-          { console.log({name:values,email:values.email,message:values.message})}
           {values.name && values.email && values.message && (
             <>
             <FastField
@@ -190,22 +179,19 @@ import { ResizeObserver } from 'resize-observer';
               <h4>Your message has been successfully sent, I will get back to you ASAP!</h4>
           </div>
         )}
-        <Field type="text" name="_honey" style={{display: "none",}}/>
-        <Field type="hidden" name="_next" value="" style={{display: "none",}}/>
-        <Field type="hidden" name="form-name" style={{display: "none",}}/>
-            <Field type="hidden" name="bot-field" style={{display: "none",}}/>
-            <Field type="hidden" name="_redirect" value="false" style={{display: "none",}}/>
+        <input type="hidden" name="_next" value="" style={{display: "none",}}></input>
        
             <button
               type="submit"
-              disabled={isSubmitting }
+              disabled={isSubmitting ||!isValid}
               className={ContactFormStyles.form__inputSubmit}
             >
               Send
             </button>
           </Form>
-    </div>)
-  });
-  return <MyForm/>
+        )}
+      </Formik>
+    </div>
+  )
 }
  

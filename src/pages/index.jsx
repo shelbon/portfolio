@@ -1,5 +1,5 @@
 import React from "react"
-
+import { I18nextProvider } from "react-i18next";
 import aboutme from "../images/about_me.svg"
 import useDeviceDetect from "../utils/useDeviceDetect"
 import IndexStyles from "../styles/index.module.css"
@@ -15,8 +15,7 @@ import "normalize.css"
 import i18n from "../utils/i18n"
 
 const IndexPage = ({ data }) => {
-  const { isMobile } = useDeviceDetect()
-  console.log({ isMobile: isMobile })
+  const { isMobile } = useDeviceDetect();
   return (
     <>
       <div className={IndexStyles.wrapper}>
@@ -104,9 +103,10 @@ const IndexPage = ({ data }) => {
                                     ${IndexStyles.sectionContact}`}
       >
         <h2 className={IndexStyles.section__contactform__title}>Contact</h2>
-        {console.log(i18n)}
-         
-          <ContactForm id="contact" i18n={i18n}/>
+         <I18nextProvider i18n={i18n}>
+           <ContactForm id="contact"/>
+         </I18nextProvider>
+          
         
       </section>
       <Footer />

@@ -20,8 +20,8 @@ const useStyles = makeStyles({
     }
 });
 function ContactForm({ t,i18n}) {
-  const [open, setOpen] = useState(false)
-  let languageCde = i18n.language  
+  const [open, setOpen] = useState(false);
+  let languageCde = i18n.language;
   const classes = useStyles();
   useEffect(() => {
     let recaptchaContainer = document.getElementsByClassName(
@@ -38,20 +38,21 @@ function ContactForm({ t,i18n}) {
     resizeObserver.observe(recaptchaContainer)
   }, [])
   let initialValues = {
-    "bot-field": "",
-    "form-name": "contact",
-    name: "",
-    email: "",
-    message: "",
-    recaptcha: "",
-    success: false,
-    _next: "",
-    _redirect: false,
+    
   }
   return (
     <div className={ContactFormStyles.container}>
       <Formik
-        initialValues={initialValues}
+        initialValues={{
+          "bot-field": "",
+        "form-name": "contact",
+        name: "",
+        email: "",
+        message: "",
+        recaptcha: "",
+        success: false,
+        _next: "",
+        _redirect: false}}
         validationSchema={yup.object().shape({
           name: yup.string().trim().max(256,t("error_name")).required(t("required",{saisie:t("name").toLowerCase()})),
           email: yup
@@ -215,7 +216,7 @@ function ContactForm({ t,i18n}) {
                   </>
                 )}
               </div>
-
+  {  open &&(
               <Collapse in={open}>
                 <Alert
                   className={ContactFormStyles.form__result}
@@ -240,8 +241,8 @@ function ContactForm({ t,i18n}) {
                       : "le message n'a pas pu être transmis veuillez réessayer  ou contacter par téléphone"}
                   </AlertTitle>
                 </Alert>
-              </Collapse>
-
+              </Collapse>)
+        }
               <Field
                 type="hidden"
                 name="_next"

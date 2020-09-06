@@ -90,7 +90,7 @@ class ProjectGallery extends React.Component {
         render={data => {
           return (
             <div   className={ProjectGalleryStyles.portfolio}>
-              { console.log(data.allProject.projects),
+              {
               data.allProject.projects.map((project) => (
                 <ProjectGalleryItem project={project}
                 key={`container-${project.id}`}

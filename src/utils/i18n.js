@@ -24,12 +24,8 @@ i18n
     lowerCaseLng: true,
     ns: ["translations"],
     defaultNS: "translations",
-    debug: true,
     interpolation: {
       escapeValue: false,
-    },
-    react: {
-      wait: true,
     },
   })
 

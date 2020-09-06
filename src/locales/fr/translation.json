@@ -1,0 +1,14 @@
+{
+    "name": "Nom",
+    "e-mail":"Courriel",
+    "message":"Message",
+    "e-mailPlaceholder":"Votre courriel va ici ",
+    "namePlaceholder":"Votre nom va ici ",
+    "messagePlaceholder":"Votre messag va ici ",
+    "required":"La zone de saisie {{saisie}} est obligatoire",
+    "error_name": "Le nom   est trop long , 256 caractères maximale",
+    "error_recaptcha":"Les robots ne sont pas encore accueillis ",
+    "error_email":"Veuillez entrer votre courriel dans le format suivant : john@doe.com",
+    "error_message":"Le message est trop long , 280 caractères maximale"
+}
+ 

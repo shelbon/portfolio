@@ -25,7 +25,7 @@
 .form__input {
   min-height: 40px;
   border-radius: 7px;
-  margin-bottom: 1.25rem;
+  margin: 1rem 0 1.25rem 0;
   padding: 0.8rem 1rem;
 }
 
@@ -40,17 +40,18 @@
 }
 
 .form__error {
-  color: #d7263d;
-  font-size: larger;
+  color: #f22613;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .is-invalid {
-  border-color: #dc3545;
+  border-color: #f22613;
   padding-right: calc(1.5em + 0.75rem);
 }
 
 .form__input.is-invalid:focus {
-  border-color: #dc3545;
+  border-color: #f22613;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
 

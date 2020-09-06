@@ -17,6 +17,11 @@
   padding-left: var(--button-padding-left);
 }
 
+p {
+  font-family: "OpenSans", sans-serif;
+  font-size: 1.2rem;
+}
+
 .button p {
   color: var(--button-text-color);
 }
@@ -110,9 +115,4 @@ a {
   color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 1.375rem;
-}
-
-p {
-  font-family: "OpenSans", sans-serif;
-  font-size: 1.2rem;
 }

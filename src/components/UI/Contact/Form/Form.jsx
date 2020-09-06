@@ -64,7 +64,6 @@ function ContactForm({ t,i18n}) {
             .nullable()
             .required(t("error_recaptcha")),
         })}
-        //https://formsubmit.co/18e395e03f25f7d71383b32b1097319c',
         onSubmit={async (
           values,
           { setSubmitting, resetForm, setFieldValue }
@@ -72,7 +71,7 @@ function ContactForm({ t,i18n}) {
           try {
             axios({
               method: "POST",
-              url: "https://formsubmit.co/18e395e03f25f7d71383b32b1097319c",
+              url: "https://submit-form.com/04qNr6OovR4lRje61FlbD",
               data: {
                 name: values.name,
                 message: values.message,

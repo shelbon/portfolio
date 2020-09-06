@@ -102,7 +102,8 @@ const IndexPage = ({ data }) => {
         className={`${IndexStyles.section}             
                                     ${IndexStyles.sectionContact}`}
       >
-        <h2 className={IndexStyles.section__contactform__title}>Contact</h2>
+        <h2 className={IndexStyles.section__contact__title}>Contact</h2>
+        <a className={IndexStyles.section__contact__phone } href="tel:+596696182266">Telephone:0696182266</a>
          <I18nextProvider i18n={i18n}>
            <ContactForm id="contact"/>
          </I18nextProvider>

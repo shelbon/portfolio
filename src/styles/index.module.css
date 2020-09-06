@@ -9,7 +9,7 @@
   --button-padding-right: 5px;
   --button-padding-left: 5px;
   --button-text-color: rgb(17, 34, 62);
-}/* background */
+} /* background */
 .section__bg--silver-sand {
   background-color: #e8e9ee;
 }
@@ -53,10 +53,23 @@
   padding: 0;
 }
 
-.section__contactform__title {
+.section__contact__title {
   color: white;
   font-size: 3rem;
   align-self: center;
+}
+
+.section__contact__phone {
+  align-self: center;
+  margin: 1.25rem 0 1.25rem 0;
+  color: #ffcc01;
+  transition: border 250ms ease-out;
+  padding: 0 var(--button-padding-right) 0 var(--button-padding-left);
+  border-radius: var(--button-border-radius);
+}
+
+.section__contact__phone:hover {
+  border-bottom: 2.5px solid;
 }
 
 /* project */
@@ -199,7 +212,7 @@
   }
 }
 
-@media only screen  and  (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .section__intro__link {
     display: inline-block !important;
   }

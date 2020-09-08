@@ -92,7 +92,6 @@ class ProjectGallery extends React.Component {
         render={data => {
          
           let projects=data.allProject.projects.filter(project=>project.locale===this.props.locale);
-          console.log({locale:this.props.locale,projects:projects});  
           return (
             <div   className={ProjectGalleryStyles.portfolio}>
               {

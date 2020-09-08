@@ -22,7 +22,6 @@ const ProjectGalleryItem = props => {
           props.onClick()
         }}
       >
-        {console.log({project:props.project,images:props.project.images,t:t(props.project.images[0].name)})}
         {props.project.images && (
           <Image
             fluid={props.project.coverImage.thumb.fluid}

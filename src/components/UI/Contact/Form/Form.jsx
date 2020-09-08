@@ -83,7 +83,6 @@ function ContactForm({ t,i18n}) {
             setTimeout(() => setOpen(false), 3000)
             setTimeout(() => resetForm(), 6000)
           } catch (err) {
-            console.log({ error: err })
             setSubmitting(false)
             setFieldValue("success", false)
             setOpen(true)

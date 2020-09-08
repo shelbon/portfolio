@@ -1,10 +1,11 @@
-import { Link,useStaticQuery } from "gatsby"
 import React from "react"
 import navStyles from "./Nav.module.css"
+import { Link,useStaticQuery } from "gatsby"
+import { useTranslation } from "react-i18next"
 import { FaHome, FaBriefcase, FaAddressCard,FaPhone } from "react-icons/fa"
-
-
+import { LocalizedLink } from "gatsby-theme-i18n"
  const  Nav = ()=> {
+  const { t } = useTranslation("navigation");
   let cv = useStaticQuery(graphql`
   {
     file(name: {regex: "/\\\\CV/"}) {
@@ -21,32 +22,32 @@ import { FaHome, FaBriefcase, FaAddressCard,FaPhone } from "react-icons/fa"
       >
         <ul className={navStyles.nav__list}>
           <li className={navStyles.nav__item}>
-            <Link className={navStyles.nav__link} to="/#home">
+            <LocalizedLink className={navStyles.nav__link} to="/#home">
               <FaHome className={navStyles.nav__link__icon} />
-              <p className={navStyles.nav__link__text}>Accueil</p>
-            </Link>
+              <p className={navStyles.nav__link__text}>{t('home')}</p>
+            </LocalizedLink>
           </li>
           <li className={navStyles.nav__item}>
-            <Link className={navStyles.nav__link} to="/#about">
-              <p className={navStyles.nav__link__text}>About</p>
-            </Link>
+            <LocalizedLink className={navStyles.nav__link} to="/#about">
+              <p className={navStyles.nav__link__text}>{t('about')}</p>
+            </LocalizedLink>
           </li>
           <li className={navStyles.nav__item}>
-            <Link className={navStyles.nav__link} to="/#project">
+            <LocalizedLink className={navStyles.nav__link} to="/#project">
               <FaBriefcase className={navStyles.nav__link__icon} />
-              <p className={navStyles.nav__link__text}>Réalisation</p>
-            </Link>
+              <p className={navStyles.nav__link__text}>{t('work')}</p>
+            </LocalizedLink>
           </li>
           <li className={navStyles.nav__item}>
-            <Link className={navStyles.nav__link} to="/#contact">
+            <LocalizedLink className={navStyles.nav__link} to="/#contact">
               <FaAddressCard className={navStyles.nav__link__icon} />
-              <p className={navStyles.nav__link__text}>Contact</p>
-            </Link>
+              <p className={navStyles.nav__link__text}>{t('contact')}</p>
+            </LocalizedLink>
           </li>
           <li className={navStyles.nav__item}>
             <a className={navStyles.nav__link} href="tel:+596696182266">
               <FaPhone className={navStyles.nav__link__icon} />
-              <p className={navStyles.nav__link__text} >appeler</p>
+              <p className={navStyles.nav__link__text} >{t('phone')}</p>
             </a>
           </li>
           <li className={navStyles.nav__item}>

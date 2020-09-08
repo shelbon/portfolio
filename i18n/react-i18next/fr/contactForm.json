@@ -1,0 +1,17 @@
+{
+    "contactForm.input.name": "Nom",
+    "contactForm.input.e-mail":"Courriel",
+    "contactForm.input.message":"Message",
+    "contactForm.input.e-mail.placeholder":"Votre courriel.",
+    "contactForm.input.name.placeholder":"Votre nom.",
+    "contactForm.input.message.placeholder":"Votre message.",
+    "required":"La zone de saisie '{{saisie}}' est obligatoire.",
+    "contactForm.input.error_name": "Le nom   est trop long , 256 caractères maximale.",
+    "contactForm.error_recaptcha":"Les robots ne sont pas encore accueillis.",
+    "contactForm.input.error_email":"Veuillez entrer votre courriel dans le format suivant : john@doe.com.",
+    "contactForm.input.error_message":"Le message est trop long , 280 caractères maximale.",
+    "contactForm.form_result.failed":"L'envoie a échouer veuillez réessayer  ou contacter moi par téléphone.",
+    "contactForm.form_result.success":"Votre message a bien été transmis.",
+    "contactForm.submit.button":"Envoyer le message"
+}
+ 

@@ -5,9 +5,10 @@ import slideShowStyles from "./SlideShow.module.css"
 import { Carousel } from 'react-responsive-carousel';
  
  import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useTranslation } from "react-i18next";
  
 const SlideShow = props => {
- 
+ const {t} =useTranslation("slideShow");
   let settings = {
     showArrow:true,
     showIndicators:false,
@@ -21,10 +22,8 @@ const SlideShow = props => {
       {props.images.map((image, index) => (
             <div className={slideShowStyles.slide}key={index}>
              <Img  className={slideShowStyles.slide__image}  fluid={image.full.fluid}/>
-            <span className={slideShowStyles.slide__caption}>{image.name.replace('-'," ")}</span>
+            <span className={slideShowStyles.slide__caption}>{t(image.name)}</span>
             </div>
-          
-         
       ))}
     </Carousel>
   )

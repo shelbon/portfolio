@@ -12,7 +12,7 @@ const  DetailsProject=({ title, body,images,technologies,open,onClose })=>{
   const fullScreen = useMediaQuery(theme.breakpoints.down('lg'));
  return( <>
         <Dialog    fullScreen={fullScreen} open={open}  onClose={onClose} scroll="body" >
-        
+           
           <div className={DetailsProjectStyles.header}>
           <DialogTitle className={DetailsProjectStyles.header__title} id="responsive-dialog-title">{title}</DialogTitle>
             <IconButton   edge="start" className={DetailsProjectStyles.closeIcon__container}
@@ -21,7 +21,7 @@ const  DetailsProject=({ title, body,images,technologies,open,onClose })=>{
             </IconButton>
           </div>
           <DialogContent className={DetailsProjectStyles.container}>
-          {images && <div className={DetailsProjectStyles.SlideShow__container}> <SlideShow   images={images}/></div>}
+          {images && <div className={DetailsProjectStyles.SlideShow__container}> <SlideShow  images={images}/></div>}
           <div className={DetailsProjectStyles.details__project}>
             {body && <MDXRenderer 
             technologies={technologies} styles={DetailsProjectStyles}>{body}</MDXRenderer>}

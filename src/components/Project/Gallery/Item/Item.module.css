@@ -20,7 +20,12 @@
   border-radius: 10px;
   z-index: 100;
   transition: all 0.75s;
-  background: linear-gradient(180deg, rgba(48, 48, 48, 1) 50%, rgba(27, 26, 26, 1) 100%);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(48, 48, 48, 1) 50%,
+      rgba(27, 26, 26, 1) 100%
+    );
   grid-row: 1 / 4;
   grid-column: 1 / 5;
 }
@@ -72,7 +77,7 @@
 
 .portfolio__item__overlay__cta__code_source::after,
 .portfolio__item__overlay__cta__code_source::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 1;
@@ -81,7 +86,11 @@
   height: 110%;
   background: #32a1ce; /* onhover background color */
   z-index: -1;
-  transform: translate3d(-100%, -100%, 0); /* move elements above button so they don't appear initially */
+  transform: translate3d(
+    -100%,
+    -100%,
+    0
+  ); /* move elements above button so they don't appear initially */
   transition: all 0.5s;
 }
 
@@ -127,7 +136,6 @@
     flex-flow: row wrap;
     grid-row: 1/4;
     grid-column: 1;
-    
   }
 
   .portfolio__item__overlay__cta__code_source:hover::after {

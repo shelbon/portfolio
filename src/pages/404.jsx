@@ -17,8 +17,8 @@ const NotFoundPage = () => {
       alignContent: "center"
     }}>
     <div style={{alignSelf: "center"}}>
-    <h1>{t("title") }</h1>
-    <p>{t("body")} </p>
+    <h1 style={{color: "#ffffff"}}>{t("title") }</h1>
+    <p style={{color: "#ffffff"}}>{t("body")} </p>
     </div>
     <LocalizedLink to='/' className="button"><p>{t("redirect.link")}</p></LocalizedLink>
     </div>

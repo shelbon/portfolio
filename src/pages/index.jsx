@@ -1,39 +1,49 @@
 import React from "react"
-import { I18nextProvider } from "react-i18next";
 import aboutme from "../images/about_me.svg"
 import useDeviceDetect from "../utils/useDeviceDetect"
 import IndexStyles from "../styles/index.module.css"
 import SEO from "../components/seo"
 import ProjectGallery from "../components/Project/Gallery/Gallery"
-import { Link, graphql } from "gatsby"
+
 import ContactForm from "../components/UI/Contact/Form/Form"
+import { Link, graphql } from "gatsby"
+import {  useTranslation,Trans} from "react-i18next"
+import { useLocalization } from "gatsby-theme-i18n"
 import DevIllustration from "../images/dev.svg"
 import Header from "../components/header"
 import Footer from "../components/UI/Footer/Footer"
 import "../styles/layout.css"
 import "normalize.css"
-import i18n from "../utils/i18n"
 
 const IndexPage = ({ data }) => {
+  const { locale, config, defaultLang } = useLocalization();
+   
   const { isMobile } = useDeviceDetect();
-  return (
+  const { t ,i18n} = useTranslation("home");
+ 
+  return(
     <>
       <div className={IndexStyles.wrapper}>
         <SEO title="Home" description="home " />
         <Header />
-
         <section id="home" className={IndexStyles.sectionIntro}>
           <div className={IndexStyles.section__intro__details__container}>
             <h1
               className={`${IndexStyles.section__title} ${IndexStyles.section__titleIntro} ${IndexStyles.section__titleBlack}`}
             >
-              <br /> Je suis Patrick Shéron MOUCLE Développeur informatique
+                <Trans
+                i18nKey="intro"
+                i18n={i18n}
+                t={t}
+                >
+Je suis Patrick Shéron MOUCLE <br/>Développeur informatique.
+                  </Trans>
             </h1>
             <Link
               to="/#project"
               className={`${IndexStyles.section__intro__link} ${IndexStyles.button}`}
             >
-              <p>Mes réalisations</p>
+              <p>{t("intro.cta.work")}</p>
             </Link>
           </div>
           <div className={IndexStyles.section__intro__illustration__container}>
@@ -47,14 +57,16 @@ const IndexPage = ({ data }) => {
         className={`${IndexStyles.section} ${IndexStyles.sectionProject} `}
       >
         <div className={IndexStyles.section__container}>
-          <h2 className={IndexStyles.section__titleProject}>Réalisations</h2>
+          <h2 className={IndexStyles.section__titleProject}>
+            {t("section.work.title")}
+          </h2>
           <p className={IndexStyles.section__subtitleProject}>
-            Voici des exemples de mes réalisations personnelles et
-            professionnelles.
+            {t("section.work.subtitle")}
           </p>
 
           <ProjectGallery
             isMobile={isMobile}
+            locale={locale}
             className={IndexStyles.sectionProject}
           />
         </div>
@@ -68,7 +80,7 @@ const IndexPage = ({ data }) => {
           <h2
             className={` ${IndexStyles.section__about__title} ${IndexStyles.section__titleWhite} `}
           >
-            &Agrave; propos
+            {t("section.about.title")}
           </h2>
           <div className={IndexStyles.section__containerAbout}>
             <div
@@ -78,19 +90,18 @@ const IndexPage = ({ data }) => {
             </div>
             <div className={IndexStyles.section__about__body}>
               <p>
-                <strong>Développeur informatique passionné</strong> dans le
-                domaine du web et mobile.
+                <strong>{t("section.about.body.emphasis")}</strong>{" "}
+                {t("section.about.body.after.emphasis")}
               </p>
-              <p>
-                Je conçois et realise des sites web et des application mobiles.
-              </p>
+              <p>{t("section.about.body.second.paragraph")}</p>
+
               {isMobile && (
                 <a
                   href={data.cv.publicURL}
                   className={IndexStyles.button}
                   style={{ alignSelf: "center" }}
                 >
-                  <p>Télecharger mon cv</p>
+                  <p>{t("section.about.cta.cv")}</p>
                 </a>
               )}
             </div>
@@ -102,15 +113,18 @@ const IndexPage = ({ data }) => {
         className={`${IndexStyles.section}             
                                     ${IndexStyles.sectionContact}`}
       >
-        <h2 className={IndexStyles.section__contact__title}>Contact</h2>
-        <a className={IndexStyles.section__contact__phone } href="tel:+596696182266">Telephone:0696182266</a>
-         <I18nextProvider i18n={i18n}>
-           <ContactForm id="contact"/>
-         </I18nextProvider>
-          
-        
+        <h2 className={IndexStyles.section__contact__title}>
+          {t("section.contact.title")}
+        </h2>
+        <a
+          className={IndexStyles.section__contact__phone}
+          href="tel:+596696182266"
+        >
+          {t("contact.cta.phone")}
+        </a>
+        <ContactForm id="contact" />
       </section>
-      <Footer />
+      <Footer  />
     </>
   )
 }

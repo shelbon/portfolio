@@ -39,6 +39,11 @@
   justify-content: center;
 }
 
+.header__title > h2 {
+  font-family: "Montserrat", sans-serif !important;
+  font-variation-settings: 'wght' 764;
+}
+
 .close-icon {
   border-radius: var(--button-border-radius);
   background-color: #9e9e9e;

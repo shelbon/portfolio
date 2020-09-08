@@ -37,9 +37,6 @@ function ContactForm({ t,i18n}) {
 
     resizeObserver.observe(recaptchaContainer)
   }, [])
-  let initialValues = {
-    
-  }
   return (
     <div className={ContactFormStyles.container}>
       <Formik
@@ -54,16 +51,16 @@ function ContactForm({ t,i18n}) {
         _next: "",
         _redirect: false}}
         validationSchema={yup.object().shape({
-          name: yup.string().trim().max(256,t("error_name")).required(t("required",{saisie:t("name").toLowerCase()})),
+          name: yup.string().trim().max(256,t("contactForm.input.error_name",{limit:256})).required(t("required",{saisie:t("contactForm.input.name").toLowerCase()})),
           email: yup
             .string()
-            .email(t("error_email"))
-            .required(t("required",{saisie:t("email").toLowerCase()})),
-          message: yup.string().trim().max(280,t("error_message")).required(t("required",{saisie:t("message").toLowerCase()})),
+            .email(t("contactForm.input.error_email"))
+            .required(t("required",{saisie:t("contactForm.input.e-mail").toLowerCase()})),
+          message: yup.string().trim().max(300,t("contactForm.input.error_message",{limit:300})).required(t("required",{saisie:t("contactForm.input.message").toLowerCase()})),
           recaptcha: yup
             .string()
             .nullable()
-            .required(t("error_recaptcha")),
+            .required(t("contactForm.error_recaptcha")),
         })}
         onSubmit={async (
           values,
@@ -117,7 +114,7 @@ function ContactForm({ t,i18n}) {
               data-netlify-recaptcha="true"
             >
               <label htmlFor="name" className={ContactFormStyles.form__label}>
-                {t("name")}:
+                {t("contactForm.input.name")}:
               </label>
               <Field
                 type="text"
@@ -127,7 +124,7 @@ function ContactForm({ t,i18n}) {
                   errors.name && touched.name ? ContactFormStyles.isInvalid : ""
                   }`}
                 yup
-                placeholder={t("namePlaceholder")}
+                placeholder={t("contactForm.input.name.placeholder")}
                 onBlur={handleBlur}
                 onChange={handleChange}
                 aria-invalid={errors.name && touched.name ? "true" : "false"}
@@ -139,11 +136,11 @@ function ContactForm({ t,i18n}) {
               />
 
               <label htmlFor="email" className={ContactFormStyles.form__label}>
-                {t("e-mail")}:
+                {t("contactForm.input.e-mail")}:
               </label>
               <Field
                 name="email"
-                placeholder={t("e-mailPlaceholder")}
+                placeholder={t("contactForm.input.e-mail.placeholder")}
                 id="email"
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -166,12 +163,12 @@ function ContactForm({ t,i18n}) {
                 htmlFor="message"
                 className={ContactFormStyles.form__label}
               >
-                {t("message")}:
+                {t("contactForm.input.message")}:
               </label>
               <Field
                 name="message"
                 id="message"
-                placeholder={t("messagePlaceholder")}
+                placeholder={t("contactForm.input.message.placeholder")}
                 component="textarea"
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -237,8 +234,8 @@ function ContactForm({ t,i18n}) {
                 >
                   <AlertTitle classes={{root:classes.root}}>
                     {values.success
-                      ? "Votre message a bien été transmis"
-                      : "le message n'a pas pu être transmis veuillez réessayer  ou contacter par téléphone"}
+                      ? t("contactForm.form_result.success")
+                      : t("contactForm.form_result.failed")}
                   </AlertTitle>
                 </Alert>
               </Collapse>)
@@ -255,7 +252,7 @@ function ContactForm({ t,i18n}) {
                 disabled={isSubmitting }
                 className={ContactFormStyles.form__inputSubmit}
               >
-                Send
+                {t("contactForm.submit.button")}
               </button>
             </Form>
           )
@@ -265,4 +262,4 @@ function ContactForm({ t,i18n}) {
   )
 }
 
-export default withTranslation()(ContactForm);
+export default withTranslation("contactForm")(ContactForm);

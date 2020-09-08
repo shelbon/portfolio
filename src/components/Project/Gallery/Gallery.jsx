@@ -8,7 +8,8 @@ class ProjectGallery extends React.Component {
     super(props)
     this.state = {
       overlays: [],
-      openOverlayId:-1
+      openOverlayId:-1,
+      locale:props.locale
     }
      
     this.overlayManager = this.overlayManager.bind(this)
@@ -87,11 +88,15 @@ class ProjectGallery extends React.Component {
             }
           }
         `}
+        
         render={data => {
+         
+          let projects=data.allProject.projects.filter(project=>project.locale===this.props.locale);
+          console.log({locale:this.props.locale,projects:projects});  
           return (
             <div   className={ProjectGalleryStyles.portfolio}>
               {
-              data.allProject.projects.map((project) => (
+              projects.map((project) => (
                 <ProjectGalleryItem project={project}
                 key={`container-${project.id}`}
                              onMouseEnter={() => {

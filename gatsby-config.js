@@ -60,9 +60,9 @@ module.exports = {
           lng: "fr",
           keySeparator: false,
           lowerCaseLng: true,
-          debug:true,
           transSupportBasicHtmlNodes: true,
-          ns: ["home","contactForm","projectItem","navigation"],
+          ns: ["home","contactForm","projectItem"
+              ,"navigation","slideShow"],
           interpolation: {
             escapeValue: false,
           },

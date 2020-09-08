@@ -8,7 +8,7 @@ import ProjectGallery from "../components/Project/Gallery/Gallery"
 import ContactForm from "../components/UI/Contact/Form/Form"
 import { Link, graphql } from "gatsby"
 import {  useTranslation,Trans} from "react-i18next"
-import { useLocalization } from "gatsby-theme-i18n"
+import { useLocalization, LocalizedLink } from "gatsby-theme-i18n"
 import DevIllustration from "../images/dev.svg"
 import Header from "../components/header"
 import Footer from "../components/UI/Footer/Footer"
@@ -39,12 +39,12 @@ const IndexPage = ({ data }) => {
 Je suis Patrick Shéron MOUCLE <br/>Développeur informatique.
                   </Trans>
             </h1>
-            <Link
+            <LocalizedLink
               to="/#project"
               className={`${IndexStyles.section__intro__link} ${IndexStyles.button}`}
             >
               <p>{t("intro.cta.work")}</p>
-            </Link>
+            </LocalizedLink>
           </div>
           <div className={IndexStyles.section__intro__illustration__container}>
             <img src={DevIllustration} alt="intro illustration" />

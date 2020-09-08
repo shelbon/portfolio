@@ -1,0 +1,16 @@
+{
+  "contactForm.input.name": "Name",
+  "contactForm.input.e-mail":"E-mail",
+  "contactForm.input.message":"Message",
+  "contactForm.input.e-mail.placeholder":"Your e-mail goes here.",
+  "contactForm.input.name.placeholder":"your name goes here.",
+  "contactForm.input.message.placeholder":"Your messsage goes here.",
+  "required":"required",
+  "contactForm.input.error_name": "The name is too short minimum 2 characters.",
+  "contactForm.error_recaptcha":"Robots are not welcome yet!",
+  "contactForm.input.error_email":"Please enter your e-mail in format: john@doe.com.",
+  "contactForm.input.error_message":"Please enter your message in 280 characters.",
+  "contactForm.form_result.failed":"Sending failed.Please retry or  call me on the  phone. ",
+  "contactForm.form_result.success":"Your message has been send.",
+  "contactForm.submit.button":"Send message"
+}

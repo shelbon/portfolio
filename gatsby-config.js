@@ -1,49 +1,79 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+})
 
 module.exports = {
   siteMetadata: {
-    title: 'Patrick Shéron Moucle Portfolio',
-    description: 'Patrick shéron moucle  développeur web et mobile,voici mon portfolio.',
-    author: '@PSMoucle',
+    siteUrl:"https://mouclepatrick.netlify.app",
+    title: "Patrick Shéron Moucle Portfolio",
+    description:
+      "Patrick shéron moucle  développeur web et mobile,voici mon portfolio.",
+    author: "@PSMoucle",
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-mdx',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-preact',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-mdx",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-preact",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'project',
+        name: "project",
         path: `${__dirname}/content/projects/`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
+        name: "images",
         path: `${__dirname}/src/images/`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'content',
+        name: "content",
         path: `${__dirname}/content/`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'pages',
+        name: "pages",
         path: `${__dirname}/src/pages/`,
       },
     },
     {
-      resolve: 'gatsby-plugin-postcss',
+      resolve: `gatsby-theme-i18n`,
+      options: {
+        defaultLang: `fr`,
+        configPath: require.resolve(`./i18n/config.json`),
+      },
+    },
+    {
+      resolve: `gatsby-theme-i18n-react-i18next`,
+      options: {
+        locales: `./i18n/react-i18next`,
+        i18nextOptions: {
+          detection: { order: ["navigator"] },
+          lng: "fr",
+          keySeparator: false,
+          lowerCaseLng: true,
+          debug:true,
+          transSupportBasicHtmlNodes: true,
+          ns: ["home","contactForm","projectItem","navigation"],
+          interpolation: {
+            escapeValue: false,
+          },
+          react: {
+            wait: true,
+            },
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-postcss",
       options: {
         postCssPlugins: [
           require("postcss-preset-env")({

@@ -16,6 +16,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -62,7 +63,7 @@ module.exports = {
           lowerCaseLng: true,
           transSupportBasicHtmlNodes: true,
           ns: ["home","contactForm","projectItem"
-              ,"navigation","slideShow"],
+              ,"navigation","slideShow","404"],
           interpolation: {
             escapeValue: false,
           },

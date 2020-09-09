@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl:"https://mouclepatrick.netlify.app",
-    title: "Patrick Shéron Moucle Portfolio",
+    title: "Portfolio de Patrick Shéron Moucle Developpeur informatique",
     description:
       "Patrick shéron moucle  développeur web et mobile,voici mon portfolio.",
     author: "@PSMoucle",
@@ -61,9 +61,10 @@ module.exports = {
           lng: "fr",
           keySeparator: false,
           lowerCaseLng: true,
+          debug:true,
           transSupportBasicHtmlNodes: true,
           ns: ["home","contactForm","projectItem"
-              ,"navigation","slideShow","404"],
+              ,"navigation","slideShow","404","seo"],
           interpolation: {
             escapeValue: false,
           },

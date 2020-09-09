@@ -16,15 +16,15 @@ import "../styles/layout.css"
 import "normalize.css"
 
 const IndexPage = ({ data }) => {
-  const { locale, config, defaultLang } = useLocalization();
+  const { locale} = useLocalization();
    
   const { isMobile } = useDeviceDetect();
-  const { t ,i18n} = useTranslation("home");
+  const { t ,i18n} = useTranslation(["home","seo"]);
  
   return(
     <>
       <div className={IndexStyles.wrapper}>
-        <SEO title="Home" description="home " />
+        <SEO title={t("seo:title")} description={t("seo:description")} />
         <Header />
         <section id="home" className={IndexStyles.sectionIntro}>
           <div className={IndexStyles.section__intro__details__container}>

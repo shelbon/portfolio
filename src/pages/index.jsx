@@ -4,11 +4,11 @@ import useDeviceDetect from "../utils/useDeviceDetect"
 import IndexStyles from "../styles/index.module.css"
 import SEO from "../components/seo"
 import ProjectGallery from "../components/Project/Gallery/Gallery"
-
 import ContactForm from "../components/UI/Contact/Form/Form"
-import { Link, graphql } from "gatsby"
+import { LocalizedLink } from "../components/LocalizedLink"
+import {  graphql } from "gatsby"
 import {  useTranslation,Trans} from "react-i18next"
-import { useLocalization, LocalizedLink } from "gatsby-theme-i18n"
+import { useLocalization } from "gatsby-theme-i18n"
 import DevIllustration from "../images/dev.svg"
 import Header from "../components/header"
 import Footer from "../components/UI/Footer/Footer"
@@ -18,7 +18,7 @@ import "normalize.css"
 const IndexPage = ({ data }) => {
   const { locale} = useLocalization();
    
-  const { isMobile } = useDeviceDetect();
+  let { isMobile } = useDeviceDetect();
   const { t ,i18n} = useTranslation(["home","seo"]);
  
   return(

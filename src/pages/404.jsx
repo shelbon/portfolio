@@ -1,9 +1,8 @@
 import React from "react"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useTranslation } from "react-i18next"
-import { LocalizedLink } from "gatsby-theme-i18n"
+import { LocalizedLink } from "../components/LocalizedLink"
  
 const NotFoundPage = () => {
   const {t}=useTranslation("404");

@@ -1,9 +1,9 @@
 import React from "react"
 import navStyles from "./Nav.module.css"
-import { Link,useStaticQuery } from "gatsby"
+import {useStaticQuery } from "gatsby"
 import { useTranslation } from "react-i18next"
 import { FaHome, FaBriefcase, FaAddressCard,FaPhone } from "react-icons/fa"
-import { LocalizedLink } from "gatsby-theme-i18n"
+import { LocalizedLink } from "../../LocalizedLink"
  const  Nav = ()=> {
   const { t } = useTranslation("navigation");
   let cv = useStaticQuery(graphql`
@@ -13,6 +13,7 @@ import { LocalizedLink } from "gatsby-theme-i18n"
     }
   }
 `); 
+ 
     return (
       <nav
         id={navStyles.nav}
@@ -29,6 +30,7 @@ import { LocalizedLink } from "gatsby-theme-i18n"
           </li>
           <li className={navStyles.nav__item}>
             <LocalizedLink className={navStyles.nav__link} to="/#about">
+              <FaAddressCard className={navStyles.nav__link__icon}/>
               <p className={navStyles.nav__link__text}>{t('about')}</p>
             </LocalizedLink>
           </li>
@@ -60,3 +62,4 @@ import { LocalizedLink } from "gatsby-theme-i18n"
     )
     }
     export default Nav;
+ 

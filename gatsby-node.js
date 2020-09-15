@@ -9,10 +9,15 @@ exports.onPreBootstrap = ({ reporter }) => {
     fs.mkdirSync(contentPath, { recursive: true })
   }
 }
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({getConfig,actions }) => {
   actions.setWebpackConfig({
     devtool: 'eval-source-map',
-  })
+  });
+  if (getConfig().mode === 'production') {
+    actions.setWebpackConfig({
+      devtool: false
+    });
+  }
 }
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`

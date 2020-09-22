@@ -1,7 +1,8 @@
 const fs = require("fs")
+const { graphql } = require("gatsby")
 
 exports.onPreBootstrap = ({ reporter }) => {
-  const  contentPath  =`${__dirname}/content/projects`
+  const contentPath = `${__dirname}/content/projects`
 
   // Check if content directory exists.
   if (!fs.existsSync(contentPath)) {
@@ -9,14 +10,14 @@ exports.onPreBootstrap = ({ reporter }) => {
     fs.mkdirSync(contentPath, { recursive: true })
   }
 }
-exports.onCreateWebpackConfig = ({getConfig,actions }) => {
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   actions.setWebpackConfig({
-    devtool: 'eval-source-map',
-  });
-  if (getConfig().mode === 'production') {
+    devtool: "eval-source-map",
+  })
+  if (getConfig().mode === "production") {
     actions.setWebpackConfig({
-      devtool: false
-    });
+      devtool: false,
+    })
   }
 }
 exports.createSchemaCustomization = ({ actions }) => {
@@ -88,44 +89,50 @@ exports.createResolvers = ({ createResolvers }) => {
   })
 }
 
+//work but block project
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  createContentDigest,
+  getNodesByType,
+}) => {}
 exports.onCreateNode = async (
   { node, actions, getNode, createNodeId, createContentDigest },
   themeOptions
 ) => {
-  if (node.internal.type !== "Mdx") {
-    return
-  }
+  if (node.internal.type === "Mdx") {
+    const parent = getNode(node.parent)
+    if (parent.sourceInstanceName !== `project`) {
+      return
+    }
 
-  const parent = getNode(node.parent)
-  if (parent.sourceInstanceName !== `project`) {
-    return
-  }
+    const nodeType = `Project`
 
-  const nodeType = `Project`
-
-  // Create Post nodes from Mdx nodes.
-  if (nodeType) {
-    
-    actions.createNode({
-      id: createNodeId(`${nodeType}-${node.id}`),
-      title: node.frontmatter.title,
-      images: node.frontmatter.images,
-      url: node.frontmatter.url,
-      coverImage:node.frontmatter.coverImage,
-      sourceCode:node.frontmatter.sourceCode,
-      parent: node.id,
-      locale:node.fields.locale,
-      technologies:node.frontmatter.technologies,
-      internal: {
-        type: nodeType,
-        contentDigest: createContentDigest(node.internal.contentDigest),
-      },
-    })
-   
+    // Create Post nodes from Mdx nodes.
+    if (nodeType) {
+      actions.createNode({
+        id: createNodeId(`${nodeType}-${node.id}`),
+        title: node.frontmatter.title,
+        images: node.frontmatter.images,
+        url: node.frontmatter.url,
+        coverImage: node.frontmatter.coverImage,
+        sourceCode: node.frontmatter.sourceCode,
+        parent: node.id,
+        locale: node.fields.locale,
+        technologies: node.frontmatter.technologies,
+        internal: {
+          type: nodeType,
+          contentDigest: createContentDigest(node.internal.contentDigest),
+        },
+      })
+    }
   }
 }
+
 exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage, deletePage } = actions
+  const { createPage, deletePage  } = actions
   // Check if the page is a localized 404
   if (page.path.match(/^\/[a-z]{2}\/404\/$/)) {
     const oldPage = { ...page }
@@ -138,4 +145,3 @@ exports.onCreatePage = async ({ page, actions }) => {
     createPage(page)
   }
 }
-

@@ -2,10 +2,10 @@
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
-    
+
 [[redirects]]
   from = "/"
   to = "/en/"
   status = 301
   force = false
-  conditions = {Language = "en"}
+  conditions = {Language = ["en"]}

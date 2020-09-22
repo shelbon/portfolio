@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(query);
+  const { site,allFile } = useStaticQuery(query);
   const metaDescription = description||site.siteMetadata.description;
   return (
     <Helmet
@@ -36,6 +36,14 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         }
       ].concat(meta)}
+      link={[
+        {
+          rel:"icon",
+          href:`${allFile.nodes[0].publicURL}`,
+          type:"image/svg+xml",
+          size:"any",
+        }
+      ]}
     />
   )
 }
@@ -62,4 +70,17 @@ const query=graphql`
           defaultDescription: description
       }
     }
+    allFile(
+                    limit: 1
+                    filter: {
+                        name: { eq: "logo" }
+                        ext: { eq: ".svg" }
+                        sourceInstanceName: { eq: "images" }
+                        relativeDirectory: { eq: "" }
+                    }
+                ) {
+                    nodes {
+                        publicURL
+                    }
+                }
       }`

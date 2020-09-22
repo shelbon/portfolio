@@ -15,12 +15,22 @@ import Footer from "../components/UI/Footer/Footer"
 import "../styles/layout.css"
 import "normalize.css"
 
-const IndexPage = ({ data }) => {
+export const query = graphql`{
+   allFile(filter:{name:{regex:"/^CV-/"}}){
+    nodes{
+      name
+      publicURL
+    }
+    }
+  }
+`
+const IndexPage = ({data}) => {
   const { locale} = useLocalization();
-   
+  let cv=data.allFile.nodes.find(cv=>cv.name.includes(`-${locale}`));
   let { isMobile } = useDeviceDetect();
   const { t ,i18n} = useTranslation(["home","seo"]);
- 
+  
+console.log(data);
   return(
     <>
       <div className={IndexStyles.wrapper}>
@@ -91,13 +101,13 @@ Je suis Patrick Shéron MOUCLE <br/>Développeur informatique.
             <div className={IndexStyles.section__about__body}>
               <p>
                 <strong>{t("section.about.body.emphasis")}</strong>{" "}
-                {t("section.about.body.after.emphasis")}
+ 
               </p>
               <p>{t("section.about.body.second.paragraph")}</p>
 
               {isMobile && (
                 <a
-                  href={data.cv.publicURL}
+                  href={cv.publicURL}
                   className={IndexStyles.button}
                   style={{ alignSelf: "center" }}
                 >
@@ -128,11 +138,4 @@ Je suis Patrick Shéron MOUCLE <br/>Développeur informatique.
     </>
   )
 }
-export const cv = graphql`
-  {
-    cv: file(name: { regex: "/\\\\CV/" }) {
-      publicURL
-    }
-  }
-`
 export default IndexPage

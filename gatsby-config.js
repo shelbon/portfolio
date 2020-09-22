@@ -49,6 +49,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+          icon: `src/images/logo.svg`,
+          icon_options: {
+              purpose: `maskable`,
+          },
+      },
+  },
+    {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: `fr`,
@@ -64,7 +73,6 @@ module.exports = {
           lng: "fr",
           keySeparator: false,
           lowerCaseLng: true,
-          debug:true,
           transSupportBasicHtmlNodes: true,
           ns: ["home","contactForm","projectItem"
               ,"navigation","slideShow","404","seo"],

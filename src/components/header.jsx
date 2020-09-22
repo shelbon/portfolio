@@ -1,9 +1,9 @@
 import React from "react"
 import Nav from "./UI/Nav/Nav"
  
-const Header = () => (
+const Header = ({cv}) => (
   <header>
-      <Nav />
+      <Nav cv={cv} />
   </header>
 )
 

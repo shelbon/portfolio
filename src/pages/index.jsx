@@ -30,12 +30,11 @@ const IndexPage = ({data}) => {
   let { isMobile } = useDeviceDetect();
   const { t ,i18n} = useTranslation(["home","seo"]);
   
-console.log(data);
   return(
     <>
       <div className={IndexStyles.wrapper}>
         <SEO title={t("seo:title")} description={t("seo:description")} />
-        <Header />
+        <Header cv={cv}/>
         <section id="home" className={IndexStyles.sectionIntro}>
           <div className={IndexStyles.section__intro__details__container}>
             <h1

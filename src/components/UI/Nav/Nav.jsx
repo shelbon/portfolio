@@ -47,7 +47,7 @@ import { LocalizedLink } from "../../LocalizedLink"
           </li>
           { cv &&(<li className={navStyles.nav__item}>
             <a className={navStyles.nav__link}  rel="noopener noreferrer" target="_blank" href={cv.publicURL}>
-              <p className={navStyles.nav__link__text}>CV</p>
+              <p className={navStyles.nav__link__text}>{t("resume")}</p>
             </a>
           </li>)}
         </ul>

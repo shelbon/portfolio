@@ -6,7 +6,8 @@ Access-Control-Allow-Origin = "*"
 [[redirects]]
 from = "/"
 to = "/en/"
-status = 301
+status = 302
+force=true
 conditions = { Language = [
   "af",
   "sq",

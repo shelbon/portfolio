@@ -27,6 +27,8 @@ const ProjectGalleryItem = props => {
             fluid={props.project.coverImage.thumb.fluid}
             alt={`project ${props.project.title} thumbnail`}
             className={ProjectGalleryItemStyles.portfolio__item__img__container}
+            loading="eager"
+            fadeIn={false}
           />
         )}
       </article>

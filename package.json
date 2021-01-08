@@ -40,7 +40,7 @@
     "react-icons": "3.10.0",
     "react-responsive-carousel": "3.2.9",
     "resize-observer": "1.0.0",
-    "yup": "0.29.1"
+    "yup": "0.32.8"
   },
   "devDependencies": {
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.12",

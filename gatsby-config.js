@@ -1,3 +1,5 @@
+const { options } = require("preact")
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -17,6 +19,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
     "gatsby-plugin-netlify",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -46,6 +49,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+          icon: `src/images/logo.svg`,
+          icon_options: {
+              purpose: `maskable`,
+          },
+      },
+  },
+    {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: `fr`,
@@ -61,7 +73,6 @@ module.exports = {
           lng: "fr",
           keySeparator: false,
           lowerCaseLng: true,
-          debug:true,
           transSupportBasicHtmlNodes: true,
           ns: ["home","contactForm","projectItem"
               ,"navigation","slideShow","404","seo"],
@@ -88,5 +99,6 @@ module.exports = {
         ],
       },
     },
+
   ],
 }

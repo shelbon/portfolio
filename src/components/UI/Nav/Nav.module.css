@@ -3,29 +3,6 @@ a {
   text-decoration: none;
 }
 
-.nav__mobile {
-  display: flex;
-  align-self: flex-start;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-  width: 100%;
-}
-
-.nav__item--mobile {
-  margin-top: 5px;
-  display: flex;
-  flex-flow: column;
-  color: white;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav__item--mobile__title {
-  margin-top: 10px;
-}
-
 header,
 #nav {
   position: fixed;
@@ -81,9 +58,9 @@ header,
 .nav__link__text {
   font-size: 0.8rem;
 }
-
-/* desktop mode */
-@media (min-width: 1224px) {
+ 
+/* desktop mode     capabilities */
+@media screen and (min-width: 1224px) {
   header,
   #nav {
     position: initial;
@@ -119,10 +96,10 @@ header,
   }
 
   .nav__item:nth-of-type(2) {
-    display: initial;
+    display: inherit;
   }
 
-  .nav__item:nth-of-type(5) {
+  #phone {
     display: none;
   }
 

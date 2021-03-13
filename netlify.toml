@@ -76,7 +76,7 @@ conditions = { Language = [
   "vi",
   "xh",
   "ji",
-  "zu",
+  "zu"
 ], Country = [
   "A1",
   "O1",
@@ -291,5 +291,5 @@ conditions = { Language = [
   "YE",
   "ZA",
   "ZM",
-  "ZW",
+  "ZW"
 ] }

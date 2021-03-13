@@ -1,113 +1,120 @@
 import React from "react"
 import aboutme from "../images/about_me.svg"
 import useDeviceDetect from "../utils/useDeviceDetect"
-import IndexStyles from "../styles/index.module.css"
+import {
+  wrapper,
+  wrapperAbout,
+  section,
+  section__container,
+  section__containerAbout,
+  sectionIntro,
+  sectionProject,
+  sectionContact,
+  section__intro__details__container,
+  section__title,
+  section__titleIntro,
+  section__titleProject,
+  section__contact__title,
+  section__about__title,
+  section__titleBlack,
+  section__titleWhite,
+  section__subtitleProject,
+  section__intro__link,
+  section__intro__illustration__container,
+  section__about__illustration__container,
+  section__about__body,
+  section__contact__phone,
+  button,
+} from "../styles/index.module.css"
 import SEO from "../components/seo"
 import ProjectGallery from "../components/Project/Gallery/Gallery"
 import ContactForm from "../components/UI/Contact/Form/Form"
-import { LocalizedLink } from "../components/LocalizedLink"
-import {  graphql } from "gatsby"
-import {  useTranslation,Trans} from "react-i18next"
-import { useLocalization } from "gatsby-theme-i18n"
+import { graphql } from "gatsby"
+import { useTranslation, Trans } from "react-i18next"
+import { useLocalization, LocalizedLink as Link } from "gatsby-theme-i18n"
 import DevIllustration from "../images/dev.svg"
 import Header from "../components/header"
 import Footer from "../components/UI/Footer/Footer"
 import "../styles/layout.css"
 import "normalize.css"
 
-export const query = graphql`{
-   allFile(filter:{name:{regex:"/^CV-/"}}){
-    nodes{
-      name
-      publicURL
-    }
+export const query = graphql`
+  {
+    allFile(filter: { name: { regex: "/^CV-/" } }) {
+      nodes {
+        name
+        publicURL
+      }
     }
   }
 `
-const IndexPage = ({data}) => {
-  const { locale} = useLocalization();
-  let cv=data.allFile.nodes.find(cv=>cv.name.includes(`-${locale}`));
-  let { isMobile } = useDeviceDetect();
-  const { t ,i18n} = useTranslation(["home","seo"]);
-  
-  return(
+const IndexPage = ({ data }) => {
+  const { locale } = useLocalization()
+  let cv = data.allFile.nodes.find(cv => cv.name.includes(`-${locale}`))
+  let { isMobile } = useDeviceDetect()
+  const { t, i18n } = useTranslation(["home", "seo"])
+
+  return (
     <>
-      <div className={IndexStyles.wrapper}>
+      <div className={wrapper}>
         <SEO title={t("seo:title")} description={t("seo:description")} />
-        <Header cv={cv}/>
-        <section id="home" className={IndexStyles.sectionIntro}>
-          <div className={IndexStyles.section__intro__details__container}>
+        <Header cv={cv} />
+        <section id="home" className={sectionIntro}>
+          <div className={section__intro__details__container}>
             <h1
-              className={`${IndexStyles.section__title} ${IndexStyles.section__titleIntro} ${IndexStyles.section__titleBlack}`}
+              className={`${section__title} ${section__titleIntro} ${section__titleBlack}`}
             >
-                <Trans
-                i18nKey="intro"
-                i18n={i18n}
-                t={t}
-                >
-Je suis Patrick Shéron MOUCLE <br/>Développeur informatique.
-                  </Trans>
+              <Trans i18nKey="intro" i18n={i18n} t={t}>
+                Je suis Patrick Shéron MOUCLE <br />
+                Développeur informatique.
+              </Trans>
             </h1>
-            <LocalizedLink
-              to="/#project"
-              className={`${IndexStyles.section__intro__link} ${IndexStyles.button}`}
+            <Link
+              to="#project"
+              className={`${section__intro__link} ${button}`}
             >
               <p>{t("intro.cta.work")}</p>
-            </LocalizedLink>
+            </Link>
           </div>
-          <div className={IndexStyles.section__intro__illustration__container}>
+          <div className={section__intro__illustration__container}>
             <img src={DevIllustration} alt="intro illustration" />
           </div>
         </section>
       </div>
 
-      <section
-        id="project"
-        className={`${IndexStyles.section} ${IndexStyles.sectionProject} `}
-      >
-        <div className={IndexStyles.section__container}>
-          <h2 className={IndexStyles.section__titleProject}>
-            {t("section.work.title")}
-          </h2>
-          <p className={IndexStyles.section__subtitleProject}>
+      <section id="project" className={`${section} ${sectionProject} `}>
+        <div className={section__container}>
+          <h2 className={section__titleProject}>{t("section.work.title")}</h2>
+          <p className={section__subtitleProject}>
             {t("section.work.subtitle")}
           </p>
 
           <ProjectGallery
             isMobile={isMobile}
             locale={locale}
-            className={IndexStyles.sectionProject}
+            className={sectionProject}
           />
         </div>
       </section>
-      <div className={IndexStyles.wrapperAbout}>
-        <section
-          id="about"
-          className={`${IndexStyles.section}             
-                                     ${IndexStyles.sectionAbout}`}
-        >
-          <h2
-            className={` ${IndexStyles.section__about__title} ${IndexStyles.section__titleWhite} `}
-          >
+      <div className={wrapperAbout}>
+        <section id="about" className={section}>
+          <h2 className={` ${section__about__title} ${section__titleWhite} `}>
             {t("section.about.title")}
           </h2>
-          <div className={IndexStyles.section__containerAbout}>
-            <div
-              className={IndexStyles.section__about__illustration__container}
-            >
+          <div className={section__containerAbout}>
+            <div className={section__about__illustration__container}>
               <img src={aboutme} alt="illustration about me" />
             </div>
-            <div className={IndexStyles.section__about__body}>
+            <div className={section__about__body}>
               <p>
                 <strong>{t("section.about.body.emphasis")}</strong>{" "}
- 
               </p>
               <p>{t("section.about.body.second.paragraph")}</p>
 
               {isMobile && (
                 <a
                   href={cv.publicURL}
-                  className={IndexStyles.button}
+                  className={button}
                   style={{ alignSelf: "center" }}
                 >
                   <p>{t("section.about.cta.cv")}</p>
@@ -119,21 +126,18 @@ Je suis Patrick Shéron MOUCLE <br/>Développeur informatique.
       </div>
       <section
         id="contact"
-        className={`${IndexStyles.section}             
-                                    ${IndexStyles.sectionContact}`}
+        className={`${section}             
+                                    ${sectionContact}`}
       >
-        <h2 className={IndexStyles.section__contact__title}>
+        <h2 className={section__contact__title}>
           {t("section.contact.title")}
         </h2>
-        <a
-          className={IndexStyles.section__contact__phone}
-          href="tel:+596696182266"
-        >
+        <a className={section__contact__phone} href="tel:+596696182266">
           {t("contact.cta.phone")}
         </a>
         <ContactForm id="contact" />
       </section>
-      <Footer  />
+      <Footer />
     </>
   )
 }

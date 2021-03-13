@@ -22,7 +22,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
 }
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
-    type Project implements Node    {
+    type Project implements Node   {
       id: ID!
       locale:String!
       title: String!
@@ -31,9 +31,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       technologies:[String!]
       url: String
       coverImage: File @fileByRelativePath
-      images: [File]
-    }
-  `)
+      images: [File]   @fileByRelativePath
+    } `)
 }
 
 exports.onCreateNode = ({ node, actions }) => {
@@ -110,7 +109,7 @@ exports.onCreateNode = async (
 
     const nodeType = `Project`
 
-    // Create Post nodes from Mdx nodes.
+    // Create Project  nodes from Mdx nodes.
     if (nodeType) {
       actions.createNode({
         id: createNodeId(`${nodeType}-${node.id}`),

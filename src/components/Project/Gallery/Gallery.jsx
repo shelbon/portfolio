@@ -1,8 +1,8 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import ProjectGalleryStyles from "./Gallery.module.css"
+import {portfolio} from "./Gallery.module.css"
 import ProjectGalleryItem from "./Item/Item.jsx"
-import ProjectItemStyles from "./Item/Item.module.css"
+import {portfolio__item__overlay,jsOverlayOpen} from "./Item/Item.module.css"
 class ProjectGallery extends React.Component {
   constructor(props) {
     super(props)
@@ -22,12 +22,12 @@ class ProjectGallery extends React.Component {
       return {
         overlays: [
           ...document.getElementsByClassName(
-            ProjectItemStyles.portfolio__item__overlay
+            portfolio__item__overlay
           ),
         ],
       }
     })
-    this.jsOverlayOpen=ProjectItemStyles.jsOverlayOpen;
+    this.jsOverlayOpen=jsOverlayOpen;
   
   }
   
@@ -93,7 +93,7 @@ class ProjectGallery extends React.Component {
          
           let projects=data.allProject.projects.filter(project=>project.locale===this.props.locale);
           return (
-            <div   className={ProjectGalleryStyles.portfolio}>
+            <div   className={portfolio}>
               {
               projects.map((project) => (
                 <ProjectGalleryItem project={project}

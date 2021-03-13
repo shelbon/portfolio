@@ -1,11 +1,22 @@
 import React from "react"
-import Image from "gatsby-image"
-import ProjectGalleryItemStyles from "./Item.module.css"
+import { GatsbyImage } from "gatsby-plugin-image"
+import {
+  portfolio__item__container,
+  portfolio__item,
+  portfolio__item__img__container,
+  portfolio__item__overlay,
+  portfolio__item__overlay__header,
+  portfolio__item__overlay__header__title,
+  portfolio__item__overlay__header__skills,
+  portfolio__item__overlay__cta,
+  portfolio__item__overlay__cta__code_source,
+  portfolio__item__overlay__cta__link
+} from "./Item.module.css"
 import DetailsProject from "../../Details/Details"
 import { useTranslation } from "react-i18next"
 const ProjectGalleryItem = props => {
-  const [open, setOpen] = React.useState(false);
-  const { t } = useTranslation("projectItem");
+  const [open, setOpen] = React.useState(false)
+  const { t } = useTranslation("projectItem")
   const handleClickOpen = () => {
     setOpen(true)
   }
@@ -14,19 +25,19 @@ const ProjectGalleryItem = props => {
     setOpen(false)
   }
   return (
-    <div className={ProjectGalleryItemStyles.portfolio__item__container}>
+    <div className={portfolio__item__container}>
       <article
-        className={ProjectGalleryItemStyles.portfolio__item}
+        className={portfolio__item}
         onMouseEnter={() => props.onMouseEnter()}
         onClick={() => {
           props.onClick()
         }}
       >
         {props.project.images && (
-          <Image
-            fluid={props.project.coverImage.thumb.fluid}
+          <GatsbyImage
+            image={props.project.coverImage.full.gatsbyImageData}
             alt={`project ${props.project.title} thumbnail`}
-            className={ProjectGalleryItemStyles.portfolio__item__img__container}
+            className={portfolio__item__img__container}
             loading="eager"
             fadeIn={false}
           />
@@ -36,15 +47,15 @@ const ProjectGalleryItem = props => {
         onMouseLeave={() => {
           props.onMouseLeave()
         }}
-        className={ProjectGalleryItemStyles.portfolio__item__overlay}
+        className={portfolio__item__overlay}
         data-overlay-id={props.project.id}
       >
         <div
-          className={ProjectGalleryItemStyles.portfolio__item__overlay__header}
+          className={portfolio__item__overlay__header}
         >
           <h1
             className={
-              ProjectGalleryItemStyles.portfolio__item__overlay__header__title
+              portfolio__item__overlay__header__title
             }
           >
             {props.project.title}
@@ -52,7 +63,7 @@ const ProjectGalleryItem = props => {
           {props.project.technologies && (
             <p
               className={
-                ProjectGalleryItemStyles.portfolio__item__overlay__header__skills
+                portfolio__item__overlay__header__skills
               }
             >
               {props.project.technologies.length > 1
@@ -61,14 +72,14 @@ const ProjectGalleryItem = props => {
             </p>
           )}
         </div>
-        <div className={ProjectGalleryItemStyles.portfolio__item__overlay__cta}>
+        <div className={portfolio__item__overlay__cta}>
           {props.project.sourceCode && (
             <a
               href={props.project.sourceCode}
               target="_blank"
               rel="noopener noreferrer"
               className={
-                ProjectGalleryItemStyles.portfolio__item__overlay__cta__code_source
+                portfolio__item__overlay__cta__code_source
               }
             >
               code source
@@ -77,7 +88,7 @@ const ProjectGalleryItem = props => {
           <button
             onClick={handleClickOpen}
             className={
-              ProjectGalleryItemStyles.portfolio__item__overlay__cta__link
+              portfolio__item__overlay__cta__link
             }
           >
             {t("more_info")}

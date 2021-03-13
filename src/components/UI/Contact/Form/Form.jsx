@@ -1,31 +1,42 @@
 import React, { useEffect, useState } from "react"
 import { Formik, Form, Field, FastField, ErrorMessage } from "formik"
 import { ResizeObserver } from "resize-observer"
-import { withTranslation } from 'react-i18next';
+import { withTranslation } from "react-i18next"
 import { Alert, AlertTitle } from "@material-ui/lab"
-import { IconButton, Collapse,makeStyles } from "@material-ui/core"
+import { IconButton, Collapse, makeStyles } from "@material-ui/core"
 import * as yup from "yup"
 import CloseIcon from "@material-ui/icons/Close"
-import ContactFormStyles from "./Form.module.css"
+import {
+  container,
+  form__recaptcha__container,
+  form,
+  form__label,
+  form__input,
+  form__error,
+  form__inputMessage,
+  isInvalid,
+  form__inputSubmit,
+  form__result,
+} from "./Form.module.css"
 import Recaptcha from "react-google-recaptcha"
 import axios from "axios"
 import rescaleCaptcha from "../../../../../static/js/rescaleCaptcha"
 
 //style for alertTitle
 const useStyles = makeStyles({
-    root:{
-      color:"#1C1C1C",
-      fontSize:"1.2rem",
-      fontFamily:"Montserrat,sans-serif"
-    }
-});
-function ContactForm({ t,i18n}) {
-  const [open, setOpen] = useState(false);
-  let languageCde = i18n.language;
-  const classes = useStyles();
+  root: {
+    color: "#1C1C1C",
+    fontSize: "1.2rem",
+    fontFamily: "Montserrat,sans-serif",
+  },
+})
+function ContactForm({ t, i18n }) {
+  const [open, setOpen] = useState(false)
+  let languageCde = i18n.language
+  const classes = useStyles()
   useEffect(() => {
     let recaptchaContainer = document.getElementsByClassName(
-      ContactFormStyles.form__recaptcha__container
+      form__recaptcha__container
     )[0]
     let resizeObserver = new ResizeObserver(entries => {
       for (let entry of entries) {
@@ -38,25 +49,46 @@ function ContactForm({ t,i18n}) {
     resizeObserver.observe(recaptchaContainer)
   }, [])
   return (
-    <div className={ContactFormStyles.container}>
+    <div className={container}>
       <Formik
         initialValues={{
           "bot-field": "",
-        "form-name": "contact",
-        name: "",
-        email: "",
-        message: "",
-        recaptcha: "",
-        success: false,
-        _next: "",
-        _redirect: false}}
+          "form-name": "contact",
+          name: "",
+          email: "",
+          message: "",
+          recaptcha: "",
+          success: false,
+          _next: "",
+          _redirect: false,
+        }}
         validationSchema={yup.object().shape({
-          name: yup.string().trim().max(256,t("contactForm.input.error_name",{limit:256})).required(t("required",{saisie:t("contactForm.input.name").toLowerCase()})),
+          name: yup
+            .string()
+            .trim()
+            .max(256, t("contactForm.input.error_name", { limit: 256 }))
+            .required(
+              t("required", {
+                saisie: t("contactForm.input.name").toLowerCase(),
+              })
+            ),
           email: yup
             .string()
             .email(t("contactForm.input.error_email"))
-            .required(t("required",{saisie:t("contactForm.input.e-mail").toLowerCase()})),
-          message: yup.string().trim().max(300,t("contactForm.input.error_message",{limit:300})).required(t("required",{saisie:t("contactForm.input.message").toLowerCase()})),
+            .required(
+              t("required", {
+                saisie: t("contactForm.input.e-mail").toLowerCase(),
+              })
+            ),
+          message: yup
+            .string()
+            .trim()
+            .max(300, t("contactForm.input.error_message", { limit: 300 }))
+            .required(
+              t("required", {
+                saisie: t("contactForm.input.message").toLowerCase(),
+              })
+            ),
           recaptcha: yup
             .string()
             .nullable()
@@ -107,21 +139,21 @@ function ContactForm({ t,i18n}) {
             <Form
               name="contact"
               method="post"
-              className={ContactFormStyles.form}
+              className={form}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               data-netlify-recaptcha="true"
             >
-              <label htmlFor="name" className={ContactFormStyles.form__label}>
+              <label htmlFor="name" className={form__label}>
                 {t("contactForm.input.name")}:
               </label>
               <Field
                 type="text"
                 name="name"
                 id="name"
-                className={`${ContactFormStyles.form__input} ${
-                  errors.name && touched.name ? ContactFormStyles.isInvalid : ""
-                  }`}
+                className={`${form__input} ${
+                  errors.name && touched.name ? isInvalid : ""
+                }`}
                 yup
                 placeholder={t("contactForm.input.name.placeholder")}
                 onBlur={handleBlur}
@@ -131,10 +163,10 @@ function ContactForm({ t,i18n}) {
               <ErrorMessage
                 name="name"
                 component="div"
-                className={ContactFormStyles.form__error}
+                className={form__error}
               />
 
-              <label htmlFor="email" className={ContactFormStyles.form__label}>
+              <label htmlFor="email" className={form__label}>
                 {t("contactForm.input.e-mail")}:
               </label>
               <Field
@@ -144,23 +176,23 @@ function ContactForm({ t,i18n}) {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.email}
-                className={`${ContactFormStyles.form__input} ${
+                className={`${form__input} ${
                   errors.email && touched.email
-                    ? ContactFormStyles.isInvalid
+                    ? isInvalid
                     : ""
-                  }`}
+                }`}
                 yup
                 aria-invalid={errors.email && touched.email ? "true" : "false"}
               />
               <ErrorMessage
                 name="email"
                 component="div"
-                className={ContactFormStyles.form__error}
+                className={form__error}
               />
 
               <label
                 htmlFor="message"
-                className={ContactFormStyles.form__label}
+                className={form__label}
               >
                 {t("contactForm.input.message")}:
               </label>
@@ -171,27 +203,27 @@ function ContactForm({ t,i18n}) {
                 component="textarea"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                className={` ${ContactFormStyles.form__inputMessage}
-                          ${ContactFormStyles.form__input} ${
+                className={` ${form__inputMessage}
+                          ${form__input} ${
                   errors.message && touched.message
-                    ? ContactFormStyles.isInvalid
+                    ? isInvalid
                     : ""
-                  }`}
+                }`}
                 yup
                 aria-invalid={
                   errors.message && touched.message ? "true" : "false"
                 }
               />
               <ErrorMessage
-                  name="message"
-                  component="div"
-                  className={ContactFormStyles.form__error}
-                />
+                name="message"
+                component="div"
+                className={form__error}
+              />
               <Field type="hidden" name="form-name" />
               <Field type="hidden" name="bot-field" />
               <Field type="hidden" name="_redirect" value="false" />
 
-              <div className={ContactFormStyles.form__recaptcha__container}>
+              <div className={form__recaptcha__container}>
                 {values.name && values.email && values.message && (
                   <>
                     <FastField
@@ -204,7 +236,7 @@ function ContactForm({ t,i18n}) {
                     />
                     <ErrorMessage
                       name="recapta"
-                      className={ContactFormStyles.form__error}
+                      className={form__error}
                       component="span"
                       style={{ color: "#ff4136" }}
                       name="recaptcha"
@@ -212,33 +244,33 @@ function ContactForm({ t,i18n}) {
                   </>
                 )}
               </div>
-  {  open &&(
-              <Collapse in={open}>
-                <Alert
-                  className={ContactFormStyles.form__result}
-                  variant="filled"
-                  action={
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        setOpen(false)
-                      }}
-                    >
-                      <CloseIcon fontSize="inherit" />
-                    </IconButton>
-                  }
-                  severity={values.success ? "success" : "error"}
-                >
-                  <AlertTitle classes={{root:classes.root}}>
-                    {values.success
-                      ? t("contactForm.form_result.success")
-                      : t("contactForm.form_result.failed")}
-                  </AlertTitle>
-                </Alert>
-              </Collapse>)
-        }
+              {open && (
+                <Collapse in={open}>
+                  <Alert
+                    className={form__result}
+                    variant="filled"
+                    action={
+                      <IconButton
+                        aria-label="close"
+                        color="inherit"
+                        size="small"
+                        onClick={() => {
+                          setOpen(false)
+                        }}
+                      >
+                        <CloseIcon fontSize="inherit" />
+                      </IconButton>
+                    }
+                    severity={values.success ? "success" : "error"}
+                  >
+                    <AlertTitle classes={{ root: classes.root }}>
+                      {values.success
+                        ? t("contactForm.form_result.success")
+                        : t("contactForm.form_result.failed")}
+                    </AlertTitle>
+                  </Alert>
+                </Collapse>
+              )}
               <Field
                 type="hidden"
                 name="_next"
@@ -248,8 +280,8 @@ function ContactForm({ t,i18n}) {
               <Field type="hidden" name="_captcha" value="false" />
               <button
                 type="submit"
-                disabled={isSubmitting }
-                className={ContactFormStyles.form__inputSubmit}
+                disabled={isSubmitting}
+                className={form__inputSubmit}
               >
                 {t("contactForm.submit.button")}
               </button>
@@ -261,4 +293,4 @@ function ContactForm({ t,i18n}) {
   )
 }
 
-export default withTranslation("contactForm")(ContactForm);
+export default withTranslation("contactForm")(ContactForm)

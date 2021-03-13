@@ -9,38 +9,43 @@ export const fragment = graphql`
     technologies
     url
     locale
-    coverImage{
+    coverImage {
       name
       full: childImageSharp {
-        fluid(maxWidth: 960, maxHeight: 540, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid_withWebp
-          ...GatsbyImageSharpFluidLimitPresentationSize
-        }
+        gatsbyImageData(
+          layout: CONSTRAINED
+          width: 900
+          height: 540
+          transformOptions: { cropFocus: CENTER }
+        )
       }
-      thumb:childImageSharp{
-        fluid(maxWidth: 456, maxHeight: 325, cropFocus: CENTER){
-          ...GatsbyImageSharpFluid_withWebp
-          ...GatsbyImageSharpFluidLimitPresentationSize
-           
-        }
+      thumb: childImageSharp {
+        gatsbyImageData(
+          layout: CONSTRAINED
+          width: 456
+          height: 325
+          transformOptions: { cropFocus: CENTER }
+        )
       }
     }
     images {
       name
       full: childImageSharp {
-        fluid(maxWidth: 960, maxHeight: 540, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid_withWebp
-          ...GatsbyImageSharpFluidLimitPresentationSize
-        }
+        gatsbyImageData(
+          layout: CONSTRAINED
+          width: 900
+          height: 540
+          transformOptions: { cropFocus: CENTER }
+        )
       }
-      thumb:childImageSharp{
-        fluid(maxWidth: 456, maxHeight: 325, cropFocus: CENTER){
-          ...GatsbyImageSharpFluid_withWebp
-          ...GatsbyImageSharpFluidLimitPresentationSize
-           
-        }
+      thumb: childImageSharp {
+        gatsbyImageData(
+          layout: CONSTRAINED
+          width: 456
+          height: 325
+          transformOptions: { cropFocus: CENTER }
+        )
       }
     }
   }
- 
 `

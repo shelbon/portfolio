@@ -12,9 +12,14 @@ module.exports = {
       "Patrick shéron moucle  développeur web et mobile,voici mon portfolio.",
     author: "@PSMoucle",
   },
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH:true
+  },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
+    "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
@@ -61,6 +66,8 @@ module.exports = {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: `fr`,
+        locales:process.env.LOCALES || `fr en`,
+        prefixDefault:true,
         configPath: require.resolve(`./i18n/config.json`),
       },
     },
@@ -71,6 +78,8 @@ module.exports = {
         i18nextOptions: {
           detection: { order: ["navigator"] },
           lng: "fr",
+          fallbackLng:"en",
+          preload:["en","fr"],
           keySeparator: false,
           lowerCaseLng: true,
           transSupportBasicHtmlNodes: true,
@@ -78,10 +87,7 @@ module.exports = {
               ,"navigation","slideShow","404","seo"],
           interpolation: {
             escapeValue: false,
-          },
-          react: {
-            wait: true,
-            },
+          }
         },
       },
     },

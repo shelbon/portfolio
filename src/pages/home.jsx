@@ -54,6 +54,7 @@ const IndexPage = ({ data ,...props}) => {
   let cv = data.allFile.nodes.find(cv =>regex.test(cv.name))
   let { isMobile } = useDeviceDetect()
   const { t, i18n } = useTranslation(["home", "seo"])
+  console.log(props.pageContext)
  const pageName=props.pageContext.originalPath.replaceAll('/','')
   return (
     <  >

@@ -6,7 +6,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl:"https://mouclepatrick.netlify.app",
+    siteUrl: "https://mouclepatrick.netlify.app",
     title: "Portfolio de Patrick Shéron Moucle Developpeur informatique",
     description:
       "Patrick shéron moucle  développeur web et mobile,voici mon portfolio.",
@@ -14,7 +14,7 @@ module.exports = {
   },
   flags: {
     FAST_DEV: true,
-    FAST_REFRESH:true
+    FAST_REFRESH: true,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -56,18 +56,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-          icon: `src/images/logo.svg`,
-          icon_options: {
-              purpose: `maskable`,
-          },
+        icon: `src/images/logo.svg`,
+        icon_options: {
+          purpose: `maskable`,
+        },
       },
-  },
+    },
     {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: `fr`,
-        locales:process.env.LOCALES || `fr en`,
-        prefixDefault:true,
+        locales: process.env.LOCALES || `fr en`,
+        prefixDefault: true,
         configPath: require.resolve(`./i18n/config.json`),
       },
     },
@@ -78,16 +78,24 @@ module.exports = {
         i18nextOptions: {
           detection: { order: ["navigator"] },
           lng: "fr",
-          fallbackLng:"en",
-          preload:["en","fr"],
+          fallbackLng: "en",
+          preload: ["en", "fr"],
           keySeparator: false,
           lowerCaseLng: true,
+          prefixDefault: true,
           transSupportBasicHtmlNodes: true,
-          ns: ["home","contactForm","projectItem"
-              ,"navigation","slideShow","404","seo"],
+          ns: [
+            "home",
+            "contactForm",
+            "projectItem",
+            "navigation",
+            "slideShow",
+            "404",
+            "seo",
+          ],
           interpolation: {
             escapeValue: false,
-          }
+          },
         },
       },
     },
@@ -105,6 +113,5 @@ module.exports = {
         ],
       },
     },
-
   ],
 }

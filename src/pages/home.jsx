@@ -40,7 +40,7 @@ import "normalize.css"
 
 export const query = graphql`
   {
-    allFile(filter: { name: { regex: "/^CV-/" } }) {
+    allFile(filter: { name: { regex: "/^CV[_\\\\-\\\\.]/" } }) {
       nodes {
         name
         publicURL
@@ -48,17 +48,18 @@ export const query = graphql`
     }
   }
 `
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data ,...props}) => {
   const { locale } = useLocalization()
-  let cv = data.allFile.nodes.find(cv => cv.name.includes(`-${locale}`))
+  const regex= new RegExp(`[_ -]${locale}`,"gi")
+  let cv = data.allFile.nodes.find(cv =>regex.test(cv.name))
   let { isMobile } = useDeviceDetect()
   const { t, i18n } = useTranslation(["home", "seo"])
-
+ const pageName=props.pageContext.originalPath.replaceAll('/','')
   return (
-    <>
-      <div className={wrapper}>
+    <  >
+      <div className={wrapper} >
         <SEO title={t("seo:title")} description={t("seo:description")} />
-        <Header cv={cv} />
+        <Header cv={cv} pageName={pageName}/>
         <section id="home" className={sectionIntro}>
           <div className={section__intro__details__container}>
             <h1
@@ -70,7 +71,7 @@ const IndexPage = ({ data }) => {
               </Trans>
             </h1>
             <Link
-              to="#project"
+              to={`/${pageName}#project`}
               className={`${section__intro__link} ${button}`}
             >
               <p>{t("intro.cta.work")}</p>
@@ -137,7 +138,7 @@ const IndexPage = ({ data }) => {
         </a>
         <ContactForm id="contact" />
       </section>
-      <Footer />
+      <Footer   />
     </>
   )
 }

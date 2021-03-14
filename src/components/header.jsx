@@ -1,9 +1,9 @@
 import React from "react"
 import Nav from "./UI/Nav/Nav"
  
-const Header = ({cv}) => (
+const Header = ({cv,pageName}) => (
   <header>
-      <Nav cv={cv} />
+      <Nav cv={cv} pageName={pageName} />
   </header>
 )
 

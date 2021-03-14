@@ -58,7 +58,7 @@ header,
 .nav__link__text {
   font-size: 0.8rem;
 }
- 
+
 /* desktop mode     capabilities */
 @media screen and (min-width: 1224px) {
   header,

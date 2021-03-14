@@ -6,13 +6,13 @@ import {
   nav__link,
   nav__link__icon,
   nav__link__text,
-  phone
+  phone,
 } from "./Nav.module.css"
 import { useTranslation } from "react-i18next"
 import { FaHome, FaBriefcase, FaAddressCard, FaPhone } from "react-icons/fa"
-import { LocalizedLink  } from "gatsby-theme-i18n"
+import { LocalizedLink } from "gatsby-theme-i18n"
 
-const Nav = ({ cv }) => {
+const Nav = ({ cv, pageName }) => {
   const { t } = useTranslation("navigation")
   return (
     <nav
@@ -23,25 +23,25 @@ const Nav = ({ cv }) => {
     >
       <ul className={nav__list}>
         <li className={nav__item}>
-          <LocalizedLink className={nav__link} to="#home">
+          <LocalizedLink className={nav__link} to="/home">
             <FaHome className={nav__link__icon} />
             <p className={nav__link__text}>{t("home")}</p>
           </LocalizedLink>
         </li>
         <li className={nav__item}>
-          <LocalizedLink className={nav__link} to="/#about">
+          <LocalizedLink className={nav__link} to={`/${pageName}#about`}>
             <FaAddressCard className={nav__link__icon} />
             <p className={nav__link__text}>{t("about")}</p>
           </LocalizedLink>
         </li>
         <li className={nav__item}>
-          <LocalizedLink className={nav__link} to="/#project">
+          <LocalizedLink className={nav__link} to={`/${pageName}#project`}>
             <FaBriefcase className={nav__link__icon} />
             <p className={nav__link__text}>{t("work")}</p>
           </LocalizedLink>
         </li>
         <li className={nav__item}>
-          <LocalizedLink className={nav__link} to="/#contact">
+          <LocalizedLink className={nav__link} to={`/${pageName}#contact`}>
             <FaAddressCard className={nav__link__icon} />
             <p className={nav__link__text}>{t("contact")}</p>
           </LocalizedLink>

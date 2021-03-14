@@ -20,7 +20,7 @@ const NotFoundPage = () => {
           <h1 style={{ color: "#ffffff" }}>{t("title")}</h1>
           <p style={{ color: "#ffffff" }}>{t("body")} </p>
         </div>
-        <Link to="/" className="button">
+        <Link to="/home" className="button">
           <p>{t("redirect.link")}</p>
         </Link>
       </div>

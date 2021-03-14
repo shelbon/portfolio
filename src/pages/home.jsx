@@ -50,11 +50,12 @@ export const query = graphql`
 `
 const IndexPage = ({ data ,...props}) => {
   const { locale } = useLocalization()
-  const regex= new RegExp(`[_ -]${locale}`,"gi")
-  let cv = data.allFile.nodes.find(cv =>regex.test(cv.name))
+  const cvRegex= new RegExp(`[_ -]${locale}`,"gi")
+  const pathNameRegex= new RegExp(`\\/`,"gmi")
+  let cv = data.allFile.nodes.find(cv =>cvRegex.test(cv.name))
   let { isMobile } = useDeviceDetect()
   const { t, i18n } = useTranslation(["home", "seo"])
- const pageName=props.pageContext.originalPath.replaceAll('/','')
+ const pageName=props.pageContext.originalPath.replace(pathNameRegex,"")
   return (
     <  >
       <div className={wrapper} >

@@ -36,7 +36,7 @@ import DevIllustration from "../images/dev.svg"
 import Header from "../components/header"
 import Footer from "../components/UI/Footer/Footer"
 import "../styles/layout.css"
-import "normalize.css"
+
 
 export const query = graphql`
   {
@@ -48,7 +48,7 @@ export const query = graphql`
     }
   }
 `
-const IndexPage = ({ data ,...props}) => {
+const HomePage = ({ data ,...props}) => {
   const { locale } = useLocalization()
   const cvRegex= new RegExp(`[_ -]${locale}`,"gi")
   const pathNameRegex= new RegExp(`\\/`,"gmi")
@@ -143,4 +143,4 @@ const IndexPage = ({ data ,...props}) => {
     </>
   )
 }
-export default IndexPage
+export default HomePage

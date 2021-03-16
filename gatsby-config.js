@@ -82,7 +82,6 @@ module.exports = {
           preload: ["en", "fr"],
           keySeparator: false,
           lowerCaseLng: true,
-          prefixDefault: true,
           transSupportBasicHtmlNodes: true,
           ns: [
             "home",
@@ -92,11 +91,18 @@ module.exports = {
             "slideShow",
             "404",
             "seo",
+            "maintenance",
           ],
           interpolation: {
             escapeValue: false,
           },
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["PASS_PHRASE"]
       },
     },
     {

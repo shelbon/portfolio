@@ -1,0 +1,12 @@
+.maintenance_bodyTag {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.maintenance_container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}

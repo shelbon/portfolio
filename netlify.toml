@@ -8,85 +8,14 @@ for = "/*"
 Access-Control-Allow-Origin = "*"
 
 [[redirects]]
-from = "/"
-to = "/fr/home"
+from = "/*"
+to = "/fr/maintenance"
 status = 301
 force=true
 conditions = { Language = ["fr","fr-fr","fr-ca"]}
 [[redirects]]
-from = "/fr"
-to = "/fr/home"
-status = 301
-force=true
-conditions = { Language = ["fr","fr-fr","fr-ca"]}
-
-[[redirects]]
-from = "/"
-to = "/en/home"
-status = 301
-force=false
-conditions = { Language = [
-  "af",
-  "sq",
-  "ar",
-  "eu",
-  "bg",
-  "be",
-  "ca",
-  "zh",
-  "hr",
-  "cs",
-  "da",
-  "nl",
-  "en",
-  "et",
-  "fo",
-  "fa",
-  "fi",
-  "gd",
-  "de",
-  "el",
-  "he",
-  "hi",
-  "hu",
-  "is",
-  "id",
-  "it",
-  "ja",
-  "ko",
-  "lv",
-  "lt",
-  "mk",
-  "mt",
-  "no",
-  "pl",
-  "pt",
-  "rm",
-  "ro",
-  "ru",
-  "sz",
-  "sr",
-  "sk",
-  "sl",
-  "sb",
-  "es",
-  "sx",
-  "sv",
-  "th",
-  "ts",
-  "tn",
-  "tr",
-  "uk",
-  "ur",
-  "ve",
-  "vi",
-  "xh",
-  "ji",
-  "zu"
-] }
-[[redirects]]
-from = "/en"
-to = "/en/home"
+from = "/*"
+to = "/en/maintenance"
 status = 301
 force=true
 conditions = { Language = [
@@ -147,5 +76,6 @@ conditions = { Language = [
   "xh",
   "ji",
   "zu"
-] }
+]}
 
+ 

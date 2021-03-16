@@ -9,9 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-function SEO({ description, lang, meta, title }) {
-  const { site,allFile } = useStaticQuery(query);
-  const metaDescription = description||site.siteMetadata.description;
+function SEO({ description, lang, meta, title, bodyAttributes }) {
+  const { site, allFile } = useStaticQuery(query)
+  const metaDescription = description || site.siteMetadata.description
   return (
     <Helmet
       htmlAttributes={{
@@ -34,16 +34,19 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:type`,
           content: `website`,
-        }
+        },
       ].concat(meta)}
       link={[
         {
-          rel:"icon",
-          href:`${allFile.nodes[0].publicURL}`,
-          type:"image/svg+xml",
-          size:"any",
-        }
+          rel: "icon",
+          href: `${allFile.nodes[0].publicURL}`,
+          type: "image/svg+xml",
+          size: "any",
+        },
       ]}
+      bodyAttributes={{
+        ...(bodyAttributes != null && { class: bodyAttributes }),
+      }}
     />
   )
 }
@@ -62,25 +65,26 @@ SEO.propTypes = {
 }
 
 export default SEO
-const query=graphql`
-      query {
-        site {
-          siteMetadata {
-          defaultTitle: title
-          defaultDescription: description
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        defaultTitle: title
+        defaultDescription: description
       }
     }
     allFile(
-                    limit: 1
-                    filter: {
-                        name: { eq: "logo" }
-                        ext: { eq: ".svg" }
-                        sourceInstanceName: { eq: "images" }
-                        relativeDirectory: { eq: "" }
-                    }
-                ) {
-                    nodes {
-                        publicURL
-                    }
-                }
-      }`
+      limit: 1
+      filter: {
+        name: { eq: "logo" }
+        ext: { eq: ".svg" }
+        sourceInstanceName: { eq: "images" }
+        relativeDirectory: { eq: "" }
+      }
+    ) {
+      nodes {
+        publicURL
+      }
+    }
+  }
+`

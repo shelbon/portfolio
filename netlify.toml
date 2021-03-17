@@ -1,0 +1,10 @@
+[dev]
+command="npm start"
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+Access-Control-Allow-Origin = "*"
+
+ 

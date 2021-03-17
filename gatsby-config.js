@@ -23,7 +23,12 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
-    "gatsby-plugin-netlify",
+    {
+       resolve:"gatsby-plugin-netlify",
+      options:{
+        generateMatchPathRewrites: false
+      }
+    },
     "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-source-filesystem",

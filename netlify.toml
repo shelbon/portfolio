@@ -8,7 +8,12 @@ for = "/*"
 [headers.values]
 Access-Control-Allow-Origin = "*"
 
- 
+ [[redirects]]
+  from = "/*"
+  to = "/fr/maintenance"
+  status = 301
+  force = true
+  conditions = { Language = "fr,fr-fr,fr-ca" }
   [[redirects]]
   from = "/*"
   to = "/en/maintenance"
@@ -73,11 +78,6 @@ conditions = { Language = [
   "ji",
   "zu"
 ] }
-[[redirects]]
-  from = "/*"
-  to = "/fr/maintenance"
-  status = 301
-  force = true
-  conditions = { Language = ["fr","fr-fr","fr-ca"] }
+
  
 

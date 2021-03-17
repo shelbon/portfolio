@@ -133,8 +133,8 @@ exports.createPages = ({ actions }) => {
   const  {createRedirect}=actions
   createRedirect({
     fromPath: "/*",
-    toPath: "/fr/maintenance",
-    statusCode: 200,
+    toPath: "/en/maintenance/index.html",
+    statusCode: 302,
     force:true,
     Language:["fr","fr-fr","fr-ca"]
   })

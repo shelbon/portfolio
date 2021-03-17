@@ -1,7 +1,6 @@
 [dev]
 base="./"
 command="npm run start"
-publish="public/"
 
 [[headers]]
 for = "/*"
@@ -18,6 +17,7 @@ force = false
 from = "/fr/*"
 to = "/fr/maintenance/index.html"
 status = 200
+force = false
 [[redirects]]
   from = "/*"
   to = "/fr/maintenance"

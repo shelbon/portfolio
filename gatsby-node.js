@@ -145,14 +145,14 @@ createRedirect({
       fromPath: "/*",
       toPath:  "/fr/maintenance",
       statusCode : 301,
-      isPermanent : true,
+      force : true,
      Language : ["fr","fr-fr","fr-ca"] 
   })
 createRedirect({
   fromPath: "/*",
   toPath:  "/en/maintenance",
   statusCode : 301,
-  isPermanent : true,
+  force : true,
   Language: [
     "af",
     "sq",

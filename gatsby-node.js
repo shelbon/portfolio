@@ -134,7 +134,7 @@ exports.createPages = ({ actions }) => {
   createRedirect({
     fromPath: "/*",
     toPath: "/fr/maintenance",
-    statusCode: 301,
+    statusCode: 302,
     force:true,
     Language:["fr","fr-fr","fr-ca"]
   })

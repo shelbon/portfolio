@@ -8,21 +8,7 @@ for = "/*"
 [headers.values]
 Access-Control-Allow-Origin = "*"
 
-[[redirects]]
-from = "/en/*"
-to = "/en/maintenance"
-status = 200
-force = false
-[[redirects]]
-from = "/en/*"
-to = "/en/maintenance"
-status = 301
-force = false
-[[redirects]]
-from = "/fr/*"
-to = "/fr/maintenance"
-status = 200
-force = false
+
 [[redirects]]
   from = "/*"
   to = "/fr/maintenance"
@@ -93,13 +79,4 @@ conditions = { Language = [
   "ji",
   "zu"
 ] }
-[[redirects]]
-from = "/*"
-to = "/fr/maintenance/index.html"
-status = 200
-force = false
-[[redirects]]
-from = "/*"
-to = "/en/maintenance/index.html"
-status = 200
-force = false
+

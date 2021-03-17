@@ -132,28 +132,28 @@ exports.onCreateNode = async (
 exports.createPages = ({ actions }) => {
   const  {createRedirect}=actions
   createRedirect({
-    fromPath= "/*",
+    fromPath: "/*",
     toPath:  "/fr/maintenance/index.html",
     statusCode : 202,
 })
 createRedirect({
-  fromPath= "/*",
+  fromPath: "/*",
   toPath:  "/en/maintenance/index.html",
   statusCode : 202,
 })
     createRedirect({
-      fromPath= "/*",
+      fromPath: "/*",
       toPath:  "/fr/maintenance",
       statusCode : 301,
       isPermanent : true,
      Language : ["fr","fr-fr","fr-ca"] 
   })
 createRedirect({
-  fromPath= "/*",
+  fromPath: "/*",
   toPath:  "/en/maintenance",
   statusCode : 301,
   isPermanent : true,
-  Language = [
+  Language: [
     "af",
     "sq",
     "ar",

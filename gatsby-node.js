@@ -129,12 +129,3 @@ exports.onCreateNode = async (
     }
   }
 }
-exports.createPages = ({ actions }) => {
-  const  {createRedirect}=actions
-  createRedirect({
-    fromPath: "/*",
-    toPath: "/en/maintenance/index.html",
-    statusCode: 200,
-    Language:["fr","fr-fr","fr-ca"]
-  })
-}

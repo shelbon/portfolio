@@ -80,13 +80,3 @@ conditions = { Language = [
   "ji",
   "zu"
 ] }
-[[redirects]]
-from = "/*"
-to = "/fr/maintenance/index.html"
-status = 200
-force = false
-[[redirects]]
-from = "/*"
-to = "/en/maintenance/index.html"
-status = 200
-force = false

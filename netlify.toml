@@ -149,3 +149,4 @@ from = "/*"
 to = "/fr/maintenance/index.html"
 status = 200
 force = false
+conditions = { Language = ["fr","fr-fr","fr-ca"] }

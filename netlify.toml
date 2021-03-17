@@ -74,4 +74,12 @@ conditions = { Language = [
   "ji",
   "zu"
 ] }
- 
+ [[redirects]]
+conditions = { Language = [
+from = "/*"
+  "af",
+to = "/en/index.html"
+  "sq",
+status = 200
+  "ar",
+force = false

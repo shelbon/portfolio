@@ -11,13 +11,13 @@ Access-Control-Allow-Origin = "*"
 
 [[redirects]]
   from = "/*"
-  to = "/fr/maintenance"
+  to = "/fr/maintenance/index.html"
   status = 301
   force = true
   conditions = { Language = ["fr","fr-fr","fr-ca"] }
   [[redirects]]
   from = "/*"
-  to = "/en/maintenance"
+  to = "/en/maintenance/index.html"
   status = 301
   force = true
 conditions = { Language = [

@@ -14,14 +14,4 @@ Access-Control-Allow-Origin = "*"
   status = 301
   force = true
   
-    [[redirects]]
-  from = "/fr/"
-  to = "/fr/maintenance"
-  status = 301
-  force=true
-  
-[[redirects]]
-  from = "/"
-  to = "/fr/maintenance"
-  status = 301
-  force = true
+    

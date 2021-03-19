@@ -13,7 +13,7 @@ Access-Control-Allow-Origin = "*"
   to = "/fr/maintenance"
   status = 301
   force = true
-  conditions = { Language = ["fr","fr-fr","fr-ca"] }
+    conditions = { Language = ["fr"]}
   [[redirects]]
   from = "/en/home"
   to = "/en/maintenance"
@@ -24,7 +24,7 @@ Access-Control-Allow-Origin = "*"
   to = "/fr/maintenance"
   status = 301
   force=true
-    conditions = { Language = ["fr","fr-fr","fr-ca"] }
+    conditions = { Language = ["fr"] }
    [[redirects]]
   from = "/en/"
   to = "/en/maintenance"
@@ -36,7 +36,7 @@ Access-Control-Allow-Origin = "*"
   to = "/fr/maintenance"
   status = 301
   force = true
-  conditions = { Language = ["fr","fr-fr","fr-ca"] }
+  conditions = { Language = ["fr"] }
 [[redirects]]
   from = "/"
   to = "/en/maintenance"

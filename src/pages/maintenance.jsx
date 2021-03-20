@@ -10,11 +10,13 @@ import {
   
 } from "../styles/maintenance.module.css"
 import "../styles/normalize.css"
+import LanguageSwitcher from "../components/UI/LanguageSwitcher/LanguageSwitcher"
 const UnderMaintenance = () => {
   const { t } = useTranslation(["maintenance"])
   return (
     <>
       <SEO title={t("title")} description={t("description")} bodyAttributes={maintenance_bodyTag} />
+      <LanguageSwitcher />
       <section className={maintenance_container}>
         <h1>{t("title")}</h1>
         <p>{t("body")}</p>

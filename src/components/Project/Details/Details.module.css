@@ -41,7 +41,7 @@
 
 .header__title > h2 {
   font-family: "Montserrat", sans-serif !important;
-  font-variation-settings: 'wght' 764;
+  font-weight: 764;
 }
 
 .close-icon {

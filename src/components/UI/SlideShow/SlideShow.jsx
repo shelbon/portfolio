@@ -22,11 +22,9 @@ const SlideShow = props => {
         <div className={slide} key={index}>
           <GatsbyImage
             className={slide__image}
-             image={image.full.gatsbyImageData}
+            image={image.full.gatsbyImageData}
           />
-          <span className={slide__caption}>
-            {t(image.name)}
-          </span>
+          <span className={slide__caption}>{t(image.name)}</span>
         </div>
       ))}
     </Carousel>

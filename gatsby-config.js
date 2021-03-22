@@ -23,7 +23,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
-      "gatsby-plugin-netlify",
+    "gatsby-plugin-netlify",
     "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-source-filesystem",
@@ -65,7 +65,7 @@ module.exports = {
     {
       resolve: `gatsby-theme-i18n`,
       options: {
-        defaultLang: `en`,
+        defaultLang: `fr`,
         locales: process.env.LOCALES || `fr en`,
         prefixDefault: true,
         configPath: require.resolve(`./i18n/config.json`),
@@ -79,9 +79,10 @@ module.exports = {
           detection: { order: ["navigator"] },
           lng: "fr",
           fallbackLng: "en",
-          preload: ["en", "fr"],
+          preload: ["fr", "en"],
           keySeparator: false,
           lowerCaseLng: true,
+          debug: true,
           transSupportBasicHtmlNodes: true,
           ns: [
             "home",
@@ -102,7 +103,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ["PASS_PHRASE"]
+        allowList: ["PASS_PHRASE"],
       },
     },
     {

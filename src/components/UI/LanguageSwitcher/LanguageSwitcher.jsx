@@ -1,17 +1,26 @@
 import React from "react"
-import i18nConfig from  "../../../../i18n/config.json"
-const LanguageSwitcher = () => {
-   return(
-     <span>
-        {
-          i18nConfig.map((locale)=>{
-            return <p lang={locale.code} >{locale.name}</p>
-          })
-        }
-     </span>
-   )
-   
+import { useLocalization } from "gatsby-theme-i18n"
+import { useTranslation, withTranslation } from "react-i18next"
+const LanguageSwitcher = ({ i18n }) => {
+  const { config } = useLocalization()
+  const changeLanguage = lng => {
+    i18n.changeLanguage(lng)
+  }
+
+  return (
+    <span>
+      {config.map(locale => {
+        return (
+          <button
+            lang={locale.code}
+            className=""
+            onClick={() => changeLanguage(locale.code)}
+          >
+            {locale.name}
+          </button>
+        )
+      })}
+    </span>
+  )
 }
-export default LanguageSwitcher
-
-
+export default withTranslation()(LanguageSwitcher)

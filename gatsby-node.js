@@ -1,6 +1,5 @@
 const fs = require("fs")
 const { graphql } = require("gatsby")
-const  {createRedirect}=require("gatsby-plugin-netlify")
 exports.onPreBootstrap = ({ reporter }) => {
   const contentPath = `${__dirname}/content/projects`
 

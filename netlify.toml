@@ -9,7 +9,8 @@ for = "/*"
 Access-Control-Allow-Origin = "*"
 
  
-  [[redirects]]
+ 
+[[redirects]]
   from = "/*"
   to = "/en/maintenance/"
   status = 301
@@ -73,10 +74,11 @@ Access-Control-Allow-Origin = "*"
   "ji",
   "zu"
 ] }
- [[redirects]]
+[[redirects]]
   from = "/*"
   to = "/fr/maintenance/"
   status = 301
   force=true
+ 
   
     

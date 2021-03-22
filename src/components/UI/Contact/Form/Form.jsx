@@ -177,9 +177,7 @@ function ContactForm({ t, i18n }) {
                 onChange={handleChange}
                 value={values.email}
                 className={`${form__input} ${
-                  errors.email && touched.email
-                    ? isInvalid
-                    : ""
+                  errors.email && touched.email ? isInvalid : ""
                 }`}
                 yup
                 aria-invalid={errors.email && touched.email ? "true" : "false"}
@@ -190,10 +188,7 @@ function ContactForm({ t, i18n }) {
                 className={form__error}
               />
 
-              <label
-                htmlFor="message"
-                className={form__label}
-              >
+              <label htmlFor="message" className={form__label}>
                 {t("contactForm.input.message")}:
               </label>
               <Field
@@ -205,9 +200,7 @@ function ContactForm({ t, i18n }) {
                 onChange={handleChange}
                 className={` ${form__inputMessage}
                           ${form__input} ${
-                  errors.message && touched.message
-                    ? isInvalid
-                    : ""
+                  errors.message && touched.message ? isInvalid : ""
                 }`}
                 yup
                 aria-invalid={

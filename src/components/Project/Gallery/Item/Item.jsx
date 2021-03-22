@@ -10,7 +10,7 @@ import {
   portfolio__item__overlay__header__skills,
   portfolio__item__overlay__cta,
   portfolio__item__overlay__cta__code_source,
-  portfolio__item__overlay__cta__link
+  portfolio__item__overlay__cta__link,
 } from "./Item.module.css"
 import DetailsProject from "../../Details/Details"
 import { useTranslation } from "react-i18next"
@@ -50,22 +50,12 @@ const ProjectGalleryItem = props => {
         className={portfolio__item__overlay}
         data-overlay-id={props.project.id}
       >
-        <div
-          className={portfolio__item__overlay__header}
-        >
-          <h1
-            className={
-              portfolio__item__overlay__header__title
-            }
-          >
+        <div className={portfolio__item__overlay__header}>
+          <h1 className={portfolio__item__overlay__header__title}>
             {props.project.title}
           </h1>
           {props.project.technologies && (
-            <p
-              className={
-                portfolio__item__overlay__header__skills
-              }
-            >
+            <p className={portfolio__item__overlay__header__skills}>
               {props.project.technologies.length > 1
                 ? `${props.project.technologies[0]}/${props.project.technologies[1]}`
                 : props.project.technologies[0]}
@@ -78,18 +68,14 @@ const ProjectGalleryItem = props => {
               href={props.project.sourceCode}
               target="_blank"
               rel="noopener noreferrer"
-              className={
-                portfolio__item__overlay__cta__code_source
-              }
+              className={portfolio__item__overlay__cta__code_source}
             >
               code source
             </a>
           )}
           <button
             onClick={handleClickOpen}
-            className={
-              portfolio__item__overlay__cta__link
-            }
+            className={portfolio__item__overlay__cta__link}
           >
             {t("more_info")}
           </button>

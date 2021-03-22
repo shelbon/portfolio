@@ -1,8 +1,8 @@
 {
-    "home":"Home",
-    "about":"About",
-    "work":"Work",
-    "contact":"Contact",
-    "resume":"Resume",
-    "phone":"Call"
+  "home": "Home",
+  "about": "About",
+  "work": "Work",
+  "contact": "Contact",
+  "resume": "Resume",
+  "phone": "Call"
 }

@@ -8,7 +8,7 @@ import {
   closeIcon,
   container,
   SlideShow__container,
-  details__project
+  details__project,
 } from "./Details.module.css"
 import CloseIcon from "@material-ui/icons/Close"
 import IconButton from "@material-ui/core/IconButton"
@@ -56,12 +56,14 @@ const DetailsProject = ({
             {body && (
               <MDXRenderer
                 technologies={technologies}
-                styles={ header,
+                styles={
+                  (header,
                   header__title,
                   closeIcon,
                   container,
                   SlideShow__container,
-                  details__project}
+                  details__project)
+                }
               >
                 {body}
               </MDXRenderer>

@@ -79,7 +79,7 @@ module.exports = {
           detection: { order: ["navigator"] },
           lng: "fr",
           fallbackLng: "en",
-          preload: ["en", "fr"],
+          preload: ["fr", "en"],
           keySeparator: false,
           lowerCaseLng: true,
           prefixDefault: true,
@@ -97,6 +97,12 @@ module.exports = {
             escapeValue: false,
           },
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["PASS_PHRASE"],
       },
     },
     {

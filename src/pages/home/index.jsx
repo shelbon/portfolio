@@ -139,4 +139,4 @@ const HomePage = ({ data, ...props }) => {
     </>
   )
 }
-export default IndexPage
+export default HomePage

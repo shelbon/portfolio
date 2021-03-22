@@ -1,14 +1,13 @@
 import React from "react"
-import SEO from "../components/seo"
-import "../styles/layout.css"
+import SEO from "../../components/seo"
+import "../../styles/layout.css"
 import {
   maintenance_container,
   maintenance_title,
   maintenance_body,
   maintenance_bodyTag,
-} from "../styles/maintenance.module.css"
-import "../styles/normalize.css"
-import LanguageSwitcher from "../components/UI/LanguageSwitcher/LanguageSwitcher"
+} from "../../styles/maintenance.module.css"
+import "../../styles/normalize.css"
 import { withTranslation } from "react-i18next"
 const UnderMaintenance = ({ t }) => {
   return (

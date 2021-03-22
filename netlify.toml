@@ -8,10 +8,75 @@ for = "/*"
 [headers.values]
 Access-Control-Allow-Origin = "*"
 
+ 
   [[redirects]]
-  from = "/fr/home"
-  to = "/fr/maintenance"
+  from = "/*"
+  to = "/en/maintenance/"
   status = 301
-  force = true
+  force=true
+  conditions = { Language = [
+  "af",
+  "sq",
+  "ar",
+  "eu",
+  "bg",
+  "be",
+  "ca",
+  "zh",
+  "hr",
+  "cs",
+  "da",
+  "nl",
+  "en",
+  "et",
+  "fo",
+  "fa",
+  "fi",
+  "gd",
+  "de",
+  "el",
+  "he",
+  "hi",
+  "hu",
+  "is",
+  "id",
+  "it",
+  "ja",
+  "ko",
+  "lv",
+  "lt",
+  "mk",
+  "mt",
+  "no",
+  "pl",
+  "pt",
+  "rm",
+  "ro",
+  "ru",
+  "sz",
+  "sr",
+  "sk",
+  "sl",
+  "sb",
+  "es",
+  "sx",
+  "sv",
+  "th",
+  "ts",
+  "tn",
+  "tr",
+  "uk",
+  "ur",
+  "ve",
+  "vi",
+  "xh",
+  "ji",
+  "zu"
+] }
+ [[redirects]]
+  from = "/*"
+  to = "/fr/maintenance/"
+  status = 301
+  force=true
   
     

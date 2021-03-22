@@ -1,6 +1,7 @@
 import React from "react"
-import aboutme from "../images/about_me.svg"
-import useDeviceDetect from "../utils/useDeviceDetect"
+import aboutme from "../../images/about_me.svg"
+import DevIllustration from "../../images/dev.svg"
+import useDeviceDetect from "../../utils/useDeviceDetect"
 import {
   wrapper,
   wrapperAbout,
@@ -25,18 +26,16 @@ import {
   section__about__body,
   section__contact__phone,
   button,
-} from "../styles/index.module.css"
-import SEO from "../components/seo"
-import ProjectGallery from "../components/Project/Gallery/Gallery"
-import ContactForm from "../components/UI/Contact/Form/Form"
+} from "../../styles/index.module.css"
+import SEO from "../../components/seo"
+import ProjectGallery from "../../components/Project/Gallery/Gallery"
+import ContactForm from "../../components/UI/Contact/Form/Form"
 import { graphql } from "gatsby"
 import { useTranslation, Trans } from "react-i18next"
 import { useLocalization, LocalizedLink as Link } from "gatsby-theme-i18n"
-import DevIllustration from "../images/dev.svg"
-import Header from "../components/header"
-import Footer from "../components/UI/Footer/Footer"
-import "../styles/layout.css"
-import "normalize.css"
+import Header from "../../components/header"
+import Footer from "../../components/UI/Footer/Footer"
+import "../../styles/layout.css"
 
 export const query = graphql`
   {
@@ -48,19 +47,19 @@ export const query = graphql`
     }
   }
 `
-const IndexPage = ({ data ,...props}) => {
+const HomePage = ({ data, ...props }) => {
   const { locale } = useLocalization()
-  const cvRegex= new RegExp(`[_ -]${locale}`,"gi")
-  const pathNameRegex= new RegExp(`\\/`,"gmi")
-  let cv = data.allFile.nodes.find(cv =>cvRegex.test(cv.name))
+  const cvRegex = new RegExp(`[_ -]${locale}`, "gi")
+  const pathNameRegex = new RegExp(`\\/`, "gmi")
+  let cv = data.allFile.nodes.find(cv => cvRegex.test(cv.name))
   let { isMobile } = useDeviceDetect()
   const { t, i18n } = useTranslation(["home", "seo"])
- const pageName=props.pageContext.originalPath.replace(pathNameRegex,"")
+  const pageName = props.pageContext.originalPath.replace(pathNameRegex, "")
   return (
-    <  >
-      <div className={wrapper} >
+    <>
+      <div className={wrapper}>
         <SEO title={t("seo:title")} description={t("seo:description")} />
-        <Header cv={cv} pageName={pageName}/>
+        <Header cv={cv} pageName={pageName} />
         <section id="home" className={sectionIntro}>
           <div className={section__intro__details__container}>
             <h1
@@ -139,7 +138,7 @@ const IndexPage = ({ data ,...props}) => {
         </a>
         <ContactForm id="contact" />
       </section>
-      <Footer   />
+      <Footer />
     </>
   )
 }

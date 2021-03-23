@@ -79,6 +79,4 @@ Access-Control-Allow-Origin = "*"
   to = "/fr/maintenance/"
   status = 301
   force=true
- 
-  
-    
+  conditions = { Language = ["fr"]}

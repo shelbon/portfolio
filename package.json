@@ -57,7 +57,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": " react-scripts build && gatsby build",
+    "build": "gatsby build",
     "dev-pc-only": "gatsby  develop ",
     "dev-access-same-network": "gatsby develop -H $(hostname)",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",

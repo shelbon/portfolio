@@ -4,16 +4,14 @@ import {
   portfolio__item__container,
   portfolio__item,
   portfolio__item__img__container,
-  portfolio__item__overlay,
-  portfolio__item__overlay__header,
-  portfolio__item__overlay__header__title,
-  portfolio__item__overlay__header__skills,
-  portfolio__item__overlay__cta,
-  portfolio__item__overlay__cta__code_source,
-  portfolio__item__overlay__cta__link,
+  portfolio__item__excerpt__container,
+  portfolio__item__excerpt__text,
+  portfolio__item__excerpt__cta__link,
+  portfolio__item__excerpt__title,
 } from "./Item.module.css"
 import DetailsProject from "../../Details/Details"
 import { useTranslation } from "react-i18next"
+import SkillsPanel from "../../../UI/SkillPanel/skillsPanel"
 const ProjectGalleryItem = props => {
   const [open, setOpen] = React.useState(false)
   const { t } = useTranslation("projectItem")
@@ -25,14 +23,12 @@ const ProjectGalleryItem = props => {
     setOpen(false)
   }
   return (
-    <div className={portfolio__item__container}>
-      <article
-        className={portfolio__item}
-        onMouseEnter={() => props.onMouseEnter()}
-        onClick={() => {
-          props.onClick()
-        }}
-      >
+    <div
+      className={portfolio__item__container}
+      onClick={() => {
+        props.onClick()
+      }}
+    >
         {props.project.images && (
           <GatsbyImage
             image={props.project.coverImage.full.gatsbyImageData}
@@ -42,40 +38,20 @@ const ProjectGalleryItem = props => {
             fadeIn={false}
           />
         )}
-      </article>
-      <div
-        onMouseLeave={() => {
-          props.onMouseLeave()
-        }}
-        className={portfolio__item__overlay}
-        data-overlay-id={props.project.id}
-      >
-        <div className={portfolio__item__overlay__header}>
-          <h1 className={portfolio__item__overlay__header__title}>
+
+        <div className={portfolio__item__excerpt__container}>
+          <p className={portfolio__item__excerpt__title}>
             {props.project.title}
-          </h1>
+          </p>
+          <p className={portfolio__item__excerpt__text}>
+            {props.project.excerpt}
+          </p>
           {props.project.technologies && (
-            <p className={portfolio__item__overlay__header__skills}>
-              {props.project.technologies.length > 1
-                ? `${props.project.technologies[0]}/${props.project.technologies[1]}`
-                : props.project.technologies[0]}
-            </p>
-          )}
-        </div>
-        <div className={portfolio__item__overlay__cta}>
-          {props.project.sourceCode && (
-            <a
-              href={props.project.sourceCode}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={portfolio__item__overlay__cta__code_source}
-            >
-              code source
-            </a>
+            <SkillsPanel skills={props.project.technologies} />
           )}
           <button
             onClick={handleClickOpen}
-            className={portfolio__item__overlay__cta__link}
+            className={portfolio__item__excerpt__cta__link}
           >
             {t("more_info")}
           </button>
@@ -87,7 +63,6 @@ const ProjectGalleryItem = props => {
             />
           )}
         </div>
-      </div>
     </div>
   )
 }

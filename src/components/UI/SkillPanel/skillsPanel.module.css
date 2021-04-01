@@ -1,0 +1,8 @@
+.skills-Panel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  justify-items: center;
+  align-items: center;
+  column-gap: 3px;
+}

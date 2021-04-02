@@ -19,7 +19,7 @@
   outline-offset: 3px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 786px) {
   .portfolio {
     grid-template-columns: repeat(auto-fit, minmax(360px, 390px));
     grid-auto-flow: initial;

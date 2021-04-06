@@ -1,6 +1,4 @@
 import React from "react"
-import aboutme from "../../images/about_me.svg"
-import DevIllustration from "../../images/dev.svg"
 import useDeviceDetect from "../../utils/useDeviceDetect"
 import {
   wrapper,
@@ -21,8 +19,6 @@ import {
   section__titleWhite,
   section__subtitleProject,
   section__intro__link,
-  section__intro__illustration__container,
-  section__about__illustration__container,
   section__about__body,
   section__contact__phone,
   button,
@@ -77,9 +73,6 @@ const HomePage = ({ data, ...props }) => {
               <p>{t("intro.cta.work")}</p>
             </Link>
           </div>
-          <div className={section__intro__illustration__container}>
-            <img src={DevIllustration} alt="intro illustration" />
-          </div>
         </section>
       </div>
 
@@ -103,9 +96,6 @@ const HomePage = ({ data, ...props }) => {
             {t("section.about.title")}
           </h2>
           <div className={section__containerAbout}>
-            <div className={section__about__illustration__container}>
-              <img src={aboutme} alt="illustration about me" />
-            </div>
             <div className={section__about__body}>
               <p>
                 <strong>{t("section.about.body.emphasis")}</strong>{" "}

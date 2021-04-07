@@ -6,11 +6,11 @@
 }
 
 .portfolio__item__excerpt__text {
-  margin: 1rem 0 0 1rem;
+  margin: 1rem 0 1rem 1rem;
 }
 
 .portfolio__item__excerpt__title {
-  margin: 1rem 0 0 1rem;
+  margin: 1rem 0 1rem 1rem;
   font-weight: 700;
 }
 
@@ -25,8 +25,6 @@
   outline: 3px solid var(--clr-accent);
   outline-offset: 3px;
 }
-
- 
 
 .portfolio__item__excerpt__cta__link {
   color: #303030;
@@ -44,22 +42,6 @@
 }
 
 .portfolio__item__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  width: 100%;
-}
-
-@media (min-width: 786px) {
-  .portfolio__item {
-    grid-row: 1 / 4;
-    grid-column: 1;
-  }
-
-  .portfolio__item__container {
-    display: grid;
-    width: initial;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  }
-
- 
+  display: flex;
+  flex-flow: column;
 }

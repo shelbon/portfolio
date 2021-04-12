@@ -1,0 +1,61 @@
+a {
+  color: white;
+  text-decoration: none;
+}
+
+header,
+#nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-color: white;
+  height: 15vh;
+}
+
+.nav__list {
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  align-items: center;
+  justify-content: flex-end;
+  flex-flow: row nowrap;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  height: 15vh;
+}
+
+.nav__item {
+  margin-right: 1.6rem;
+}
+
+.nav__link {
+  color: #303030;
+}
+
+.nav__link:hover {
+  opacity: 0.5;
+}
+
+.nav__link:focus,
+.nav__link:active {
+  outline: var(--border);
+}
+
+.nav__item:nth-of-type(2) {
+  display: inherit;
+}
+
+#phone {
+  display: none;
+}
+
+.nav__item:last-child {
+  display: initial;
+}
+
+.nav__link__text {
+  font-size: 1.34rem;
+}

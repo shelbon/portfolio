@@ -1,10 +1,14 @@
 import React from "react"
-import Nav from "./UI/Nav/Nav"
+import BottomNav from "./UI/Nav/bottomNav"
+import TopNav from "./UI/Nav/TopNav"
 
-const Header = ({ cv, pageName }) => (
-  <header>
-    <Nav cv={cv} pageName={pageName} />
-  </header>
-)
+const Header = ({ isMobile, pageName }) => {
+  if (isMobile === undefined) {
+    return null
+  }
+  return (
+    <header>{isMobile ? <BottomNav /> : <TopNav pageName={pageName} />}</header>
+  )
+}
 
 export default Header

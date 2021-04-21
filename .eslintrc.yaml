@@ -1,0 +1,13 @@
+extends:
+- airbnb
+- plugin:prettier/recommended
+- plugin:react/recommended
+- plugin:react-hooks/recommended
+- plugin:jsx-a11y/recommended
+- prettier/react
+plugins:
+- prettier
+- react
+rules:
+  prettier/prettier:
+  - error

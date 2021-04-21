@@ -25,6 +25,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: ID!
       locale:String!
       title: String!
+      excerpt:String!
       body: String!
       sourceCode:String
       technologies:[String!]
@@ -115,6 +116,7 @@ exports.onCreateNode = async (
         title: node.frontmatter.title,
         images: node.frontmatter.images,
         url: node.frontmatter.url,
+        excerpt:node.frontmatter.excerpt,
         coverImage: node.frontmatter.coverImage,
         sourceCode: node.frontmatter.sourceCode,
         parent: node.id,

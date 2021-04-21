@@ -1,9 +1,6 @@
 import React from "react"
-import aboutme from "../../images/about_me.svg"
-import DevIllustration from "../../images/dev.svg"
 import useDeviceDetect from "../../utils/useDeviceDetect"
 import {
-  wrapper,
   wrapperAbout,
   section,
   section__container,
@@ -21,12 +18,10 @@ import {
   section__titleWhite,
   section__subtitleProject,
   section__intro__link,
-  section__intro__illustration__container,
-  section__about__illustration__container,
   section__about__body,
   section__contact__phone,
   button,
-} from "../../styles/index.module.css"
+} from "./index.module.css"
 import SEO from "../../components/seo"
 import ProjectGallery from "../../components/Project/Gallery/Gallery"
 import ContactForm from "../../components/UI/Contact/Form/Form"
@@ -57,32 +52,27 @@ const HomePage = ({ data, ...props }) => {
   const pageName = props.pageContext.originalPath.replace(pathNameRegex, "")
   return (
     <>
-      <div className={wrapper}>
-        <SEO title={t("seo:title")} description={t("seo:description")} />
-        <Header cv={cv} pageName={pageName} />
-        <section id="home" className={sectionIntro}>
-          <div className={section__intro__details__container}>
-            <h1
-              className={`${section__title} ${section__titleIntro} ${section__titleBlack}`}
-            >
-              <Trans i18nKey="intro" i18n={i18n} t={t}>
-                Je suis Patrick Shéron MOUCLE <br />
-                Développeur informatique.
-              </Trans>
-            </h1>
-            <Link
-              to={`/${pageName}#project`}
-              className={`${section__intro__link} ${button}`}
-            >
-              <p>{t("intro.cta.work")}</p>
-            </Link>
-          </div>
-          <div className={section__intro__illustration__container}>
-            <img src={DevIllustration} alt="intro illustration" />
-          </div>
-        </section>
-      </div>
+      <Header isMobile={isMobile}  pageName={pageName} />
+      <SEO title={t("seo:title")} description={t("seo:description")} />
 
+      <section id="home" className={sectionIntro}>
+        <div className={section__intro__details__container}>
+          <h1
+            className={`${section__title} ${section__titleIntro} ${section__titleBlack}`}
+          >
+            <Trans i18nKey="intro" i18n={i18n} t={t}>
+              Je suis Patrick Shéron MOUCLE <br />
+              Développeur informatique.
+            </Trans>
+          </h1>
+          <Link
+            to={`/${pageName}#project`}
+            className={`${section__intro__link} ${button}`}
+          >
+            <p>{t("intro.cta.work")}</p>
+          </Link>
+        </div>
+      </section>
       <section id="project" className={`${section} ${sectionProject} `}>
         <div className={section__container}>
           <h2 className={section__titleProject}>{t("section.work.title")}</h2>
@@ -103,9 +93,6 @@ const HomePage = ({ data, ...props }) => {
             {t("section.about.title")}
           </h2>
           <div className={section__containerAbout}>
-            <div className={section__about__illustration__container}>
-              <img src={aboutme} alt="illustration about me" />
-            </div>
             <div className={section__about__body}>
               <p>
                 <strong>{t("section.about.body.emphasis")}</strong>{" "}
@@ -116,6 +103,8 @@ const HomePage = ({ data, ...props }) => {
                 <a
                   href={cv.publicURL}
                   className={button}
+                  rel="noopener noreferrer"
+                  target="_blank"
                   style={{ alignSelf: "center" }}
                 >
                   <p>{t("section.about.cta.cv")}</p>

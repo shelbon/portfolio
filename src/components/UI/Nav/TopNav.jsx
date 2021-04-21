@@ -1,11 +1,10 @@
 import React from "react"
 import {
-  nav,
+  topNav,
   nav__list,
   nav__item,
   nav__link,
   nav__link__text,
-  phone,
 } from "./topNav.module.css"
 import { useTranslation } from "react-i18next"
 import { LocalizedLink } from "gatsby-theme-i18n"
@@ -14,7 +13,7 @@ const TopNav = ({ pageName }) => {
   const { t } = useTranslation("navigation")
   return (
   <nav
-      id={nav}
+      id={topNav}
       aria-label="Main menu"
       aria-hidden="false"
       className="js-menu"
@@ -40,13 +39,9 @@ const TopNav = ({ pageName }) => {
             <p className={nav__link__text}>{t("contact")}</p>
           </LocalizedLink>
         </li>
-        <li className={nav__item} id={phone}>
-          <a className={nav__link} href="tel:+596696182266">
-            <p className={nav__link__text}>{t("phone")}</p>
-          </a>
-        </li>
       </ul>
     </nav>
     )
 }
 export default TopNav
+

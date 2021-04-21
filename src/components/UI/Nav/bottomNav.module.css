@@ -3,15 +3,15 @@ a {
   text-decoration: none;
 }
 
-header,
-#nav {
+#bottom-nav {
   position: fixed;
   bottom: 0;
+  top: auto;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 100;
   background-color: white;
 }
 
@@ -29,6 +29,7 @@ header,
 
 .nav__item {
   color: white;
+  width: 100%;
 }
 
 .nav__link {
@@ -47,19 +48,26 @@ header,
   margin: 0;
 }
 
-.nav__item:nth-of-type(2) {
-  display: none;
-}
-
-.nav__item:last-child {
-  display: none;
-}
-
 .nav__link__text {
   font-size: 0.8rem;
   color: black;
+  transition: font-size 0.8s;
+}
+
+.nav__link:focus > .nav__link__text,
+.nav__link:active > .nav__link__text {
+  font-size: 1rem;
+  color: var(--nav-highlight-primary-color);
+  font-weight: 700;
+  transition: font-size 0.8s font-weight 0.8s, color 0.8s;
 }
 
 .nav__link__icon {
   color: black;
+}
+
+.nav__link:focus > .nav__link__icon,
+.nav__link:active > .nav__link__icon {
+  color: var(--nav-highlight-primary-color);
+  transition: color 250ms;
 }

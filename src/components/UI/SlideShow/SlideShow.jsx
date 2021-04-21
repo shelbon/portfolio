@@ -23,6 +23,7 @@ const SlideShow = props => {
           <GatsbyImage
             className={slide__image}
             image={image.full.gatsbyImageData}
+            alt=""
           />
           <span className={slide__caption}>{t(image.name)}</span>
         </div>

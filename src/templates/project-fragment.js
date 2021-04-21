@@ -9,6 +9,7 @@ export const fragment = graphql`
     technologies
     url
     locale
+    excerpt
     coverImage {
       name
       full: childImageSharp {

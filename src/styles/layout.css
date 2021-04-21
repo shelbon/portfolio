@@ -37,12 +37,15 @@ body {
   color: hsla(0, 0%, 0%, 0.8);
   font-family: "Montserrat", sans-serif;
   font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
   background-color: rgba(17, 34, 62, 0.9);
   margin: 0;
 }
+
 
 html {
   scroll-behavior: smooth !important;

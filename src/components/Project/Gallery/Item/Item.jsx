@@ -2,7 +2,6 @@ import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import {
   portfolio__item__container,
-  portfolio__item,
   portfolio__item__img__container,
   portfolio__item__excerpt__container,
   portfolio__item__excerpt__text,
@@ -11,7 +10,6 @@ import {
 } from "./Item.module.css"
 import DetailsProject from "../../Details/Details"
 import { useTranslation } from "react-i18next"
-import SkillsPanel from "../../../UI/SkillPanel/skillsPanel"
 const ProjectGalleryItem = props => {
   const [open, setOpen] = React.useState(false)
   const { t } = useTranslation("projectItem")
@@ -46,9 +44,6 @@ const ProjectGalleryItem = props => {
           <p className={portfolio__item__excerpt__text}>
             {props.project.excerpt}
           </p>
-          {props.project.technologies && (
-            <SkillsPanel skills={props.project.technologies} />
-          )}
           <button
             onClick={handleClickOpen}
             className={portfolio__item__excerpt__cta__link}

@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { portfolio } from "./Gallery.module.css"
+import { portfolio,portfolio__wrapper,full } from "./Gallery.module.css"
 import ProjectGalleryItem from "./Item/Item.jsx"
 class ProjectGallery extends React.Component {
   constructor(props) {
@@ -26,28 +26,15 @@ class ProjectGallery extends React.Component {
             project => project.locale === this.props.locale
           )
           return (
-            <div className={portfolio}>
+            <div className={portfolio__wrapper}>
+            <div className={`${portfolio} ${full}`}>
               {projects.map(project => (
                 <ProjectGalleryItem
                   project={project}
                   key={`container-${project.id}`}
-                  onMouseEnter={() => {
-                    if (!this.props.isMobile) {
-                      this.overlayManager(project.id)
-                    }
-                  }}
-                  onMouseLeave={() => {
-                    if (!this.props.isMobile) {
-                      setTimeout(this.closeOverlay(this.state.openOverlayId), 0)
-                    }
-                  }}
-                  onClick={() => {
-                    if (this.props.isMobile) {
-                      this.overlayManager(project.id)
-                    }
-                  }}
                 />
               ))}
+            </div>
             </div>
           )
         }}

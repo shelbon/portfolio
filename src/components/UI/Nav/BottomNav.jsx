@@ -1,22 +1,25 @@
 import React from "react"
 import {
-  nav,
+  bottomNav,
   nav__list,
   nav__item,
   nav__link,
   nav__link__text,
   nav__link__icon,
-  phone,
 } from "./bottomNav.module.css"
-import { FaHome, FaBriefcase, FaAddressCard, FaPhone } from "react-icons/fa"
 import { useTranslation } from "react-i18next"
 import { LocalizedLink } from "gatsby-theme-i18n"
+import { Icon } from '@iconify/react';
+import homeIcon from '@iconify/icons-la/home';
+import userIcon from '@iconify/icons-la/user';
+import briefcaseIcon from '@iconify/icons-la/briefcase';
+import smsIcon from '@iconify/icons-la/sms';
 
 const BottomNav = ({ pageName }) => {
   const { t } = useTranslation("navigation")
   return (
     <nav
-      id={nav}
+     id={bottomNav}
       aria-label="Main menu"
       aria-hidden="false"
       className="js-menu"
@@ -24,25 +27,25 @@ const BottomNav = ({ pageName }) => {
       <ul className={nav__list}>
         <li className={nav__item}>
           <LocalizedLink className={nav__link} to="/home">
-            <FaHome className={nav__link__icon} />
+          <Icon icon={homeIcon} className={nav__link__icon}/>
             <p className={nav__link__text}>{t("home")}</p>
           </LocalizedLink>
         </li>
         <li className={nav__item}>
           <LocalizedLink className={nav__link} to={`/${pageName}#about`}>
-            <FaAddressCard className={nav__link__icon} />
+          <Icon icon={userIcon} className={nav__link__icon}/>
             <p className={nav__link__text}>{t("about")}</p>
           </LocalizedLink>
         </li>
         <li className={nav__item}>
           <LocalizedLink className={nav__link} to={`/${pageName}#project`}>
-            <FaBriefcase className={nav__link__icon} />
+          <Icon icon={briefcaseIcon} className={nav__link__icon}/>
             <p className={nav__link__text}>{t("work")}</p>
           </LocalizedLink>
         </li>
         <li className={nav__item}>
           <LocalizedLink className={nav__link} to={`/${pageName}#contact`}>
-            <FaAddressCard className={nav__link__icon} />
+          <Icon icon={smsIcon} className={nav__link__icon}/>
             <p className={nav__link__text}>{t("contact")}</p>
           </LocalizedLink>
         </li>

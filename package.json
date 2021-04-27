@@ -5,9 +5,9 @@
   "version": "0.1.0",
   "author": "Patrick sheron moucle <mouclesheron@gmail.com>",
   "dependencies": {
-    "@material-ui/core": "4.11.3",
+    "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
-    "@material-ui/lab": "4.0.0-alpha.57",
+    "@material-ui/lab": "4.0.0-alpha.58",
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "axios": "0.21.1",

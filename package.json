@@ -41,7 +41,7 @@
     "react-helmet": "6.1.0",
     "react-i18next": "11.8.10",
     "react-icons": "4.2.0",
-    "react-responsive-carousel": "3.2.15",
+    "react-responsive-carousel": "3.2.18",
     "resize-observer": "1.0.0",
     "yup": "0.32.9"
   },

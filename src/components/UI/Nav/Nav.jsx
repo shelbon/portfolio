@@ -3,6 +3,7 @@ import BottomNav from "./BottomNav"
 import TopNav from "./TopNav"
 
 const Nav = ({ isMobile, pageName }) => {
+  
   if (isMobile === undefined) {
     return null
   }

@@ -10,27 +10,14 @@ a {
   top: 0;
   background-color: white;
   justify-content: flex-end;
-  align-content: center;
-  min-height: 44px;
+  align-items: center;
+  min-height: var(--nav-height);
   width: 100%;
   z-index: 10;
 }
 
-.nav__list {
-  display: flex;
-  position: sticky;
-  top: 0;
-  justify-content: flex-end;
-  flex-flow: row nowrap;
-  list-style: none;
-  padding-left: 0;
-}
-
-.nav__item {
-  margin: 0 1.6rem 0 0;
-}
-
 .nav__link {
+  margin: 0 1.6rem 0 0;
   color: #303030;
 }
 

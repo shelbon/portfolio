@@ -8,11 +8,15 @@ a {
   bottom: 0;
   top: auto;
   width: 100%;
+  flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+  align-items: center;
   overflow: hidden;
   z-index: 100;
   background-color: white;
+  height: var(--nav-height);
+  border-top: 1px solid var(--border-color);
 }
 
 .nav__list {
@@ -36,11 +40,13 @@ a {
   margin-top: 5px;
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
+  flex-shrink: 1;
+  text-decoration: none;
+  line-height: 1;
+  justify-content: center;
   align-items: center;
   color: #fafafa;
   height: 100%;
-  width: 100%;
 }
 
 .nav__link p {
@@ -54,8 +60,8 @@ a {
   transition: font-size 0.8s;
 }
 
-.nav__link:focus > .nav__link__text,
-.nav__link:active > .nav__link__text {
+.nav__link:not(:last-child):focus > .nav__link__text,
+.nav__link:not(:last-child):active > .nav__link__text {
   font-size: 1rem;
   color: var(--nav-highlight-primary-color);
   font-weight: 700;
@@ -66,8 +72,8 @@ a {
   color: black;
 }
 
-.nav__link:focus > .nav__link__icon,
-.nav__link:active > .nav__link__icon {
+.nav__link:not(:last-child):focus > .nav__link__icon,
+.nav__link:not(:last-child):active > .nav__link__icon {
   color: var(--nav-highlight-primary-color);
   transition: color 250ms;
 }

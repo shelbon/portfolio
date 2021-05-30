@@ -1,3 +1,4 @@
+
 .portfolio__item__excerpt__container {
   display: flex;
   flex-flow: column;
@@ -7,17 +8,20 @@
 
 .portfolio__item__excerpt__text {
   margin: 1rem 0 1rem 1rem;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .portfolio__item__excerpt__title {
-  margin: 1rem 0 1rem 1rem;
+  margin: 1rem 0 0.5rem 1rem;
   font-weight: 700;
 }
 
 .portfolio__item__img__container {
   border-radius: 10px 10px 0 0;
-  min-width: 200px;
-  min-height: 200px;
 }
 
 .portfolio__item:focus,

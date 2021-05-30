@@ -83,7 +83,7 @@ module.exports = {
           keySeparator: false,
           lowerCaseLng: true,
           prefixDefault: true,
-          transSupportBasicHtmlNodes: true,
+          transSupportBasicHtmlNodes: false,
           ns: [
             "home",
             "contactForm",
@@ -96,6 +96,7 @@ module.exports = {
           interpolation: {
             escapeValue: false,
           },
+          debug:true
         },
       },
     },

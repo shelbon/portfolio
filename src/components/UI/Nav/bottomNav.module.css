@@ -19,23 +19,6 @@ a {
   border-top: 1px solid var(--border-color);
 }
 
-.nav__list {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  list-style: none;
-  justify-content: space-around;
-  height: 100%;
-  width: 100%;
-  padding-left: 0;
-  margin: 5px 0 5px 0;
-}
-
-.nav__item {
-  color: white;
-  width: 100%;
-}
-
 .nav__link {
   margin-top: 5px;
   display: flex;

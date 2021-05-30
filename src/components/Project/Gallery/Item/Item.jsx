@@ -10,6 +10,7 @@ import {
 } from "./Item.module.css"
 import DetailsProject from "../../Details/Details"
 import { useTranslation } from "react-i18next"
+
 const ProjectGalleryItem = props => {
   const [open, setOpen] = React.useState(false)
   const { t } = useTranslation("projectItem")
@@ -23,9 +24,13 @@ const ProjectGalleryItem = props => {
   return (
     <div
       className={portfolio__item__container}
+      data-aos="fade"
+      data-aos-duration={props.duration}
+      data-aos-delay={props.delay}
       onClick={() => {
         props.onClick()
       }}
+       
     >
         {props.project.images && (
           <GatsbyImage
@@ -33,16 +38,12 @@ const ProjectGalleryItem = props => {
             alt={`project ${props.project.title} thumbnail`}
             className={portfolio__item__img__container}
             loading="eager"
-            fadeIn={false}
           />
         )}
 
         <div className={portfolio__item__excerpt__container}>
           <p className={portfolio__item__excerpt__title}>
             {props.project.title}
-          </p>
-          <p className={portfolio__item__excerpt__text}>
-            {props.project.excerpt}
           </p>
           <button
             onClick={handleClickOpen}

@@ -20,8 +20,11 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 10px;
-  grid-auto-columns: minmax(clamp(50% - 10px, 306px, 100% - 10px), 1fr);
-  grid-template-rows: minmax(clamp(50%, 100px, 100%), 1fr);
+  grid-auto-columns:
+    minmax(
+      clamp(50% - 10px, 75vw, 100% - 10px),
+      1fr
+    );
   overflow-x: auto;
   scrollbar-width: none;
   scroll-snap-type: x proximity;
@@ -30,7 +33,7 @@
 
 .portfolio::before,
 .portfolio::after {
-  content: "";
+  content: '';
   width: 10px;
 }
 
@@ -43,18 +46,21 @@
   outline-offset: 3px;
 }
 
-@media (min-width: 786px) {
+@media (min-width: 768px) {
   .portfolio__wrapper {
+    grid-template-columns: auto;
     align-items: center;
     justify-items: center;
   }
+
   .portfolio {
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    grid-auto-columns: minmax(360px, 1fr);
-    grid-template-rows: initial;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
+    grid-auto-flow: row;
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(clamp(50% - 10px, 360px, 100% - 10px), 1fr)
+      );
+    gap: var(--gap);
   }
 
   .project__link__mobile {
@@ -63,7 +69,7 @@
 
   .portfolio::before,
   .portfolio::after {
-    content: none;
-    width: 0;
+    content: normal;
+    width: 10px;
   }
 }

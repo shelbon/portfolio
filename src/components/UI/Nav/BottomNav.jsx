@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   bottomNav,
-  nav__list,
-  nav__item,
   nav__link,
   nav__link__text,
   nav__link__icon,

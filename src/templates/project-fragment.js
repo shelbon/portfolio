@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby';
 
 export const fragment = graphql`
   fragment ProjectFragment on Project {
@@ -9,7 +9,6 @@ export const fragment = graphql`
     technologies
     url
     locale
-    excerpt
     coverImage {
       name
       full: childImageSharp {
@@ -17,14 +16,7 @@ export const fragment = graphql`
           layout: CONSTRAINED
           width: 900
           height: 540
-          transformOptions: { cropFocus: CENTER }
-        )
-      }
-      thumb: childImageSharp {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          width: 456
-          height: 325
+          placeholder: TRACED_SVG
           transformOptions: { cropFocus: CENTER }
         )
       }
@@ -36,17 +28,10 @@ export const fragment = graphql`
           layout: CONSTRAINED
           width: 900
           height: 540
-          transformOptions: { cropFocus: CENTER }
-        )
-      }
-      thumb: childImageSharp {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          width: 456
-          height: 325
+          placeholder: TRACED_SVG
           transformOptions: { cropFocus: CENTER }
         )
       }
     }
   }
-`
+`;

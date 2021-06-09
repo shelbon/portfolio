@@ -3,6 +3,11 @@
 module.exports = {
   extends: "stylelint-config-recommended",
   rules: {
+    "max-nesting-depth": 3,
+    "property-no-vendor-prefix": true,
+    "function-calc-no-unspaced-operator": true,
+    "string-quotes": "double",
+    "no-duplicate-selectors": true,
     "at-rule-empty-line-before": [
       "always",
       {
@@ -62,9 +67,9 @@ module.exports = {
     "function-parentheses-newline-inside": "always-multi-line",
     "function-parentheses-space-inside": "never-single-line",
     "function-whitespace-after": "always",
-    indentation: 2,
+    indentation: 4,
     "length-zero-no-unit": true,
-    "max-empty-lines": 1,
+    "max-empty-lines": 2,
     "media-feature-colon-space-after": "always",
     "media-feature-colon-space-before": "never",
     "media-feature-name-case": "lower",
@@ -98,7 +103,6 @@ module.exports = {
     "selector-pseudo-class-case": "lower",
     "selector-pseudo-class-parentheses-space-inside": "never",
     "selector-pseudo-element-case": "lower",
-    "selector-pseudo-element-colon-notation": "double",
     "selector-type-case": "lower",
     "unit-case": "lower",
     "value-keyword-case": "lower",
@@ -106,5 +110,6 @@ module.exports = {
     "value-list-comma-space-after": "always-single-line",
     "value-list-comma-space-before": "never",
     "value-list-max-empty-lines": 0,
+    
   },
 }

@@ -4,7 +4,6 @@ extends:
 - plugin:react/recommended
 - plugin:react-hooks/recommended
 - plugin:jsx-a11y/recommended
-- prettier/react
 plugins:
 - prettier
 - react

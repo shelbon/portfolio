@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://mouclepatrick.netlify.app',
     title:
-      'Portfolio de Patrick Shéron Moucle Developpeur informatique',
+      'Portfolio de Patrick Shéron Moucle Developpeur web et mobile',
     description:
       'Patrick shéron moucle  développeur web et mobile,voici mon portfolio.',
     author: 'Moucle Patrick Shéron',

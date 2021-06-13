@@ -20,8 +20,8 @@ import {
 
 const Projects = ({ data, t }) => {
   const projects = data.map((project, index) => {
-    const demoLinkLabel = `featured project ${project.title} demo`;
-    const repoLinkLabel = `featured project ${project.title} repo`;
+    const demoLinkLabel = `  project ${project.title} demo`;
+    const repoLinkLabel = `  project ${project.title} repo`;
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
       setOpen(true);
@@ -38,7 +38,7 @@ const Projects = ({ data, t }) => {
               ? demoLinkLabel
               : project.repoLink
               ? repoLinkLabel
-              : `featured project ${project.title}`
+              : `project ${project.title}`
           }
           href={
             project.demoLink
@@ -53,7 +53,7 @@ const Projects = ({ data, t }) => {
           {project.coverImage && (
             <GatsbyImage
               image={project.coverImage.full.gatsbyImageData}
-              alt={`project ${project.title} thumbnail`}
+              alt={`project ${project.title}`}
               loading="eager"
             />
           )}

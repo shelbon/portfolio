@@ -106,16 +106,3 @@ exports.onCreateNode = async (
     }
   }
 };
-exports.onCreatePage = ({ page, actions }) => {
-  const { createPage, deletePage } = actions;
-  if (page.path.includes('home')) {
-    deletePage(page);
-    createPage({
-      ...page,
-      context: {
-        ...page.context,
-        regex: `/cv([_\\\\-\\\\.][a-zÀ-ÿ]*)*([_\\\\-\\\\.]${page.context.locale})$/i`,
-      },
-    });
-  }
-};

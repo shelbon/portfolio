@@ -10,10 +10,8 @@ import Projects from '../../components/Project/Projects';
 import SEO from '../../components/seo';
 import ContactForm from '../../components/UI/Contact/Form/Form';
 import Footer from '../../components/UI/Footer/Footer';
-import Nav from '../../components/UI/Nav/Nav';
-import '../../styles/layout.css';
+import Layout from '../../templates/layout';
 import AppContext from '../../utils/context';
-import useDeviceDetect from '../../utils/useDeviceDetect';
 import {
   button,
   section,
@@ -32,15 +30,11 @@ import {
 } from './index.module.css';
 
 export const query = graphql`
-  query Home($locale: String, $regex: String) {
+  query Home($locale: String) {
     site {
       siteMetadata {
         author
       }
-    }
-    cv: file(name: { regex: $regex }) {
-      name
-      publicURL
     }
     hero: mdx(
       fileAbsolutePath: { regex: "/content/hero/" }
@@ -65,15 +59,13 @@ export const query = graphql`
     }
   }
 `;
-const HomePage = ({ data, ...props }) => {
+const HomePage = ({ data, isMobile, cv, ...props }) => {
   const pathNameRegex = new RegExp(`\\/`, 'gmi');
-  const { isMobile } = useDeviceDetect();
   const { t } = useTranslation(['home', 'seo', 'projectItem']);
   const pageName = props.pageContext.originalPath.replace(
     pathNameRegex,
     '',
   );
-  const { cv } = data;
   const heroData = {
     author: data.site.siteMetadata.author,
     locale: data.hero.fields.locale,
@@ -88,14 +80,12 @@ const HomePage = ({ data, ...props }) => {
       }
     }
   });
-
   useEffect(() => {
     AOS.init({ once: false });
   }, []);
   return (
-    <>
+    <Layout pageName={pageName}>
       <AppContext.Provider value={{ resizeObserver }}>
-        <Nav isMobile={isMobile} pageName={pageName} cv={cv} />
         <SEO
           title={t('seo:title')}
           description={t('seo:description')}
@@ -155,9 +145,8 @@ const HomePage = ({ data, ...props }) => {
           </a>
           <ContactForm id="contact" />
         </section>
-        <Footer isMobile={isMobile} />
       </AppContext.Provider>
-    </>
+    </Layout>
   );
 };
 export default HomePage;

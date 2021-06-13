@@ -1,14 +1,16 @@
 footer {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  min-height: 100px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color-ternary);
+    min-height: 10rem;
 }
 
 .footer__details {
-  font-family: 'poppins', sans-serif;
-  width: 80%;
-  margin-bottom: 1rem;
+    font-family: "poppins", sans-serif;
+    width: 80%;
+    margin-bottom: 1.6rem;
+    color: var(--text-color-light);
+    font-size: 1.6rem;
 }

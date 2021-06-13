@@ -9,15 +9,15 @@ import Recaptcha from 'react-google-recaptcha';
 import axios from 'axios';
 import {
   container,
-  form__recaptcha__container,
+  recaptcha,
   form,
-  form__label,
-  form__input,
-  form__error,
-  form__inputMessage,
+  label,
+  input,
+  error,
+  message,
   isInvalid,
-  form__inputSubmit,
-  form__result,
+  submit,
+  result,
 } from './Form.module.css';
 import AppContext from '../../../../utils/context';
 
@@ -25,8 +25,7 @@ import AppContext from '../../../../utils/context';
 const useStyles = makeStyles({
   root: {
     color: '#1C1C1C',
-    fontSize: '1.2rem',
-    fontFamily: 'Montserrat,sans-serif',
+    fontSize: '2rem',
   },
 });
 function ContactForm({ t, i18n }) {
@@ -35,14 +34,13 @@ function ContactForm({ t, i18n }) {
   const classes = useStyles();
   const { resizeObserver } = React.useContext(AppContext);
   useEffect(() => {
-    const recaptchaContainer = document.getElementsByClassName(
-      form__recaptcha__container,
-    )[0];
+    const recaptchaContainer =
+      document.getElementsByClassName(recaptcha)[0];
 
     resizeObserver.observe(recaptchaContainer);
   }, []);
   return (
-    <div className={container}>
+    <div className={`section ${container}`}>
       <Formik
         initialValues={{
           'bot-field': '',
@@ -143,14 +141,14 @@ function ContactForm({ t, i18n }) {
               data-netlify-honeypot="bot-field"
               data-netlify-recaptcha="true"
             >
-              <label htmlFor="name" className={form__label}>
+              <label htmlFor="name" className={label}>
                 {t('contactForm.input.name')}:
               </label>
               <Field
                 type="text"
                 name="name"
                 id="name"
-                className={`${form__input} ${
+                className={`${input} ${
                   errors.name && touched.name ? isInvalid : ''
                 }`}
                 yup
@@ -164,10 +162,10 @@ function ContactForm({ t, i18n }) {
               <ErrorMessage
                 name="name"
                 component="div"
-                className={form__error}
+                className={error}
               />
 
-              <label htmlFor="email" className={form__label}>
+              <label htmlFor="email" className={label}>
                 {t('contactForm.input.e-mail')}:
               </label>
               <Field
@@ -179,7 +177,7 @@ function ContactForm({ t, i18n }) {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.email}
-                className={`${form__input} ${
+                className={`${input} ${
                   errors.email && touched.email ? isInvalid : ''
                 }`}
                 yup
@@ -190,10 +188,10 @@ function ContactForm({ t, i18n }) {
               <ErrorMessage
                 name="email"
                 component="div"
-                className={form__error}
+                className={error}
               />
 
-              <label htmlFor="message" className={form__label}>
+              <label htmlFor="message" className={label}>
                 {t('contactForm.input.message')}:
               </label>
               <Field
@@ -205,8 +203,8 @@ function ContactForm({ t, i18n }) {
                 component="textarea"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                className={` ${form__inputMessage}
-                          ${form__input} ${
+                className={` ${message}
+                          ${input} ${
                   errors.message && touched.message ? isInvalid : ''
                 }`}
                 yup
@@ -217,13 +215,13 @@ function ContactForm({ t, i18n }) {
               <ErrorMessage
                 name="message"
                 component="div"
-                className={form__error}
+                className={error}
               />
               <Field type="hidden" name="form-name" />
               <Field type="hidden" name="bot-field" />
               <Field type="hidden" name="_redirect" value="false" />
 
-              <div className={form__recaptcha__container}>
+              <div className={recaptcha}>
                 {values.name && values.email && values.message && (
                   <>
                     <FastField
@@ -240,9 +238,8 @@ function ContactForm({ t, i18n }) {
                     />
                     <ErrorMessage
                       name="recapta"
-                      className={form__error}
+                      className={error}
                       component="span"
-                      style={{ color: '#ff4136' }}
                       name="recaptcha"
                     />
                   </>
@@ -251,7 +248,7 @@ function ContactForm({ t, i18n }) {
               {open && (
                 <Collapse in={open}>
                   <Alert
-                    className={form__result}
+                    className={result}
                     variant="filled"
                     action={
                       <IconButton
@@ -285,7 +282,7 @@ function ContactForm({ t, i18n }) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={form__inputSubmit}
+                className={submit}
               >
                 {t('contactForm.submit.button')}
               </button>

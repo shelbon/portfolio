@@ -123,6 +123,12 @@
     display: inline-block;
 }
 
+@media screen and (max-width: 252px) {
+    .inline-container {
+        flex-direction: column;
+    }
+}
+
 @media screen and (min-width: 960px) {
     .project-item {
         grid-template-columns: repeat(2, 1fr);

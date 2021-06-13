@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field, FastField, ErrorMessage } from 'formik';
-import { withTranslation } from 'react-i18next';
-import { Alert, AlertTitle } from '@material-ui/lab';
-import { IconButton, Collapse, makeStyles } from '@material-ui/core';
-import * as yup from 'yup';
+import { Collapse, IconButton, makeStyles } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import Recaptcha from 'react-google-recaptcha';
+import { Alert, AlertTitle } from '@material-ui/lab';
 import axios from 'axios';
-import {
-  container,
-  recaptcha,
-  form,
-  label,
-  input,
-  error,
-  message,
-  isInvalid,
-  submit,
-  result,
-} from './Form.module.css';
+import { ErrorMessage, FastField, Field, Form, Formik } from 'formik';
+import React, { useEffect, useState } from 'react';
+import Recaptcha from 'react-google-recaptcha';
+import { withTranslation } from 'react-i18next';
+import * as yup from 'yup';
 import AppContext from '../../../../utils/context';
+import {
+  container, error, form, input, isInvalid, label, message, recaptcha, result, submit
+} from './Form.module.css';
 
 // style for alertTitle
 const useStyles = makeStyles({
@@ -28,11 +19,10 @@ const useStyles = makeStyles({
     fontSize: '2rem',
   },
 });
-function ContactForm({ t, i18n }) {
+function ContactForm({ t, i18n, resizeObserver }) {
   const [open, setOpen] = useState(false);
   const languageCde = i18n.language;
   const classes = useStyles();
-  const { resizeObserver } = React.useContext(AppContext);
   useEffect(() => {
     const recaptchaContainer =
       document.getElementsByClassName(recaptcha)[0];

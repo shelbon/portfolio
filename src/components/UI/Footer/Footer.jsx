@@ -1,13 +1,18 @@
-import React from 'react';
+import React,{useEffect}  from 'react';
 import { footer, footer__details } from './Footer.module.css';
 import { useTranslation } from 'react-i18next';
-
+import { makeSpaceForNavigationByTagName } from '../../../utils/utils';
 const Footer = ({ isMobile }) => {
   const { t } = useTranslation('home');
-  if (isMobile) {
-    let footer = document.getElementsByTagName('footer')[0];
-    footer.style.marginBottom = 'var(--nav-height)';
-  }
+  useEffect(() => {
+    makeSpaceForNavigationByTagName(
+      isMobile,
+      'footer',
+      'margin-bottom',
+      true,
+    );
+  }, [isMobile]);
+
   return (
     <footer>
       <div className={footer__details}>

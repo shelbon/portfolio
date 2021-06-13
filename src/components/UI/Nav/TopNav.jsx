@@ -1,12 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { LocalizedLink } from 'gatsby-theme-i18n';
 import {
   topNav,
   nav__link,
   nav__link__text,
 } from './topNav.module.css';
-import { useTranslation } from 'react-i18next';
-import { LocalizedLink } from 'gatsby-theme-i18n';
-const TopNav = ({ pageName }) => {
+
+const TopNav = ({ cv, pageName }) => {
   const { t } = useTranslation('navigation');
   return (
     <nav
@@ -34,6 +35,17 @@ const TopNav = ({ pageName }) => {
       >
         <p className={nav__link__text}>{t('contact')}</p>
       </LocalizedLink>
+      {cv && (
+        <a
+          className={nav__link}
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label="link to resume"
+          href={cv.publicURL}
+        >
+          <p className={nav__link__text}>{t('resume')}</p>
+        </a>
+      )}
     </nav>
   );
 };

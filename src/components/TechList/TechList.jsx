@@ -9,14 +9,17 @@ import {
 
 const TechList = ({ techs }) => {
   return (
-    <section className={techContainer}>
+    <ul className={techContainer}>
       {techs.map((tech) => (
-        <span className={tech__tag} key={tech}>
-          <Icon icon={caretRight} />
-          {tech}
-        </span>
+        <li className={tech__tag} key={tech}>
+          <Icon
+            icon={caretRight}
+            aria-label={`technologie ${tech}`}
+          />
+          <p>{tech}</p>
+        </li>
       ))}
-    </section>
+    </ul>
   );
 };
 

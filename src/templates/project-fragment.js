@@ -5,20 +5,15 @@ export const fragment = graphql`
     id
     title
     body
-    sourceCode
+    repoLink
+    demoLink
     technologies
-    url
+    description
     locale
     coverImage {
       name
       full: childImageSharp {
-        gatsbyImageData(
-          layout: CONSTRAINED
-          width: 900
-          height: 540
-          placeholder: TRACED_SVG
-          transformOptions: { cropFocus: CENTER }
-        )
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
       }
     }
     images {
@@ -26,8 +21,8 @@ export const fragment = graphql`
       full: childImageSharp {
         gatsbyImageData(
           layout: CONSTRAINED
-          width: 900
-          height: 540
+          width: 800
+          height: 400
           placeholder: TRACED_SVG
           transformOptions: { cropFocus: CENTER }
         )

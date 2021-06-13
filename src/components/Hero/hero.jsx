@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n';
+import React, { useEffect } from 'react';
+import { makeSpaceForNavigationByClassName } from '../../utils/utils';
 import {
   hero,
-  hero__introduction,
-  hero__title,
-  hero__tagline,
   hero__cta,
+  hero__introduction,
+  hero__tagline,
+  hero__title
 } from './hero.module.css';
-import { makeSpaceForNavigationByClassName } from '../../utils/utils';
 
 function orderNameToUSlocale(locale, authorName) {
   if (authorName === undefined || locale === undefined) {
@@ -51,13 +51,16 @@ const Hero = ({
         data-aos-duration="500"
         data-aos-easing="ease-in"
         className={hero__title}
+        data-aos-anchor={`.${hero__introduction}`}
       >
         {orderNameToUSlocale(locale, author)}
       </h1>
       <h2
         data-aos="fade-down"
+        data-aos-delay="500"
         data-aos-duration="700"
         data-aos-easing="ease-out"
+        data-aos-anchor={`.${hero__title}`}
         className={hero__tagline}
       >
         {tagline}
@@ -65,10 +68,10 @@ const Hero = ({
       <Link
         to={`/${pageName}#project`}
         className={`button ${hero__cta}`}
-        data-aos="fade-down"
+        data-aos="zoom-in"
         data-aos-duration="600"
         data-aos-easing="ease-in"
-        data-aos-delay="400"
+        data-aos-delay="1000"
         data-aos-anchor={`.${hero__tagline}`}
       >
         <span>{cta_label}</span>

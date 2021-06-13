@@ -29,10 +29,10 @@
     align-items: center;
     text-decoration: none;
     background-color: transparent !important;
-    border: 1px solid #ced8de !important;
+    border: 1px solid var(--body-color) !important;
     font-weight: 500;
     white-space: nowrap;
-    margin-top: 1rem;
+    margin-top: 1.8rem !important;
     transition: all 250ms ease-out;
 }
 

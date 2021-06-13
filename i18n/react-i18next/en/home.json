@@ -1,13 +1,11 @@
 {
-  "intro": "I'm Patrick Shéron MOUCLE<br/> Web mobile Developer.",
-  "intro.cta.work": "My work",
   "contact.cta.phone": "Phone:0696182266",
   "section.about.cta.cv": "Download my resume",
-  "section.work.title": "Work",
+  "section.work.title": "Works",
   "section.about.title": "About me",
   "section.contact.title": "Contact",
-  "section.work.subtitle": "Here are some examples of my personal and professional projects",
-  "section.about.body.emphasis": "Passionate  Web mobile Developer",
-  "section.about.body.second.paragraph": "I design and build websites and mobile applications",
+  "section.work.description.notfound":"no description provided",
+  "section.about.body.emphasis": "Hello,I'm Patrick",
+  "section.about.body.paragraphs": "<p>I'm a <strong> Web mobile developer</strong>.</p><p>I'm born in Martinique,currently based  in Rivière-salée.</p><p class={class}>I love working with Modern Technologies,building awesome web or mobile projects with <strong>performance</strong> ,<strong>user experience</strong> in mind.</p>",
   "footer": "Patrick Sheron MOUCLE, all rights are reserved."
 }

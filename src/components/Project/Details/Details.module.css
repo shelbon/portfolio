@@ -20,10 +20,19 @@
     list-style-type: none;
 }
 
-.container li::before {
-    content: "\2014";
-    position: absolute;
-    margin-left: -20px;
+.container li {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    color: var(--body-color);
+    margin: 0 2rem 1rem 0;
+}
+
+.container li svg {
+    color: var(--color-accent-dark);
+    height: 1.6rem;
+    margin-right: 0.5rem;
 }
 
 .container p,
@@ -90,10 +99,15 @@
         max-width: 960px;
         align-self: flex-start;
         margin-right: 3.2rem;
-        flex: 3;
+        flex: 1;
     }
 
     .details__project {
         flex: 1;
+        margin-top: 0;
+
+        & h1:nth-child(1) {
+            margin: 0 0 2rem 0;
+        }
     }
 }

@@ -31,8 +31,8 @@ const Hero = ({
     cta_label,
     pageName,
     locale,
-    isMobile,
   },
+  isMobile,
 }) => {
   useEffect(() => {
     makeSpaceForNavigationByClassName(

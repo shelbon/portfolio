@@ -9,7 +9,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CloseIcon from '@material-ui/icons/Close';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import SlideShow from '../../UI/SlideShow/SlideShow.jsx';
+import SlideShow from '../../UI/SlideShow/SlideShow';
 import {
   closeIcon,
   container,
@@ -38,7 +38,14 @@ const DetailsProject = ({
         classes={{
           paper,
         }}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={header__title}
+        aria-describedby="dialogDesc"
       >
+        <p id="dialogDesc" className="sr-only">
+          details of project {title}
+        </p>
         <div className={header}>
           <DialogTitle
             className={header__title}
@@ -50,7 +57,7 @@ const DetailsProject = ({
             edge="start"
             color="inherit"
             onClick={onClose}
-            aria-label="close"
+            aria-label="close dialog"
             classes={{ label: iconButton }}
           >
             <CloseIcon classes={{ root: closeIcon }} />
@@ -62,6 +69,7 @@ const DetailsProject = ({
               <SlideShow images={images} />
             </div>
           )}
+
           <div className={details__project}>
             {body && (
               <MDXRenderer

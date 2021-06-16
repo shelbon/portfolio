@@ -23,6 +23,7 @@ const Projects = ({ data, t }) => {
     const demoLinkLabel = `  project ${project.title} demo`;
     const repoLinkLabel = `  project ${project.title} repo`;
     const [open, setOpen] = React.useState(false);
+
     const handleClickOpen = () => {
       setOpen(true);
     };
@@ -127,7 +128,7 @@ const Projects = ({ data, t }) => {
 
   return (
     <section id="projects" className="section">
-      <h1 className={sectionTitle}>{t('section.work.title')}</h1>
+      <h2 className={sectionTitle}>{t('section.work.title')}</h2>
       {projects}
     </section>
   );

@@ -1,7 +1,7 @@
 import caretRight from '@iconify/icons-la/caret-right';
-import Icon from '@iconify/react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import AccessibleIcon from '../UI/AccessibleIcon';
 import {
   tech as techContainer,
   tech__tag
@@ -12,10 +12,13 @@ const TechList = ({ techs }) => {
     <ul className={techContainer}>
       {techs.map((tech) => (
         <li className={tech__tag} key={tech}>
-          <Icon
+          <AccessibleIcon
             icon={caretRight}
-            aria-label={`technologie ${tech}`}
+            roles="graphics-symbol"
+            title={`Right caret of technologie ${tech}`}
+            identifiant={tech}
           />
+
           <p>{tech}</p>
         </li>
       ))}
@@ -24,7 +27,7 @@ const TechList = ({ techs }) => {
 };
 
 TechList.propTypes = {
-  techs: PropTypes.array.isRequired,
+  techs: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default TechList;

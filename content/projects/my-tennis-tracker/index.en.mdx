@@ -10,6 +10,9 @@ technologies:
   - Android
 description: "Native mobile app for monitoring tennis player performance,note score player during match,statistics(most used zone,the number of points lost by type of shot ,and so on)"
 ---
+import caretRight from '@iconify/icons-la/caret-right';
+import Icon from '@iconify/react';
+import TechList from '../../../src/components/TechList/TechList';
 
 # Mission and objective
 
@@ -17,19 +20,23 @@ The manager being a tennis coach, allowed me and another colleague to make a mob
 
 # Technologies Used
 
-<ul>
-  {props.technologies.map((technologie, index) => (
-    <li key={index}>
-      <p>{technologie}</p>
-    </li>
-  ))}
-</ul>
+<TechList techs={props.technologies} />
 
 # Tasks carried out
 
-- All interfaces
 
-- the logic of a match
+<ul>  
+    <li>
+      <Icon
+      icon={caretRight}/>
+       <p>All interfaces</p>
+    </li>  
+    <li>
+       <Icon
+      icon={caretRight}/>
+      <p>the logic of a match</p>
+      </li>
+</ul>
 
 # Review
 

@@ -1,7 +1,7 @@
 ---
 title: 'My tennis tracker'
 demoLink:
-repoLink:
+repoLink: "https://github.com"
 slug: '/my-tennis-tracker/'
 coverImage: ./my tennis tracker.jpg
 images:
@@ -12,6 +12,9 @@ technologies:
   - Android
 description: "Application mobile native pour suivre les performances du joueur de tennis pendant un match,statistique(la zone la plus utilisée, le nombre de points perdus par rapport au type de coup, etc.)"
 ---
+import caretRight from '@iconify/icons-la/caret-right';
+import Icon from '@iconify/react';
+import TechList from '../../../src/components/TechList/TechList';
 
 # Mission et objectif
 
@@ -19,19 +22,23 @@ Le gérant étant coach de tennis, Il nous a donné à moi et un autre collègue
 
 # Technologies Utilisées
 
-<ul>
-  {props.technologies.map((technologie, index) => (
-    <li key={index}>
-      <p>{technologie}</p>
-    </li>
-  ))}
-</ul>
+<TechList techs={props.technologies} />
 
 # Tache effectuées
 
-- toute les interfaces
-
-- logique du deroulement d'un match
+<ul> 
+    <li>
+      <Icon
+      icon={caretRight}/>
+       <p>toute les interfaces</p>
+    </li>  
+    <li>
+       <Icon
+      icon={caretRight}/>
+      <p>logique du deroulement d'un match</p>
+      </li>
+</ul>
+ 
 
 # Bilan
 

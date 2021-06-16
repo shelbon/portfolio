@@ -134,10 +134,11 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    padding-top: 1.6rem;
+    padding: 1.6rem 0 5rem 0;
     background-color: var(--bg-color-ternary);
     max-width: none;
     width: auto;
+    min-height: 46vh;
 }
 
 .section__about__title {
@@ -193,25 +194,7 @@
 
 .button {
     display: inline-block;
-    margin: var(--button-margin);
-    border: var(--button-border);
-    border-radius: var(--button-border-radius);
     background-color: var(--bg-color-secondary);
-    min-width: var(--button-min-width);
-    min-height: var(--button-min-height);
-    align-self: var(--button-align-self);
-    padding-right: var(--button-padding-right);
-    padding-left: var(--button-padding-left);
-}
-
-.button p {
-    color: var(--button-text-color);
-}
-
-@media (min-width: 400px) and (max-width: 768px) {
-    .button p {
-        color: #3d3d3d;
-    }
 }
 
 /* TODO  defined design intro and other section and finish it  */
@@ -254,7 +237,7 @@
     }
 
     .section--about {
-        min-height: 75vh;
+        min-height: 50vh;
     }
 
     .section__about__body {

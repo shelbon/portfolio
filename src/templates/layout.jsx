@@ -5,6 +5,7 @@ import * as React from 'react';
 import Footer from '../components/UI/Footer/Footer';
 import Nav from '../components/UI/Nav/Nav';
 import '../styles/layout.css';
+import AppContext from '../utils/context';
 import useDeviceDetect from '../utils/useDeviceDetect';
 
 const Layout = ({ children, pageName }) => {
@@ -26,22 +27,16 @@ const Layout = ({ children, pageName }) => {
   const cv = data.cvs.nodes.find((cv) =>
     cvByLocaleRegex.test(cv.name),
   );
-  const updateChildrenWithProps = React.Children.map(
-    children,
-    (child) => {
-      return React.cloneElement(child, {
-        isMobile,
-        cv,
-      });
-    },
+  const value = React.useMemo(
+    () => ({ isMobile, cv }),
+    [isMobile, cv],
   );
-
   return (
-    <>
+    <AppContext.Provider value={value}>
       <Nav isMobile={isMobile} pageName={pageName} cv={cv} />
-      <main>{updateChildrenWithProps}</main>
+      <main>{children}</main>
       <Footer isMobile={isMobile} />
-    </>
+    </AppContext.Provider>
   );
 };
 

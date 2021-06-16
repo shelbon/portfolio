@@ -1,8 +1,8 @@
 ---
 title: "Stork-transport.com"
 coverImage: ./current_website.png
+demoLink: "https://www.stork-transport.com"
 repoLink: "https://github.com"
-demoLink: "www.stork-transport.com"
 images: 
   - ./old_website.png
   - ./current_website.png
@@ -12,21 +12,19 @@ technologies:
   - css
 description: "Overhauled of the website for the enterprise Stork-transport in the  sector  of transportation of goods and people "
 --- 
+import caretRight from '@iconify/icons-la/caret-right';
+import Icon from '@iconify/react';
+import TechList from '../../../src/components/TechList/TechList';
+
 # Mission and objective
 
 I had to collaborate with two other colleagues to redesign their site and make it adaptable to all media.
 
 The aim was to improve the visibility of the customers towards the company. 
+
 # Technologies Used
 
-<ul>
- {props.technologies.map((technologie,index)=>(
-    <li key={index}>
-       <p>{technologie}</p> 
-      </li>
- ))} 
- </ul>
- 
+<TechList techs={props.technologies} />
 
 # Organization
 
@@ -34,6 +32,15 @@ Each time the project progresses, we have it validated by the manager.
  
 # Tasks carried out
 
-- adaptation of the pages to the different media
-
-- admin part
+<ul> 
+    <li>
+      <Icon
+      icon={caretRight}/>
+       <p>adaptation of the pages to the different media</p>
+    </li>  
+    <li>
+       <Icon
+      icon={caretRight}/>
+      <p>admin part</p>
+      </li>
+</ul>

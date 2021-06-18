@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {
-  slide,
-  slide__caption,
-  slide__image
+  caption,
+  image as imageStyle,
+  slide
 } from './SlideShow.module.css';
 
 const SlideShow = (props) => {
@@ -23,11 +23,11 @@ const SlideShow = (props) => {
       {props.images.map((image, index) => (
         <div className={slide} key={index}>
           <GatsbyImage
-            className={slide__image}
+            className={imageStyle}
             image={image.full.gatsbyImageData}
             alt="project"
           />
-          <span className={slide__caption}>{t(image.name)}</span>
+          <span className={caption}>{t(image.name)}</span>
         </div>
       ))}
     </Carousel>

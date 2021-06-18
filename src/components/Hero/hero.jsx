@@ -2,11 +2,11 @@ import { LocalizedLink as Link } from 'gatsby-theme-i18n';
 import React, { useEffect } from 'react';
 import { makeSpaceForNavigationByClassName } from '../../utils/utils';
 import {
+  cta,
   hero,
-  hero__cta,
-  hero__introduction,
-  hero__tagline,
-  hero__title
+  introduction,
+  tagline,
+  title
 } from './hero.module.css';
 
 function orderNameToUSlocale(locale, authorName) {
@@ -23,17 +23,7 @@ function orderNameToUSlocale(locale, authorName) {
   }
   return formatedName || authorName;
 }
-const Hero = ({
-  data: {
-    author,
-    introduction,
-    tagline,
-    cta_label,
-    pageName,
-    locale,
-  },
-  isMobile,
-}) => {
+const Hero = ({ data, isMobile }) => {
   useEffect(() => {
     makeSpaceForNavigationByClassName(
       isMobile,
@@ -45,36 +35,36 @@ const Hero = ({
 
   return (
     <section className={`section ${hero}`}>
-      <div className={hero__introduction}>{introduction}</div>
+      <div className={introduction}>{data.introduction}</div>
       <h1
         data-aos="fade-up"
         data-aos-duration="500"
         data-aos-easing="ease-in"
-        className={hero__title}
-        data-aos-anchor={`.${hero__introduction}`}
+        className={title}
+        data-aos-anchor={`.${introduction}`}
       >
-        {orderNameToUSlocale(locale, author)}
+        {orderNameToUSlocale(data.locale, data.author)}
       </h1>
       <h2
         data-aos="fade-down"
         data-aos-delay="500"
         data-aos-duration="700"
         data-aos-easing="ease-out"
-        data-aos-anchor={`.${hero__title}`}
-        className={hero__tagline}
+        data-aos-anchor={`.${title}`}
+        className={tagline}
       >
-        {tagline}
+        {data.tagline}
       </h2>
       <Link
-        to={`/${pageName}#project`}
-        className={`button ${hero__cta}`}
+        to={`/${data.pageName}#project`}
+        className={`button ${cta}`}
         data-aos="zoom-in"
         data-aos-duration="600"
         data-aos-easing="ease-in"
         data-aos-delay="1000"
-        data-aos-anchor={`.${hero__tagline}`}
+        data-aos-anchor={`.${tagline}`}
       >
-        <span>{cta_label}</span>
+        <span>{data.cta_label}</span>
       </Link>
     </section>
   );

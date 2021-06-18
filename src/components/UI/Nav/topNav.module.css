@@ -11,26 +11,18 @@
     z-index: 10;
 }
 
-.nav__link {
+.link {
     margin: 0 2.5rem 0 0;
 }
 
-.nav__link:hover,
-.nav__link:focus,
-.nav__link:active {
+.link:hover,
+.link:focus,
+.link:active {
     outline: none;
     box-shadow: 0 0.4rem 0 0 var(--nav-highlight-color);
 }
 
-.nav__item:nth-of-type(2) {
-    display: inherit;
-}
-
-.nav__item:last-child {
-    display: initial;
-}
-
-.nav__link__text {
+.link-text {
     display: inline;
     font-size: 2.1rem;
 }

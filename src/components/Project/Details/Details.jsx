@@ -14,12 +14,12 @@ import SlideShow from '../../UI/SlideShow/SlideShow';
 import {
   closeIcon,
   container,
-  details__project,
+  detailsProject,
   header,
-  header__title,
+  headerTitle,
   iconButton,
   paper,
-  SlideShow__container
+  slideShowContainer
 } from './Details.module.css';
 
 const DetailsProject = ({
@@ -42,7 +42,7 @@ const DetailsProject = ({
         }}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={header__title}
+        aria-labelledby={headerTitle}
         aria-describedby="dialogDesc"
       >
         <p id="dialogDesc" className="sr-only">
@@ -52,7 +52,7 @@ const DetailsProject = ({
         </p>
         <div className={header}>
           <DialogTitle
-            className={header__title}
+            className={headerTitle}
             id="responsive-dialog-title"
           >
             {title}
@@ -69,22 +69,22 @@ const DetailsProject = ({
         </div>
         <DialogContent className={container}>
           {images && (
-            <div className={SlideShow__container}>
+            <div className={slideShowContainer}>
               <SlideShow images={images} />
             </div>
           )}
 
-          <div className={details__project}>
+          <div className={detailsProject}>
             {body && (
               <MDXRenderer
                 technologies={technologies}
                 styles={
                   (header,
-                  header__title,
+                  headerTitle,
                   closeIcon,
                   container,
-                  SlideShow__container,
-                  details__project)
+                  slideShowContainer,
+                  detailsProject)
                 }
               >
                 {body}

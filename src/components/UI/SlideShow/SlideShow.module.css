@@ -7,12 +7,12 @@
     min-width: 100%;
 }
 
-.slide__image {
+.image {
     grid-row: 1;
     grid-column: 1/2;
 }
 
-.slide__caption {
+.caption {
     background: rgba(48, 48, 48, 0.5);
     color: whitesmoke;
     text-align: center;

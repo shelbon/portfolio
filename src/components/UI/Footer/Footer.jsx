@@ -1,7 +1,8 @@
-import React,{useEffect}  from 'react';
-import { footer, footer__details } from './Footer.module.css';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { makeSpaceForNavigationByTagName } from '../../../utils/utils';
+import { footer, text } from './Footer.module.css';
+
 const Footer = ({ isMobile }) => {
   const { t } = useTranslation('home');
   useEffect(() => {
@@ -15,9 +16,9 @@ const Footer = ({ isMobile }) => {
 
   return (
     <footer>
-      <div className={footer__details}>
+      <p className={text}>
         © {new Date().getFullYear()} {t('footer')}
-      </div>
+      </p>
     </footer>
   );
 };

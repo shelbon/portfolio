@@ -15,11 +15,6 @@
     align-items: center;
 }
 
-.form__field__wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-}
-
 .input {
     min-height: 40px;
     border-radius: 7px;

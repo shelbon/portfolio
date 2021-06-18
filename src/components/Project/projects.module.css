@@ -3,20 +3,20 @@
     position: relative;
     font-weight: 800;
     margin: 20px 0;
+}
 
-    &:first-letter {
-        color: var(--color-accent-dark);
-    }
+.section-title:first-letter {
+    color: var(--color-accent-dark);
+}
 
-    &:after {
-        background-color: var(--color-accent-dark);
-        content: "";
-        position: absolute;
-        top: -30px;
-        left: 0;
-        width: 30px;
-        height: 2px;
-    }
+.section-title::after {
+    background-color: var(--color-accent-dark);
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 30px;
+    height: 2px;
 }
 
 .project-item {
@@ -41,13 +41,13 @@
     max-height: 180px;
     position: relative;
     padding: 10px;
+}
 
-    & > p {
-        height: 100%;
-        margin: 0;
-        font-size: 1.6rem;
-        overflow: hidden;
-    }
+.description > p {
+    height: 100%;
+    margin: 0;
+    font-size: 1.6rem;
+    overflow: hidden;
 }
 
 .inline-container {
@@ -76,22 +76,22 @@
     justify-content: flex-end;
     align-items: center;
     margin: 1rem 0;
+}
 
-    & > a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--body-color);
+.link-container > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--body-color);
+}
 
-        &:hover {
-            color: var(--color-accent-dark);
-        }
+.link-container > a:hover {
+    color: var(--color-accent-dark);
+}
 
-        & > svg {
-            font-size: 3rem;
-            margin: 0 1rem;
-        }
-    }
+.link-container > a svg {
+    font-size: 3rem;
+    margin: 0 1rem;
 }
 
 .title-container {
@@ -107,16 +107,16 @@
     color: var(--title-color-dark);
     margin: 20px 0;
     position: relative;
+}
 
-    &::after {
-        background-color: var(--color-accent-dark);
-        content: "";
-        position: absolute;
-        top: -20px;
-        left: 0;
-        width: 30px;
-        height: 2px;
-    }
+.info-title::after {
+    background-color: var(--color-accent-dark);
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 30px;
+    height: 2px;
 }
 
 .moreInfo {

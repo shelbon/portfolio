@@ -33,7 +33,7 @@ const AccessibleIcon = ({
 
 AccessibleIcon.propTypes = {
   icon: PropTypes.object.isRequired,
-  title: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
   identifiant: PropTypes.string.isRequired,
   description: PropTypes.string,
   className: PropTypes.string,

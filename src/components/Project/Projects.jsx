@@ -4,6 +4,7 @@ import Icon from '@iconify/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Trans } from 'react-i18next';
 import TechList from '../TechList/TechList';
 import DetailsProject from './Details/Details';
 import {
@@ -20,8 +21,20 @@ import {
 
 const Projects = ({ data, t }) => {
   const projects = data.map((project, index) => {
-    const demoLinkLabel = `  project ${project.title} demo`;
-    const repoLinkLabel = `  project ${project.title} repo`;
+    const {
+      title,
+      repoLink,
+      demoLink,
+      technologies,
+      description,
+      coverImage,
+    } = project;
+    const demoLinkLabel = `${t(
+      'projectItem:demoLinkAriaLabel',
+    )} ${title}`;
+    const repoLinkLabel = `${t(
+      'projectItem:repoLinkAriaLabel',
+    )} ${title}`;
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -32,55 +45,42 @@ const Projects = ({ data, t }) => {
       setOpen(false);
     };
     return (
-      <article className={projectItem} key={project.title + index}>
+      <article className={projectItem} key={title + index}>
         <a
           aria-label={
-            project.demoLink
+            demoLink
               ? demoLinkLabel
-              : project.repoLink
+              : repoLink
               ? repoLinkLabel
-              : `project ${project.title}`
+              : `${t('projectItem:project')} ${title}`
           }
-          href={
-            project.demoLink
-              ? project.demoLink
-              : project.repoLink
-              ? project.repoLink
-              : '#'
-          }
+          href={demoLink || repoLink || '#'}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {project.coverImage && (
+          {coverImage && (
             <GatsbyImage
-              image={project.coverImage.full.gatsbyImageData}
-              alt={`project ${project.title}`}
+              image={coverImage.full.gatsbyImageData}
+              alt={`${t('projectItem:project')} ${title}`}
               loading="eager"
             />
           )}
         </a>
         <section className={info}>
           <a
-            href={
-              project.demoLink
-                ? project.demoLink
-                : project.repoLink
-                ? project.repoLink
-                : '#'
-            }
+            href={demoLink || repoLink || '#'}
             target="_blank"
             rel="noopener noreferrer"
             className={titleContainer}
           >
-            <h2 className={infoTitle}>{project.title}</h2>
+            <h2 className={infoTitle}>{title}</h2>
           </a>
           <section className={description}>
             <p>
-              {project.description ||
-                t('section.work.description.notfound')}
+              {description || t('section.work.description.notfound')}
             </p>
           </section>
-          <TechList techs={project.technologies} />
+          <TechList techs={technologies} />
           <div className={inlineContainer}>
             <button
               type="button"
@@ -90,23 +90,23 @@ const Projects = ({ data, t }) => {
               {t('projectItem:more_info')}
             </button>
             <section className={linkContainer}>
-              {project.repoLink && (
+              {repoLink && (
                 <a
-                  href={project.repoLink}
+                  href={repoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Repository Link"
+                  title={t('projectItem:repoLinkTitle')}
                   aria-label={repoLinkLabel}
                 >
                   <Icon icon={githubIcon} />
                 </a>
               )}
-              {project.demoLink && (
+              {demoLink && (
                 <a
-                  href={project.demoLink}
+                  href={demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Demo Link"
+                  title={t('projectItem:demoLinkTitle')}
                   aria-label={demoLinkLabel}
                 >
                   <Icon icon={externalLinkAlt} />
@@ -119,6 +119,7 @@ const Projects = ({ data, t }) => {
               project={project}
               onClose={handleClose}
               open={open}
+              t={t}
             />
           )}
         </section>

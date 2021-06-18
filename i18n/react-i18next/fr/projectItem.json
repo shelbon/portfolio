@@ -1,3 +1,8 @@
 {
-  "more_info": "plus d'infos"
+  "more_info": "plus d'infos",
+  "demoLinkAriaLabel":" Lien de demonstration du projet {{title}}",
+  "repoLinkAriaLabel":"Lien du code source  du projet {{title}}",
+  "demoLinkTitle":"lien de demonstration",
+  "repoLinkTitle":"lien vers le  code source",
+  "project":"Projet"
 }

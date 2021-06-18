@@ -60,7 +60,12 @@ export const query = graphql`
 `;
 const HomePage = ({ data, ...props }) => {
   const pathNameRegex = new RegExp(`\\/`, 'gmi');
-  const { t } = useTranslation(['home', 'seo', 'projectItem']);
+  const { t } = useTranslation([
+    'home',
+    'seo',
+    'projectItem',
+    'projectDetails',
+  ]);
   const pageName = props.pageContext.originalPath.replace(
     pathNameRegex,
     '',

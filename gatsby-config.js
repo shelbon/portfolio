@@ -91,6 +91,7 @@ module.exports = {
             'projectItem',
             'navigation',
             'slideShow',
+            'projectDetails',
             '404',
             'seo',
           ],

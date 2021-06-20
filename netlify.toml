@@ -1,6 +1,6 @@
 [dev]
 command="npm start"
-
+autoLaunch = false
 [[headers]]
 for = "/*"
 

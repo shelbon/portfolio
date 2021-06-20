@@ -1,68 +1,86 @@
-import React from "react"
-import SlideShow from "../../UI/SlideShow/SlideShow.jsx"
-import { Dialog, DialogTitle, DialogContent } from "@material-ui/core"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import {
-  header,
-  header__title,
+  Dialog,
+  DialogContent,
+  DialogTitle
+} from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
+import { Trans } from 'react-i18next';
+import SlideShow from '../../UI/SlideShow/SlideShow';
+import {
   closeIcon,
   container,
-  SlideShow__container,
-  details__project,
-} from "./Details.module.css"
-import CloseIcon from "@material-ui/icons/Close"
-import IconButton from "@material-ui/core/IconButton"
-import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { useTheme } from "@material-ui/core/styles"
+  detailsProject,
+  header,
+  headerTitle,
+  iconButton,
+  paper,
+  slideShowContainer
+} from './Details.module.css';
+
 const DetailsProject = ({
-  title,
-  body,
-  images,
-  technologies,
+  project: { title, body, images, technologies },
   open,
   onClose,
+  t,
 }) => {
-  const theme = useTheme()
-  const fullScreen = useMediaQuery(theme.breakpoints.down("lg"))
   return (
     <>
       <Dialog
-        fullScreen={fullScreen}
+        fullScreen
         open={open}
         onClose={onClose}
         scroll="body"
+        classes={{
+          paper,
+        }}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={headerTitle}
+        aria-describedby="dialogDesc"
       >
+        <p id="dialogDesc" className="sr-only">
+          <Trans i18nKey="projectDetails:dialogDesc">
+            {{ title }}
+          </Trans>
+        </p>
         <div className={header}>
-          <DialogTitle className={header__title} id="responsive-dialog-title">
+          <DialogTitle
+            className={headerTitle}
+            id="responsive-dialog-title"
+          >
             {title}
           </DialogTitle>
           <IconButton
             edge="start"
             color="inherit"
             onClick={onClose}
-            aria-label="close"
+            aria-label={t('projectDetails:closeIconAriaLabel')}
+            classes={{ label: iconButton }}
           >
-            <CloseIcon className={closeIcon} />
+            <CloseIcon classes={{ root: closeIcon }} />
           </IconButton>
         </div>
         <DialogContent className={container}>
           {images && (
-            <div className={SlideShow__container}>
-              {" "}
+            <div className={slideShowContainer}>
               <SlideShow images={images} />
             </div>
           )}
-          <div className={details__project}>
+
+          <div className={detailsProject}>
             {body && (
               <MDXRenderer
                 technologies={technologies}
                 styles={
                   (header,
-                  header__title,
+                  headerTitle,
                   closeIcon,
                   container,
-                  SlideShow__container,
-                  details__project)
+                  slideShowContainer,
+                  detailsProject)
                 }
               >
                 {body}
@@ -72,6 +90,6 @@ const DetailsProject = ({
         </DialogContent>
       </Dialog>
     </>
-  )
-}
-export default DetailsProject
+  );
+};
+export default DetailsProject;

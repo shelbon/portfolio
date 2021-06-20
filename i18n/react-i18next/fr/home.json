@@ -1,13 +1,12 @@
 {
-  "intro": "Je suis Patrick Shéron MOUCLE <br/>Développeur web mobile.",
-  "intro.cta.work": "Mes réalisations",
   "contact.cta.phone": "Telephone:0696182266",
   "section.about.cta.cv": "Télecharger mon cv",
-  "section.work.title": "Réalisation",
+  "section.work.title": "Réalisations",
   "section.about.title": "À propos",
   "section.contact.title": "Contact",
   "section.work.subtitle": "Voici des exemples de mes réalisations personnelles et professionnelles.",
-  "section.about.body.emphasis": "Développeur web mobile passionné",
-  "section.about.body.second.paragraph": "Je conçois et realise des sites web et des application mobiles.",
-  "footer": "Patrick Shéron MOUCLE, tous droits réservés."
+  "section.work.description.notfound":"aucune description n'a été trouver",
+  "section.about.body.emphasis": "Bonjour je suis Moucle Patrick Shéron",
+  "section.about.body.paragraphs": "<p>Je suis un <strong> Developpeur web mobile</strong>.</p><p>Je suis née en  Martinique,actuellement  resident à Rivière-salée.</p><p> J'aime travailler avec des tecnologies moderne , construire des application web ou mobile  avec comme priorités la <strong>performance</strong> et <strong>l'expérience utilisateur</strong>.</p>",
+  "footer": "MOUCLE Patrick Shéron , tous droits réservés."
 }

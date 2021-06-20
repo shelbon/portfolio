@@ -1,87 +1,94 @@
 :root {
-  --border: 4px solid #6c63ff;
+    --border: 4px solid #6c63ff;
 }
 
 .form {
-  flex: 1;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-content: center;
-  width: 50%;
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
 }
 
 .container {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+    align-items: center;
 }
 
-.form__field__wrapper {
-  display: flex;
-  flex-flow: column nowrap;
+.input {
+    min-height: 40px;
+    border-radius: 7px;
+    margin: 1rem 0 1.25rem 0;
+    padding: 0.8rem 1rem;
 }
 
-.form__input {
-  min-height: 40px;
-  border-radius: 7px;
-  margin: 1rem 0 1.25rem 0;
-  padding: 0.8rem 1rem;
+.input:focus-visible {
+    outline: none;
 }
 
-.form__input:focus {
-  border: var(--border);
+.input:focus:not(.is-invalid),
+.input:focus-visible:not(.is-invalid) {
+    border: var(--border);
 }
 
-.form__label {
-  color: white;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+.label {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
 }
 
-.form__error {
-  color: #f22613;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+.error {
+    color: #f22613;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 .is-invalid {
-  border-color: #f22613;
-  padding-right: calc(1.5em + 0.75rem);
+    border-color: #f22613;
+    padding-right: calc(1.5em + 0.75rem);
 }
 
-.form__input.is-invalid:focus {
-  border-color: #f22613;
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+.is-invalid,
+.error {
+    font-weight: 700;
 }
 
-.form__input--message {
-  min-height: 116px;
+.input.is-invalid:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
 
-.form__input--submit {
-  --button-align-self: flex-start;
-  --button-padding-left: 1.45rem;
-  --button-padding-right: 1.45rem;
-
-  font-size: 1rem;
-  border: var(--button-border);
-  border-radius: var(--button-border-radius);
-  background-color: var(--button-background-color);
-  min-width: var(--button-min-width);
-  min-height: var(--button-min-height);
-  align-self: var(--button-align-self);
-  padding-right: var(--button-padding-right);
-  padding-left: var(--button-padding-left);
-  color: var(--button-text-color);
+.message {
+    min-height: 116px;
 }
 
-.form__recaptcha__container {
-  position: relative;
-  margin-bottom: 1rem;
+.submit {
+    --button-align-self: flex-start;
+    --button-padding-left: 2.32rem;
+    --button-padding-right: 2.32rem;
+
+    font-size: 1.8rem;
+    border: var(--button-border);
+    border-radius: var(--button-border-radius);
+    background-color: var(--bg-color-ternary);
+    min-width: var(--button-min-width);
+    min-height: var(--button-min-height);
+    align-self: var(--button-align-self);
+    padding-right: var(--button-padding-right);
+    padding-left: var(--button-padding-left);
+    color: var(--bg-color-secondary);
 }
 
-.form__result {
-  border-radius: var(--button-border-radius);
-  margin-bottom: 1rem;
+.submit:hover {
+    cursor: pointer;
+}
+
+.recaptcha {
+    position: relative;
+    margin-bottom: 1.6rem;
+}
+
+.result {
+    border-radius: var(--button-border-radius);
+    margin-bottom: 1.6rem;
 }

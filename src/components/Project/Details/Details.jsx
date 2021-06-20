@@ -4,8 +4,6 @@ import {
   DialogTitle
 } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CloseIcon from '@material-ui/icons/Close';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -28,12 +26,10 @@ const DetailsProject = ({
   onClose,
   t,
 }) => {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('lg'));
   return (
     <>
       <Dialog
-        fullScreen={fullScreen}
+        fullScreen
         open={open}
         onClose={onClose}
         scroll="body"

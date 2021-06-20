@@ -98,7 +98,6 @@ module.exports = {
           interpolation: {
             escapeValue: false,
           },
-          debug: true,
         },
       },
     },

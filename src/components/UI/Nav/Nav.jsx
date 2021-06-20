@@ -1,71 +1,20 @@
-import React from "react"
-import {
-  nav,
-  nav__list,
-  nav__item,
-  nav__link,
-  nav__link__icon,
-  nav__link__text,
-  phone,
-} from "./Nav.module.css"
-import { useTranslation } from "react-i18next"
-import { FaHome, FaBriefcase, FaAddressCard, FaPhone } from "react-icons/fa"
-import { LocalizedLink } from "gatsby-theme-i18n"
+import React from 'react';
+import BottomNav from './BottomNav';
+import TopNav from './TopNav';
 
-const Nav = ({ cv, pageName }) => {
-  const { t } = useTranslation("navigation")
+const Nav = ({ isMobile, pageName, cv }) => {
+  if (isMobile === undefined) {
+    return null;
+  }
   return (
-    <nav
-      id={nav}
-      aria-label="Main menu"
-      aria-hidden="false"
-      className="js-menu"
-    >
-      <ul className={nav__list}>
-        <li className={nav__item}>
-          <LocalizedLink className={nav__link} to="/home">
-            <FaHome className={nav__link__icon} />
-            <p className={nav__link__text}>{t("home")}</p>
-          </LocalizedLink>
-        </li>
-        <li className={nav__item}>
-          <LocalizedLink className={nav__link} to={`/${pageName}#about`}>
-            <FaAddressCard className={nav__link__icon} />
-            <p className={nav__link__text}>{t("about")}</p>
-          </LocalizedLink>
-        </li>
-        <li className={nav__item}>
-          <LocalizedLink className={nav__link} to={`/${pageName}#project`}>
-            <FaBriefcase className={nav__link__icon} />
-            <p className={nav__link__text}>{t("work")}</p>
-          </LocalizedLink>
-        </li>
-        <li className={nav__item}>
-          <LocalizedLink className={nav__link} to={`/${pageName}#contact`}>
-            <FaAddressCard className={nav__link__icon} />
-            <p className={nav__link__text}>{t("contact")}</p>
-          </LocalizedLink>
-        </li>
-        <li className={nav__item} id={phone}>
-          <a className={nav__link} href="tel:+596696182266">
-            <FaPhone className={nav__link__icon} />
-            <p className={nav__link__text}>{t("phone")}</p>
-          </a>
-        </li>
-        {cv && (
-          <li className={nav__item}>
-            <a
-              className={nav__link}
-              rel="noopener noreferrer"
-              target="_blank"
-              href={cv.publicURL}
-            >
-              <p className={nav__link__text}>{t("resume")}</p>
-            </a>
-          </li>
-        )}
-      </ul>
-    </nav>
-  )
-}
-export default Nav
+    <>
+      {isMobile ? (
+        <BottomNav pageName={pageName} />
+      ) : (
+        <TopNav pageName={pageName} cv={cv} />
+      )}
+    </>
+  );
+};
+
+export default Nav;

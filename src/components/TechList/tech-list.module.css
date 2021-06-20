@@ -1,0 +1,21 @@
+.tech {
+    margin-top: 1.6rem 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tech__tag {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    color: var(--body-color);
+    margin: 0 2rem 1rem 0;
+}
+
+.tech__tag > svg {
+    color: var(--color-accent-dark);
+    height: 1.6rem;
+    margin-right: 0.5rem;
+}

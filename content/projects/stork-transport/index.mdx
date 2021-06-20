@@ -8,7 +8,12 @@ technologies:
   - php
   - html
   - css
+description: "Refonte du site internet de l'entreprise de transport de marchandise et de personne stork-transport"
 ---
+import caretRight from '@iconify/icons-la/caret-right';
+import Icon from '@iconify/react';
+import TechList from '../../../src/components/TechList/TechList';
+
 # Mission et objectif
 
 J'ai été amené à collaborer avec  deux autres collègues à la refonte de leur site et de le rendre  adaptable à tous les supports.
@@ -16,13 +21,7 @@ J'ai été amené à collaborer avec  deux autres collègues à la refonte de le
 ​Dans le dessein d'améliorer la visibilité des clients vis-à-vis de l’entreprise et faciliter leur visibilité vers l’extérieur. 
 # Technologies Utilisées
 
-<ul>
- {props.technologies.map((technologie,index)=>(
-    <li key={index}>
-       <p>{technologie}</p> 
-      </li>
- ))} 
- </ul>
+<TechList techs={props.technologies} />
  
 
 # Organisation
@@ -31,6 +30,15 @@ J'ai été amené à collaborer avec  deux autres collègues à la refonte de le
  
 # Tache effectuées
 
-- adaptation des pages au different support
-
-- partie admin
+<ul> 
+    <li>
+      <Icon
+      icon={caretRight}/>
+       <p>adaptation des pages au different support</p>
+    </li>  
+    <li>
+       <Icon
+      icon={caretRight}/>
+      <p> partie admin</p>
+      </li>
+</ul>

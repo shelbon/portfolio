@@ -1,15 +1,25 @@
-import React from "react"
-import { footer, footer__details } from "./Footer.module.css"
-import { useTranslation } from "react-i18next"
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { makeSpaceForNavigationByTagName } from '../../../utils/utils';
+import { footer, text } from './Footer.module.css';
 
-const Footer = () => {
-  const { t } = useTranslation("home")
+const Footer = ({ isMobile }) => {
+  const { t } = useTranslation('home');
+  useEffect(() => {
+    makeSpaceForNavigationByTagName(
+      isMobile,
+      'footer',
+      'margin-bottom',
+      true,
+    );
+  }, [isMobile]);
+
   return (
-    <footer className={footer}>
-      <div className={footer__details}>
-        © {new Date().getFullYear()} {t("footer")}
-      </div>
+    <footer>
+      <p className={text}>
+        © {new Date().getFullYear()} {t('footer')}
+      </p>
     </footer>
-  )
-}
-export default Footer
+  );
+};
+export default Footer;

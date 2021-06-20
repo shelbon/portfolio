@@ -1,60 +1,71 @@
 @font-face {
-  font-family: "Montserrat";
-  font-display: swap;
-  src: url("../../static/fonts/montserrat/montserrat-regular-webfont.woff2")
-      format("woff2"),
-    url("../../static/fonts/montserrat/montserrat-regular-webfont.woff")
-      format("woff");
-}
-@font-face {
-  font-family: "Montserrat";
-  font-display: swap;
-  src: url("../../static/fonts/montserrat/montserrat-bold-webfont.woff2")
-      format("woff2"),
-    url("../../static/fonts/montserrat/montserrat-bold-webfont.woff")
-      format("woff");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "open sans";
-  font-display: swap;
-  src: url("../../static/fonts/opensans/opensans-italic-webfont.woff2")
-      format("woff2"),
-    url("../../static/fonts/opensans/opensans-italic-webfont.woff")
-      format("woff");
-  font-weight: normal;
-  font-style: italic;
+    font-family: "Poppins";
+    font-display: swap;
+    src:
+        url("../../static/fonts/poppins/poppins-thin-webfont.woff2")
+        format("woff2"),
+        url("../../static/fonts/poppins/poppins-thin-webfont.woff")
+        format("woff");
+    font-weight: 200;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "open sans";
-  font-display: swap;
-  src: url("../../static/fonts/opensans/opensans-light-webfont.woff2")
-      format("woff2"),
-    url("../../static/fonts/opensans/opensans-light-webfont.woff")
-      format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Poppins";
+    font-display: swap;
+    src:
+        url("../../static/fonts/poppins/poppins-light-webfont.woff2")
+        format("woff2"),
+        url("../../static/fonts/poppins/poppins-light-webfont.woff")
+        format("woff");
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "open sans";
-  font-display: swap;
-  src: url("../../static/fonts/opensans/opensans-regular-webfont.woff2")
-      format("woff2"),
-    url("../../static/fonts/opensans/opensans-regular-webfont.woff")
-      format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Poppins";
+    font-display: swap;
+    src:
+        url("../../static/fonts/poppins/poppins-regular-webfont.woff2")
+        format("woff2"),
+        url("../../static/fonts/poppins/poppins-regular-webfont.woff")
+        format("woff");
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "opensans";
-  font-display: swap;
-  src: url("../../static/fonts/opensans/opensans-semibold-webfont.woff2")
-      format("woff2"),
-    url("../../static/fonts/opensans/opensans-semibold-webfont.woff")
-      format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Poppins";
+    font-display: swap;
+    src:
+        url("../../static/fonts/poppins/poppins-medium-webfont.woff2")
+        format("woff2"),
+        url("../../static/fonts/poppins/poppins-medium-webfont.woff")
+        format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-display: swap;
+    src:
+        url("../../static/fonts/poppins/poppins-semibold-webfont.woff2")
+        format("woff2"),
+        url("../../static/fonts/poppins/poppins-semibold-webfont.woff")
+        format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-display: swap;
+    src:
+        url("../../static/fonts/poppins/poppins-bold-webfont.woff2")
+        format("woff2"),
+        url("../../static/fonts/poppins/poppins-bold-webfont.woff")
+        format("woff");
+    font-weight: 700;
+    font-style: normal;
 }

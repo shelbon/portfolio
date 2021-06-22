@@ -1,14 +1,10 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle
-} from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import React from 'react';
-import { Trans } from 'react-i18next';
-import SlideShow from '../../UI/SlideShow/SlideShow';
+import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import React from "react";
+import { Trans } from "react-i18next";
+import SlideShow from "../../UI/SlideShow/SlideShow";
 import {
   closeIcon,
   container,
@@ -17,8 +13,8 @@ import {
   headerTitle,
   iconButton,
   paper,
-  slideShowContainer
-} from './Details.module.css';
+  slideShowContainer,
+} from "./Details.module.css";
 
 const DetailsProject = ({
   project: { title, body, images, technologies },
@@ -42,22 +38,17 @@ const DetailsProject = ({
         aria-describedby="dialogDesc"
       >
         <p id="dialogDesc" className="sr-only">
-          <Trans i18nKey="projectDetails:dialogDesc">
-            {{ title }}
-          </Trans>
+          <Trans i18nKey="projectDetails:dialogDesc">{{ title }}</Trans>
         </p>
         <div className={header}>
-          <DialogTitle
-            className={headerTitle}
-            id="responsive-dialog-title"
-          >
+          <DialogTitle className={headerTitle} id="responsive-dialog-title">
             {title}
           </DialogTitle>
           <IconButton
             edge="start"
             color="inherit"
             onClick={onClose}
-            aria-label={t('projectDetails:closeIconAriaLabel')}
+            aria-label={t("projectDetails:closeIconAriaLabel")}
             classes={{ label: iconButton }}
           >
             <CloseIcon classes={{ root: closeIcon }} />

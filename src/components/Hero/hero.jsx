@@ -1,23 +1,17 @@
-import { LocalizedLink as Link } from 'gatsby-theme-i18n';
-import React, { useEffect } from 'react';
-import { makeSpaceForNavigationByClassName } from '../../utils/utils';
-import {
-  cta,
-  hero,
-  introduction,
-  tagline,
-  title
-} from './hero.module.css';
+import { LocalizedLink as Link } from "gatsby-theme-i18n";
+import React, { useEffect } from "react";
+import { makeSpaceForNavigationByClassName } from "../../utils/utils";
+import { cta, hero, introduction, tagline, title } from "./hero.module.css";
 
 function orderNameToUSlocale(locale, authorName) {
   if (authorName === undefined || locale === undefined) {
     return;
   }
-  let lastName = '';
-  let formatedName = '';
-  let otherNames = '';
-  if (locale !== 'fr') {
-    [lastName, ...otherNames] = authorName.split(' ');
+  let lastName = "";
+  let formatedName = "";
+  let otherNames = "";
+  if (locale !== "fr") {
+    [lastName, ...otherNames] = authorName.split(" ");
     otherNames.forEach((name) => (formatedName += `${name} `));
     formatedName += ` ${lastName}`;
   }
@@ -25,12 +19,7 @@ function orderNameToUSlocale(locale, authorName) {
 }
 const Hero = ({ data, isMobile }) => {
   useEffect(() => {
-    makeSpaceForNavigationByClassName(
-      isMobile,
-      hero,
-      'margin-top',
-      false,
-    );
+    makeSpaceForNavigationByClassName(isMobile, hero, "margin-top", false);
   }, [isMobile]);
 
   return (

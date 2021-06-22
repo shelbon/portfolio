@@ -1,11 +1,8 @@
-import caretRight from '@iconify/icons-la/caret-right';
-import PropTypes from 'prop-types';
-import React from 'react';
-import AccessibleIcon from '../UI/AccessibleIcon';
-import {
-  tech as techContainer,
-  tech__tag
-} from './tech-list.module.css';
+import caretRight from "@iconify/icons-la/caret-right";
+import PropTypes from "prop-types";
+import React from "react";
+import AccessibleIcon from "../UI/AccessibleIcon";
+import { tech as techContainer, tech__tag } from "./tech-list.module.css";
 
 const TechList = ({ techs }) => {
   return (

@@ -6,37 +6,17 @@
     padding: 120px 0 100px;
 }
 
-.section__title {
+.title {
     margin-bottom: 0.25em;
     align-self: center;
 }
 
-.section__title--black {
+.title-black {
     color: #303030;
 }
 
-.section__title--White {
-    color: #fffafa;
-}
-
-.section__subtitle {
-    margin-bottom: 5px;
-    font-size: 1.8rem;
-    align-self: center;
-}
-
-.section__container {
-    display: flex;
-    flex-flow: column;
-}
-
-/* intro */
-.section--intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: flex-end;
-    min-height: 100vh;
+.title-white {
+    color: var(--title-color-dark);
 }
 
 .skewed {
@@ -48,64 +28,9 @@
     transform: skewY(var(--skewed-y));
 }
 
-.wrapper {
-    padding-bottom: 4rem;
-    background-size: contain;
-    background-position: right top;
-    background-repeat: no-repeat;
-}
-
-/* .section__intro__details__container {
-  flex: 1;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-} */
-
-.section__intro__link {
-    display: none !important;
-    background: transparent !important;
-    border: var(--bg-color-primary) solid 0.25rem !important;
-    border-radius: 0;
-}
-
-.section__title--intro--headline,
-.section__title--intro,
-.section__intro__catch-phrase {
-    font-size: clamp(2.8rem, 8vw, 8rem);
-}
-
-.section__intro__illustration__container {
-    flex: 1;
-}
-
-.section__intro__catch-phrase {
-    flex: 1;
-    color: var(--color-accent-light);
-}
-
-.section__title--intro {
-    line-height: 50px;
-    text-align: center;
-    margin: 1rem;
-    color: white;
-}
-
-.section__title--intro--headline {
-    margin: 0 0 2rem 0;
-    color: #e7dce0;
-}
-
-.section__subtitle--intro,
-.section__subtitle--project {
-    font-family: "open sans", sans-serif;
-}
-
 /* project */
 
-.section--project {
+.section-project {
     position: relative;
     flex-flow: column;
     justify-content: flex-start;
@@ -113,24 +38,8 @@
     padding: 0;
 }
 
-.section__title--project {
-    margin-top: 5rem;
-    color: #303030;
-    font-size: 1.6rem;
-    margin-bottom: 1.6rem;
-    align-self: flex-start;
-    margin-left: 1.5rem;
-}
-
-.section__subtitle--project {
-    color: #ffcc01;
-    font-size: 2.4rem;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
 /* about section */
-.section--about {
+.about {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -141,13 +50,13 @@
     min-height: 46vh;
 }
 
-.section__about__title {
+.about-title {
     align-self: center;
     font-size: 4.8rem;
     color: var(--text-color-light);
 }
 
-.section__about__body {
+.about-body {
     flex: 1;
     color: var(--text-color-light);
     font-size: 1.6rem;
@@ -156,30 +65,24 @@
     flex-flow: column;
 }
 
-.section__about__paragraph {
+.about-paragraph {
     align-self: center;
     color: #303030;
 }
 
-.section__about__illustration__container {
-    flex: 1;
-    display: flex;
-    flex-flow: column nowrap;
-}
-
 /* contact */
-.section--contact {
+.contact {
     display: flex;
     flex: 1 1 0%;
 }
 
-.section__contact__title {
+.contact-title {
     color: white;
     font-size: 3rem;
     align-self: center;
 }
 
-.section__contact__phone {
+.contact-phone {
     align-self: center;
     margin: 2rem 0 2rem 0;
     color: #ffcc01;
@@ -188,7 +91,7 @@
     border-radius: var(--button-border-radius);
 }
 
-.section__contact__phone:hover {
+.contact-phone:hover {
     border-bottom: 0.25rem solid;
 }
 
@@ -197,78 +100,26 @@
     background-color: var(--bg-color-secondary);
 }
 
-/* TODO  defined design intro and other section and finish it  */
 @media only screen and (min-width: 768px) {
-    .section__intro__link {
-        display: inline-block !important;
-    }
-
-    .section__intro__link > p {
-        font-size: 1.92rem;
-    }
-
-    .section__intro__link:active,
-    .section__intro__link:focus,
-    .section__intro__link:hover {
-        background-color: var(--bg-color-primary) !important;
-    }
-
-    .section__intro__link:active,
-    .section__intro__link:focus,
-    .section__intro__link:hover > p {
-        color: white;
-    }
-
-    .section--intro {
-        margin-top: clamp(var(--nav-height), 10vh, 48vh);
-    }
-
-    .section__title--intro {
-        margin: 0 0 2rem 0;
-        line-height: 125%;
-    }
-
-    .section__title--intro--headline {
-        margin: 0 0 2rem 0;
-    }
-
-    .section__intro__catch-phrase {
-        flex: 1;
-    }
-
-    .section--about {
+    .about {
         min-height: 50vh;
     }
 
-    .section__about__body {
+    .about-body {
         align-self: center;
         padding: 0;
     }
 
-    .section__about__title {
+    .about-title {
         margin-top: 2rem;
     }
 
-    .section--project {
+    .section-project {
         position: relative;
         flex-flow: column;
         justify-content: flex-start;
         align-content: flex-start;
         padding: 100px;
         bottom: 0;
-    }
-
-    .section__title--project {
-        color: #fffafa;
-        font-size: 3rem;
-        align-self: center;
-        margin: 2rem 0 2rem 0;
-    }
-
-    .section__subtitle--project {
-        color: #ffcc01;
-        font-size: 1.5rem;
-        text-align: center;
-        margin-bottom: 2rem;
     }
 }

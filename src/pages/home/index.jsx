@@ -1,32 +1,30 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { graphql } from 'gatsby';
-import React, { useEffect } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
-import { ResizeObserver } from 'resize-observer';
-import rescaleCaptcha from '../../../static/js/rescaleCaptcha';
-import Hero from '../../components/Hero/hero';
-import Projects from '../../components/Project/Projects';
-import SEO from '../../components/seo';
-import ContactForm from '../../components/UI/Contact/Form/Form';
-import Layout from '../../templates/layout';
-import AppContext from '../../utils/context';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { graphql } from "gatsby";
+import React, { useEffect } from "react";
+import { Trans, useTranslation } from "react-i18next";
+import { ResizeObserver } from "resize-observer";
+import rescaleCaptcha from "../../../static/js/rescaleCaptcha";
+import Hero from "../../components/Hero/hero";
+import Projects from "../../components/Project/Projects";
+import SEO from "../../components/seo";
+import ContactForm from "../../components/UI/Contact/Form/Form";
+import Layout from "../../templates/layout";
+import AppContext from "../../utils/context";
 import {
+  about,
+  aboutBody,
+  aboutParagraph,
+  aboutTitle,
   button,
+  contactPhone,
+  contactTitle,
   section,
-  sectionAbout,
   sectionContact,
   sectionProject,
-  section__about__body,
-  section__about__paragraph,
-  section__about__title,
-  section__contact__phone,
-  section__contact__title,
-  section__container,
-  section__titleProject,
-  section__titleWhite,
-  skewed
-} from './index.module.css';
+  skewed,
+  titleWhite,
+} from "./index.module.css";
 
 export const query = graphql`
   query Home($locale: String) {
@@ -59,17 +57,14 @@ export const query = graphql`
   }
 `;
 const HomePage = ({ data, ...props }) => {
-  const pathNameRegex = new RegExp(`\\/`, 'gmi');
+  const pathNameRegex = new RegExp(`\\/`, "gmi");
   const { t } = useTranslation([
-    'home',
-    'seo',
-    'projectItem',
-    'projectDetails',
+    "home",
+    "seo",
+    "projectItem",
+    "projectDetails",
   ]);
-  const pageName = props.pageContext.originalPath.replace(
-    pathNameRegex,
-    '',
-  );
+  const pageName = props.pageContext.originalPath.replace(pathNameRegex, "");
   const heroData = {
     author: data.site.siteMetadata.author,
     locale: data.hero.fields.locale,
@@ -91,37 +86,26 @@ const HomePage = ({ data, ...props }) => {
       <AppContext.Consumer>
         {({ isMobile, cv }) => (
           <>
-            <SEO
-              title={t('seo:title')}
-              description={t('seo:description')}
-            />
+            <SEO title={t("seo:title")} description={t("seo:description")} />
 
             <Hero data={heroData} isMobile={isMobile} />
-            <section
-              id="project"
-              className={` ${section} ${sectionProject}`}
-            >
+            <section id="project" className={` ${section} ${sectionProject}`}>
               <Projects data={data.projects.items} t={t} />
             </section>
-            <section
-              id="about"
-              className={`${sectionAbout} ${skewed}`}
-            >
-              <h2
-                className={` ${section__about__title} ${section__titleWhite} `}
-              >
-                {t('section.about.title')}
+            <section id="about" className={`${about} ${skewed}`}>
+              <h2 className={` ${aboutTitle} ${titleWhite} `}>
+                {t("section.about.title")}
               </h2>
 
-              <div className={section__about__body}>
-                <p className={section__about__paragraph}>
-                  <strong>{t('section.about.body.emphasis')}</strong>
+              <div className={aboutBody}>
+                <p className={aboutParagraph}>
+                  <strong>{t("section.about.body.emphasis")}</strong>
                 </p>
                 <Trans
                   i18nKey="home:section.about.body.paragraphs"
                   components={{
                     strong: <strong />,
-                    p: <p className={section__about__paragraph} />,
+                    p: <p className={aboutParagraph} />,
                   }}
                 />
 
@@ -131,9 +115,9 @@ const HomePage = ({ data, ...props }) => {
                     className={button}
                     rel="noopener noreferrer"
                     target="_blank"
-                    style={{ alignSelf: 'center' }}
+                    style={{ alignSelf: "center" }}
                   >
-                    <p>{t('section.about.cta.cv')}</p>
+                    <p>{t("section.about.cta.cv")}</p>
                   </a>
                 )}
               </div>
@@ -146,15 +130,9 @@ const HomePage = ({ data, ...props }) => {
         className={` section ${section}             
                                     ${sectionContact} `}
       >
-        <h2 className={section__contact__title}>
-          {t('section.contact.title')}
-        </h2>
-        <a
-          className={section__contact__phone}
-          href="tel:+596696182266"
-          alt="phone number"
-        >
-          {t('contact.cta.phone')}
+        <h2 className={contactTitle}>{t("section.contact.title")}</h2>
+        <a className={contactPhone} href="tel:+596696182266" alt="phone number">
+          {t("contact.cta.phone")}
         </a>
         <ContactForm id="contact" resizeObserver={resizeObserver} />
       </section>

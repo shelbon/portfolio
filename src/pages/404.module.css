@@ -1,0 +1,55 @@
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-content: center;
+    min-height: 100vh;
+    margin-bottom: 10rem;
+}
+
+.error-message {
+    font-weight: 600;
+    font-size: 4rem;
+}
+
+.title {
+    font-size: 16rem;
+    align-self: center;
+}
+
+.title:first-letter {
+    color: var(--bg-color-ternary);
+}
+
+.title:after {
+    content: "4";
+    color: var(--bg-color-ternary);
+}
+
+.main-content {
+    align-self: center;
+}
+
+.main-content p {
+    text-align: center;
+    margin-bottom: 1.6rem;
+}
+
+.error-cta {
+    margin: 2.6rem auto;
+    height: 8rem;
+}
+
+@media screen and (max-width: 298px) {
+    .title {
+        font-size: 8rem;
+    }
+
+    .error-message {
+        font-size: 2rem;
+    }
+
+    .error-cta {
+        margin: auto 2.6rem;
+    }
+}

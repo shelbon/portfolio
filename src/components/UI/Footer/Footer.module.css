@@ -1,10 +1,15 @@
 footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
     background: var(--bg-color-ternary);
     min-height: 10rem;
+    width: 100%;
 }
 
 .text {

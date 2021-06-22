@@ -1,6 +1,6 @@
-import React from 'react';
-import BottomNav from './BottomNav';
-import TopNav from './TopNav';
+import React from "react";
+import BottomNav from "./BottomNav";
+import TopNav from "./TopNav";
 
 const Nav = ({ isMobile, pageName, cv }) => {
   if (isMobile === undefined) {

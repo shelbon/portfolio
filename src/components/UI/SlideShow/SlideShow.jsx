@@ -1,16 +1,12 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import {
-  caption,
-  image as imageStyle,
-  slide
-} from './SlideShow.module.css';
+import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { caption, image as imageStyle, slide } from "./SlideShow.module.css";
 
 const SlideShow = (props) => {
-  const { t } = useTranslation('slideShow');
+  const { t } = useTranslation("slideShow");
   const settings = {
     showArrow: true,
     showIndicators: false,

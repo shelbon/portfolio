@@ -17,7 +17,6 @@
     font-size: 2.08rem;
 }
 
-
 .container p,
 .container span {
     font-size: 1.6rem;
@@ -87,14 +86,12 @@
     color: var(--body-color);
 }
 
-
 .details-project li svg {
     color: var(--color-accent-dark);
     min-height: 1.6rem;
     min-width: 1.6rem;
     margin-right: 0.5rem;
 }
-
 
 @media (min-width: 768px) {
     .container {

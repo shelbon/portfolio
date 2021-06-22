@@ -1,12 +1,11 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import { graphql, useStaticQuery } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
+import { Helmet } from "react-helmet";
 
 function SEO({ description, lang, meta, title }) {
   const { site, allFile } = useStaticQuery(query);
-  const metaDescription =
-    description || site.siteMetadata.description;
+  const metaDescription = description || site.siteMetadata.description;
   return (
     <Helmet
       htmlAttributes={{
@@ -33,10 +32,10 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
       link={[
         {
-          rel: 'icon',
+          rel: "icon",
           href: `${allFile.nodes[0].publicURL}`,
-          type: 'image/svg+xml',
-          size: 'any',
+          type: "image/svg+xml",
+          size: "any",
         },
       ]}
     />

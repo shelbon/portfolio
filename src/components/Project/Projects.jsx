@@ -1,12 +1,12 @@
-import externalLinkAlt from '@iconify/icons-la/external-link-alt';
-import githubIcon from '@iconify/icons-la/github';
-import Icon from '@iconify/react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Trans } from 'react-i18next';
-import TechList from '../TechList/TechList';
-import DetailsProject from './Details/Details';
+import externalLinkAlt from "@iconify/icons-la/external-link-alt";
+import githubIcon from "@iconify/icons-la/github";
+import Icon from "@iconify/react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import PropTypes from "prop-types";
+import React from "react";
+import { Trans } from "react-i18next";
+import TechList from "../TechList/TechList";
+import DetailsProject from "./Details/Details";
 import {
   description,
   info,
@@ -16,25 +16,15 @@ import {
   moreInfo,
   projectItem,
   sectionTitle,
-  titleContainer
-} from './projects.module.css';
+  titleContainer,
+} from "./projects.module.css";
 
 const Projects = ({ data, t }) => {
   const projects = data.map((project, index) => {
-    const {
-      title,
-      repoLink,
-      demoLink,
-      technologies,
-      description,
-      coverImage,
-    } = project;
-    const demoLinkLabel = `${t(
-      'projectItem:demoLinkAriaLabel',
-    )} ${title}`;
-    const repoLinkLabel = `${t(
-      'projectItem:repoLinkAriaLabel',
-    )} ${title}`;
+    const { title, repoLink, demoLink, technologies, description, coverImage } =
+      project;
+    const demoLinkLabel = `${t("projectItem:demoLinkAriaLabel")} ${title}`;
+    const repoLinkLabel = `${t("projectItem:repoLinkAriaLabel")} ${title}`;
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -52,23 +42,23 @@ const Projects = ({ data, t }) => {
               ? demoLinkLabel
               : repoLink
               ? repoLinkLabel
-              : `${t('projectItem:project')} ${title}`
+              : `${t("projectItem:project")} ${title}`
           }
-          href={demoLink || repoLink || '#'}
+          href={demoLink || repoLink || "#"}
           target="_blank"
           rel="noopener noreferrer"
         >
           {coverImage && (
             <GatsbyImage
               image={coverImage.full.gatsbyImageData}
-              alt={`${t('projectItem:project')} ${title}`}
+              alt={`${t("projectItem:project")} ${title}`}
               loading="eager"
             />
           )}
         </a>
         <section className={info}>
           <a
-            href={demoLink || repoLink || '#'}
+            href={demoLink || repoLink || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className={titleContainer}
@@ -76,9 +66,7 @@ const Projects = ({ data, t }) => {
             <h2 className={infoTitle}>{title}</h2>
           </a>
           <section className={description}>
-            <p>
-              {description || t('section.work.description.notfound')}
-            </p>
+            <p>{description || t("section.work.description.notfound")}</p>
           </section>
           <TechList techs={technologies} />
           <div className={inlineContainer}>
@@ -87,7 +75,7 @@ const Projects = ({ data, t }) => {
               onClick={handleClickOpen}
               className={` button ${moreInfo}`}
             >
-              {t('projectItem:more_info')}
+              <p> {t("projectItem:more_info")}</p>
             </button>
             <section className={linkContainer}>
               {repoLink && (
@@ -95,7 +83,7 @@ const Projects = ({ data, t }) => {
                   href={repoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={t('projectItem:repoLinkTitle')}
+                  title={t("projectItem:repoLinkTitle")}
                   aria-label={repoLinkLabel}
                 >
                   <Icon icon={githubIcon} />
@@ -106,7 +94,7 @@ const Projects = ({ data, t }) => {
                   href={demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={t('projectItem:demoLinkTitle')}
+                  title={t("projectItem:demoLinkTitle")}
                   aria-label={demoLinkLabel}
                 >
                   <Icon icon={externalLinkAlt} />
@@ -129,7 +117,7 @@ const Projects = ({ data, t }) => {
 
   return (
     <section id="projects" className="section">
-      <h2 className={sectionTitle}>{t('section.work.title')}</h2>
+      <h2 className={sectionTitle}>{t("section.work.title")}</h2>
       {projects}
     </section>
   );

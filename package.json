@@ -30,7 +30,7 @@
     "gatsby-transformer-sharp": "3.6.0",
     "i18next": "20.3.1",
     "i18next-browser-languagedetector": "6.1.1",
-    "netlify-cli": "^3.37.37",
+    "netlify-cli": "3.39.4",
     "normalize.css": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "preact": "10.5.13",

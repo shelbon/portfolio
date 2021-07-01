@@ -33,7 +33,7 @@
     "netlify-cli": "^3.37.37",
     "normalize.css": "8.0.1",
     "postcss-preset-env": "6.7.0",
-    "preact": "10.5.13",
+    "preact": "10.5.14",
     "preact-render-to-string": "^5.1.19",
     "prop-types": "^15.7.2",
     "react": "17.0.2",

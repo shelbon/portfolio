@@ -17,10 +17,10 @@ import {
   aboutParagraph,
   aboutTitle,
   button,
+  contact,
   contactPhone,
   contactTitle,
   section,
-  sectionContact,
   sectionProject,
   skewed,
   titleWhite,
@@ -128,7 +128,7 @@ const HomePage = ({ data, ...props }) => {
       <section
         id="contact"
         className={` section ${section}             
-                                    ${sectionContact} `}
+                                    ${contact} `}
       >
         <h2 className={contactTitle}>{t("section.contact.title")}</h2>
         <a className={contactPhone} href="tel:+596696182266" alt="phone number">

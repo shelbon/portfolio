@@ -40,7 +40,7 @@
     "react-dom": "^17.0.2",
     "react-google-recaptcha": "2.1.0",
     "react-helmet": "6.1.0",
-    "react-i18next": "11.10.0",
+    "react-i18next": "11.11.4",
     "react-responsive-carousel": "3.2.18",
     "resize-observer": "1.0.2",
     "yup": "0.32.9"

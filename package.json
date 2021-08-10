@@ -28,7 +28,7 @@
     "gatsby-theme-i18n": "2.0.0",
     "gatsby-theme-i18n-react-i18next": "2.0.0",
     "gatsby-transformer-sharp": "3.6.0",
-    "i18next": "20.3.1",
+    "i18next": "20.4.0",
     "i18next-browser-languagedetector": "6.1.1",
     "netlify-cli": "^3.37.37",
     "normalize.css": "8.0.1",

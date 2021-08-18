@@ -79,7 +79,9 @@ const HomePage = ({ data, ...props }) => {
     }
   });
   useEffect(() => {
-    AOS.init({ once: false });
+    setTimeout(() => {
+      AOS.init({ once: true });
+    }, 0);
   }, []);
   return (
     <Layout pageName={pageName}>

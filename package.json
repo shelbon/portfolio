@@ -97,7 +97,7 @@
     "defaults"
   ],
   "resolutions": {
-    "devcert": "1.1.3"
+    "devcert": "1.2.0"
   },
   "prettier": {}
 }

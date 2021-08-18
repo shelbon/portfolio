@@ -1,4 +1,4 @@
-import Icon from "@iconify/react";
+import { Icon } from "@iconify/react";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 

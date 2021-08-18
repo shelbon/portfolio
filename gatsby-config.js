@@ -1,56 +1,61 @@
-const { options } = require('preact');
+const { options } = require("preact");
 
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://mouclepatrick.netlify.app',
-    title:
-      'Portfolio de Patrick Shéron Moucle Developpeur web et mobile',
+    siteUrl: "https://mouclepatrick.netlify.app",
+    title: "Portfolio de Patrick Shéron Moucle Developpeur web et mobile",
     description:
-      'Patrick shéron moucle  développeur web et mobile,voici mon portfolio.',
-    author: 'Moucle Patrick Shéron',
+      "Patrick shéron moucle  développeur web et mobile,voici mon portfolio.",
+    author: "Moucle Patrick Shéron",
   },
   flags: {
     FAST_DEV: true,
     FAST_REFRESH: true,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-mdx',
-    'gatsby-plugin-image',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-preact',
-    'gatsby-plugin-netlify',
-    'gatsby-plugin-webpack-bundle-analyser-v2',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-image",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-preact",
+    "gatsby-plugin-netlify",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-plugin-brotli",
       options: {
-        name: 'project',
+        extensions: ["css", "html", "js", "svg", "jpg", "png", "webp"],
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "project",
         path: `${__dirname}/content/projects/`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
+        name: "images",
         path: `${__dirname}/src/images/`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'content',
+        name: "content",
         path: `${__dirname}/content/`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'pages',
+        name: "pages",
         path: `${__dirname}/src/pages/`,
       },
     },
@@ -77,23 +82,23 @@ module.exports = {
       options: {
         locales: `./i18n/react-i18next`,
         i18nextOptions: {
-          detection: { order: ['navigator'] },
-          lng: 'fr',
-          fallbackLng: 'en',
-          preload: ['fr', 'en'],
+          detection: { order: ["navigator"] },
+          lng: "fr",
+          fallbackLng: "en",
+          preload: ["fr", "en"],
           keySeparator: false,
           lowerCaseLng: true,
           prefixDefault: true,
           transSupportBasicHtmlNodes: false,
           ns: [
-            'home',
-            'contactForm',
-            'projectItem',
-            'navigation',
-            'slideShow',
-            'projectDetails',
-            '404',
-            'seo',
+            "home",
+            "contactForm",
+            "projectItem",
+            "navigation",
+            "slideShow",
+            "projectDetails",
+            "404",
+            "seo",
           ],
           interpolation: {
             escapeValue: false,
@@ -104,19 +109,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ['PASS_PHRASE'],
+        allowList: ["PASS_PHRASE"],
       },
     },
     {
-      resolve: 'gatsby-plugin-postcss',
+      resolve: "gatsby-plugin-postcss",
       options: {
         postCssPlugins: [
-          require('postcss-preset-env')({
+          require("postcss-preset-env")({
             autoprefixer: { grid: true },
             features: {
-              'nesting-rules': true,
+              "nesting-rules": true,
             },
-            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'],
+            browsers: ["> 1%", "last 2 versions", "Firefox ESR"],
           }),
         ],
       },

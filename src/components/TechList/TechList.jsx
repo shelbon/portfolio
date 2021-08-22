@@ -16,7 +16,7 @@ const TechList = ({ techs }) => {
             identifiant={tech}
           />
 
-          <p>{tech}</p>
+          <span>{tech}</span>
         </li>
       ))}
     </ul>

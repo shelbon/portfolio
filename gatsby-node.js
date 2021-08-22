@@ -1,6 +1,6 @@
-const fs = require('fs');
-const { graphql } = require('gatsby');
-const path = require('path');
+const fs = require("fs");
+const { graphql } = require("gatsby");
+const path = require("path");
 
 exports.onPreBootstrap = ({ reporter }) => {
   const contentPath = `${__dirname}/content/projects`;
@@ -8,16 +8,16 @@ exports.onPreBootstrap = ({ reporter }) => {
   // Check if content directory exists.
   if (!fs.existsSync(contentPath)) {
     reporter.warn(
-      `The ${contentPath} directory is missing. Creating it now...`,
+      `The ${contentPath} directory is missing. Creating it now...`
     );
     fs.mkdirSync(contentPath, { recursive: true });
   }
 };
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   actions.setWebpackConfig({
-    devtool: 'eval-source-map',
+    devtool: "eval-source-map",
   });
-  if (getConfig().mode === 'production') {
+  if (getConfig().mode === "production") {
     actions.setWebpackConfig({
       devtool: false,
     });
@@ -25,7 +25,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
 };
 exports.createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
-    type Project implements Node   {
+    type Project implements Node  @infer  {
       id: ID!
       locale:String!
       title: String!
@@ -33,8 +33,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       repoLink:String
       demoLink:String
       technologies:[String!]
+      description:String
       coverImage: File @fileByRelativePath
       images: [File]   @fileByRelativePath
+      moreInfo:Boolean!  
     } `);
 };
 
@@ -61,20 +63,11 @@ exports.createResolvers = ({ createResolvers }) => {
   });
 };
 
-// work but block project
-exports.onCreateNode = async ({
-  node,
-  actions,
-  getNode,
-  createNodeId,
-  createContentDigest,
-  getNodesByType,
-}) => {};
 exports.onCreateNode = async (
   { node, actions, getNode, createNodeId, createContentDigest },
-  themeOptions,
+  themeOptions
 ) => {
-  if (node.internal.type === 'Mdx') {
+  if (node.internal.type === "Mdx") {
     const parent = getNode(node.parent);
     if (parent.sourceInstanceName !== `project`) {
       return;
@@ -95,12 +88,15 @@ exports.onCreateNode = async (
         demoLink: node.frontmatter.demoLink,
         parent: node.id,
         locale: node.fields.locale,
+        moreInfo:
+          node.frontmatter.moreInfo === null ||
+          node.frontmatter.moreInfo === undefined
+            ? true
+            : node.frontmatter.moreInfo,
         technologies: node.frontmatter.technologies,
         internal: {
           type: nodeType,
-          contentDigest: createContentDigest(
-            node.internal.contentDigest,
-          ),
+          contentDigest: createContentDigest(node.internal.contentDigest),
         },
       });
     }

@@ -12,10 +12,7 @@ module.exports = {
       "Patrick shéron moucle  développeur web et mobile,voici mon portfolio.",
     author: "Moucle Patrick Shéron",
   },
-  flags: {
-    FAST_DEV: true,
-    FAST_REFRESH: true,
-  },
+
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
@@ -25,12 +22,6 @@ module.exports = {
     "gatsby-plugin-preact",
     "gatsby-plugin-netlify",
     "gatsby-plugin-webpack-bundle-analyser-v2",
-    {
-      resolve: "gatsby-plugin-brotli",
-      options: {
-        extensions: ["css", "html", "js", "svg", "jpg", "png", "webp"],
-      },
-    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

@@ -10,19 +10,19 @@ export const fragment = graphql`
     technologies
     description
     locale
+    moreInfo
     coverImage {
       name
-      full: childImageSharp {
+      childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
       }
     }
     images {
+      id
       name
-      full: childImageSharp {
+      childImageSharp {
         gatsbyImageData(
           layout: CONSTRAINED
-          width: 800
-          height: 400
           placeholder: TRACED_SVG
           transformOptions: { cropFocus: CENTER }
         )

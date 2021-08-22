@@ -1,28 +1,36 @@
 import externalLinkAlt from "@iconify/icons-la/external-link-alt";
 import githubIcon from "@iconify/icons-la/github";
-import Icon from "@iconify/react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { Icon } from "@iconify/react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
 import React from "react";
-import { Trans } from "react-i18next";
 import TechList from "../TechList/TechList";
 import DetailsProject from "./Details/Details";
 import {
-  description,
+  description as descriptionStyle,
+  imageContainer,
   info,
   infoTitle,
   inlineContainer,
   linkContainer,
-  moreInfo,
+  moreInfo as moreInfoStyle,
   projectItem,
   sectionTitle,
   titleContainer,
 } from "./projects.module.css";
 
 const Projects = ({ data, t }) => {
-  const projects = data.map((project, index) => {
-    const { title, repoLink, demoLink, technologies, description, coverImage } =
-      project;
+  const projects = data.map((project) => {
+    const {
+      id,
+      title,
+      repoLink,
+      demoLink,
+      technologies,
+      description,
+      coverImage,
+      moreInfo,
+    } = project;
     const demoLinkLabel = `${t("projectItem:demoLinkAriaLabel")} ${title}`;
     const repoLinkLabel = `${t("projectItem:repoLinkAriaLabel")} ${title}`;
     const [open, setOpen] = React.useState(false);
@@ -35,7 +43,7 @@ const Projects = ({ data, t }) => {
       setOpen(false);
     };
     return (
-      <article className={projectItem} key={title + index}>
+      <article className={projectItem} key={id}>
         <a
           aria-label={
             demoLink
@@ -50,9 +58,9 @@ const Projects = ({ data, t }) => {
         >
           {coverImage && (
             <GatsbyImage
-              image={coverImage.full.gatsbyImageData}
+              image={getImage(coverImage)}
               alt={`${t("projectItem:project")} ${title}`}
-              loading="eager"
+              className={imageContainer}
             />
           )}
         </a>
@@ -65,18 +73,20 @@ const Projects = ({ data, t }) => {
           >
             <h2 className={infoTitle}>{title}</h2>
           </a>
-          <section className={description}>
+          <section className={descriptionStyle}>
             <p>{description || t("section.work.description.notfound")}</p>
           </section>
           <TechList techs={technologies} />
           <div className={inlineContainer}>
-            <button
-              type="button"
-              onClick={handleClickOpen}
-              className={` button ${moreInfo}`}
-            >
-              <p> {t("projectItem:more_info")}</p>
-            </button>
+            {moreInfo && (
+              <button
+                type="button"
+                onClick={handleClickOpen}
+                className={` button ${moreInfoStyle}`}
+              >
+                <p> {t("projectItem:more_info")}</p>
+              </button>
+            )}
             <section className={linkContainer}>
               {repoLink && (
                 <a

@@ -4,7 +4,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 function SEO({ description, lang, meta, title }) {
-  const { site, allFile } = useStaticQuery(query);
+  const { site, logo } = useStaticQuery(query);
   const metaDescription = description || site.siteMetadata.description;
   return (
     <Helmet
@@ -33,7 +33,7 @@ function SEO({ description, lang, meta, title }) {
       link={[
         {
           rel: "icon",
-          href: `${allFile.nodes[0].publicURL}`,
+          href: `${logo.publicURL}`,
           type: "image/svg+xml",
           size: "any",
         },
@@ -64,18 +64,8 @@ const query = graphql`
         defaultDescription: description
       }
     }
-    allFile(
-      limit: 1
-      filter: {
-        name: { eq: "logo" }
-        ext: { eq: ".svg" }
-        sourceInstanceName: { eq: "images" }
-        relativeDirectory: { eq: "" }
-      }
-    ) {
-      nodes {
-        publicURL
-      }
+    logo: file(name: { eq: "logo" }, ext: { eq: ".svg" }) {
+      publicURL
     }
   }
 `;

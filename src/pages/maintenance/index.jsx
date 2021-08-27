@@ -1,28 +1,22 @@
 import React from "react"
+import { withTranslation } from "react-i18next"
 import SEO from "../../components/seo"
 import "../../styles/layout.css"
 import {
   maintenance_container,
-  maintenance_title,
-  maintenance_body,
-  maintenance_bodyTag,
+  maintenance_content,
 } from "../../styles/maintenance.module.css"
 import "../../styles/normalize.css"
-import { withTranslation } from "react-i18next"
 const UnderMaintenance = ({ t }) => {
   return (
-    <>
-      <SEO
-        title={t("title")}
-        description={t("description")}
-        bodyAttributes={maintenance_bodyTag}
-      />
-      <section className={maintenance_container}>
+    <div className={maintenance_container}>
+      <SEO title={t("title")} description={t("description")} />
+      <section className={maintenance_content}>
         <h1>{t("title")}</h1>
         <p>{t("body")}</p>
-        <a href="mailto:mouclesheron@gmail.com">contact me </a>
+        <a href="mailto:mouclepatrick@protonmail.com">contact me </a>
       </section>
-    </>
+    </div>
   )
 }
 export default withTranslation("maintenance")(UnderMaintenance)

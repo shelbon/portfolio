@@ -24,16 +24,9 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
     {
-      resolve:"gatsby-plugin-netlify",
-      options:{
-        generateMatchPathRewrites: false
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
+      resolve: "gatsby-plugin-netlify",
       options: {
-        name: "project",
-        path: `${__dirname}/content/projects/`,
+        generateMatchPathRewrites: false,
       },
     },
     {
@@ -41,13 +34,6 @@ module.exports = {
       options: {
         name: "images",
         path: `${__dirname}/src/images/`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "content",
-        path: `${__dirname}/content/`,
       },
     },
     {
@@ -77,7 +63,7 @@ module.exports = {
           preload: ["fr", "en"],
           keySeparator: false,
           lowerCaseLng: true,
-          debug: true,
+          debug: false,
           transSupportBasicHtmlNodes: true,
           ns: [
             "home",

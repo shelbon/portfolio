@@ -1,16 +1,9 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
+import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-function SEO({ description, lang, meta, title, bodyAttributes }) {
-  const { site, allFile } = useStaticQuery(query)
+function SEO({ description, lang, meta, title }) {
+  const { site, logo } = useStaticQuery(query)
   const metaDescription = description || site.siteMetadata.description
   return (
     <Helmet
@@ -39,14 +32,11 @@ function SEO({ description, lang, meta, title, bodyAttributes }) {
       link={[
         {
           rel: "icon",
-          href: `${allFile.nodes[0].publicURL}`,
+          href: `${logo.publicURL}`,
           type: "image/svg+xml",
           size: "any",
         },
       ]}
-      bodyAttributes={{
-        ...(bodyAttributes != null && { class: bodyAttributes }),
-      }}
     />
   )
 }
@@ -73,18 +63,8 @@ const query = graphql`
         defaultDescription: description
       }
     }
-    allFile(
-      limit: 1
-      filter: {
-        name: { eq: "logo" }
-        ext: { eq: ".svg" }
-        sourceInstanceName: { eq: "images" }
-        relativeDirectory: { eq: "" }
-      }
-    ) {
-      nodes {
-        publicURL
-      }
+    logo: file(name: { eq: "logo" }, ext: { eq: ".svg" }) {
+      publicURL
     }
   }
 `

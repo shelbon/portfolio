@@ -1,133 +1,136 @@
 .section-title {
-  width: 100%;
-  position: relative;
-  font-weight: 800;
-  margin: 20px 0;
+    width: 100%;
+    position: relative;
+    font-weight: 800;
+    margin: 20px 0;
 }
 
 .section-title:first-letter {
-  color: var(--color-accent-dark);
+    color: var(--color-accent-dark);
 }
 
 .section-title::after {
-  background-color: var(--color-accent-dark);
-  content: "";
-  position: absolute;
-  top: -30px;
-  left: 0;
-  width: 30px;
-  height: 2px;
+    background-color: var(--color-accent-dark);
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 30px;
+    height: 2px;
 }
 
 .project-item {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 5rem;
-  padding: 5rem 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5rem;
+    padding: 5rem 0;
 }
 
 .description {
-  background-color: var(--bg-color-secondary);
-  max-width: var(--content-width);
-  margin: 0 auto;
-  border-radius: var(--radius);
-  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.02),
-    1px 1px 15px 0 rgba(0, 0, 0, 0.03);
-  transition: transform var(--transition-normal),
-    background-color var(--transition-normal), box-shadow var(--transition-slow);
-  max-height: 180px;
-  position: relative;
-  padding: 10px;
+    background-color: var(--bg-color-secondary);
+    max-width: var(--content-width);
+    margin: 0 auto;
+    border-radius: var(--radius);
+    box-shadow:
+        1px 1px 5px 0 rgba(0, 0, 0, 0.02),
+        1px 1px 15px 0 rgba(0, 0, 0, 0.03);
+    transition:
+        transform var(--transition-normal),
+        background-color var(--transition-normal),
+        box-shadow var(--transition-slow);
+    max-height: 180px;
+    position: relative;
+    padding: 10px;
 }
 
 .description > p {
-  height: 100%;
-  margin: 0;
-  font-size: 1.6rem;
-  overflow: hidden;
+    height: 100%;
+    margin: 0;
+    font-size: 1.6rem;
+    overflow: hidden;
 }
 
 .inline-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .project-item:nth-of-type(even) {
-  direction: rtl;
+    direction: rtl;
 }
 
 .project-item:nth-of-type(even) * {
-  direction: ltr;
+    direction: ltr;
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
 }
 
 .link-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1rem 0;
 }
 
 .link-container > a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--body-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--body-color);
 }
 
 .link-container > a:hover {
-  color: var(--color-accent-dark);
+    color: var(--color-accent-dark);
 }
 
 .link-container > a svg {
-  font-size: 3rem;
-  margin: 0 1rem;
+    font-size: 3rem;
+    margin: 0 1rem;
 }
 
 .title-container {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .title-container:hover > * {
-  cursor: pointer;
-  color: var(--color-accent-dark);
+    cursor: pointer;
+    color: var(--color-accent-dark);
 }
 
 .info-title {
-  color: var(--title-color-dark);
-  margin: 20px 0;
-  position: relative;
+    color: var(--title-color-dark);
+    margin: 20px 0;
+    position: relative;
 }
 
 .info-title::after {
-  background-color: var(--color-accent-dark);
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 30px;
-  height: 2px;
+    background-color: var(--color-accent-dark);
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 30px;
+    height: 2px;
 }
 
 .moreInfo {
-  display: inline-block;
+    display: inline-block;
 }
 
 @media screen and (max-width: 252px) {
-  .inline-container {
-    flex-direction: column;
-  }
+    .inline-container {
+        flex-direction: column;
+    }
 }
 
 @media screen and (min-width: 960px) {
-  .project-item {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .project-item {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

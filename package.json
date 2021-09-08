@@ -33,6 +33,7 @@
     "i18next-browser-languagedetector": "6.1.2",
     "netlify-cli": "^6.5.8",
     "normalize.css": "8.0.1",
+    "patch-package": "^6.4.7",
     "postcss-preset-env": "6.7.0",
     "preact": "10.5.14",
     "preact-render-to-string": "^5.1.19",
@@ -44,6 +45,7 @@
     "react-i18next": "11.11.4",
     "react-responsive-carousel": "3.2.20",
     "resize-observer": "1.0.2",
+    "save-dev": "^0.0.1-security",
     "yup": "0.32.9"
   },
   "devDependencies": {
@@ -73,6 +75,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "postinstall": "patch-package",
     "build": "gatsby build",
     "dev": "gatsby  develop",
     "dev-network": "gatsby develop -H $(hostname)",
@@ -84,7 +87,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "develop-ssl": "gatsby develop  -S -k ./private-key.key -c ./certificate.crt",
     "fix-code": "prettier-eslint --write 'src/**/*.{js,jsx}' ",
-    "fix-styles": "prettier-stylelint --write --parser css  'src/**/*.{css,scss}'    "
+    "fix-styles": "prettier-stylelint --write  "
   },
   "repository": {
     "type": "git",

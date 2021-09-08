@@ -1,0 +1,84 @@
+diff --git a/node_modules/prettier-stylelint/.editorconfig b/node_modules/prettier-stylelint/.editorconfig
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/.gitattributes b/node_modules/prettier-stylelint/.gitattributes
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/.npmignore b/node_modules/prettier-stylelint/.npmignore
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/.travis.yml b/node_modules/prettier-stylelint/.travis.yml
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/CHANGELOG.md b/node_modules/prettier-stylelint/CHANGELOG.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/LICENSE b/node_modules/prettier-stylelint/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/README.md b/node_modules/prettier-stylelint/README.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/config.js b/node_modules/prettier-stylelint/config.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/fixtures/find-package/deep/style.css b/node_modules/prettier-stylelint/fixtures/find-package/deep/style.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/fixtures/find-package/style.css b/node_modules/prettier-stylelint/fixtures/find-package/style.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/fixtures/less.less b/node_modules/prettier-stylelint/fixtures/less.less
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/fixtures/style.css b/node_modules/prettier-stylelint/fixtures/style.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/index.js b/node_modules/prettier-stylelint/index.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/src/cli.js b/node_modules/prettier-stylelint/src/cli.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/src/index.js b/node_modules/prettier-stylelint/src/index.js
+old mode 100644
+new mode 100755
+index 124c00d..a6f12ec
+--- a/node_modules/prettier-stylelint/src/index.js
++++ b/node_modules/prettier-stylelint/src/index.js
+@@ -60,7 +60,7 @@ resolveConfig.resolve = (stylelintConfig, prettierOptions = {}) => {
+             prettierOptions.tabWidth = indentation;
+         }
+     }
+-    prettierOptions.parser = 'postcss';
++    prettierOptions.parser = 'css';
+     debug('prettier %O', prettierOptions);
+     debug('linter %O', stylelintConfig);
+ 
+diff --git a/node_modules/prettier-stylelint/src/utils.js b/node_modules/prettier-stylelint/src/utils.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/test.js b/node_modules/prettier-stylelint/test.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/tests/error-after-format.css b/node_modules/prettier-stylelint/tests/error-after-format.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/tests/error-syntax.css b/node_modules/prettier-stylelint/tests/error-syntax.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/tests/less.less b/node_modules/prettier-stylelint/tests/less.less
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/tests/nestes.css b/node_modules/prettier-stylelint/tests/nestes.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/tests/rules/color-no-invalid-hex.css b/node_modules/prettier-stylelint/tests/rules/color-no-invalid-hex.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/tests/test-disable-rules.css b/node_modules/prettier-stylelint/tests/test-disable-rules.css
+old mode 100644
+new mode 100755
+diff --git a/node_modules/prettier-stylelint/yarn.lock b/node_modules/prettier-stylelint/yarn.lock
+old mode 100644
+new mode 100755

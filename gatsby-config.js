@@ -60,6 +60,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Poppins"],
+        },
+      },
+    },
+    {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: `fr`,

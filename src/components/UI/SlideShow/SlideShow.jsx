@@ -1,4 +1,4 @@
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Carousel } from "react-responsive-carousel";
@@ -20,7 +20,7 @@ const SlideShow = (props) => {
         <div className={slide} key={index}>
           <GatsbyImage
             className={imageStyle}
-            image={image.full.gatsbyImageData}
+            image={getImage(image)}
             alt="project"
           />
           <span className={caption}>{t(image.name)}</span>

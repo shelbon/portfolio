@@ -1,7 +1,5 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { graphql } from "gatsby";
-import React, { useEffect } from "react";
+import React from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { ResizeObserver } from "resize-observer";
 import rescaleCaptcha from "../../../static/js/rescaleCaptcha";
@@ -28,11 +26,6 @@ import {
 
 export const query = graphql`
   query Home($locale: String) {
-    site {
-      siteMetadata {
-        author
-      }
-    }
     hero: mdx(
       fileAbsolutePath: { regex: "/content/hero/" }
       fields: { locale: { eq: $locale } }
@@ -66,7 +59,7 @@ const HomePage = ({ data, ...props }) => {
   ]);
   const pageName = props.pageContext.originalPath.replace(pathNameRegex, "");
   const heroData = {
-    author: data.site.siteMetadata.author,
+    author: t("home:author"),
     locale: data.hero.fields.locale,
     ...data.hero.frontmatter,
     pageName,
@@ -78,11 +71,7 @@ const HomePage = ({ data, ...props }) => {
       }
     }
   });
-  useEffect(() => {
-    setTimeout(() => {
-      AOS.init({ once: true });
-    }, 0);
-  }, []);
+
   return (
     <Layout pageName={pageName}>
       <AppContext.Consumer>

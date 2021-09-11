@@ -21,7 +21,11 @@ import {
 const TopNav = ({ cv, pageName }) => {
   const { t } = useTranslation("navigation");
   const [value, toggleValue] = useToggle(false);
-
+  const closeMenu = () => {
+    if (value) {
+      toggleValue(!value);
+    }
+  };
   return (
     <nav id={topNav} className={value ? mobileMode : ""} aria-hidden="false">
       <button
@@ -40,11 +44,7 @@ const TopNav = ({ cv, pageName }) => {
           <LocalizedLink
             className={link}
             to="/home"
-            onClick={() => {
-              if (value) {
-                toggleValue(!value);
-              }
-            }}
+            onClick={() => closeMenu()}
           >
             <p className={linkText}>{t("home")}</p>
           </LocalizedLink>
@@ -53,11 +53,7 @@ const TopNav = ({ cv, pageName }) => {
           <LocalizedLink
             className={link}
             to={`/${pageName}#about`}
-            onClick={() => {
-              if (value) {
-                toggleValue(!value);
-              }
-            }}
+            onClick={() => closeMenu()}
           >
             <p className={linkText}>{t("about")}</p>
           </LocalizedLink>
@@ -66,11 +62,7 @@ const TopNav = ({ cv, pageName }) => {
           <LocalizedLink
             className={link}
             to={`/${pageName}#project`}
-            onClick={() => {
-              if (value) {
-                toggleValue(!value);
-              }
-            }}
+            onClick={() => closeMenu()}
           >
             <p className={linkText}>{t("work")}</p>
           </LocalizedLink>
@@ -79,11 +71,7 @@ const TopNav = ({ cv, pageName }) => {
           <LocalizedLink
             className={link}
             to={`/${pageName}#contact`}
-            onClick={() => {
-              if (value) {
-                toggleValue(!value);
-              }
-            }}
+            onClick={() => closeMenu()}
           >
             <p className={linkText}>{t("contact")}</p>
           </LocalizedLink>
@@ -95,11 +83,7 @@ const TopNav = ({ cv, pageName }) => {
               rel="noopener noreferrer"
               target="_blank"
               href={cv.publicURL}
-              onClick={() => {
-                if (value) {
-                  toggleValue(!value);
-                }
-              }}
+              onClick={() => closeMenu()}
             >
               <p className={linkText}>{t("resume")}</p>
             </a>

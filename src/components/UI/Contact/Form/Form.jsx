@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 import Recaptcha from "react-google-recaptcha";
 import { withTranslation } from "react-i18next";
 import * as yup from "yup";
-import AppContext from "../../../../utils/context";
 import {
   container,
   error,
@@ -36,7 +35,7 @@ function ContactForm({ t, i18n, resizeObserver }) {
     const recaptchaContainer = document.getElementsByClassName(recaptcha)[0];
 
     resizeObserver.observe(recaptchaContainer);
-  }, []);
+  }, [resizeObserver]);
   return (
     <div className={`section ${container}`}>
       <Formik

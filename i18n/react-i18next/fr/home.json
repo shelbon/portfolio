@@ -5,8 +5,9 @@
   "section.about.title": "À propos",
   "section.contact.title": "Contact",
   "section.work.subtitle": "Voici des exemples de mes réalisations personnelles et professionnelles.",
-  "section.work.description.notfound":"aucune description n'a été trouver",
+  "section.work.description.notfound": "aucune description n'a été trouver",
   "section.about.body.emphasis": "Bonjour je suis Moucle Patrick Shéron",
   "section.about.body.paragraphs": "<p>Je suis un <strong> Developpeur web mobile</strong>.</p><p>Je suis née en  Martinique,actuellement  resident à Rivière-salée.</p><p> J'aime travailler avec des tecnologies moderne , construire des application web ou mobile  avec comme priorités la <strong>performance</strong> et <strong>l'expérience utilisateur</strong>.</p>",
-  "footer": "MOUCLE Patrick Shéron , tous droits réservés."
+  "footer": "MOUCLE Patrick Shéron , tous droits réservés.",
+  "author": "MOUCLE Patrick Shéron "
 }

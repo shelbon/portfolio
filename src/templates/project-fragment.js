@@ -14,7 +14,11 @@ export const fragment = graphql`
     coverImage {
       name
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          placeholder: TRACED_SVG
+          formats: [AUTO, AVIF, WEBP]
+        )
       }
     }
     images {
@@ -24,6 +28,7 @@ export const fragment = graphql`
         gatsbyImageData(
           layout: CONSTRAINED
           placeholder: TRACED_SVG
+          formats: [AUTO, AVIF, WEBP]
           transformOptions: { cropFocus: CENTER }
         )
       }

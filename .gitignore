@@ -63,11 +63,11 @@ public
 
 # Yarn
 .yarn/*
-.yarn/patches
-.yarn/releases
-.yarn/plugins
-.yarn/sdks
-.yarn/versions
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
 yarn-error.log
 .pnp/
 .pnp.js

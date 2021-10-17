@@ -60,6 +60,29 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-omni-font-loader",
+
+      options: {
+        mode: "async",
+
+        enableListener: true,
+
+        preconnect: ["https://fonts.gstatic.com"],
+
+        web: [
+          {
+            name: "Merriweather",
+
+            file: "https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap",
+          },
+          {
+            name: "Merriweather Sans",
+            file: "https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap",
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: `fr`,

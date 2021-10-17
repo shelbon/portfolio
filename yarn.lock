@@ -1959,14 +1959,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/icons-la@npm:^1.1.0":
+"@iconify/icons-la@npm:1.1.0":
   version: 1.1.0
   resolution: "@iconify/icons-la@npm:1.1.0"
   checksum: acb5a7568c46ef45f55c9a9bb14efbc4f6b65162742b8aab190d19666d5c6caaa98a183af20668b7c25458c3e722a54b6da85a0052cdf0b1857d3a27b9b115a4
   languageName: node
   linkType: hard
 
-"@iconify/react@npm:^3.0.1":
+"@iconify/react@npm:3.0.1":
   version: 3.0.1
   resolution: "@iconify/react@npm:3.0.1"
   checksum: 70402e37d2a09950db33c4639389cc409bbcea3c4df27bbca3d2653460936da6939c2efc209b5cf866ca70aa0588dfe6941d9d5b27d1d83d08288832a6fffa38
@@ -5106,7 +5106,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aos@npm:^2.3.4":
+"aos@npm:2.3.4":
   version: 2.3.4
   resolution: "aos@npm:2.3.4"
   dependencies:
@@ -9152,7 +9152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-airbnb@npm:^18.2.1":
+"eslint-config-airbnb@npm:18.2.1":
   version: 18.2.1
   resolution: "eslint-config-airbnb@npm:18.2.1"
   dependencies:
@@ -9169,7 +9169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.3.0":
+"eslint-config-prettier@npm:8.3.0":
   version: 8.3.0
   resolution: "eslint-config-prettier@npm:8.3.0"
   peerDependencies:
@@ -9301,7 +9301,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:^6.4.1":
+"eslint-plugin-jsx-a11y@npm:6.4.1, eslint-plugin-jsx-a11y@npm:^6.4.1":
   version: 6.4.1
   resolution: "eslint-plugin-jsx-a11y@npm:6.4.1"
   dependencies:
@@ -9337,7 +9337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^4.2.0":
+"eslint-plugin-react-hooks@npm:4.2.0, eslint-plugin-react-hooks@npm:^4.2.0":
   version: 4.2.0
   resolution: "eslint-plugin-react-hooks@npm:4.2.0"
   peerDependencies:
@@ -9484,53 +9484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^5.0.0":
-  version: 5.16.0
-  resolution: "eslint@npm:5.16.0"
-  dependencies:
-    "@babel/code-frame": ^7.0.0
-    ajv: ^6.9.1
-    chalk: ^2.1.0
-    cross-spawn: ^6.0.5
-    debug: ^4.0.1
-    doctrine: ^3.0.0
-    eslint-scope: ^4.0.3
-    eslint-utils: ^1.3.1
-    eslint-visitor-keys: ^1.0.0
-    espree: ^5.0.1
-    esquery: ^1.0.1
-    esutils: ^2.0.2
-    file-entry-cache: ^5.0.1
-    functional-red-black-tree: ^1.0.1
-    glob: ^7.1.2
-    globals: ^11.7.0
-    ignore: ^4.0.6
-    import-fresh: ^3.0.0
-    imurmurhash: ^0.1.4
-    inquirer: ^6.2.2
-    js-yaml: ^3.13.0
-    json-stable-stringify-without-jsonify: ^1.0.1
-    levn: ^0.3.0
-    lodash: ^4.17.11
-    minimatch: ^3.0.4
-    mkdirp: ^0.5.1
-    natural-compare: ^1.4.0
-    optionator: ^0.8.2
-    path-is-inside: ^1.0.2
-    progress: ^2.0.0
-    regexpp: ^2.0.1
-    semver: ^5.5.1
-    strip-ansi: ^4.0.0
-    strip-json-comments: ^2.0.1
-    table: ^5.2.3
-    text-table: ^0.2.0
-  bin:
-    eslint: ./bin/eslint.js
-  checksum: 53c6b9420992df95f986dc031f76949edbea14bdeed4e40d8cda8970fbf0fc013c6d91b98f469b6477753e50c9af133c1a768e421a1c160ec2cac7a246e05494
-  languageName: node
-  linkType: hard
-
-"eslint@npm:^7.32.0, eslint@npm:^7.9.0":
+"eslint@npm:7.32.0, eslint@npm:^7.32.0, eslint@npm:^7.9.0":
   version: 7.32.0
   resolution: "eslint@npm:7.32.0"
   dependencies:
@@ -9577,6 +9531,52 @@ __metadata:
   bin:
     eslint: bin/eslint.js
   checksum: cc85af9985a3a11085c011f3d27abe8111006d34cc274291b3c4d7bea51a4e2ff6135780249becd919ba7f6d6d1ecc38a6b73dacb6a7be08d38453b344dc8d37
+  languageName: node
+  linkType: hard
+
+"eslint@npm:^5.0.0":
+  version: 5.16.0
+  resolution: "eslint@npm:5.16.0"
+  dependencies:
+    "@babel/code-frame": ^7.0.0
+    ajv: ^6.9.1
+    chalk: ^2.1.0
+    cross-spawn: ^6.0.5
+    debug: ^4.0.1
+    doctrine: ^3.0.0
+    eslint-scope: ^4.0.3
+    eslint-utils: ^1.3.1
+    eslint-visitor-keys: ^1.0.0
+    espree: ^5.0.1
+    esquery: ^1.0.1
+    esutils: ^2.0.2
+    file-entry-cache: ^5.0.1
+    functional-red-black-tree: ^1.0.1
+    glob: ^7.1.2
+    globals: ^11.7.0
+    ignore: ^4.0.6
+    import-fresh: ^3.0.0
+    imurmurhash: ^0.1.4
+    inquirer: ^6.2.2
+    js-yaml: ^3.13.0
+    json-stable-stringify-without-jsonify: ^1.0.1
+    levn: ^0.3.0
+    lodash: ^4.17.11
+    minimatch: ^3.0.4
+    mkdirp: ^0.5.1
+    natural-compare: ^1.4.0
+    optionator: ^0.8.2
+    path-is-inside: ^1.0.2
+    progress: ^2.0.0
+    regexpp: ^2.0.1
+    semver: ^5.5.1
+    strip-ansi: ^4.0.0
+    strip-json-comments: ^2.0.1
+    table: ^5.2.3
+    text-table: ^0.2.0
+  bin:
+    eslint: ./bin/eslint.js
+  checksum: 53c6b9420992df95f986dc031f76949edbea14bdeed4e40d8cda8970fbf0fc013c6d91b98f469b6477753e50c9af133c1a768e421a1c160ec2cac7a246e05494
   languageName: node
   linkType: hard
 
@@ -10991,7 +10991,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-brotli@npm:^2.0.0":
+"gatsby-plugin-brotli@npm:2.0.0":
   version: 2.0.0
   resolution: "gatsby-plugin-brotli@npm:2.0.0"
   dependencies:
@@ -11002,7 +11002,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-env-variables@npm:^2.1.0":
+"gatsby-plugin-env-variables@npm:2.1.0":
   version: 2.1.0
   resolution: "gatsby-plugin-env-variables@npm:2.1.0"
   peerDependencies:
@@ -18123,7 +18123,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"patch-package@npm:^6.4.7":
+"patch-package@npm:6.4.7":
   version: 6.4.7
   resolution: "patch-package@npm:6.4.7"
   dependencies:
@@ -18436,30 +18436,30 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "porfolio@workspace:."
   dependencies:
-    "@babel/core": ^7.15.5
-    "@iconify/icons-la": ^1.1.0
-    "@iconify/react": ^3.0.1
+    "@babel/core": 7.15.8
+    "@iconify/icons-la": 1.1.0
+    "@iconify/react": 3.0.1
     "@material-ui/core": 4.12.3
     "@material-ui/icons": 4.11.2
     "@material-ui/lab": 4.0.0-alpha.60
     "@mdx-js/mdx": 1.6.22
     "@mdx-js/react": 1.6.22
-    aos: ^2.3.4
+    aos: 2.3.4
     axios: 0.21.4
-    eslint: ^7.32.0
-    eslint-config-airbnb: ^18.2.1
-    eslint-config-prettier: ^8.3.0
+    eslint: 7.32.0
+    eslint-config-airbnb: 18.2.1
+    eslint-config-prettier: 8.3.0
     eslint-plugin-import: 2.24.2
-    eslint-plugin-jsx-a11y: ^6.4.1
+    eslint-plugin-jsx-a11y: 6.4.1
     eslint-plugin-prettier: 4.0.0
     eslint-plugin-react: 7.26.0
-    eslint-plugin-react-hooks: ^4.2.0
+    eslint-plugin-react-hooks: 4.2.0
     formik: 2.2.9
     gatsby: 3.14.0
     gatsby-image: 3.11.0
     gatsby-omni-font-loader: ^1.3.2
-    gatsby-plugin-brotli: ^2.0.0
-    gatsby-plugin-env-variables: ^2.1.0
+    gatsby-plugin-brotli: 2.0.0
+    gatsby-plugin-env-variables: 2.1.0
     gatsby-plugin-image: 1.14.0
     gatsby-plugin-manifest: 3.14.0
     gatsby-plugin-mdx: 2.14.0
@@ -18477,26 +18477,26 @@ fsevents@~2.3.2:
     i18next-browser-languagedetector: 6.1.2
     netlify-cli: 6.9.17
     normalize.css: 8.0.1
-    patch-package: ^6.4.7
+    patch-package: 6.4.7
     postcss: 8.3.8
     postcss-preset-env: 6.7.0
     preact: 10.5.14
-    preact-render-to-string: ^5.1.19
+    preact-render-to-string: 5.1.19
     prettier: 2.4.1
-    prettier-eslint: ^13.0.0
-    prettier-eslint-cli: ^5.0.1
-    prettier-stylelint: ^0.4.2
-    prop-types: ^15.7.2
+    prettier-eslint: 13.0.0
+    prettier-eslint-cli: 5.0.1
+    prettier-stylelint: 0.4.2
+    prop-types: 15.7.2
     react: 17.0.2
-    react-dom: ^17.0.2
+    react-dom: 17.0.2
     react-google-recaptcha: 2.1.0
     react-helmet: 6.1.0
     react-i18next: 11.12.0
     react-responsive-carousel: 3.2.21
     resize-observer: 1.0.2
-    save-dev: ^0.0.1-security
-    stylelint: ^13.13.1
-    stylelint-config-recommended: ^5.0.0
+    save-dev: 0.0.1-security
+    stylelint: 13.13.1
+    stylelint-config-recommended: 5.0.0
     yup: 0.32.9
   languageName: unknown
   linkType: soft
@@ -19493,7 +19493,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"preact-render-to-string@npm:^5.1.19":
+"preact-render-to-string@npm:5.1.19":
   version: 5.1.19
   resolution: "preact-render-to-string@npm:5.1.19"
   dependencies:
@@ -19599,7 +19599,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prettier-eslint-cli@npm:^5.0.1":
+"prettier-eslint-cli@npm:5.0.1":
   version: 5.0.1
   resolution: "prettier-eslint-cli@npm:5.0.1"
   dependencies:
@@ -19626,7 +19626,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prettier-eslint@npm:^13.0.0":
+"prettier-eslint@npm:13.0.0":
   version: 13.0.0
   resolution: "prettier-eslint@npm:13.0.0"
   dependencies:
@@ -19676,7 +19676,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prettier-stylelint@npm:^0.4.2":
+"prettier-stylelint@npm:0.4.2":
   version: 0.4.2
   resolution: "prettier-stylelint@npm:0.4.2"
   dependencies:
@@ -19882,7 +19882,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:15.7.2, prop-types@npm:^15.5.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -20210,7 +20210,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2":
+"react-dom@npm:17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -21419,7 +21419,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"save-dev@npm:^0.0.1-security":
+"save-dev@npm:0.0.1-security":
   version: 0.0.1-security
   resolution: "save-dev@npm:0.0.1-security"
   checksum: 0c16bcd9aef6a9c937478199ae5f13581a57bae6dea3d28704ccca2f8f53f89c3eaab2e350e9bf137462807aa2c0ad0f27e103dd70a503c04eb5ec2187dc6d47
@@ -22702,7 +22702,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"stylelint-config-recommended@npm:^5.0.0":
+"stylelint-config-recommended@npm:5.0.0":
   version: 5.0.0
   resolution: "stylelint-config-recommended@npm:5.0.0"
   peerDependencies:
@@ -22711,7 +22711,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^13.13.1":
+"stylelint@npm:13.13.1":
   version: 13.13.1
   resolution: "stylelint@npm:13.13.1"
   dependencies:

@@ -37,6 +37,20 @@ function SEO({ description, lang, meta, title }) {
           type: "image/svg+xml",
           size: "any",
         },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+        },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossOrigin: true,
+        },
+
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Merriweather:wght@800&display=swap",
+        },
       ]}
     />
   );

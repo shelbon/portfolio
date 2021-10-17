@@ -123,7 +123,7 @@ body {
 
     position: relative;
     color: var(--body-color);
-    font-family: "Poppins", sans-serif;
+    font-family: "Merriweather Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: normal;
@@ -159,6 +159,7 @@ h2,
 h3,
 h4,
 h5 {
+    font-family: "Merriweather", serif;
     transition: color var(--transition-slow);
     color: var(--title-color-dark);
     margin: 2.75rem 0 1rem;

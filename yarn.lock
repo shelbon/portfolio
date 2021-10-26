@@ -1441,7 +1441,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.15.3, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.10.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.15.3, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.4.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.15.4
   resolution: "@babel/runtime@npm:7.15.4"
   dependencies:
@@ -4058,7 +4058,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.165, @types/lodash@npm:^4.14.92":
+"@types/lodash@npm:^4.14.175, @types/lodash@npm:^4.14.92":
   version: 4.14.176
   resolution: "@types/lodash@npm:4.14.176"
   checksum: 9e949704dfffab60365b5cdca0477926af6eabe82c64b7be8f74b3a117bb373d58371be962c2b159dd0cf8fad49a7dcacc748564aea4ce6b6883c197a6f0bfa8
@@ -15046,7 +15046,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:^4.17.15, lodash-es@npm:^4.17.21":
+"lodash-es@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash-es@npm:4.17.21"
   checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
@@ -18932,7 +18932,7 @@ fsevents@~2.3.2:
     save-dev: 0.0.1-security
     stylelint: 14.0.0
     stylelint-config-recommended: 6.0.0
-    yup: 0.32.9
+    yup: 0.32.11
   languageName: unknown
   linkType: soft
 
@@ -25802,18 +25802,18 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"yup@npm:0.32.9":
-  version: 0.32.9
-  resolution: "yup@npm:0.32.9"
+"yup@npm:0.32.11":
+  version: 0.32.11
+  resolution: "yup@npm:0.32.11"
   dependencies:
-    "@babel/runtime": ^7.10.5
-    "@types/lodash": ^4.14.165
-    lodash: ^4.17.20
-    lodash-es: ^4.17.15
+    "@babel/runtime": ^7.15.4
+    "@types/lodash": ^4.14.175
+    lodash: ^4.17.21
+    lodash-es: ^4.17.21
     nanoclone: ^0.2.1
     property-expr: ^2.0.4
     toposort: ^2.0.2
-  checksum: 3f33850913a237fb7e59b0b5c71d2cc6bdb1d6b2b01fc24c53ec68b35ad2b95cd49f735532117136495cb57f0ec58f0a7e1f1c55fad685555c7114155170f1ea
+  checksum: 43a16786b47cc910fed4891cebdd89df6d6e31702e9462e8f969c73eac88551ce750732608012201ea6b93802c8847cb0aa27b5d57370640f4ecf30f9f97d4b0
   languageName: node
   linkType: hard
 

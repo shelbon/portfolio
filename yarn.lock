@@ -11036,13 +11036,13 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"gatsby-omni-font-loader@npm:1.3.2":
-  version: 1.3.2
-  resolution: "gatsby-omni-font-loader@npm:1.3.2"
+"gatsby-omni-font-loader@npm:1.3.3":
+  version: 1.3.3
+  resolution: "gatsby-omni-font-loader@npm:1.3.3"
   peerDependencies:
-    gatsby: ^2.0.0 || ^3.0.0 || ^4.0.0-next
+    gatsby: ^2.0.0 || ^3.0.0 || ^4.0.0
     react-helmet: ">=6.0.0"
-  checksum: a107454fdaf4a63f95b6276ce81cbb36fb5719926d186f712cb16e806c1d6b16dbb5c472c29bb97e4d288c5c1c35af9ffe69b931b1e6d0b9f4ded0be9fe3e206
+  checksum: cfacf16bc0fd88f690118bd077085c32f4f7a28936239a0aa691a224cb60d69805a6add1a0f1c689695e8db784a5fed76a73bf2ba66f93949a9f38103573b9b4
   languageName: node
   linkType: hard
 
@@ -18892,7 +18892,7 @@ fsevents@~2.3.2:
     formik: 2.2.9
     gatsby: 3.14.0
     gatsby-image: 3.11.0
-    gatsby-omni-font-loader: 1.3.2
+    gatsby-omni-font-loader: 1.3.3
     gatsby-plugin-brotli: 2.0.0
     gatsby-plugin-env-variables: 2.1.0
     gatsby-plugin-image: 1.14.0

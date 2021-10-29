@@ -3077,13 +3077,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/plugins-list@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@netlify/plugins-list@npm:4.0.1"
-  checksum: 29470cf44f97798e51637fcce62ac8ecc63dc3a8af286aaa190eeb668da559bbdcd5b7c9b98694565e69d08a665d474702160db666d65f75a282f44b40188cf7
-  languageName: node
-  linkType: hard
-
 "@netlify/plugins-list@npm:^4.1.0":
   version: 4.1.0
   resolution: "@netlify/plugins-list@npm:4.1.0"
@@ -17671,16 +17664,16 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"netlify-cli@npm:6.14.6":
-  version: 6.14.6
-  resolution: "netlify-cli@npm:6.14.6"
+"netlify-cli@npm:6.14.7":
+  version: 6.14.7
+  resolution: "netlify-cli@npm:6.14.7"
   dependencies:
     "@netlify/build": ^18.20.0
     "@netlify/config": ^15.8.0
     "@netlify/framework-info": ^5.11.0
     "@netlify/local-functions-proxy": ^1.1.1
     "@netlify/plugin-edge-handlers": ^1.11.22
-    "@netlify/plugins-list": ^4.0.1
+    "@netlify/plugins-list": ^4.1.0
     "@netlify/routing-local-proxy": ^0.34.1
     "@netlify/zip-it-and-ship-it": 4.26.1
     "@oclif/command": ^1.6.1
@@ -17790,7 +17783,7 @@ fsevents@~2.3.2:
   bin:
     netlify: bin/run
     ntl: bin/run
-  checksum: 7c31b87e4f707da5b4ac4aaaf7ed99a9b3384d9cb368e40ae26564bf507a7b3bb2c9ea291c0af7250ebd920f28a8ba49f187d2bbae0f0d6898054dfe3f0aa1d3
+  checksum: cdf90e88de8b076d65561110426bf039221cf59726a736b021c3d502d186f8771b4024930c9f31796142e08404791201862d4abb6730b5714be6917637642a8b
   languageName: node
   linkType: hard
 
@@ -19564,7 +19557,7 @@ fsevents@~2.3.2:
     gatsby-transformer-sharp: 4.0.0
     i18next: 21.3.3
     i18next-browser-languagedetector: 6.1.2
-    netlify-cli: 6.14.6
+    netlify-cli: 6.14.7
     normalize.css: 8.0.1
     patch-package: 6.4.7
     postcss: 8.3.11

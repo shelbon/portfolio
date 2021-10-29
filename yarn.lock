@@ -19371,7 +19371,7 @@ fsevents@~2.3.2:
     patch-package: 6.4.7
     postcss: 8.3.8
     postcss-preset-env: 6.7.0
-    preact: 10.5.14
+    preact: 10.5.15
     preact-render-to-string: 5.1.19
     prettier: 2.4.1
     prettier-eslint: 13.0.0
@@ -20346,10 +20346,10 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"preact@npm:10.5.14":
-  version: 10.5.14
-  resolution: "preact@npm:10.5.14"
-  checksum: d936f83a2afad13aa5870812d7fa8fec111d4a1bb6b0bea6485f2656a062bcc01717398d8184c4bc589cba455f3b2def8e43ba23db846b208d9823e3804658ad
+"preact@npm:10.5.15":
+  version: 10.5.15
+  resolution: "preact@npm:10.5.15"
+  checksum: 1c9f025ed6ff9c6cbe85da4feb88011795914d615244089396d1157376897a09f478eac0d582c66bc5a96c2841ebd9f8dfbe0a28e8c1820bdd7c314083350d40
   languageName: node
   linkType: hard
 

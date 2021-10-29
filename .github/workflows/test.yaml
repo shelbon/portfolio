@@ -32,8 +32,8 @@ jobs:
           DEBUG: "@cypress/github-action"
         with:
           build: yarn run build
-          start: yarn run serve
-          wait-on: http://localhost:9000
+          start: yarn run dev
+          wait-on: http://localhost:8000
           browser: chrome
       - uses: actions/upload-artifact@v1
         if: failure()

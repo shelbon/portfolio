@@ -19383,7 +19383,7 @@ fsevents@~2.3.2:
     react-google-recaptcha: 2.1.0
     react-helmet: 6.1.0
     react-i18next: 11.13.0
-    react-responsive-carousel: 3.2.21
+    react-responsive-carousel: 3.2.22
     resize-observer: 1.0.2
     save-dev: 0.0.1-security
     stylelint: 14.0.1
@@ -21190,14 +21190,14 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"react-responsive-carousel@npm:3.2.21":
-  version: 3.2.21
-  resolution: "react-responsive-carousel@npm:3.2.21"
+"react-responsive-carousel@npm:3.2.22":
+  version: 3.2.22
+  resolution: "react-responsive-carousel@npm:3.2.22"
   dependencies:
     classnames: ^2.2.5
     prop-types: ^15.5.8
     react-easy-swipe: ^0.0.21
-  checksum: 37678c8f50f3a560dbce62a8dc296881014b5e11e7c56a8461f817d01252ca2f8d76fb054c62b918a742d9b8485cfe71d1803d78c1e196822d6b7cf2cfd58337
+  checksum: 6e6ef7a2c140494bb0186af292dd8327ecb8626a3e93fb188923881c760bc996ab84346370066913481d9a4e967555e3c6386046c2aadde69496d1f41ffd5096
   languageName: node
   linkType: hard
 

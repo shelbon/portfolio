@@ -44,7 +44,7 @@
     "react-google-recaptcha": "2.1.0",
     "react-helmet": "6.1.0",
     "react-i18next": "11.13.0",
-    "react-responsive-carousel": "3.2.21",
+    "react-responsive-carousel": "3.2.22",
     "resize-observer": "1.0.2",
     "save-dev": "0.0.1-security",
     "yup": "0.32.9"

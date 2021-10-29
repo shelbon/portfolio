@@ -31,7 +31,7 @@
     "gatsby-theme-i18n": "2.0.0",
     "gatsby-theme-i18n-react-i18next": "2.0.0",
     "gatsby-transformer-sharp": "3.14.0",
-    "i18next": "20.6.1",
+    "i18next": "21.3.3",
     "i18next-browser-languagedetector": "6.1.2",
     "normalize.css": "8.0.1",
     "patch-package": "6.4.7",

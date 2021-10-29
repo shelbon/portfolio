@@ -47,7 +47,7 @@
     "react-responsive-carousel": "3.2.21",
     "resize-observer": "1.0.2",
     "save-dev": "0.0.1-security",
-    "yup": "0.32.9"
+    "yup": "0.32.11"
   },
   "devDependencies": {
     "@iconify/icons-la": "1.1.0",

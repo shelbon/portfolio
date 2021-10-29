@@ -14,6 +14,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@assemblyscript/loader@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "@assemblyscript/loader@npm:0.10.1"
+  checksum: fd1f57bdf2c55252a48c2d93fbec3c5a9ef4ca40e581e8709dd8ee437613eb47af74c8cdba011a324077eda9605d6f24983f429c2ce18b0b582ddcc5acf75c26
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:7.10.4":
   version: 7.10.4
   resolution: "@babel/code-frame@npm:7.10.4"
@@ -11356,14 +11363,14 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-brotli@npm:2.0.0":
-  version: 2.0.0
-  resolution: "gatsby-plugin-brotli@npm:2.0.0"
+"gatsby-plugin-brotli@npm:2.1.0":
+  version: 2.1.0
+  resolution: "gatsby-plugin-brotli@npm:2.1.0"
   dependencies:
-    glob: ^7.1.6
+    glob: ^7.2.0
     mkdirp: ^1.0.4
-    piscina: ^1.6.3
-  checksum: da4d9a4607c6f514a2f13713df64b23b5b2dfc6d1ba93d0b0b5ff8963fc8d48b6a3d28eb1e8c74f833befeba7a9d82e80c2acef2b2ba306c1cffb4fadacacf1e
+    piscina: ^3.1.0
+  checksum: d06ba29f031135df7232043b95b6cee6bdd9f7c91680f9af52c2385c9b2035e65b2a08d3939e08fc484d3ae6178d2c5c783df449d5a66f4fca5fe8665b4b6dd3
   languageName: node
   linkType: hard
 
@@ -12260,7 +12267,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.0.3, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.1.7":
+"glob@npm:^7.0.3, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.1.7, glob@npm:^7.2.0":
   version: 7.2.0
   resolution: "glob@npm:7.2.0"
   dependencies:
@@ -12987,22 +12994,21 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"hdr-histogram-js@npm:^1.0.0, hdr-histogram-js@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "hdr-histogram-js@npm:1.2.0"
+"hdr-histogram-js@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "hdr-histogram-js@npm:2.0.1"
   dependencies:
+    "@assemblyscript/loader": ^0.10.1
     base64-js: ^1.2.0
     pako: ^1.0.3
-  checksum: 2d871a2d78b96b6d228ae4e760ca059962a700356172fc25bf8c7c9643693dfa665eae4c3144dc15429aa182302247d269b68c48b61f050a0c8b6560c7c6da76
+  checksum: 28006929257b804b4ebd13d5490416c04bd69149f93c445d167f486a2b0c511b663a06c2187ae5b722ce10f4167cd15d7756fa66baddf7dcfd99bdacf5da5feb
   languageName: node
   linkType: hard
 
-"hdr-histogram-percentiles-obj@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "hdr-histogram-percentiles-obj@npm:2.0.1"
-  dependencies:
-    hdr-histogram-js: ^1.0.0
-  checksum: 80f43047643913d3a295b23fee8d84f5e111674bd7245bb53ac350c1e4c44147c569a980b319090243245ff7cdaabc074f34e58a66a185a4154d28280b69911b
+"hdr-histogram-percentiles-obj@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "hdr-histogram-percentiles-obj@npm:3.0.0"
+  checksum: ab238edcb38d9b60d23ca53da0ecd9a6b1c8ee9a49e30a6146bd3f8f70f26244652f28b79974157c00504e7ddf3129e0ddb217baf71d32330e3fae0105bf30ed
   languageName: node
   linkType: hard
 
@@ -19239,18 +19245,18 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"piscina@npm:^1.6.3":
-  version: 1.6.3
-  resolution: "piscina@npm:1.6.3"
+"piscina@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "piscina@npm:3.1.0"
   dependencies:
     eventemitter-asyncresource: ^1.0.0
-    hdr-histogram-js: ^1.2.0
-    hdr-histogram-percentiles-obj: ^2.0.1
+    hdr-histogram-js: ^2.0.1
+    hdr-histogram-percentiles-obj: ^3.0.0
     nice-napi: ^1.0.2
   dependenciesMeta:
     nice-napi:
       optional: true
-  checksum: 0bc9ae3cbdf922d2d7e906e8e6c819a7b21af90b880362ebab58d9e937d2590ff77552588cf3518b365e240da7e213bf54740395aed1c913de8c935c5693c914
+  checksum: ae093257c3b4a54ead4687f1423716137c4e8e0012616bb3f93efd81ae1661aeb250c34a623b142c0d298541d0f8c96d09965024fc45cb7beb92109ea6f6c882
   languageName: node
   linkType: hard
 
@@ -19349,7 +19355,7 @@ fsevents@~2.3.2:
     gatsby: 3.14.0
     gatsby-image: 3.11.0
     gatsby-omni-font-loader: 1.3.3
-    gatsby-plugin-brotli: 2.0.0
+    gatsby-plugin-brotli: 2.1.0
     gatsby-plugin-env-variables: 2.1.0
     gatsby-plugin-image: 1.14.0
     gatsby-plugin-manifest: 3.14.0

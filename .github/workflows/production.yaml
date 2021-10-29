@@ -29,7 +29,7 @@ jobs:
       - run: echo GATSBY_PORTFOLIO_RECAPTCHA_KEY= ${{ secrets.RECAPTCHA_KEY }} >> .env.production &&yarn run build
       # Deploy to Netlify using our production secrets
       - name: Deploy to netlify
-        uses: South-Paw/action-netlify-deploy@v1.2.0
+        uses: South-Paw/action-netlify-deploy@v1.2.1
         with:
           github-token: ${{ secrets.CI_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}

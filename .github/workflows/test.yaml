@@ -30,6 +30,6 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           build: yarn run build
-          start: yarn run start
-          wait-on: http://localhost:3000
+          start: yarn run serve
+          wait-on: http://localhost:9000
           browser: chrome

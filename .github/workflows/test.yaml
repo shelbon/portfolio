@@ -27,7 +27,7 @@ jobs:
       - name: Install yarn
         run: npm install -g yarn
       - name: Cypress run
-        uses: cypress-io/github-action@v1
+        uses: cypress-io/github-action@v2
         with:
           build: yarn run build
           start: yarn run serve

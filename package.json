@@ -13,7 +13,6 @@
     "@mdx-js/react": "1.6.22",
     "aos": "2.3.4",
     "axios": "0.24.0",
-    "cypress": "^8.7.0",
     "formik": "2.2.9",
     "gatsby": "3.14.0",
     "gatsby-image": "3.11.0",
@@ -53,6 +52,7 @@
   "devDependencies": {
     "@iconify/icons-la": "1.1.0",
     "@iconify/react": "3.0.1",
+    "cypress": "^8.7.0",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "8.3.0",

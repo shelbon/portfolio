@@ -2686,9 +2686,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/build@npm:^18.13.1":
-  version: 18.20.0
-  resolution: "@netlify/build@npm:18.20.0"
+"@netlify/build@npm:^18.20.0":
+  version: 18.20.1
+  resolution: "@netlify/build@npm:18.20.1"
   dependencies:
     "@bugsnag/js": ^7.0.0
     "@netlify/cache-utils": ^2.0.0
@@ -2696,7 +2696,7 @@ __metadata:
     "@netlify/functions-utils": ^2.0.0
     "@netlify/git-utils": ^2.0.0
     "@netlify/plugin-edge-handlers": ^1.11.22
-    "@netlify/plugins-list": ^4.0.1
+    "@netlify/plugins-list": ^4.1.0
     "@netlify/run-utils": ^2.0.0
     "@netlify/zip-it-and-ship-it": ^4.28.1
     "@sindresorhus/slugify": ^1.1.0
@@ -2745,7 +2745,7 @@ __metadata:
     yargs: ^15.3.1
   bin:
     netlify-build: src/core/bin.js
-  checksum: 3057527020a8b14c2150cabd65bb07325332617e307057fae32dd5d8b3dc6ff30b6856abf0a6086a581c60290039ea1f61fc8c2ebb678330939138dc899d62d4
+  checksum: 272f75cb36e96d497be585e2235a86104ffa5abd999e3bec1ea81ad070fdb9003783183df5af400c0d0c34ababf6eb0d1a4e61947d17d330cb26abc2f285e938
   languageName: node
   linkType: hard
 
@@ -2768,7 +2768,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/config@npm:^15.0.0, @netlify/config@npm:^15.6.3":
+"@netlify/config@npm:^15.0.0, @netlify/config@npm:^15.8.0":
   version: 15.8.0
   resolution: "@netlify/config@npm:15.8.0"
   dependencies:
@@ -2814,7 +2814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/framework-info@npm:^5.9.2":
+"@netlify/framework-info@npm:^5.11.0":
   version: 5.11.0
   resolution: "@netlify/framework-info@npm:5.11.0"
   dependencies:
@@ -3042,13 +3042,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/plugins-list@npm:^3.6.1":
-  version: 3.6.2
-  resolution: "@netlify/plugins-list@npm:3.6.2"
-  checksum: 70125d9d613b467b0e2b193c75b7778f47abab86e91d4ce67e33c056121af299ea589ffb8ba3e24e9da791d8622489a8d93d99658c12117f2d1778fc5bfb0d49
-  languageName: node
-  linkType: hard
-
 "@netlify/plugins-list@npm:^4.0.1":
   version: 4.0.1
   resolution: "@netlify/plugins-list@npm:4.0.1"
@@ -3056,42 +3049,49 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/routing-local-proxy-darwin-arm64@npm:^0.33.2":
-  version: 0.33.2
-  resolution: "@netlify/routing-local-proxy-darwin-arm64@npm:0.33.2"
-  checksum: bca13838a074bf4263238141c55621d4f10383ebb199d0350eba457970aca7d79af4f85f9327a0d2e279116e856386fd347b92d6f4763677ac2a12b86dc116aa
+"@netlify/plugins-list@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@netlify/plugins-list@npm:4.1.0"
+  checksum: 6da0276578019e628be42ee0a238478f8e94caff9e0252486e03535748a5827173a895bebd5ee26e9ef737c9baa965ecab85f15759650434aaf80a1b063728ec
   languageName: node
   linkType: hard
 
-"@netlify/routing-local-proxy-darwin-x64@npm:^0.33.2":
-  version: 0.33.2
-  resolution: "@netlify/routing-local-proxy-darwin-x64@npm:0.33.2"
-  checksum: f3056f2de970ad088ca9f866a4a73ac63cb47bdb05b159e999012d3886ecb97711cdaa3c368ceff337ec59174be1c21a701250535491e74f1c656413c0f4218e
+"@netlify/routing-local-proxy-darwin-arm64@npm:^0.34.1":
+  version: 0.34.1
+  resolution: "@netlify/routing-local-proxy-darwin-arm64@npm:0.34.1"
+  checksum: 43c38d75497c09598ed1127d5d52ad107a3ea3a21c5de2b181ac976bf082d6eb051d13e3975fb67d8510f4fea4a7ccdb6b2a48657e17cbb608083a397cb63f01
   languageName: node
   linkType: hard
 
-"@netlify/routing-local-proxy-linux-x64@npm:^0.33.2":
-  version: 0.33.2
-  resolution: "@netlify/routing-local-proxy-linux-x64@npm:0.33.2"
-  checksum: ada0a5b60cd45df7280b82e67ec8d735b297b13656636ff3aa14314637b8a54eaac4c3f30003e9e0070d168de2228465ba1b9c726e440acdd948fa9edb5ce2ce
+"@netlify/routing-local-proxy-darwin-x64@npm:^0.34.1":
+  version: 0.34.1
+  resolution: "@netlify/routing-local-proxy-darwin-x64@npm:0.34.1"
+  checksum: b9adc65595475db3ccaf8b3f61c8f20ac15bfcff87b6021c3d27e5698ba47ee325950702c40b16f78e26b5cbb5e4d2d798a203caca3726c649f27d53a7f27578
   languageName: node
   linkType: hard
 
-"@netlify/routing-local-proxy-win32-x64@npm:^0.33.2":
-  version: 0.33.2
-  resolution: "@netlify/routing-local-proxy-win32-x64@npm:0.33.2"
-  checksum: 5cbe59ca8f8925871ce843650a77bcce5152047e1a71e373c247fc49682aefc35dd42283e49ff9b1615501b645747a178253f219d150d890f0e72d740af2aefa
+"@netlify/routing-local-proxy-linux-x64@npm:^0.34.1":
+  version: 0.34.1
+  resolution: "@netlify/routing-local-proxy-linux-x64@npm:0.34.1"
+  checksum: dd16ba8f8c12a107e6ea12d140a53f715535190f8df90eeb7581ad4efdf2cc183e6e815247fbcf485063a30afeddc99fa7d944c455177d0e531ae1eb000ed524
   languageName: node
   linkType: hard
 
-"@netlify/routing-local-proxy@npm:^0.33.2":
-  version: 0.33.2
-  resolution: "@netlify/routing-local-proxy@npm:0.33.2"
+"@netlify/routing-local-proxy-win32-x64@npm:^0.34.1":
+  version: 0.34.1
+  resolution: "@netlify/routing-local-proxy-win32-x64@npm:0.34.1"
+  checksum: 8bc14e65ae133ab9f27b78cb16dd187e963356edeedc0f43c40c44aa946bc8f8768cf3b825937c086779a32723508d857266ba3970fe6bc072d2555ea95223b8
+  languageName: node
+  linkType: hard
+
+"@netlify/routing-local-proxy@npm:^0.34.1":
+  version: 0.34.1
+  resolution: "@netlify/routing-local-proxy@npm:0.34.1"
   dependencies:
-    "@netlify/routing-local-proxy-darwin-arm64": ^0.33.2
-    "@netlify/routing-local-proxy-darwin-x64": ^0.33.2
-    "@netlify/routing-local-proxy-linux-x64": ^0.33.2
-    "@netlify/routing-local-proxy-win32-x64": ^0.33.2
+    "@netlify/routing-local-proxy-darwin-arm64": ^0.34.1
+    "@netlify/routing-local-proxy-darwin-x64": ^0.34.1
+    "@netlify/routing-local-proxy-linux-x64": ^0.34.1
+    "@netlify/routing-local-proxy-win32-x64": ^0.34.1
   dependenciesMeta:
     "@netlify/routing-local-proxy-darwin-arm64":
       optional: true
@@ -3101,7 +3101,7 @@ __metadata:
       optional: true
     "@netlify/routing-local-proxy-win32-x64":
       optional: true
-  checksum: b3b61ec76b3d2522edb9aa6565e2bee4902d1d31b39c12809bb8f430de77f533212cde5acbc6aca5f963fd2ac162a3a22563083f6fd3e94fbfa473455258cd93
+  checksum: 7a93edccc9dd6e87a3ffd2743722f90222991e985a63694f211aa8adbb4d9923cdcb697cd9804de835bf69301e9a00eebb7cebeecd6d471be459aa7d6ce55bb1
   languageName: node
   linkType: hard
 
@@ -3114,12 +3114,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/zip-it-and-ship-it@npm:4.23.0":
-  version: 4.23.0
-  resolution: "@netlify/zip-it-and-ship-it@npm:4.23.0"
+"@netlify/zip-it-and-ship-it@npm:4.26.1":
+  version: 4.26.1
+  resolution: "@netlify/zip-it-and-ship-it@npm:4.26.1"
   dependencies:
     "@babel/parser": ^7.15.7
     "@netlify/esbuild": ^0.13.6
+    "@vercel/nft": ^0.15.1
     archiver: ^5.3.0
     array-flat-polyfill: ^1.0.1
     common-path-prefix: ^3.0.0
@@ -3148,11 +3149,12 @@ __metadata:
     semver: ^7.0.0
     tmp-promise: ^3.0.2
     toml: ^3.0.0
+    typescript: ^4.4.3
     unixify: ^1.0.0
     yargs: ^16.0.0
   bin:
-    zip-it-and-ship-it: src/bin.js
-  checksum: 36b7e62799d3accf32c892f2cf789c9be0a309fde242d40ddb970508271c570c6593b0c00415380bf3af84ff17aea7690dce5893b1d146339e06ed22947c7205
+    zip-it-and-ship-it: dist/bin.js
+  checksum: 6cb8a5028e12bd4babb3b56a2af8e9da4212d5ff36a99e91e265a20fae0be14d3364de66363f5fcda757b5c396dca83373b6c694807ed848f91f9d59f61c88c6
   languageName: node
   linkType: hard
 
@@ -4578,6 +4580,31 @@ __metadata:
   version: 0.2.1
   resolution: "@ungap/from-entries@npm:0.2.1"
   checksum: b40f7902ecd5bf3c50bfe3c02e17ab2c868be3732c5b6b02cb04b15f1382919ffff88bd389879d6ddc131e5b19b3a9a20951433b4320229c3ecc9f0f305d287e
+  languageName: node
+  linkType: hard
+
+"@vercel/nft@npm:^0.15.1":
+  version: 0.15.1
+  resolution: "@vercel/nft@npm:0.15.1"
+  dependencies:
+    "@mapbox/node-pre-gyp": ^1.0.5
+    acorn: ^8.3.0
+    acorn-class-fields: ^1.0.0
+    acorn-private-class-elements: ^1.0.0
+    acorn-static-class-features: ^1.0.0
+    bindings: ^1.4.0
+    estree-walker: 2.0.2
+    glob: ^7.1.3
+    graceful-fs: ^4.1.15
+    micromatch: ^4.0.2
+    mkdirp: ^0.5.1
+    node-gyp-build: ^4.2.2
+    node-pre-gyp: ^0.13.0
+    resolve-from: ^5.0.0
+    rollup-pluginutils: ^2.8.2
+  bin:
+    nft: out/cli.js
+  checksum: f25df8d684fc7ef295fafbad9e84af042d430e74133fcb86b9ed2b40792c66a8b27cd7eb8b5469314099897df7263566f190c28efa2953a055899a860ed0fa64
   languageName: node
   linkType: hard
 
@@ -17474,18 +17501,18 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"netlify-cli@npm:6.9.17":
-  version: 6.9.17
-  resolution: "netlify-cli@npm:6.9.17"
+"netlify-cli@npm:6.14.6":
+  version: 6.14.6
+  resolution: "netlify-cli@npm:6.14.6"
   dependencies:
-    "@netlify/build": ^18.13.1
-    "@netlify/config": ^15.6.3
-    "@netlify/framework-info": ^5.9.2
+    "@netlify/build": ^18.20.0
+    "@netlify/config": ^15.8.0
+    "@netlify/framework-info": ^5.11.0
     "@netlify/local-functions-proxy": ^1.1.1
     "@netlify/plugin-edge-handlers": ^1.11.22
-    "@netlify/plugins-list": ^3.6.1
-    "@netlify/routing-local-proxy": ^0.33.2
-    "@netlify/zip-it-and-ship-it": 4.23.0
+    "@netlify/plugins-list": ^4.0.1
+    "@netlify/routing-local-proxy": ^0.34.1
+    "@netlify/zip-it-and-ship-it": 4.26.1
     "@oclif/command": ^1.6.1
     "@oclif/config": ^1.15.1
     "@oclif/errors": ^1.3.4
@@ -17551,7 +17578,7 @@ fsevents@~2.3.2:
     memoize-one: ^5.2.1
     minimist: ^1.2.5
     multiparty: ^4.2.1
-    netlify: ^8.0.1
+    netlify: ^8.0.3
     netlify-headers-parser: ^4.0.1
     netlify-redirect-parser: ^11.0.2
     netlify-redirector: ^0.2.1
@@ -17574,6 +17601,7 @@ fsevents@~2.3.2:
     prettyjson: ^1.2.1
     pump: ^3.0.0
     raw-body: ^2.4.1
+    read-pkg-up: ^7.0.1
     resolve: ^1.12.0
     semver: ^7.3.4
     source-map-support: ^0.5.19
@@ -17592,7 +17620,7 @@ fsevents@~2.3.2:
   bin:
     netlify: bin/run
     ntl: bin/run
-  checksum: 3ed1707a2fa7b82bf8276f64d64d4aec4b444ced29a6d6d7589d55159500c94c54be2d91778fcb8822179f21dad804de816e8fd91e47abaaf768888151c2bec6
+  checksum: 7c31b87e4f707da5b4ac4aaaf7ed99a9b3384d9cb368e40ae26564bf507a7b3bb2c9ea291c0af7250ebd920f28a8ba49f187d2bbae0f0d6898054dfe3f0aa1d3
   languageName: node
   linkType: hard
 
@@ -17628,7 +17656,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"netlify@npm:^8.0.1, netlify@npm:^8.0.3":
+"netlify@npm:^8.0.3":
   version: 8.0.3
   resolution: "netlify@npm:8.0.3"
   dependencies:
@@ -19359,7 +19387,7 @@ fsevents@~2.3.2:
     gatsby-transformer-sharp: 3.14.0
     i18next: 21.3.3
     i18next-browser-languagedetector: 6.1.2
-    netlify-cli: 6.9.17
+    netlify-cli: 6.14.6
     normalize.css: 8.0.1
     patch-package: 6.4.7
     postcss: 8.3.11

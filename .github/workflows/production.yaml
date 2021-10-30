@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
       # Install NodeJS
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.4.1
         with:
           node-version: 14.x
       - name: Install yarn
@@ -29,12 +29,11 @@ jobs:
       - run: echo GATSBY_PORTFOLIO_RECAPTCHA_KEY= ${{ secrets.RECAPTCHA_KEY }} >> .env.production &&yarn run build
       # Deploy to Netlify using our production secrets
       - name: Deploy to netlify
-        uses: South-Paw/action-netlify-deploy@v1.2.0
+        uses: South-Paw/action-netlify-deploy@v1.2.1
         with:
           github-token: ${{ secrets.CI_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
-          build-dir: './public'
+          build-dir: "./public"
           config-path: "./netlify.toml"
           comment-on-commit: true
-          

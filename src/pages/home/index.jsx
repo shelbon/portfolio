@@ -139,7 +139,7 @@ const HomePage = ({ data, ...props }) => {
                                     ${contact} `}
       >
         <h2 className={contactTitle}>{t("section.contact.title")}</h2>
-        <a className={contactPhone} href="tel:+596696182266" alt="phone number">
+        <a className={contactPhone} href="tel:+33675920852" alt="phone number">
           {t("contact.cta.phone")}
         </a>
         <ContactForm id="contact" resizeObserver={resizeObserver} />

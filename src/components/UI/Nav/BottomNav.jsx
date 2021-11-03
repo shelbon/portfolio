@@ -33,7 +33,7 @@ const BottomNav = ({ pageName }) => {
         <p className={text}>{t("contact")}</p>
       </LocalizedLink>
 
-      <a className={link} href="tel:+596696182266">
+      <a className={link} href="tel:+33675920852">
         <Icon icon={phoneIcon} className={icon} />
         <p className={text}>{t("phone")}</p>
       </a>

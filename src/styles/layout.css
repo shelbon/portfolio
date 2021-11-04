@@ -32,7 +32,6 @@
     --button-text-color: white;
     --nav-highlight-color: var(--bg-color-ternary);
     --nav-color: var(--bg-color-secondary);
-    --skewed-y: 4deg;
     --reversed-skewed-y: calc((var(--skewed-y) * -1));
     --transition-fast: 0.2s;
     --transition-normal: 0.4s;
@@ -100,6 +99,7 @@
 }
 
 p {
+    margin:0;
     font-size: 1.92rem;
     text-rendering: optimizeLegibility;
 }
@@ -132,7 +132,7 @@ body {
     background-color: var(--bg-color);
     min-height: 100%;
     margin: 0;
-    line-height: 1.45;
+    line-height: 1.5;
     padding-bottom: 10rem;
 }
 

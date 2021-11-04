@@ -1,12 +1,12 @@
 {
-  "contact.cta.phone": "Phone:0696182266",
+  "contact.cta.phone": "Phone: 06 75 92 08 52",
   "section.about.cta.cv": "Download my resume",
   "section.work.title": "Works",
   "section.about.title": "About me",
   "section.contact.title": "Contact",
   "section.work.description.notfound": "no description provided",
-  "section.about.body.emphasis": "Hello,I'm Patrick Sheron Moucle",
-  "section.about.body.paragraphs": "<p>I'm a <strong> Web mobile developer</strong>.</p><p>I'm born in Martinique,currently based  in Rivière-salée.</p><p class={class}>I love working with Modern Technologies,building awesome web or mobile projects with <strong>performance</strong> ,<strong>user experience</strong> in mind.</p>",
+  "section.about.skills": "Skills",
+  "section.about.me": "<p>I'm a <strong> Web mobile developer</strong>, currently living in Bonneuil-sur-Marne,France and taking  professional training in application development.</p><p>I build <strong>web or mobile app</strong> and I strive to follow <strong>the best development practices</strong> to achieve a product that is <strong>fast and easy to use</strong>.</p>",
   "footer": "Patrick Sheron MOUCLE, all rights are reserved.",
   "author": "Patrick Sheron MOUCLE"
 }

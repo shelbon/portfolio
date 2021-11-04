@@ -7,12 +7,13 @@ import Hero from "../../components/Hero/hero";
 import Projects from "../../components/Project/Projects";
 import SEO from "../../components/seo";
 import ContactForm from "../../components/UI/Contact/Form/Form";
+import SkillList from "../../components/UI/SkillList";
 import Layout from "../../templates/layout";
 import AppContext from "../../utils/context";
 import {
   about,
-  aboutBody,
-  aboutParagraph,
+  aboutMe,
+  aboutSkills,
   aboutTitle,
   button,
   contact,
@@ -20,7 +21,6 @@ import {
   contactTitle,
   section,
   sectionProject,
-  skewed,
   titleWhite,
 } from "./index.module.css";
 
@@ -83,20 +83,37 @@ const HomePage = ({ data, ...props }) => {
             <section id="project" className={` ${section} ${sectionProject}`}>
               <Projects data={data.projects.items} t={t} />
             </section>
-            <section id="about" className={`${about} ${skewed}`}>
+            <section id="about" className={`${about}`}>
               <h2 className={` ${aboutTitle} ${titleWhite} `}>
                 {t("section.about.title")}
               </h2>
-
-              <div className={aboutBody}>
-                <p className={aboutParagraph}>
-                  <strong>{t("section.about.body.emphasis")}</strong>
-                </p>
+              <div className={aboutSkills}>
+                <h3>{t("section.about.skills")}</h3>
+                <SkillList
+                  languages={[
+                    "javascript",
+                    "html5",
+                    "css3",
+                    "svelte",
+                    "react",
+                    "vuejs",
+                    "android",
+                    "kotlin",
+                    "java",
+                    "git",
+                    "nodejs",
+                    "fastify",
+                    "graphql",
+                    "mysql",
+                  ]}
+                />
+              </div>
+              <div className={aboutMe}>
                 <Trans
-                  i18nKey="home:section.about.body.paragraphs"
+                  i18nKey="home:section.about.me"
                   components={{
                     strong: <strong />,
-                    p: <p className={aboutParagraph} />,
+                    p: <p />,
                   }}
                 />
 

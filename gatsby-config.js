@@ -32,15 +32,15 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "images",
-        path: `${__dirname}/src/images/`,
+        name: "hero",
+        path: `${__dirname}/content/hero/`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "content",
-        path: `${__dirname}/content/`,
+        name: "images",
+        path: `${__dirname}/src/images/`,
       },
     },
     {

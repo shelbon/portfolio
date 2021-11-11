@@ -32,12 +32,10 @@ export const query = graphql`
     ) {
       frontmatter {
         introduction
-        tagline
-        cta_label
+        role
+        ctaLabel
       }
-      fields {
-        locale
-      }
+      body
     }
     projects: allProject(
       sort: { fields: title, order: ASC }
@@ -60,10 +58,13 @@ const HomePage = ({ data, ...props }) => {
   const pageName = props.pageContext.originalPath.replace(pathNameRegex, "");
   const heroData = {
     author: t("home:author"),
-    locale: data.hero.fields.locale,
-    ...data.hero.frontmatter,
+    hero: {
+      ...data.hero.frontmatter,
+      body: data.hero.body,
+    },
     pageName,
   };
+
   const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       if (entry.target.children.length > 0) {

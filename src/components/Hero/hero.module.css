@@ -7,16 +7,25 @@
 
 .introduction {
     color: var(--color-accent-dark);
-    font-size: calc(2rem + 1.5vw);
+    font-size: calc(0.4rem + 1.5vw);
     font-weight: normal;
 }
 
 .title,
-.tagline {
+.role {
     font-size: calc(3rem + 1.5vw);
     line-height: 1.1;
     margin: 0 0 0 -0.4rem !important;
+    
+}
+.tagline{
+    font-size: calc(3rem + 1.5vw);
+    line-height: 1.1;
     word-break: break-word;
+    margin:1.6rem 0;
+}
+.hero  strong {
+    color: var(--color-accent-dark);
 }
 
 .title {
@@ -41,9 +50,7 @@
     height: 400%;
 }
 
-.tagline {
-    color: var(--color-accent-dark);
-}
+ 
 
 /* Desktop */
 @media (hover: hover) and (pointer: fine) {
@@ -65,8 +72,7 @@
 }
 
 @media screen and (min-width: 600px) {
-    .name,
-    .tagline {
+    .name {
         font-size: 80px;
     }
 }

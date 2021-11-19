@@ -24,7 +24,6 @@ jobs:
         with:
           node-version: 14.x
           cache: "yarn"
-      # Build the app using cypress
       - name: Install yarn
         run: npm install -g yarn
       - name: Cypress run
@@ -35,6 +34,7 @@ jobs:
           build: yarn run build
           start: yarn run dev
           wait-on: http://localhost:8000
+          wait-on-timeout: 300
           browser: chrome
       - uses: actions/upload-artifact@v2
         if: failure()

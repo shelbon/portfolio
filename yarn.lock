@@ -19677,7 +19677,7 @@ fsevents@~2.3.2:
     react-helmet: 6.1.0
     react-i18next: 11.13.0
     react-responsive-carousel: 3.2.22
-    resize-observer: 1.0.2
+    resize-observer: 1.0.3
     save-dev: 0.0.1-security
     stylelint: 14.0.1
     stylelint-config-recommended: 6.0.0
@@ -22218,10 +22218,10 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"resize-observer@npm:1.0.2":
-  version: 1.0.2
-  resolution: "resize-observer@npm:1.0.2"
-  checksum: a9b0820d1f2032ddc35c6084d7607563319a0a106a824354cfd5f4ef12230f0a2789485afb364ca4cbd71bb8ba8333fb4f76d221d802de9a155cfb13a9408fa3
+"resize-observer@npm:1.0.3":
+  version: 1.0.3
+  resolution: "resize-observer@npm:1.0.3"
+  checksum: 65219d0a04c3c59c99596f61581779c2e92efc935e8721ea395ec5fdc72a6bffa58234d72e937506b91b4fafbceae366cd346ff494c522001f42a9deebcdfd81
   languageName: node
   linkType: hard
 

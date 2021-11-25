@@ -2737,9 +2737,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/build@npm:^18.22.0":
-  version: 18.24.0
-  resolution: "@netlify/build@npm:18.24.0"
+"@netlify/build@npm:^18.25.2":
+  version: 18.25.2
+  resolution: "@netlify/build@npm:18.25.2"
   dependencies:
     "@bugsnag/js": ^7.0.0
     "@netlify/cache-utils": ^2.0.0
@@ -2797,7 +2797,7 @@ __metadata:
     yargs: ^15.3.1
   bin:
     netlify-build: src/core/bin.js
-  checksum: 5eb53f0080d5c269045f0d0261b0b1398bd7a87bcbe196ebc7a9a4019385e748330315566a199ad260185c114a5c0479a92ec23f9057284f1386e6d3f8c212ce
+  checksum: 39e32b8ecf4673216e5c7329bf2cdc39d21bed00a268fec814ded07ef8f79142c33978b2d63e4fceacf6252b4eca0cb276d121f7bc547a42317ac51374dcedf9
   languageName: node
   linkType: hard
 
@@ -17738,11 +17738,11 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"netlify-cli@npm:7.0.0":
-  version: 7.0.0
-  resolution: "netlify-cli@npm:7.0.0"
+"netlify-cli@npm:7.1.0":
+  version: 7.1.0
+  resolution: "netlify-cli@npm:7.1.0"
   dependencies:
-    "@netlify/build": ^18.22.0
+    "@netlify/build": ^18.25.2
     "@netlify/config": ^15.8.2
     "@netlify/framework-info": ^5.11.0
     "@netlify/local-functions-proxy": ^1.1.1
@@ -17858,7 +17858,7 @@ fsevents@~2.3.2:
   bin:
     netlify: bin/run
     ntl: bin/run
-  checksum: 67f21d200d6e894f014f6851d25f3009b9b013d323898dfd5c0b93ad13d5b3589555d47d400f93b8951c359c05824e819f3af945ed0b75998eedc50c048479ab
+  checksum: 6d3de94e8938825468c40e6e7ebb538035072261465b2b4334294a10cee22781d1e49a6077e61053ac9cc78e8a23c0e3c25f88a37887064c484ad1658dd38806
   languageName: node
   linkType: hard
 
@@ -19659,7 +19659,7 @@ fsevents@~2.3.2:
     gatsby-transformer-sharp: 4.0.0
     i18next: 21.3.3
     i18next-browser-languagedetector: 6.1.2
-    netlify-cli: 7.0.0
+    netlify-cli: 7.1.0
     normalize.css: 8.0.1
     patch-package: 6.4.7
     postcss: 8.3.11

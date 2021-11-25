@@ -2054,10 +2054,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/react@npm:3.0.1":
-  version: 3.0.1
-  resolution: "@iconify/react@npm:3.0.1"
-  checksum: 70402e37d2a09950db33c4639389cc409bbcea3c4df27bbca3d2653460936da6939c2efc209b5cf866ca70aa0588dfe6941d9d5b27d1d83d08288832a6fffa38
+"@iconify/react@npm:3.1.0":
+  version: 3.1.0
+  resolution: "@iconify/react@npm:3.1.0"
+  dependencies:
+    cross-fetch: ^3.1.4
+  checksum: 0f1cc4ad4f3fc265c8af8687a8dff848780bac720f90e4cdb05e1abd69afa8e15269a035d4daa6c4e9a9407b1a503ec38744e6c20ffa27575072a58b00c8ae69
   languageName: node
   linkType: hard
 
@@ -7924,7 +7926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:3.1.4":
+"cross-fetch@npm:3.1.4, cross-fetch@npm:^3.1.4":
   version: 3.1.4
   resolution: "cross-fetch@npm:3.1.4"
   dependencies:
@@ -19621,7 +19623,7 @@ fsevents@~2.3.2:
   dependencies:
     "@babel/core": 7.15.8
     "@iconify/icons-la": 1.1.0
-    "@iconify/react": 3.0.1
+    "@iconify/react": 3.1.0
     "@material-ui/core": 4.12.3
     "@material-ui/icons": 4.11.2
     "@material-ui/lab": 4.0.0-alpha.60

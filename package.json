@@ -53,7 +53,7 @@
     "@iconify/icons-la": "1.1.0",
     "@iconify/react": "3.0.1",
     "cypress": "8.7.0",
-    "eslint": "8.1.0",
+    "eslint": "8.3.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.25.2",

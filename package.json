@@ -35,7 +35,7 @@
     "i18next-browser-languagedetector": "6.1.2",
     "normalize.css": "8.0.1",
     "patch-package": "6.4.7",
-    "postcss-preset-env": "6.7.0",
+    "postcss-preset-env": "7.0.1",
     "preact": "10.5.15",
     "preact-render-to-string": "5.1.19",
     "prop-types": "15.7.2",

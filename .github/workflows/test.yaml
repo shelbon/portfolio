@@ -13,13 +13,13 @@ jobs:
   test:
     # Operating system to run job on
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.5.0-chrome94-ff93
+    container: cypress/browsers:node14.17.0-chrome91-ff89
     # Steps in job
     steps:
       # Get code from repo
       - name: Checkout code
         uses: actions/checkout@v2
-      - run: chown -R 1001:1001 /github/home/.cache && echo "pwn dat cache"
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:

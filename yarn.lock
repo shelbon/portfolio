@@ -2742,10 +2742,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-
 "@netlify/build@npm:^18.22.0":
-  version: 18.24.0
-  resolution: "@netlify/build@npm:18.24.0"
+  version: 18.25.2
+  resolution: "@netlify/build@npm:18.25.2"
   dependencies:
     "@bugsnag/js": ^7.0.0
     "@netlify/cache-utils": ^2.0.0
@@ -2803,9 +2802,7 @@ __metadata:
     yargs: ^15.3.1
   bin:
     netlify-build: src/core/bin.js
- 
-  checksum: 5eb53f0080d5c269045f0d0261b0b1398bd7a87bcbe196ebc7a9a4019385e748330315566a199ad260185c114a5c0479a92ec23f9057284f1386e6d3f8c212ce
- 
+  checksum: 39e32b8ecf4673216e5c7329bf2cdc39d21bed00a268fec814ded07ef8f79142c33978b2d63e4fceacf6252b4eca0cb276d121f7bc547a42317ac51374dcedf9
   languageName: node
   linkType: hard
 
@@ -2828,46 +2825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-
-"@netlify/config@npm:^15.0.0":
-  version: 15.8.0
-  resolution: "@netlify/config@npm:15.8.0"
-
-  dependencies:
-    "@ungap/from-entries": ^0.2.1
-    array-flat-polyfill: ^1.0.1
-    chalk: ^4.1.2
-    cron-parser: ^4.1.0
-    deepmerge: ^4.2.2
-    dot-prop: ^5.3.0
-    execa: ^5.1.1
-    fast-safe-stringify: ^2.0.7
-    figures: ^3.2.0
-    filter-obj: ^2.0.1
-    find-up: ^5.0.0
-    indent-string: ^4.0.0
-    is-plain-obj: ^3.0.0
-    js-yaml: ^4.0.0
-    make-dir: ^3.1.0
-    map-obj: ^4.0.0
-    netlify: ^8.0.4
-    netlify-headers-parser: ^4.0.1
-    netlify-redirect-parser: ^11.0.3
-    omit.js: ^2.0.2
-    p-locate: ^5.0.0
-    path-exists: ^4.0.0
-    path-type: ^4.0.0
-    toml: ^3.0.0
-    tomlify-j0.4: ^3.0.0
-    validate-npm-package-name: ^3.0.0
-    yargs: ^15.3.0
-  bin:
-    netlify-config: src/bin/main.js
-  checksum: 7b6a34f31dafd335b7dc9a00e673236de1b6418fdfcde3c95c5c3670c641991f9037fa0e0dc6eb6322e8c23e183726b5e9407d2c778454f5383e169cd9fd4329
-  languageName: node
-  linkType: hard
-
-"@netlify/config@npm:^15.8.2":
+"@netlify/config@npm:^15.0.0, @netlify/config@npm:^15.8.2":
   version: 15.8.2
   resolution: "@netlify/config@npm:15.8.2"
   dependencies:
@@ -3141,7 +3099,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-
 "@netlify/plugins-list@npm:^4.2.0":
   version: 4.2.0
   resolution: "@netlify/plugins-list@npm:4.2.0"
@@ -3207,55 +3164,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/zip-it-and-ship-it@npm:4.30.0, @netlify/zip-it-and-ship-it@npm:^4.30.0":
+"@netlify/zip-it-and-ship-it@npm:4.30.0, @netlify/zip-it-and-ship-it@npm:^4.15.1, @netlify/zip-it-and-ship-it@npm:^4.30.0":
   version: 4.30.0
   resolution: "@netlify/zip-it-and-ship-it@npm:4.30.0"
-  dependencies:
-    "@babel/parser": ^7.15.7
-    "@netlify/esbuild": ^0.13.6
-    "@vercel/nft": ^0.17.0
-    archiver: ^5.3.0
-    array-flat-polyfill: ^1.0.1
-    common-path-prefix: ^3.0.0
-    cp-file: ^9.0.0
-    del: ^6.0.0
-    elf-cam: ^0.1.1
-    end-of-stream: ^1.4.4
-    es-module-lexer: ^0.9.0
-    execa: ^5.0.0
-    filter-obj: ^2.0.1
-    find-up: ^5.0.0
-    glob: ^7.1.6
-    is-builtin-module: ^3.1.0
-    junk: ^3.1.0
-    locate-path: ^6.0.0
-    make-dir: ^3.1.0
-    merge-options: ^3.0.4
-    minimatch: ^3.0.4
-    p-map: ^4.0.0
-    path-exists: ^4.0.0
-    pkg-dir: ^5.0.0
-    precinct: ^8.2.0
-    read-package-json-fast: ^2.0.2
-    require-package-name: ^2.0.1
-    resolve: ^2.0.0-next.1
-    semver: ^7.0.0
-    tmp-promise: ^3.0.2
-    toml: ^3.0.0
-    typescript: ^4.4.3
-    unixify: ^1.0.0
-    yargs: ^16.0.0
-  bin:
-    zip-it-and-ship-it: dist/bin.js
-  checksum: 950302772bee65017fbea619f9faf58f9772de74f6e10ab938a088985c24665cc982d9cc94595084a74e0c5169461f3165d830d85dc74fcbe09228cdd5fb4ab2
-  languageName: node
-  linkType: hard
-
-
-"@netlify/zip-it-and-ship-it@npm:^4.15.1":
-  version: 4.28.1
-  resolution: "@netlify/zip-it-and-ship-it@npm:4.28.1"
-
   dependencies:
     "@babel/parser": ^7.15.7
     "@netlify/esbuild": ^0.13.6
@@ -4997,8 +4908,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn-walk@npm:^8.0.0, acorn-walk@npm:^8.1.1":
-
+"acorn-walk@npm:^8.1.1":
   version: 8.2.0
   resolution: "acorn-walk@npm:8.2.0"
   checksum: 1715e76c01dd7b2d4ca472f9c58968516a4899378a63ad5b6c2d668bba8da21a71976c14ec5f5b75f887b6317c4ae0b897ab141c831d741dc76024d8745f1ad1
@@ -16621,13 +16531,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"memoize-one@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "memoize-one@npm:6.0.0"
-  checksum: f185ea69f7cceae5d1cb596266dcffccf545e8e7b4106ec6aa93b71ab9d16460dd118ac8b12982c55f6d6322fcc1485de139df07eacffaae94888b9b3ad7675f
-  languageName: node
-  linkType: hard
-
 "memoizee@npm:^0.4.15":
   version: 0.4.15
   resolution: "memoizee@npm:0.4.15"
@@ -17830,18 +17733,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"netlify-redirect-parser@npm:^11.0.2, netlify-redirect-parser@npm:^11.0.3":
-  version: 11.0.3
-  resolution: "netlify-redirect-parser@npm:11.0.3"
-  dependencies:
-    filter-obj: ^2.0.2
-    is-plain-obj: ^3.0.0
-    path-exists: ^4.0.0
-    toml: ^3.0.0
-  checksum: 4f012c151d3af297b1cba2fb583d2f093c7a2d4050985f0fc3c93ccf6d9edba1c8b7e8c87339ccd7b55d3353bc548957736d716679267c20b8c8e482356a704f
-  languageName: node
-  linkType: hard
-
 "netlify-redirect-parser@npm:^11.0.3":
   version: 11.0.3
   resolution: "netlify-redirect-parser@npm:11.0.3"
@@ -17858,21 +17749,6 @@ __metadata:
   version: 0.2.1
   resolution: "netlify-redirector@npm:0.2.1"
   checksum: 991533d0723eff77e3bc9a564b5c0cc4c30e808970c17521cea10a308f4a2a9349c5f29138b83d8d60e80dfef704bfddc61ee51aaa9ad508f221fe9c0e7c960a
-  languageName: node
-  linkType: hard
-
-"netlify@npm:^8.0.3, netlify@npm:^8.0.4":
-  version: 8.0.4
-  resolution: "netlify@npm:8.0.4"
-  dependencies:
-    "@netlify/open-api": ^2.5.2
-    lodash.camelcase: ^4.3.0
-    micro-api-client: ^3.3.0
-    node-fetch: ^2.6.1
-    omit.js: ^2.0.2
-    p-wait-for: ^3.2.0
-    qs: ^6.9.6
-  checksum: dc947f8ac8f1aa539a4beced56c185fa3dd51fdc5206bc0a5fe605348aebe0393cb6494e982ef7b4c606d05371d756f88e62b35b1f498822c6dc6ea8ee012fb6
   languageName: node
   linkType: hard
 
@@ -20567,7 +20443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"precinct@npm:^8.0.0, precinct@npm:^8.2.0":
+"precinct@npm:^8.2.0":
   version: 8.2.0
   resolution: "precinct@npm:8.2.0"
   dependencies:

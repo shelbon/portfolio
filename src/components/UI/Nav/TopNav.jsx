@@ -11,7 +11,6 @@ import {
 
 const TopNav = ({ cv, pageName }) => {
   const { t } = useTranslation("navigation");
-  console.table(cv);
   return (
     <nav id={topNav} aria-hidden="false">
       <ul className={topNavUl}>

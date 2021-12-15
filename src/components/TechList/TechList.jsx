@@ -1,4 +1,4 @@
-import caretRight from "@iconify/icons-la/caret-right";
+import caretRight from "@iconify-icons/la/caret-right";
 import PropTypes from "prop-types";
 import React from "react";
 import AccessibleIcon from "../UI/AccessibleIcon";

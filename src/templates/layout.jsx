@@ -3,7 +3,8 @@ import { useLocalization } from "gatsby-theme-i18n";
 import PropTypes from "prop-types";
 import * as React from "react";
 import Footer from "../components/UI/Footer/Footer";
-import Nav from "../components/UI/Nav/Nav";
+import BottomNav from "../components/UI/Nav/BottomNav";
+import TopNav from "../components/UI/Nav/TopNav";
 import "../styles/layout.css";
 import AppContext from "../utils/context";
 import useDeviceDetect from "../utils/useDeviceDetect";
@@ -22,13 +23,14 @@ const Layout = ({ children, pageName }) => {
   const { isMobile } = useDeviceDetect();
   const { locale } = useLocalization();
   const cvByLocaleRegex = new RegExp(`[_ -]${locale}`, "gi");
-  const cv = data.cvs.nodes.find((cv) => cvByLocaleRegex.test(cv.name));
+  const cv = data.cvs.nodes.find((resume) => cvByLocaleRegex.test(resume.name));
   const value = React.useMemo(() => ({ isMobile, cv }), [isMobile, cv]);
   return (
     <AppContext.Provider value={value}>
-      <Nav isMobile={isMobile} pageName={pageName} cv={cv} />
+      <TopNav pageName={pageName} cv={cv} />
       <main>{children}</main>
       <Footer isMobile={isMobile} />
+      <BottomNav pageName={pageName} />
     </AppContext.Provider>
   );
 };

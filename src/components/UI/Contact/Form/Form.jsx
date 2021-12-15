@@ -6,7 +6,9 @@ import { ErrorMessage, FastField, Field, Form, Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import Recaptcha from "react-google-recaptcha";
 import { withTranslation } from "react-i18next";
+import { ResizeObserver } from "resize-observer";
 import * as yup from "yup";
+import rescaleCaptcha from "../../../../../static/js/rescaleCaptcha";
 import {
   container,
   error,
@@ -27,7 +29,14 @@ const useStyles = makeStyles({
     fontSize: "2rem",
   },
 });
-function ContactForm({ t, i18n, resizeObserver }) {
+const resizeObserver = new ResizeObserver((entries) => {
+  for (const entry of entries) {
+    if (entry.target.children.length > 0) {
+      rescaleCaptcha(entry.target, entry.target.children[0]);
+    }
+  }
+});
+function ContactForm({ t, i18n }) {
   const [open, setOpen] = useState(false);
   const languageCde = i18n.language;
   const classes = useStyles();

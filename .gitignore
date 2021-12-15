@@ -83,3 +83,5 @@ public
 # Local Netlify folder
 .netlify
 .vscode/settings.json
+#snyk file
+.dccache

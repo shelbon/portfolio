@@ -60,7 +60,7 @@
 }
 
 .about-skills {
-    order:1;
+    order: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,6 +99,7 @@
 }
 
 .button {
+    display: initial;
     background-color: var(--bg-color-secondary);
     min-width: 11.4rem;
     min-height: 6rem;
@@ -117,18 +118,23 @@
         row-gap: 1.6rem;
         min-height: 50vh;
     }
-    .about-me{
+
+    .about-me {
         margin-top: 0;
         text-align: initial;
         max-width: 50rem;
     }
-    .about-me,.about-skills {
+
+    .about-me,
+    .about-skills {
         align-self: flex-start;
     }
-    .about-skills{
+
+    .about-skills {
         margin-top: 0;
-        order:unset;
+        order: unset;
     }
+
     .about-skills > ul {
         padding-right: 5rem;
         padding-left: 5rem;
@@ -148,5 +154,9 @@
         align-content: flex-start;
         padding: 100px;
         bottom: 0;
+    }
+
+    .button {
+        display: none;
     }
 }

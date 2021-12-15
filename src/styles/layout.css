@@ -17,10 +17,10 @@
     --color-accent-light: #ff4500;
     --title-color-dark: #fff;
     --text-color-light: #303030;
-    --button-margin: 0 1rem 2rem;
-    --button-border: none;
+    --button-margin: 1.8rem 1rem 2rem;
+    --button-border:  1px solid var(--body-color) ;
     --button-border-radius: 0;
-    --button-background-color: var(--bg-color-ternary);
+    --button-background-color:transparent;
     --button-min-width: 4.4rem;
     --button-min-height: 4.4rem;
     --button-align-self: center;
@@ -65,6 +65,9 @@
 }
 
 .button {
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 250ms ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +75,7 @@
     border: var(--button-border);
     border-radius: var(--button-border-radius);
     background-color: var(--button-background-color);
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
     min-width: var(--button-min-width);
     min-height: var(--button-min-height);
     align-self: var(--button-align-self);
@@ -83,7 +86,9 @@
     overflow: hidden;
     cursor: pointer;
 }
-
+.button:hover::before {
+    height:400%;
+}
 .button::before {
     content: "";
     display: block;
@@ -159,7 +164,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: "Merriweather" Georgia, serif;
+    font-family: "Merriweather" ,Georgia, serif;
     transition: color var(--transition-slow);
     line-height: 1.6;
     visibility: visible;
@@ -230,4 +235,22 @@ a {
     font: inherit;
     cursor: pointer;
     outline: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .button::before {
+        top: 50%;
+        left: 50%;
+        width: 200%;
+        height: 0;
+        transform: translate3d(-50%, -50%, 0) rotate(45deg);
+        transition: all 0.45s;
+    }
+
+    .button:hover {
+        color: var(--bg-color-secondary);  
+        border: 1px solid var(--color-accent-dark);  
+
+        --title-color-dark: var(--color-accent-dark)
+    }
 }

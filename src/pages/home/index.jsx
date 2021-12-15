@@ -1,8 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { ResizeObserver } from "resize-observer";
-import rescaleCaptcha from "../../../static/js/rescaleCaptcha";
 import Hero from "../../components/Hero/hero";
 import Projects from "../../components/Project/Projects";
 import SEO from "../../components/seo";
@@ -65,14 +63,6 @@ const HomePage = ({ data, ...props }) => {
     pageName,
   };
 
-  const resizeObserver = new ResizeObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.target.children.length > 0) {
-        rescaleCaptcha(entry.target, entry.target.children[0]);
-      }
-    }
-  });
-
   return (
     <Layout pageName={pageName}>
       <AppContext.Consumer>
@@ -118,7 +108,7 @@ const HomePage = ({ data, ...props }) => {
                   }}
                 />
 
-                {isMobile && cv && (
+                {cv && (
                   <a
                     href={cv.publicURL}
                     className={button}
@@ -143,7 +133,7 @@ const HomePage = ({ data, ...props }) => {
         <a className={contactPhone} href="tel:+33675920852" alt="phone number">
           {t("contact.cta.phone")}
         </a>
-        <ContactForm id="contact" resizeObserver={resizeObserver} />
+        <ContactForm id="contact" />
       </section>
     </Layout>
   );

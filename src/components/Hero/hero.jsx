@@ -1,7 +1,6 @@
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { LocalizedLink as Link } from "gatsby-theme-i18n";
 import React, { useEffect } from "react";
-import { makeSpaceForNavigationByClassName } from "../../utils/utils";
 import {
   cta,
   hero,
@@ -10,10 +9,7 @@ import {
   tagline,
   title,
 } from "./hero.module.css";
-const Hero = ({ data, isMobile }) => {
-  useEffect(() => {
-    makeSpaceForNavigationByClassName(isMobile, hero, "margin-top", false);
-  }, [isMobile]);
+const Hero = ({ data }) => {
   return (
     <section className={`section ${hero}`}>
       <p className={introduction}>{data.hero.introduction}</p>

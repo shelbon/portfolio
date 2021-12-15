@@ -32,6 +32,13 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        name: "content",
+        path: `${__dirname}/content/`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         name: "hero",
         path: `${__dirname}/content/hero/`,
       },
@@ -118,12 +125,6 @@ module.exports = {
             escapeValue: false,
           },
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-env-variables`,
-      options: {
-        allowList: ["PASS_PHRASE"],
       },
     },
     {

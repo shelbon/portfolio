@@ -1,5 +1,4 @@
 .hero {
-    min-height: clamp(50vh, 80vh, 100vh);
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -13,44 +12,26 @@
 
 .title,
 .role {
+    font-family: "Merriweather", Georgia, serif;
     font-size: calc(3rem + 1.5vw);
     line-height: 1.1;
-    margin: 0 0 0 -0.4rem !important;
-    
+    margin: 0 0 0 -0.4rem;
 }
-.tagline{
+
+.tagline {
     font-size: calc(3rem + 1.5vw);
     line-height: 1.1;
     word-break: break-word;
-    margin:1.6rem 0;
+    margin: 1.6rem 0;
 }
-.hero  strong {
+
+.hero strong {
     color: var(--color-accent-dark);
 }
 
 .title {
     color: var(--title-color-dark);
 }
-
-.cta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    background-color: transparent !important;
-    border: 1px solid var(--body-color) !important;
-    color: var(--text-color-dark) !important;
-    font-weight: 500;
-    white-space: nowrap;
-    margin-top: 1.8rem !important;
-    transition: all 250ms ease-out;
-}
-
-.cta:hover::before {
-    height: 400%;
-}
-
- 
 
 /* Desktop */
 @media (hover: hover) and (pointer: fine) {
@@ -74,5 +55,9 @@
 @media screen and (min-width: 600px) {
     .name {
         font-size: 80px;
+    }
+
+    .hero {
+        min-height: calc(100vh - var(--nav-height));
     }
 }

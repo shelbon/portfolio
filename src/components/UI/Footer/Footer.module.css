@@ -8,7 +8,8 @@ footer {
     justify-content: center;
     align-items: center;
     background: var(--bg-color-ternary);
-    min-height: 10rem;
+    height: 16rem;
+    margin-bottom: var(--nav-height);
     width: 100%;
 }
 
@@ -17,4 +18,11 @@ footer {
     margin-bottom: 1.6rem;
     color: var(--text-color-light);
     font-size: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        height: 8rem;
+        margin-bottom: auto;
+    }
 }

@@ -13,13 +13,11 @@
     "@mdx-js/react": "1.6.22",
     "aos": "2.3.4",
     "axios": "0.24.0",
-    "cypress": "^8.7.0",
     "formik": "2.2.9",
     "gatsby": "4.0.2",
     "gatsby-image": "3.11.0",
     "gatsby-omni-font-loader": "1.3.3",
     "gatsby-plugin-brotli": "2.1.0",
-    "gatsby-plugin-env-variables": "2.1.0",
     "gatsby-plugin-image": "2.0.0",
     "gatsby-plugin-manifest": "4.0.0",
     "gatsby-plugin-mdx": "3.0.0",
@@ -47,12 +45,12 @@
     "react-i18next": "11.13.0",
     "react-responsive-carousel": "3.2.22",
     "resize-observer": "1.0.2",
-    "save-dev": "0.0.1-security",
     "yup": "0.32.11"
   },
   "devDependencies": {
-    "@iconify/icons-la": "1.1.0",
-    "@iconify/react": "3.0.1",
+    "@iconify-icons/la": "^1.1.0",
+    "@iconify-icons/simple-icons": "^1.1.50",
+    "@iconify/react": "^3.1.0",
     "cypress": "8.7.0",
     "eslint": "8.1.0",
     "eslint-config-airbnb": "18.2.1",
@@ -86,6 +84,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "production": "gatsby build && gatsby serve",
     "lint": "eslint .",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "develop-ssl": "gatsby develop  -S -k ./private-key.key -c ./certificate.crt",
@@ -105,5 +104,6 @@
   "resolutions": {
     "devcert": "1.2.0"
   },
-  "prettier": {}
+  "prettier": {},
+  "packageManager": "yarn@3.1.1"
 }

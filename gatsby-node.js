@@ -63,10 +63,13 @@ exports.createResolvers = ({ createResolvers }) => {
   });
 };
 
-exports.onCreateNode = async (
-  { node, actions, getNode, createNodeId, createContentDigest },
-  themeOptions
-) => {
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  createContentDigest,
+}) => {
   if (node.internal.type === "Mdx") {
     const parent = getNode(node.parent);
     if (parent.sourceInstanceName !== `project`) {

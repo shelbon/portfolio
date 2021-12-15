@@ -1,8 +1,8 @@
-import briefcaseIcon from "@iconify/icons-la/briefcase";
-import homeIcon from "@iconify/icons-la/home";
-import phoneIcon from "@iconify/icons-la/phone";
-import smsIcon from "@iconify/icons-la/sms";
-import userIcon from "@iconify/icons-la/user";
+import briefcaseIcon from "@iconify-icons/la/briefcase";
+import homeIcon from "@iconify-icons/la/home";
+import phoneIcon from "@iconify-icons/la/phone";
+import smsIcon from "@iconify-icons/la/sms";
+import userIcon from "@iconify-icons/la/user";
 import { Icon } from "@iconify/react";
 import { LocalizedLink } from "gatsby-theme-i18n";
 import React from "react";

@@ -21,7 +21,6 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
     "gatsby-plugin-netlify",
-    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-source-filesystem",
       options: {

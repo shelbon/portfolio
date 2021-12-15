@@ -1,5 +1,5 @@
-import externalLinkAlt from "@iconify/icons-la/external-link-alt";
-import githubIcon from "@iconify/icons-la/github";
+import externalLinkAlt from "@iconify-icons/la/external-link-alt";
+import githubIcon from "@iconify-icons/la/github";
 import { Icon } from "@iconify/react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";

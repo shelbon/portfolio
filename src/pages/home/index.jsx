@@ -1,18 +1,17 @@
 import { graphql } from "gatsby";
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { ResizeObserver } from "resize-observer";
-import rescaleCaptcha from "../../../static/js/rescaleCaptcha";
 import Hero from "../../components/Hero/hero";
 import Projects from "../../components/Project/Projects";
 import SEO from "../../components/seo";
 import ContactForm from "../../components/UI/Contact/Form/Form";
+import SkillList from "../../components/UI/SkillList";
 import Layout from "../../templates/layout";
 import AppContext from "../../utils/context";
 import {
   about,
-  aboutBody,
-  aboutParagraph,
+  aboutMe,
+  aboutSkills,
   aboutTitle,
   button,
   contact,
@@ -20,7 +19,6 @@ import {
   contactTitle,
   section,
   sectionProject,
-  skewed,
   titleWhite,
 } from "./index.module.css";
 
@@ -32,12 +30,10 @@ export const query = graphql`
     ) {
       frontmatter {
         introduction
-        tagline
-        cta_label
+        role
+        ctaLabel
       }
-      fields {
-        locale
-      }
+      body
     }
     projects: allProject(
       sort: { fields: title, order: ASC }
@@ -60,17 +56,12 @@ const HomePage = ({ data, ...props }) => {
   const pageName = props.pageContext.originalPath.replace(pathNameRegex, "");
   const heroData = {
     author: t("home:author"),
-    locale: data.hero.fields.locale,
-    ...data.hero.frontmatter,
+    hero: {
+      ...data.hero.frontmatter,
+      body: data.hero.body,
+    },
     pageName,
   };
-  const resizeObserver = new ResizeObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.target.children.length > 0) {
-        rescaleCaptcha(entry.target, entry.target.children[0]);
-      }
-    }
-  });
 
   return (
     <Layout pageName={pageName}>
@@ -83,24 +74,41 @@ const HomePage = ({ data, ...props }) => {
             <section id="project" className={` ${section} ${sectionProject}`}>
               <Projects data={data.projects.items} t={t} />
             </section>
-            <section id="about" className={`${about} ${skewed}`}>
+            <section id="about" className={`${about}`}>
               <h2 className={` ${aboutTitle} ${titleWhite} `}>
                 {t("section.about.title")}
               </h2>
-
-              <div className={aboutBody}>
-                <p className={aboutParagraph}>
-                  <strong>{t("section.about.body.emphasis")}</strong>
-                </p>
+              <div className={aboutSkills}>
+                <h3>{t("section.about.skills")}</h3>
+                <SkillList
+                  languages={[
+                    "javascript",
+                    "html5",
+                    "css3",
+                    "svelte",
+                    "react",
+                    "vuejs",
+                    "android",
+                    "kotlin",
+                    "java",
+                    "git",
+                    "nodejs",
+                    "fastify",
+                    "graphql",
+                    "mysql",
+                  ]}
+                />
+              </div>
+              <div className={aboutMe}>
                 <Trans
-                  i18nKey="home:section.about.body.paragraphs"
+                  i18nKey="home:section.about.me"
                   components={{
                     strong: <strong />,
-                    p: <p className={aboutParagraph} />,
+                    p: <p />,
                   }}
                 />
 
-                {isMobile && cv && (
+                {cv && (
                   <a
                     href={cv.publicURL}
                     className={button}
@@ -122,10 +130,10 @@ const HomePage = ({ data, ...props }) => {
                                     ${contact} `}
       >
         <h2 className={contactTitle}>{t("section.contact.title")}</h2>
-        <a className={contactPhone} href="tel:+596696182266" alt="phone number">
+        <a className={contactPhone} href="tel:+33675920852" alt="phone number">
           {t("contact.cta.phone")}
         </a>
-        <ContactForm id="contact" resizeObserver={resizeObserver} />
+        <ContactForm id="contact" />
       </section>
     </Layout>
   );

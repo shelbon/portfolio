@@ -18,6 +18,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          name:`google-site-verification`,
+          content:`Z-vkLmFWrYxNAaOaXK9CGbB5VsQIVf4ER35V-OvQPyg`,
+        },
+        {
           property: `og:title`,
           content: title,
         },

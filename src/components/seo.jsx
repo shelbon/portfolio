@@ -19,7 +19,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name:`google-site-verification`,
-          content:`Z-vkLmFWrYxNAaOaXK9CGbB5VsQIVf4ER35V-OvQPyg`,
+          content:`WEQ8ugzhXsxcBnjXKLkyWyZgKyWN2z_IkyTi7ApKYps`,
         },
         {
           property: `og:title`,

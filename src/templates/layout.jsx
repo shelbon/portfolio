@@ -12,7 +12,7 @@ import useDeviceDetect from "../utils/useDeviceDetect";
 const Layout = ({ children, pageName }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
-      cvs: allFile(filter: { name: { regex: "/^CV[_\\\\-\\\\.]/i" } }) {
+      cvs: allFile(filter: { name: { regex: "/^CV(_|-|.)/m" } }) {
         nodes {
           name
           publicURL

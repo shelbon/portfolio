@@ -1,17 +1,18 @@
 const fs = require("fs");
-const { graphql } = require("gatsby");
-const path = require("path");
 
-exports.onPreBootstrap = ({ reporter }) => {
+const initializePlugin = async (args, pluginOptions) => {
   const contentPath = `${__dirname}/content/projects`;
 
   // Check if content directory exists.
   if (!fs.existsSync(contentPath)) {
-    reporter.warn(
+    args.reporter.warn(
       `The ${contentPath} directory is missing. Creating it now...`
     );
     fs.mkdirSync(contentPath, { recursive: true });
   }
+};
+exports.onPreBootstrap = async (args, pluginOptions) => {
+  await initializePlugin(args, pluginOptions);
 };
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   actions.setWebpackConfig({
@@ -48,7 +49,7 @@ const mdxResolverPassthrough =
       id: source.parent,
     });
     const resolver = type.getFields()[fieldName].resolve;
-    return await resolver(mdxNode, args, context, {
+    return resolver(mdxNode, args, context, {
       fieldName,
     });
   };

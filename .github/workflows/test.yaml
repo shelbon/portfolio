@@ -30,6 +30,8 @@ jobs:
           config: baseUrl=http://localhost:9000
           wait-on-timeout: 900
           browser: chrome
+        env:
+          DEBUG: cypress:*
       - uses: actions/upload-artifact@v3
         if: failure()
         with:

@@ -1,4 +1,4 @@
-describe("Cypress", () => {
+context("Homepage", () => {
   it("is working", () => {
     expect(true).to.equal(true);
   });

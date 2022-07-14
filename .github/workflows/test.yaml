@@ -23,6 +23,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
+          install-command : yarn install --immutable
+          command-prefix: yarn dlx
           build: yarn run build
           start: yarn run serve
           wait-on: "http://localhost:9000/fr/home"

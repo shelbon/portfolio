@@ -26,6 +26,7 @@ jobs:
           build: yarn run build
           start: yarn run serve
           wait-on: "http://localhost:9000/fr/home"
+          config: baseUrl=http://localhost:9000
           wait-on-timeout: 900
           browser: chrome
           headed: true

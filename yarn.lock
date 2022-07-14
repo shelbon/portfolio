@@ -9868,9 +9868,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:10.3.0":
-  version: 10.3.0
-  resolution: "cypress@npm:10.3.0"
+"cypress@npm:10.0.0":
+  version: 10.0.0
+  resolution: "cypress@npm:10.0.0"
   dependencies:
     "@cypress/request": ^2.88.10
     "@cypress/xvfb": ^1.2.4
@@ -9916,7 +9916,7 @@ __metadata:
     yauzl: ^2.10.0
   bin:
     cypress: bin/cypress
-  checksum: 9cc6d8cd087d7c79f07ad83b8ef9b183f44cf816499bba53e1cee2b6f987d0a6893be209fcd47660cdd0e8456bd132813abe8a6bd15f446d9c96e0129be2de29
+  checksum: 0fabf7738b1c8729353a2deede13e500263f50dacfab456a3b9bc881c22620151a574f9b27f30e7c6975f88f3d0e070e980c545c598bb23f09a5b5e900b02ca6
   languageName: node
   linkType: hard
 
@@ -21313,7 +21313,7 @@ __metadata:
     "@mdx-js/mdx": 1.6.22
     "@mdx-js/react": 1.6.22
     axios: 0.27.2
-    cypress: 10.3.0
+    cypress: 10.0.0
     eslint: 8.19.0
     eslint-config-airbnb: 19.0.4
     eslint-config-prettier: 8.5.0

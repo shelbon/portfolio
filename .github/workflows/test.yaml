@@ -12,19 +12,24 @@ on:
 jobs:
   test:
     # Operating system to run job on
-    runs-on: ubuntu-18.04
-    container: cypress/browsers:node14.17.0-chrome91-ff89
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node16.13.2-chrome100-ff98
     # Steps in job
     steps:
       # Get code from repo
       - name: Checkout code
         uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
 
+      - run : pnpm install
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          build: yarn run build
-          start: yarn run serve
+          install: false
+          build: pnpm  build
+          start: pnpm  serve
           wait-on: "http://localhost:9000/fr/home"
           config: baseUrl=http://localhost:9000
           wait-on-timeout: 900

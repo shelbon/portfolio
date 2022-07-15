@@ -1,6 +1,6 @@
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { LocalizedLink as Link } from "gatsby-theme-i18n";
-import React, { useEffect } from "react";
+import React from "react";
 import {
   cta,
   hero,

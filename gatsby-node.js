@@ -15,9 +15,6 @@ exports.onPreBootstrap = async (args, pluginOptions) => {
   await initializePlugin(args, pluginOptions);
 };
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
-  actions.setWebpackConfig({
-    devtool: "eval-source-map",
-  });
   if (getConfig().mode === "production") {
     actions.setWebpackConfig({
       devtool: false,

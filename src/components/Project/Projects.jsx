@@ -8,7 +8,6 @@ import TechList from "../TechList/TechList";
 import DetailsProject from "./Details/Details";
 import {
   description as descriptionStyle,
-  imageContainer,
   info,
   infoTitle,
   inlineContainer,
@@ -60,7 +59,6 @@ const Projects = ({ data, t }) => {
             <GatsbyImage
               image={getImage(coverImage)}
               alt={`${t("projectItem:project")} ${title}`}
-              className={imageContainer}
             />
           )}
         </a>

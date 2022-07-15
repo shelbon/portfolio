@@ -1,8 +1,4 @@
-context("Homepage", () => {
-  it("is working", () => {
-    expect(true).to.equal(true);
-  });
-
+describe("Cypress", () => {
   it("visits the app", () => {
     cy.visit("/fr/home");
   });

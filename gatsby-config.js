@@ -21,6 +21,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-preact",
     "gatsby-plugin-netlify",
+    "gatsby-plugin-pnpm",
     {
       resolve: "gatsby-source-filesystem",
       options: {

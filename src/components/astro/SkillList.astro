@@ -1,0 +1,63 @@
+---
+const { skills = [] } = Astro.props as { skills?: string[] };
+
+const icons: Record<string, string> = {
+  javascript: 'simple-icons:javascript',
+  html5: 'simple-icons:html5',
+  css3: 'simple-icons:css3',
+  svelte: 'simple-icons:svelte',
+  React: 'simple-icons:react',
+  vuejs: 'simple-icons:vuedotjs',
+  android: 'simple-icons:android',
+  kotlin: 'simple-icons:kotlin',
+  java: 'simple-icons:openjdk',
+  git: 'simple-icons:git',
+  nodejs: 'simple-icons:nodedotjs',
+  fastify: 'simple-icons:fastify',
+  GraphQL: 'simple-icons:graphql',
+  mysql: 'simple-icons:mysql',
+};
+
+function iconUrl(skill: string) {
+  const icon = icons[skill];
+  return icon ? `https://api.iconify.design/${icon}.svg?color=%23303030` : '';
+}
+---
+
+<ul class="skills" aria-label="Skills">
+  {skills.map((skill: string) => (
+    <li>
+      {icons[skill] ? <img src={iconUrl(skill)} alt="" loading="lazy" width="32" height="32" /> : <span class="skill-fallback" aria-hidden="true">›</span>}
+      <span>{skill}</span>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.6rem 2.4rem;
+    max-width: 62rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: flex;
+    min-width: 6.4rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--text-color-light);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  img { display: block; width: 3.2rem; height: 3.2rem; margin: 0; object-fit: contain; }
+  .skill-fallback { color: var(--color-accent-dark); font-size: 2.8rem; line-height: 1; }
+  @media screen and (min-width: 768px) {
+    .skills { justify-content: center; padding-right: 5rem; padding-left: 5rem; }
+  }
+</style>

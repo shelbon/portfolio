@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import About from '../../components/astro/About.astro';
+import ContactSection from '../../components/astro/ContactSection.astro';
+import Footer from '../../components/astro/Footer.astro';
+import Hero from '../../components/astro/Hero.astro';
+import Nav from '../../components/astro/Nav.astro';
+import Projects from '../../components/astro/Projects.astro';
+import { getLocale, t } from '../../i18n/index.js';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/normalize.css';
+import '../../styles/layout.css';
+
+export function getStaticPaths() {
+  return ['fr', 'en'].map((locale) => ({ params: { locale } }));
+}
+
+const lang = getLocale(Astro.params.locale);
+const heroEntries = await getCollection('hero');
+const hero =
+  heroEntries.find((entry: any) => entry.id === lang) ??
+  heroEntries.find((entry: any) => entry.id === 'fr');
+const projects = (await getCollection('projects'))
+  .filter((project: any) => project.data.locale === lang)
+  .sort((left: any, right: any) => left.data.title.localeCompare(right.data.title));
+---
+
+<BaseLayout lang={lang} title={t(lang, 'seo:title')} description={t(lang, 'seo:description')}>
+  <Nav locale={lang} />
+  <main>
+    <Hero locale={lang} author={t(lang, 'author')} hero={hero} />
+    <Projects locale={lang} projects={projects} />
+    <About locale={lang} />
+    <ContactSection locale={lang} />
+  </main>
+  <Footer locale={lang} />
+</BaseLayout>

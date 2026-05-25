@@ -1,0 +1,26 @@
+---
+import Footer from '../components/astro/Footer.astro';
+import Nav from '../components/astro/Nav.astro';
+import { t } from '../i18n/index.js';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/normalize.css';
+import '../styles/layout.css';
+
+const locale = 'fr';
+---
+
+<BaseLayout lang={locale} title="404 — Portfolio">
+  <Nav locale={locale} />
+  <main class="not-found">
+    <p class="code">404</p>
+    <h1>{t(locale, '404:title')}</h1>
+    <a class="button" href={`/${locale}/home`}><span>{t(locale, '404:redirect.link')}</span></a>
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>
+
+<style>
+  .not-found { display: flex; min-height: calc(100vh - var(--nav-height)); flex-direction: column; align-items: center; justify-content: center; width: 90%; max-width: 72rem; margin: 0 auto; padding: 8rem 0; text-align: center; }
+  .code { color: var(--color-accent-dark); font-size: 2rem; font-weight: 700; }
+  h1 { margin-bottom: 3rem; }
+</style>

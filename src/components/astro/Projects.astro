@@ -1,0 +1,76 @@
+---
+import { render } from 'astro:content';
+import { t } from '../../i18n/index.js';
+import TechList from './TechList.astro';
+
+const { locale, projects = [] } = Astro.props;
+const renderedProjects = await Promise.all(projects.map(async (project: any) => {
+  const { Content } = await render(project);
+  return { project, Content };
+}));
+---
+
+<section id="project" class="section projects-section">
+  <h2 class="section-title">{t(locale, 'section.work.title')}</h2>
+  <p class="section-subtitle">{t(locale, 'section.work.subtitle')}</p>
+  <div class="projects">
+    {renderedProjects.map(({ project, Content }) => {
+      const data = project.data;
+      const detailsId = `project-${data.slug}`;
+      const href = data.demoLink || data.repoLink || `#${detailsId}`;
+      const isExternal = Boolean(data.demoLink || data.repoLink);
+      return (
+        <article class="project-card" id={detailsId}>
+          <a class="project-image" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined} aria-label={`${t(locale, 'projectItem:project')} ${data.title}`}>
+            <img src={data.coverImage} alt={`${t(locale, 'projectItem:project')} ${data.title}`} loading="lazy" />
+          </a>
+          <div class="project-info">
+            <a class="title-link" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined}><h3>{data.title}</h3></a>
+            <p class="description">{data.description || t(locale, 'section.work.description.notfound')}</p>
+            <TechList technologies={data.technologies} />
+            <div class="links">
+              {data.repoLink && <a href={data.repoLink} target="_blank" rel="noopener noreferrer">{t(locale, 'projectItem:repoLinkTitle')}</a>}
+              {data.demoLink && <a href={data.demoLink} target="_blank" rel="noopener noreferrer">{t(locale, 'projectItem:demoLinkTitle')}</a>}
+            </div>
+            {data.moreInfo && (
+              <details class="details">
+                <summary>{t(locale, 'projectItem:more_info')}</summary>
+                <div class="details-content">
+                  <Content />
+                  {data.images.length > 0 && <div class="detail-images">{data.images.map((image: string) => <img src={image} alt={`${data.title} screenshot`} loading="lazy" />)}</div>}
+                </div>
+              </details>
+            )}
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .projects-section { position: relative; justify-content: flex-start; align-content: flex-start; padding: 0; }
+  .section-title { position: relative; width: 100%; margin: 2rem 0; font-weight: 800; }
+  .section-title::first-letter { color: var(--color-accent-dark); }
+  .section-title::after { position: absolute; top: -3rem; left: 0; width: 3rem; height: 0.2rem; background-color: var(--color-accent-dark); content: ""; }
+  .section-subtitle { max-width: var(--content-width); margin-bottom: 2rem; }
+  .project-card { display: grid; grid-template-columns: 1fr; gap: 5rem; padding: 5rem 0; }
+  .project-image img { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+  .project-info { display: flex; flex-direction: column; justify-content: space-between; }
+  .title-link { text-decoration: none; }
+  .title-link:hover h3, .title-link:focus-visible h3 { color: var(--color-accent-dark); }
+  h3 { position: relative; margin: 2rem 0; color: var(--title-color-dark); }
+  h3::after { position: absolute; top: -2rem; left: 0; width: 3rem; height: 0.2rem; background-color: var(--color-accent-dark); content: ""; }
+  .description { max-width: var(--content-width); min-height: 8rem; padding: 1rem; border-radius: var(--radius); background-color: var(--bg-color-secondary); font-size: 1.6rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: flex-end; margin: 1.6rem 0; }
+  .links a, summary { font-size: 1.6rem; }
+  .links a:hover, .links a:focus-visible, summary:hover, summary:focus-visible { color: var(--color-accent-dark); }
+  .details { margin-top: 1.6rem; }
+  summary { cursor: pointer; }
+  .details-content { margin-top: 1.6rem; }
+  .details-content :global(p), .details-content :global(li) { font-size: 1.6rem; }
+  .detail-images { display: grid; grid-template-columns: 1fr; gap: 1.6rem; margin-top: 1.6rem; }
+  .detail-images img { border-radius: var(--radius); }
+  @media screen and (min-width: 768px) { .projects-section { padding: 10rem; } }
+  @media screen and (min-width: 960px) { .project-card { grid-template-columns: repeat(2, 1fr); } .project-card:nth-child(even) .project-image { order: 2; } }
+</style>

@@ -1,0 +1,105 @@
+---
+import { getCvPath, t } from '../../i18n/index.js';
+
+const { locale } = Astro.props;
+const links = [
+  { href: `/${locale}/home`, label: t(locale, 'navigation:home'), icon: '⌂' },
+  { href: `/${locale}/home#project`, label: t(locale, 'navigation:work'), icon: '▦' },
+  { href: `/${locale}/home#about`, label: t(locale, 'navigation:about'), icon: '●' },
+  { href: `/${locale}/home#contact`, label: t(locale, 'navigation:contact'), icon: '✉' },
+  { href: getCvPath(locale), label: t(locale, 'navigation:resume'), icon: '↓', external: true },
+];
+---
+
+<nav class="desktop-nav" aria-label="Main navigation">
+  <ul>
+    {links.map((link) => (
+      <li><a href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined}>{link.label}</a></li>
+    ))}
+  </ul>
+</nav>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <ul>
+    {links.map((link) => (
+      <li>
+        <a href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined}>
+          <span class="mobile-icon" aria-hidden="true">{link.icon}</span>
+          <span class="mobile-label">{link.label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .desktop-nav { display: none; }
+
+  .mobile-nav {
+    position: fixed;
+    z-index: 20;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: var(--nav-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  ul { list-style: none; margin: 0; padding: 0; }
+
+  .mobile-nav ul {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 0.4rem 0.6rem max(0.4rem, env(safe-area-inset-bottom));
+  }
+
+  .mobile-nav a {
+    display: flex;
+    min-height: 5.2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    color: var(--body-color);
+    font-size: 1.1rem;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .mobile-icon { display: block; color: var(--color-accent-dark); font-size: 1.8rem; line-height: 1; }
+  .mobile-label { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .mobile-nav a:hover,
+  .mobile-nav a:focus-visible { color: var(--color-accent-dark); outline: none; }
+
+  @media screen and (min-width: 768px) {
+    .mobile-nav { display: none; }
+    .desktop-nav {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      width: 100vw;
+      min-height: var(--nav-height);
+      align-items: center;
+      justify-content: flex-end;
+      background-color: var(--nav-color);
+    }
+    .desktop-nav ul { display: flex; align-items: center; gap: 2.5rem; padding: 0 2.5rem; }
+    .desktop-nav a {
+      display: inline-flex;
+      min-height: var(--nav-height);
+      align-items: center;
+      padding: 1rem 0;
+      color: var(--body-color);
+      font-size: 2.1rem;
+      text-decoration: none;
+    }
+    .desktop-nav a:hover,
+    .desktop-nav a:focus-visible { box-shadow: 0 0.4rem 0 0 var(--nav-highlight-color); outline: none; }
+  }
+</style>

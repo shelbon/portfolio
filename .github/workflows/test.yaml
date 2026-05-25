@@ -1,46 +1,50 @@
-#  Name of workflow
 name: Test workflow
 
-# Trigger workflow on all pull requests
 on:
   pull_request:
     branches:
       - dev
       - netlify
 
-# Jobs to carry out
 jobs:
   test:
-    # Operating system to run job on
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.13.2-chrome100-ff98
-    # Steps in job
     steps:
-      # Get code from repo
       - name: Checkout code
-        uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 7
+        uses: actions/checkout@v4
 
-      - run : pnpm install
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+
+      - run: pnpm install
+      - run: pnpm lint
+
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
           install: false
-          build: pnpm  build
-          start: pnpm  serve
-          wait-on: "http://localhost:9000/fr/home"
-          config: baseUrl=http://localhost:9000
+          build: pnpm build
+          start: pnpm preview -- --host 0.0.0.0 --port 4321
+          wait-on: "http://localhost:4321/fr/home"
+          config: baseUrl=http://localhost:4321
           wait-on-timeout: 900
           browser: chrome
           headed: true
-      - uses: actions/upload-artifact@v3
+
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-      - uses: actions/upload-artifact@v3
+
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: cypress-videos

@@ -1,0 +1,131 @@
+---
+import { t } from '../../i18n/index.js';
+
+const { locale } = Astro.props;
+const recaptchaSiteKey = import.meta.env.PUBLIC_PORTFOLIO_RECAPTCHA_KEY ?? '';
+const hasRecaptchaSiteKey = recaptchaSiteKey.length > 0;
+---
+
+<section id="contact" class="section contact">
+  <h2>{t(locale, 'section.contact.title')}</h2>
+  {hasRecaptchaSiteKey && <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>}
+  <form
+    id={`contact-form-${locale}`}
+    action="https://submit-form.com/04qNr6OovR4lRje61FlbD"
+    method="POST"
+    data-recaptcha-required={hasRecaptchaSiteKey ? 'true' : 'false'}
+    data-success-message={t(locale, 'contactForm:contactForm.form_result.success')}
+    data-error-message={t(locale, 'contactForm:contactForm.form_result.failed')}
+    data-captcha-message={t(locale, 'contactForm:contactForm.error_recaptcha')}
+    data-name-required-message={t(locale, 'contactForm:required', { saisie: t(locale, 'contactForm:contactForm.input.name') })}
+    data-message-required-message={t(locale, 'contactForm:required', { saisie: t(locale, 'contactForm:contactForm.input.message') })}
+  >
+    <label for="name">{t(locale, 'contactForm:contactForm.input.name')}</label>
+    <input id="name" name="name" type="text" placeholder={t(locale, 'contactForm:contactForm.input.name.placeholder')} maxlength="256" required />
+    <label for="email">{t(locale, 'contactForm:contactForm.input.e-mail')}</label>
+    <input id="email" name="email" type="email" placeholder={t(locale, 'contactForm:contactForm.input.e-mail.placeholder')} required />
+    <label for="message">{t(locale, 'contactForm:contactForm.input.message')}</label>
+    <textarea id="message" name="message" placeholder={t(locale, 'contactForm:contactForm.input.message.placeholder')} maxlength="300" rows="6" required></textarea>
+    {hasRecaptchaSiteKey && (
+      <>
+        <p id={`recaptcha-error-${locale}`} class="captcha-help" hidden>{t(locale, 'contactForm:contactForm.error_recaptcha')}</p>
+        <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}></div>
+      </>
+    )}
+    <p class="form-status" aria-live="polite" hidden></p>
+    <button class="button" type="submit"><span>{t(locale, 'contactForm:contactForm.submit.button')}</span></button>
+  </form>
+  <script is:inline>
+    document.addEventListener('submit', async (event) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement) || !form.matches('#contact form')) return;
+
+      event.preventDefault();
+
+      const status = form.querySelector('.form-status');
+      const captchaError = form.querySelector('.captcha-help');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const recaptchaRequired = form.dataset.recaptchaRequired === 'true';
+      const recaptchaResponse = form.querySelector('[name="g-recaptcha-response"]');
+      const nameField = form.elements.namedItem('name');
+      const messageField = form.elements.namedItem('message');
+
+      if (nameField instanceof HTMLInputElement) nameField.setCustomValidity('');
+      if (messageField instanceof HTMLTextAreaElement) messageField.setCustomValidity('');
+
+      if (nameField instanceof HTMLInputElement && nameField.value.trim().length === 0) {
+        nameField.setCustomValidity(form.dataset.nameRequiredMessage || 'Required');
+        nameField.reportValidity();
+        return;
+      }
+
+      if (messageField instanceof HTMLTextAreaElement && messageField.value.trim().length === 0) {
+        messageField.setCustomValidity(form.dataset.messageRequiredMessage || 'Required');
+        messageField.reportValidity();
+        return;
+      }
+
+      if (!form.reportValidity()) return;
+
+      if (recaptchaRequired && (!(recaptchaResponse instanceof HTMLTextAreaElement) || recaptchaResponse.value.trim().length === 0)) {
+        if (captchaError instanceof HTMLElement) captchaError.hidden = false;
+        return;
+      }
+
+      if (captchaError instanceof HTMLElement) captchaError.hidden = true;
+      if (status instanceof HTMLElement) status.hidden = true;
+      if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+      if (typeof payload.name === 'string') payload.name = payload.name.trim();
+      if (typeof payload.message === 'string') payload.message = payload.message.trim();
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        form.reset();
+        if (window.grecaptcha && typeof window.grecaptcha.reset === 'function') window.grecaptcha.reset();
+        if (status instanceof HTMLElement) {
+          status.textContent = form.dataset.successMessage || '';
+          status.dataset.state = 'success';
+          status.hidden = false;
+        }
+      } catch (error) {
+        if (status instanceof HTMLElement) {
+          status.textContent = form.dataset.errorMessage || '';
+          status.dataset.state = 'error';
+          status.hidden = false;
+        }
+      } finally {
+        if (submitButton instanceof HTMLButtonElement) submitButton.disabled = false;
+      }
+    });
+  </script>
+</section>
+
+<style>
+  .contact { flex: 1 1 0%; align-items: center; }
+  h2 { align-self: center; color: white; font-size: 3rem; }
+  form { display: flex; flex-direction: column; width: min(90%, 58rem); gap: 1rem; }
+  label { font-size: 1.6rem; }
+  input, textarea { width: 100%; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.2rem; color: var(--text-color-light); font: inherit; }
+  input:focus, textarea:focus { outline: 0.2rem solid var(--color-accent-dark); outline-offset: 0.2rem; }
+  .captcha-help, .form-status { font-size: 1.4rem; }
+  .form-status[data-state="success"] { color: var(--color-accent-dark); }
+  .form-status[data-state="error"], .captcha-help { color: var(--color-accent-light); }
+  .g-recaptcha { align-self: center; transform-origin: top center; }
+  button { align-self: center; }
+  @media screen and (max-width: 340px) {
+    .g-recaptcha { transform: scale(0.9); }
+  }
+</style>

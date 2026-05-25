@@ -75,7 +75,7 @@
     border: var(--button-border);
     border-radius: var(--button-border-radius);
     background-color: var(--button-background-color);
-    color: var(--text-color-dark);
+    color: var(--button-text-color);
     min-width: var(--button-min-width);
     min-height: var(--button-min-height);
     align-self: var(--button-align-self);
@@ -138,7 +138,13 @@ body {
     min-height: 100%;
     margin: 0;
     line-height: 1.5;
-    padding-bottom: 10rem;
+    padding-bottom: calc(10rem + var(--mobile-nav-height, 6.4rem));
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        padding-bottom: 10rem;
+    }
 }
 
 html {

@@ -1,0 +1,28 @@
+---
+const { technologies = [] } = Astro.props as { technologies?: string[] };
+---
+
+<ul class="tech" aria-label="Technologies">
+  {technologies.map((technology: string) => (
+    <li>{technology}</li>
+  ))}
+</ul>
+
+<style>
+  .tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    color: var(--body-color);
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+  li::before { content: "›"; margin-right: 0.5rem; color: var(--color-accent-dark); }
+</style>

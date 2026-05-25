@@ -1,0 +1,26 @@
+---
+import { render } from 'astro:content';
+
+const { author, hero, locale } = Astro.props;
+const { Content } = await render(hero);
+---
+
+<section class="section hero" id="home">
+  <p class="introduction">{hero.data.introduction}</p>
+  <h1 class="title">{author}</h1>
+  <p class="role">{hero.data.role}</p>
+  <div class="tagline"><Content /></div>
+  <a class="button cta" href={`/${locale}/home#project`}><span>{hero.data.ctaLabel}</span></a>
+</section>
+
+<style>
+  .hero { justify-content: center; }
+  .introduction { color: var(--color-accent-dark); font-size: calc(0.4rem + 1.5vw); font-weight: normal; }
+  .title, .role { margin: 0 0 0 -0.4rem; font-family: "Merriweather", Georgia, serif; font-size: calc(3rem + 1.5vw); line-height: 1.1; }
+  .title { color: var(--title-color-dark); }
+  .tagline { max-width: 70rem; margin: 1.6rem 0; font-size: calc(3rem + 1.5vw); line-height: 1.1; word-break: break-word; }
+  .tagline :global(p) { font-size: inherit; }
+  .tagline :global(strong) { color: var(--color-accent-dark); }
+  .cta { align-self: flex-start; }
+  @media screen and (min-width: 600px) { .hero { min-height: calc(100vh - var(--nav-height)); } }
+</style>

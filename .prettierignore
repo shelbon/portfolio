@@ -1,4 +1,11 @@
+.astro
 .cache
+.devbox
+.pi
+dist
+node_modules
+public
 package.json
 package-lock.json
-public
+pnpm-lock.yaml
+src/pages/\[locale\]/home.astro

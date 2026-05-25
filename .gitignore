@@ -42,9 +42,6 @@ typings/
 # Optional npm cache directory
 .npm
 
-# Optional eslint cache
-.eslintcache
-
 # Optional REPL history
 .node_repl_history
 
@@ -54,9 +51,16 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
+# build output
 .cache/
-public
+.astro/
+dist/
+
+# Cypress generated artifacts
+cypress/screenshots/
+cypress/videos/
+
+# Astro public assets are source files
 
 # Mac files
 .DS_Store
@@ -74,7 +78,6 @@ public
 
 .vs/
 
-.cache/
 .vscode/launch.json
 
 .vercel

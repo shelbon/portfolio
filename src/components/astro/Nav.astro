@@ -2,11 +2,17 @@
 import { getCvPath, t } from '../../i18n/index.js';
 
 const { locale } = Astro.props;
+const homePath = `/${locale}/home`;
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+const isHomePage = currentPath === homePath;
+const homeHref = isHomePage ? '#home' : homePath;
+const sectionHref = (hash) => (isHomePage ? hash : `${homePath}${hash}`);
+
 const links = [
-  { href: `/${locale}/home`, label: t(locale, 'navigation:home'), icon: '⌂' },
-  { href: `/${locale}/home#project`, label: t(locale, 'navigation:work'), icon: '▦' },
-  { href: `/${locale}/home#about`, label: t(locale, 'navigation:about'), icon: '●' },
-  { href: `/${locale}/home#contact`, label: t(locale, 'navigation:contact'), icon: '✉' },
+  { href: homeHref, label: t(locale, 'navigation:home'), icon: '⌂' },
+  { href: sectionHref('#project'), label: t(locale, 'navigation:work'), icon: '▦' },
+  { href: sectionHref('#about'), label: t(locale, 'navigation:about'), icon: '●' },
+  { href: sectionHref('#contact'), label: t(locale, 'navigation:contact'), icon: '✉' },
   { href: getCvPath(locale), label: t(locale, 'navigation:resume'), icon: '↓', external: true },
 ];
 ---

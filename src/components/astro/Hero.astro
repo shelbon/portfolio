@@ -10,7 +10,7 @@ const { Content } = await render(hero);
   <h1 class="title">{author}</h1>
   <p class="role">{hero.data.role}</p>
   <div class="tagline"><Content /></div>
-  <a class="button cta" href={`/${locale}/home#project`}><span>{hero.data.ctaLabel}</span></a>
+  <a class="button cta" href="#project"><span>{hero.data.ctaLabel}</span></a>
 </section>
 
 <style>

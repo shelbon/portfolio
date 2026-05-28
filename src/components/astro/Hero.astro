@@ -14,7 +14,7 @@ const { Content } = await render(hero);
 </section>
 
 <style>
-  .hero { justify-content: center; }
+  .hero { min-height: calc(100svh - var(--mobile-nav-height, 6.4rem)); justify-content: center; }
   .introduction { color: var(--color-accent-dark); font-size: calc(0.4rem + 1.5vw); font-weight: normal; }
   .title, .role { margin: 0 0 0 -0.4rem; font-family: "Merriweather", Georgia, serif; font-size: calc(3rem + 1.5vw); line-height: 1.1; }
   .title { color: var(--title-color-dark); }

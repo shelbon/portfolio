@@ -27,7 +27,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
   <h2 class="section-title">{t(locale, 'section.work.title')}</h2>
   <p class="section-subtitle">{t(locale, 'section.work.subtitle')}</p>
   <div class="projects">
-    {renderedProjects.map(({ project, Content, coverImage, detailImages }, index) => {
+    {renderedProjects.map(({ project, Content, coverImage, detailImages }) => {
       const data = project.data;
       const detailsId = `project-${data.slug}`;
       const href = data.demoLink || data.repoLink || `#${detailsId}`;
@@ -35,7 +35,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
       return (
         <article class="project-card" id={detailsId}>
           <a class="project-image" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined} aria-label={`${t(locale, 'projectItem:project')} ${data.title}`}>
-            <Image src={coverImage} alt={`${t(locale, 'projectItem:project')} ${data.title}`} loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'auto'} decoding="async" widths={[375, 640, 750, 960]} sizes="(min-width: 960px) 475px, 90vw" quality={70} />
+            <Image src={coverImage} alt={`${t(locale, 'projectItem:project')} ${data.title}`} loading="lazy" decoding="async" widths={[375, 640, 750, 960]} sizes="(min-width: 960px) 475px, 90vw" quality={70} />
           </a>
           <div class="project-info">
             <a class="title-link" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined}><h3>{data.title}</h3></a>

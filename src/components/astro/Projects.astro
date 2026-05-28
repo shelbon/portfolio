@@ -35,7 +35,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
       return (
         <article class="project-card" id={detailsId}>
           <a class="project-image" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined} aria-label={`${t(locale, 'projectItem:project')} ${data.title}`}>
-            <Image src={coverImage} alt={`${t(locale, 'projectItem:project')} ${data.title}`} loading="lazy" decoding="async" widths={[375, 640, 960]} sizes="(min-width: 960px) 50vw, 100vw" />
+            <Image src={coverImage} alt={`${t(locale, 'projectItem:project')} ${data.title}`} loading="lazy" decoding="async" widths={[375, 640, 750, 960]} sizes="(min-width: 960px) 475px, 90vw" quality={70} />
           </a>
           <div class="project-info">
             <a class="title-link" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined}><h3>{data.title}</h3></a>
@@ -50,7 +50,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
                 <summary>{t(locale, 'projectItem:more_info')}</summary>
                 <div class="details-content">
                   <Content />
-                  {detailImages.length > 0 && <div class="detail-images">{detailImages.map((image: ImageMetadata) => <Image src={image} alt={`${data.title} screenshot`} loading="lazy" decoding="async" widths={[375, 640, 960]} sizes="(min-width: 960px) 50vw, 100vw" />)}</div>}
+                  {detailImages.length > 0 && <div class="detail-images">{detailImages.map((image: ImageMetadata) => <Image src={image} alt={`${data.title} screenshot`} loading="lazy" decoding="async" widths={[375, 640, 750, 960]} sizes="(min-width: 960px) 475px, 90vw" quality={70} />)}</div>}
                 </div>
               </details>
             )}
@@ -83,7 +83,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
   .details-content { margin-top: 1.6rem; }
   .details-content :global(p), .details-content :global(li) { font-size: 1.6rem; }
   .detail-images { display: grid; grid-template-columns: 1fr; gap: 1.6rem; margin-top: 1.6rem; }
-  .detail-images img { border-radius: var(--radius); }
+  .detail-images img { display: block; width: 100%; height: auto; border-radius: var(--radius); }
   @media screen and (min-width: 768px) { .projects-section { padding: 10rem; } }
   @media screen and (min-width: 960px) { .project-card { grid-template-columns: repeat(2, 1fr); } .project-card:nth-child(even) .project-image { order: 2; } }
 </style>

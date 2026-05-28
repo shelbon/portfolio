@@ -8,12 +8,12 @@ const hasRecaptchaSiteKey = recaptchaSiteKey.length > 0;
 
 <section id="contact" class="section contact">
   <h2>{t(locale, 'section.contact.title')}</h2>
-  {hasRecaptchaSiteKey && <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>}
   <form
     id={`contact-form-${locale}`}
     action="https://submit-form.com/04qNr6OovR4lRje61FlbD"
     method="POST"
     data-recaptcha-required={hasRecaptchaSiteKey ? 'true' : 'false'}
+    data-recaptcha-src={hasRecaptchaSiteKey ? 'https://www.google.com/recaptcha/api.js' : undefined}
     data-success-message={t(locale, 'contactForm:contactForm.form_result.success')}
     data-error-message={t(locale, 'contactForm:contactForm.form_result.failed')}
     data-captcha-message={t(locale, 'contactForm:contactForm.error_recaptcha')}
@@ -36,6 +36,35 @@ const hasRecaptchaSiteKey = recaptchaSiteKey.length > 0;
     <button class="button" type="submit"><span>{t(locale, 'contactForm:contactForm.submit.button')}</span></button>
   </form>
   <script is:inline>
+    const recaptchaPromises = new WeakMap();
+
+    function loadRecaptcha(form) {
+      if (!(form instanceof HTMLFormElement) || form.dataset.recaptchaRequired !== 'true') return Promise.resolve();
+      if (window.grecaptcha) return Promise.resolve();
+      if (recaptchaPromises.has(form)) return recaptchaPromises.get(form);
+
+      const src = form.dataset.recaptchaSrc;
+      if (!src) return Promise.resolve();
+
+      const promise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.defer = true;
+        script.addEventListener('load', resolve, { once: true });
+        script.addEventListener('error', reject, { once: true });
+        document.head.append(script);
+      });
+
+      recaptchaPromises.set(form, promise);
+      return promise;
+    }
+
+    document.addEventListener('focusin', (event) => {
+      const form = event.target instanceof HTMLElement ? event.target.closest('#contact form') : null;
+      if (form instanceof HTMLFormElement) loadRecaptcha(form).catch(() => {});
+    });
+
     document.addEventListener('submit', async (event) => {
       const form = event.target;
       if (!(form instanceof HTMLFormElement) || !form.matches('#contact form')) return;
@@ -46,7 +75,6 @@ const hasRecaptchaSiteKey = recaptchaSiteKey.length > 0;
       const captchaError = form.querySelector('.captcha-help');
       const submitButton = form.querySelector('button[type="submit"]');
       const recaptchaRequired = form.dataset.recaptchaRequired === 'true';
-      const recaptchaResponse = form.querySelector('[name="g-recaptcha-response"]');
       const nameField = form.elements.namedItem('name');
       const messageField = form.elements.namedItem('message');
 
@@ -67,7 +95,12 @@ const hasRecaptchaSiteKey = recaptchaSiteKey.length > 0;
 
       if (!form.reportValidity()) return;
 
-      if (recaptchaRequired && (!(recaptchaResponse instanceof HTMLTextAreaElement) || recaptchaResponse.value.trim().length === 0)) {
+      if (recaptchaRequired && !window.grecaptcha) {
+        await loadRecaptcha(form).catch(() => {});
+      }
+
+      const activeRecaptchaResponse = form.querySelector('[name="g-recaptcha-response"]');
+      if (recaptchaRequired && (!(activeRecaptchaResponse instanceof HTMLTextAreaElement) || activeRecaptchaResponse.value.trim().length === 0)) {
         if (captchaError instanceof HTMLElement) captchaError.hidden = false;
         return;
       }

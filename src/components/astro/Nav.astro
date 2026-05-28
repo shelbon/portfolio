@@ -6,7 +6,7 @@ const homePath = `/${locale}/home`;
 const currentPath = Astro.url.pathname.replace(/\/$/, '');
 const isHomePage = currentPath === homePath;
 const homeHref = isHomePage ? '#home' : homePath;
-const sectionHref = (hash) => (isHomePage ? hash : `${homePath}${hash}`);
+const sectionHref = (hash: string) => (isHomePage ? hash : `${homePath}${hash}`);
 
 const links = [
   { href: homeHref, label: t(locale, 'navigation:home'), icon: '⌂' },

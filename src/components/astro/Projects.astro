@@ -1,12 +1,25 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
 import { render } from 'astro:content';
 import { t } from '../../i18n/index.js';
 import TechList from './TechList.astro';
 
+const projectImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/projects/**/*.{jpg,jpeg,png}');
+
+async function projectImage(src: string) {
+  const loadImage = projectImages[`/src/assets${src}`];
+  if (!loadImage) throw new Error(`Missing project image: ${src}`);
+  return (await loadImage()).default;
+}
+
 const { locale, projects = [] } = Astro.props;
 const renderedProjects = await Promise.all(projects.map(async (project: any) => {
   const { Content } = await render(project);
-  return { project, Content };
+  const data = project.data;
+  const coverImage = await projectImage(data.coverImage);
+  const detailImages = await Promise.all(data.images.map((image: string) => projectImage(image)));
+  return { project, Content, coverImage, detailImages };
 }));
 ---
 
@@ -14,7 +27,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
   <h2 class="section-title">{t(locale, 'section.work.title')}</h2>
   <p class="section-subtitle">{t(locale, 'section.work.subtitle')}</p>
   <div class="projects">
-    {renderedProjects.map(({ project, Content }) => {
+    {renderedProjects.map(({ project, Content, coverImage, detailImages }) => {
       const data = project.data;
       const detailsId = `project-${data.slug}`;
       const href = data.demoLink || data.repoLink || `#${detailsId}`;
@@ -22,7 +35,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
       return (
         <article class="project-card" id={detailsId}>
           <a class="project-image" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined} aria-label={`${t(locale, 'projectItem:project')} ${data.title}`}>
-            <img src={data.coverImage} alt={`${t(locale, 'projectItem:project')} ${data.title}`} loading="lazy" />
+            <Image src={coverImage} alt={`${t(locale, 'projectItem:project')} ${data.title}`} loading="lazy" decoding="async" widths={[375, 640, 960]} sizes="(min-width: 960px) 50vw, 100vw" />
           </a>
           <div class="project-info">
             <a class="title-link" href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined}><h3>{data.title}</h3></a>
@@ -37,7 +50,7 @@ const renderedProjects = await Promise.all(projects.map(async (project: any) => 
                 <summary>{t(locale, 'projectItem:more_info')}</summary>
                 <div class="details-content">
                   <Content />
-                  {data.images.length > 0 && <div class="detail-images">{data.images.map((image: string) => <img src={image} alt={`${data.title} screenshot`} loading="lazy" />)}</div>}
+                  {detailImages.length > 0 && <div class="detail-images">{detailImages.map((image: ImageMetadata) => <Image src={image} alt={`${data.title} screenshot`} loading="lazy" decoding="async" widths={[375, 640, 960]} sizes="(min-width: 960px) 50vw, 100vw" />)}</div>}
                 </div>
               </details>
             )}
